@@ -3,7 +3,6 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { TypographyH2 } from "@/ui/typography";
 
-import { cn } from "@/lib/utils";
 
 export const poppins = Poppins({
   subsets: ["latin"],
@@ -22,8 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${cn("min-h-screen bg-background antialiased", poppins.className)}`}>
+      <body className={`min-h-screen bg-background antialiased ${poppins.className}`}>
         <>
           <header className="pt-8">
             <TypographyH2 text="Itch.io Analytics" />
