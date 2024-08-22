@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { poppins } from "./font";
 import "./globals.css";
 import { TypographyH2 } from "@/ui/typography";
-
-
-export const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
 
 export const metadata: Metadata = {
   title: "Itch.io Analytics",
