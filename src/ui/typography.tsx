@@ -44,8 +44,8 @@ export function TypographyP() {
 export function TypographyBlockquote() {
   return (
     <blockquote className="mt-6 border-l-2 pl-6 italic">
-      "After all," he said, "everyone enjoys a good joke, so it's only fair that they
-      should pay for the privilege."
+      &quot;After all,&quot; he said, &quot;everyone enjoys a good joke, so it&apos;s only fair that they
+      should pay for the privilege.&quot;
     </blockquote>
   );
 }
@@ -57,10 +57,10 @@ export function TypographyTable() {
         <thead>
           <tr className="m-0 border-t p-0 even:bg-muted">
             <th className="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right">
-              King's Treasury
+              King&apos;s Treasury
             </th>
             <th className="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right">
-              People's happiness
+              People&apos;s happiness
             </th>
           </tr>
         </thead>

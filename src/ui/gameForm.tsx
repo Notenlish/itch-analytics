@@ -87,7 +87,7 @@ export default function GameForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="xl:text-lg">
-                    Enter your game's jam rating link:
+                    Enter your game&apos;s jam rating link:
                   </FormLabel>
                   <FormControl>
                     <Input
