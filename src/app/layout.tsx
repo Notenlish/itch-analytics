@@ -30,7 +30,7 @@ export default function RootLayout({
         <>
           <header className="pt-8">
             <Link className="hover:underline" href="/">
-              <TypographyH2 text="Itch.io Analytics" />
+              <TypographyH2>Itch.io Analytics</TypographyH2>
             </Link>
           </header>
           <div className="grid place-content-center">
