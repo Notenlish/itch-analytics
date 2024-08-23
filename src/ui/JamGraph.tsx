@@ -1,7 +1,7 @@
 "use client";
 import { TypographyH3, TypographyH2 } from "./typography";
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
-
+import { JamGraphData } from "@/lib/types";
 import {
   ChartConfig,
   ChartContainer,
@@ -36,52 +36,8 @@ Important: Remember to set a min-h-[VALUE] on the ChartContainer component.
 This is required for the chart be responsive.
 */
 
-type JamGame = {
-  rating_count: number;
-  created_at: string;
-  id: number;
-  url: string;
-  coolness: number;
-  game: {
-    title: string;
-    url: string;
-    user: {
-      url: string;
-      id: number;
-      name: string;
-    };
-    id: number;
-    cover: string;
-    short_text: string;
-    cover_color: string;
-    platforms: string[];
-  };
-  // what is this?
-  field_responses: string[];
-};
 
-type JamData = {
-  smallest: number;
-  biggest: number;
-  median: number;
-  mean: number;
-  kurtosis: number;
-  skewness: number;
-  points: {
-    percentile: number;
-    // cdf: number;
-    // TODO: add cdf? (how)
-    rating: number;
-    name: string;
-  }[];
-  top99Percent: number;
-  top99_5Percent: number;
-  ratedGame: JamGame;
-  ratedGamePercentile: number;
-  jamTitle: string;
-};
-
-export default function JamGraph({ data }: { data: JamData }) {
+export default function JamGraph({ data }: { data: JamGraphData }) {
   const game = data.ratedGame;
   const _5to99percent = data.points.filter((e, i) => {
     if (5 <= e.percentile && e.percentile <= 99) {

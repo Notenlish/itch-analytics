@@ -9,6 +9,11 @@ import FAQ from "@/ui/faq";
 export default function Home() {
   const items = [
     {
+      title: "Is this website safe?",
+      content:
+        "This website uses public data available on itch.io for everyone. The website doesn't do anything malicious, in fact, its impossible to get sensitive information from your game's jam rating link.",
+    },
+    {
       title: "Is this affiliated with Itch.io?",
       content:
         "No. This site is not affiliated with itch.io in any way. This site simply scrapes itch.io gamejam data and presents it in a simple format",

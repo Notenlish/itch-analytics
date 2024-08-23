@@ -1,26 +1,26 @@
 
 export type JamGame = {
     rating_count: number,
-    created_at: string,
-    id: number,
+    created_at?: string,
+    id?: number,
     url: string,
     coolness: number,
     game: {
         title: string,
-        url: string,
-        user: {
-            url: string,
-            id: number,
-            name: string
+        url?: string,
+        user?: {
+            url?: string,
+            id?: number,
+            name?: string
         },
-        id: number,
+        id?: number,
         cover: string,
         short_text: string,
         cover_color: string,
         platforms: string[]
     },
     // what is this?
-    field_responses: string[]
+    field_responses?: string[]
 }
 
 export type GraphBarPoint = {
@@ -44,4 +44,5 @@ export type JamGraphData = {
     numGames: number,
     ratedGame: JamGame,
     ratedGamePercentile:number,
+    jamTitle: string
 }

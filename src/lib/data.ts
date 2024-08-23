@@ -1,7 +1,7 @@
 import { sql } from "@vercel/postgres";
 import { unstable_cache as cache, unstable_noStore as noStore } from "next/cache";
 
-import { JamGame } from "./types";
+import { JamGame, JamGraphData } from "./types";
 
 import axios from "axios";
 import * as cheerio from "cheerio";
@@ -75,18 +75,25 @@ export const scrapeJamJSONLink = cache(async (entrieslink) => _scrapeJamJSONLink
 )
 
 
-
-
-// the problem is this, for me to calculate position etc. correctly I need to cache stuff
-// BUT I CANNOT CACHE THE FRIGGEN GAMES BCUZ TOO BIG
-// solution? add ratelink to the _analyzeJam function, and let next.js happily fetch 2mb for every single friggen game
-// I hate next.js
-const _analyzeJam = async (entryJsonLink: string, rateLink:string) => {    
+const _getEntryJSON = async (entryJsonLink: string) => {
     const response = await axios.get(entryJsonLink);
     const data = response.data;
 
     // sorted in ascending order
-    const games: JamGame[] = data["jam_games"].sort((a:JamGame, b:JamGame) => a.rating_count - b.rating_count)
+    const games: JamGame[] = data["jam_games"]
+        .map((game:JamGame)=>{
+            delete game.created_at;
+            delete game.field_responses
+            delete game.id
+            // We cant delete url because thats what we use to find the game from entries.json
+            delete game.game.id
+            delete game.game.url
+            delete game.game.user
+            // muhahahaha
+            // cache system beni alt edemeyecek!!
+            return game
+        })
+        .sort((a:JamGame, b:JamGame) => a.rating_count - b.rating_count)
     const numGames = games.length
     // small to big
     const sortedRatings = games.map(game => game.rating_count);
@@ -115,6 +122,7 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string) => {
     }
 
     const points = calculatePointsIntervals({sortedRatings}, {sortedKarmas})
+    
     const smolData = {games:[], ratings:[]}
     const size = 0.01  // every 1%
     for (let index = 0; index <= 1; index += size) {
@@ -124,8 +132,27 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string) => {
         // @ts-ignore
         smolData.ratings.push(smolGame.rating_count)
     }
+    return {
+        games,
+        sortedRatings,sortedKarmas,numGames,
+        medianRating, meanRating, medianKarma, meanKarma,variance, standardDeviation,kurtosis, skewness,points, smolData
+    }
+}
 
-    const ratedGame = _getGame(games, rateLink)
+const getEntryJSON = cache((entryJsonLink)=>_getEntryJSON(entryJsonLink), ["EntryJSON"], {
+    revalidate:hour
+})
+
+
+const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:string) => {    
+    const {
+        games, sortedRatings, sortedKarmas, numGames,
+        medianRating, meanRating, medianKarma, meanKarma, smolData, variance, standardDeviation,kurtosis, skewness,points
+    } = await getEntryJSON(entryJsonLink);
+
+    const ratedGame = await _getGameFromGames(games, rateLink)
+
+    console.log(ratedGame)
 
     // why add 1? i dont get
     const position = sortedRatings.indexOf(ratedGame.rating_count) + 1; // Adding 1 to make it 1-based index
@@ -148,7 +175,8 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string) => {
         numGames: games.length,
         ratedGame,
         ratedGamePercentile,
-    }
+        jamTitle
+    } as JamGraphData
     return out
 }
 
@@ -158,11 +186,11 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string) => {
 
 // who cares, if they dont allow bigger caches, 
 // then Ill just fetch it, per game, per jam, bcuz cache system looks at func args :shrug:
-const analyzeJam = cache((entryJsonLink,rateLink) => _analyzeJam(entryJsonLink,rateLink), ["JamAnalyze"], {
+const analyzeJam = cache((entryJsonLink,rateLink,jamTitle) => _analyzeJam(entryJsonLink,rateLink,jamTitle), ["JamAnalyze"], {
     revalidate: hour  // seconds
 })
 
-const _getGame = (games:JamGame[], rateLink:string) => {
+const _getGameFromGames = (games:JamGame[], rateLink:string) => {
     const ratedGame = games.find((game, index) => {
         const absUrl = `https://itch.io${game.url}`
         if (absUrl == rateLink) {
@@ -172,9 +200,9 @@ const _getGame = (games:JamGame[], rateLink:string) => {
     return ratedGame
 }
 
-const _analyzeAll = async (entryJsonLink: string, rateLink: string) => {
+const _analyzeAll = async (entryJsonLink: string, rateLink: string, jamTitle:string) => {
     const startTime = performance.now()
-    const data = await analyzeJam(entryJsonLink, rateLink)
+    const data = await analyzeJam(entryJsonLink, rateLink, jamTitle)
 
     const endTime = performance.now()
     console.log(`Took ${endTime - startTime} seconds for ${data.numGames} games in jam.`)
