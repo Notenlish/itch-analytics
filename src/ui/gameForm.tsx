@@ -47,13 +47,8 @@ export default function GameForm() {
   // ->
   // https://itch.io/jam/gmtk-2024/entries
   function onSubmit(values: z.infer<typeof formSchema>) {
-    let rateLink = null;
     // clean the ? part
-    if (values.jamRateLink.includes("?")) {
-      rateLink = values.jamRateLink.split("?")[0];
-    } else {
-      rateLink = values.jamRateLink;
-    }
+    const rateLink = values.jamRateLink.split("?")[0];
 
     const index = rateLink.search("/rate/") as number;
     if (index == null) {
