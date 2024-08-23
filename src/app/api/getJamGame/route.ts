@@ -15,8 +15,8 @@ export async function GET(request:Request) {
     if (!ratelink || !entrieslink) {
         return NextResponse.json({error:"Invalid link"}, {status:400})
     }
-    const json_url = await scrapeJamJSONLink(entrieslink);
-    const out = await analyzeAll(json_url, ratelink)
-    
+    const {json_url, jamTitle} = await scrapeJamJSONLink(entrieslink);
+    const _out = await analyzeAll(json_url, ratelink)
+    const out = {jamTitle, ..._out}
     return NextResponse.json(out, { status:200 })
 }

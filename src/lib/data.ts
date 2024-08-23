@@ -45,17 +45,14 @@ const _scrapeJamJSONLink = async (entrieslink: string) => {
 
     const rawtitle = "Rate Honey Our House is 10 Feet for Deep for by for Notenlish for GMTK Game Jam 2024"//$('[property="og:title"]').attr("content") as string;
     // "Rate Honey Our House is 10 Feet Deep by for Notenlish for GMTK Game Jam 2024"
-    let title = rawtitle.toLowerCase();
+    let jamTitle = rawtitle.toLowerCase();
     // in case the title has more than 1 for
-    while (title.includes("for")) {
-        const i = title.search("for")
-        title = title.slice(i + "for".length)
-        console.log(title)
+    while (jamTitle.includes("for")) {
+        const i = jamTitle.search("for")
+        jamTitle = jamTitle.slice(i + "for".length)
     }
-    console.log("done", title)
-
-
-    return json_url
+    jamTitle = jamTitle.trim()
+    return {json_url, jamTitle}
 }
 
 export const scrapeJamJSONLink = cache(async (entrieslink) => _scrapeJamJSONLink(entrieslink),
@@ -183,12 +180,7 @@ const _getGame = (games:JamGame[], rateLink:string) => {
 
 const _analyzeAll = async (entryJsonLink: string, rateLink: string) => {
     const startTime = performance.now()
-    console.log("starting")
     const data = await analyzeJam(entryJsonLink, rateLink)
-    console.log("got data from analyzeJam:")
-    console.log(data)
-    console.log("rated game is here")
-
 
     const endTime = performance.now()
     console.log(`Took ${endTime - startTime} seconds for ${data.numGames} games in jam.`)

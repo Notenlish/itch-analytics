@@ -1,5 +1,5 @@
 "use client";
-import { TypographyH3 } from "./typography";
+import { TypographyH3, TypographyH2 } from "./typography";
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 
 import {
@@ -79,6 +79,7 @@ type JamData = {
   top99_5Percent: number;
   ratedGame: JamGame;
   ratedGamePercentile: number;
+  jamTitle: string;
 };
 
 export default function JamGraph({ data }: { data: JamData }) {
@@ -90,6 +91,9 @@ export default function JamGraph({ data }: { data: JamData }) {
   });
   return (
     <div className="flex flex-col gap-12">
+      <div>
+        <TypographyH2 text={`Statistics about ${data.jamTitle}`}></TypographyH2>
+      </div>
       <div>
         <TypographyH3 text="All Games"></TypographyH3>
         <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
@@ -141,19 +145,19 @@ export default function JamGraph({ data }: { data: JamData }) {
       <div className="text-lg">
         <TypographyH3 text={`Information About Your Game: ${game.game.title}`} />
         <div>
-        <p>
-          <span className="font-bold">Coolness:</span> {game.coolness}
-        </p>
-        <p>
-          <span className="font-bold">platforms:</span> {game.game.platforms.join(",")}
-        </p>
-        <p>
-          <span className="font-bold">rating count:</span> {game.rating_count}
-        </p>
-        <p>
-          <span className="font-bold">Your game's percentile in rating count:</span>{" "}
-          {data.ratedGamePercentile}%
-        </p>
+          <p>
+            <span className="font-bold">Coolness:</span> {game.coolness}
+          </p>
+          <p>
+            <span className="font-bold">platforms:</span> {game.game.platforms.join(",")}
+          </p>
+          <p>
+            <span className="font-bold">rating count:</span> {game.rating_count}
+          </p>
+          <p>
+            <span className="font-bold">Your game's percentile in rating count:</span>{" "}
+            {data.ratedGamePercentile}%
+          </p>
         </div>
       </div>
     </div>
