@@ -15,10 +15,11 @@ export async function GET(request:Request) {
     if (!ratelink || !entrieslink) {
         return NextResponse.json({error:"Invalid link"}, {status:400})
     }
-    console.log(entrieslink, ratelink)
-    const {json_url, jamTitle} = await scrapeJamJSONLink(entrieslink);
-    console.log(json_url, jamTitle)
-    const out = await analyzeAll(json_url, ratelink, jamTitle)
-    console.log("DONE")
-    return NextResponse.json(out, { status:200 })
+    // console.log(entrieslink, ratelink)
+    const {json_url, jamTitle, gameTitle} = await scrapeJamJSONLink(entrieslink, ratelink);
+    // console.log(json_url, jamTitle)
+    const _out = await analyzeAll(json_url, ratelink, jamTitle, gameTitle)
+    // console.log("DONE")
+
+    return NextResponse.json(_out, { status:200 })
 }

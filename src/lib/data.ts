@@ -13,12 +13,13 @@ let hour = minute * 60
 let day = hour * 24
 
 if (process.env.NEXT_PUBLIC_IS_DEV) {
-    minute = 1;
-    hour = 1;
-    day = 1;
+    const v = 1;
+    minute = v;
+    hour = v;
+    day = v;
 }
 
-const _scrapeJamJSONLink = async (entrieslink: string) => {
+const _scrapeJamJSONLink = async (entrieslink: string, rateLink:string) => {
     // TODO: actually refactor this (not a joke)
 
     const response = await axios.get(entrieslink)
@@ -64,13 +65,38 @@ const _scrapeJamJSONLink = async (entrieslink: string) => {
         jamTitle = jamTitle.slice(i + "for".length)
     }
     jamTitle = jamTitle.trim()
-    return {json_url, jamTitle}
+
+
+
+    // TODO: cache this, im too lazy to do it rn
+    const response2 = await axios.get(rateLink)
+    const data2 = response2.data;
+    const $2 = cheerio.load(data2);
+
+    const t = $2(`title`).html()?.toLowerCase() as string
+    // Rate Honey Our House is 10 Feet Deep by Notenlish for GMTK Game Jam 2024 - itch.io
+    let t2 = t.split("rate")[1].trim()
+
+    while (t2.includes("for")) {
+        const i = t2.search("for")
+        t2.replace("for", "")
+        t2 = t2.slice(0, i)
+    }
+    while (t2.includes("by")) {
+        const i = t2.search("by")
+        t2.replace("by", "")
+        t2 = t2.slice(0, i)
+    }
+    t2 = t2.trim()
+
+    const gameTitle = t2;
+    return {json_url, jamTitle, gameTitle}
 }
 
-export const scrapeJamJSONLink = cache(async (entrieslink) => _scrapeJamJSONLink(entrieslink),
+export const scrapeJamJSONLink = cache(async (entrieslink, rateLink) => _scrapeJamJSONLink(entrieslink, rateLink),
     ["jamJsonLink"],
     {
-        revalidate: 1  // seconds
+        revalidate: hour  // seconds
     }
 )
 
@@ -86,9 +112,7 @@ const _getEntryJSON = async (entryJsonLink: string) => {
             delete game.field_responses
             delete game.id
             // We cant delete url because thats what we use to find the game from entries.json
-            delete game.game.id
-            delete game.game.url
-            delete game.game.user
+            delete game.game;
             // muhahahaha
             // cache system beni alt edemeyecek!!
             return game
@@ -134,8 +158,19 @@ const _getEntryJSON = async (entryJsonLink: string) => {
     }
     return {
         games,
-        sortedRatings,sortedKarmas,numGames,
-        medianRating, meanRating, medianKarma, meanKarma,variance, standardDeviation,kurtosis, skewness,points, smolData
+        sortedRatings,
+        sortedKarmas,
+        numGames,
+        medianRating,
+        meanRating,
+        medianKarma,
+        meanKarma,
+        variance,
+        standardDeviation,
+        kurtosis,
+        skewness,
+        points,
+        smolData
     }
 }
 
@@ -144,21 +179,24 @@ const getEntryJSON = cache((entryJsonLink)=>_getEntryJSON(entryJsonLink), ["Entr
 })
 
 
-const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:string) => {    
+const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:string, gameTitle:string) => {    
     const {
         games, sortedRatings, sortedKarmas, numGames,
         medianRating, meanRating, medianKarma, meanKarma, smolData, variance, standardDeviation,kurtosis, skewness,points
     } = await getEntryJSON(entryJsonLink);
 
     const ratedGame = await _getGameFromGames(games, rateLink)
+    ratedGame.game = {
+        title:gameTitle,
+    }
 
-    console.log(ratedGame)
+    // console.log(ratedGame)
 
     // why add 1? i dont get
     const position = sortedRatings.indexOf(ratedGame.rating_count) + 1; // Adding 1 to make it 1-based index
 
     let ratedGamePercentile = (position / numGames) * 100;
-    ratedGamePercentile = Math.round(ratedGamePercentile * 100) / 100
+    ratedGamePercentile = Math.round(ratedGamePercentile * 50) / 50
     
 
     const out = {
@@ -175,7 +213,8 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
         numGames: games.length,
         ratedGame,
         ratedGamePercentile,
-        jamTitle
+        jamTitle,
+        gameTitle:"If you see this, something is broken"
     } as JamGraphData
     return out
 }
@@ -186,7 +225,7 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
 
 // who cares, if they dont allow bigger caches, 
 // then Ill just fetch it, per game, per jam, bcuz cache system looks at func args :shrug:
-const analyzeJam = cache((entryJsonLink,rateLink,jamTitle) => _analyzeJam(entryJsonLink,rateLink,jamTitle), ["JamAnalyze"], {
+const analyzeJam = cache((entryJsonLink,rateLink,jamTitle,gameTitle) => _analyzeJam(entryJsonLink,rateLink,jamTitle,gameTitle), ["JamAnalyze"], {
     revalidate: hour  // seconds
 })
 
@@ -200,13 +239,14 @@ const _getGameFromGames = (games:JamGame[], rateLink:string) => {
     return ratedGame
 }
 
-const _analyzeAll = async (entryJsonLink: string, rateLink: string, jamTitle:string) => {
+const _analyzeAll = async (entryJsonLink: string, rateLink: string, jamTitle:string, gameTitle:string) => {
     const startTime = performance.now()
-    const data = await analyzeJam(entryJsonLink, rateLink, jamTitle)
+    const data = await analyzeJam(entryJsonLink, rateLink, jamTitle, gameTitle)
 
     const endTime = performance.now()
-    console.log(`Took ${endTime - startTime} seconds for ${data.numGames} games in jam.`)
+    const dif = endTime - startTime
+    console.log(`Took ${dif / 1000} seconds for ${data.numGames} games in jam.`)
     return data;
 }
-// I cant cache bcuz over 2mb :sadge:
+// maybe cache this?
 export const analyzeAll = _analyzeAll;

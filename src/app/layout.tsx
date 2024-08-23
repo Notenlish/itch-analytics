@@ -4,6 +4,7 @@ import "./globals.css";
 import { TypographyH2 } from "@/ui/typography";
 import Footer from "@/ui/footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Itch.io Analytics",
@@ -28,7 +29,9 @@ export default function RootLayout({
       <body className={`min-h-screen bg-background antialiased ${poppins.className}`}>
         <>
           <header className="pt-8">
-            <TypographyH2 text="Itch.io Analytics" />
+            <Link href="/">
+              <TypographyH2 text="Itch.io Analytics" />
+            </Link>
           </header>
           <div className="grid place-content-center">
             <div className="max-w-3xl">{children}</div>

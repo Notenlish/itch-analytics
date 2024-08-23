@@ -1,12 +1,12 @@
 
 export type JamGame = {
     rating_count: number,
+    coolness: number,
+    url: string,
     created_at?: string,
     id?: number,
-    url: string,
-    coolness: number,
-    game: {
-        title: string,
+    game?: {
+        title?: string,
         url?: string,
         user?: {
             url?: string,
@@ -14,10 +14,10 @@ export type JamGame = {
             name?: string
         },
         id?: number,
-        cover: string,
-        short_text: string,
-        cover_color: string,
-        platforms: string[]
+        cover?: string,
+        short_text?: string,
+        cover_color?: string,
+        platforms?: string[]
     },
     // what is this?
     field_responses?: string[]
@@ -44,5 +44,5 @@ export type JamGraphData = {
     numGames: number,
     ratedGame: JamGame,
     ratedGamePercentile:number,
-    jamTitle: string
+    jamTitle: string,
 }

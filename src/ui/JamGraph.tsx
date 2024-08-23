@@ -36,9 +36,8 @@ Important: Remember to set a min-h-[VALUE] on the ChartContainer component.
 This is required for the chart be responsive.
 */
 
-
 export default function JamGraph({ data }: { data: JamGraphData }) {
-  const game = data.ratedGame;
+  const ratedGame = data.ratedGame;
   const _5to99percent = data.points.filter((e, i) => {
     if (5 <= e.percentile && e.percentile <= 99) {
       return true;
@@ -50,7 +49,7 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
         <TypographyH2 text={`Statistics about ${data.jamTitle}`}></TypographyH2>
       </div>
       <div>
-        <TypographyH3 text="Rating Counts By Percentile"></TypographyH3>
+        <TypographyH3>Rating Counts By Percentile</TypographyH3>
         <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
           {/* @ts-ignore */}
           <BarChart accessibilityLayer data={data["points"]}>
@@ -70,7 +69,7 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
         </ChartContainer>
       </div>
       <div>
-        <TypographyH3 text="Karma By Percentile"></TypographyH3>
+        <TypographyH3>Average Karma By Rating Count</TypographyH3>
         <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
           {/* @ts-ignore */}
           <BarChart accessibilityLayer data={data["points"]}>
@@ -90,7 +89,7 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
         </ChartContainer>
       </div>
       <div>
-        <TypographyH3 text="5% to 99%"></TypographyH3>
+        <TypographyH3>Bottom 95% to top 1%</TypographyH3>
         <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
           {/* @ts-ignore */}
           <BarChart accessibilityLayer data={_5to99percent}>
@@ -114,22 +113,21 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
         </ChartContainer>
       </div>
       <div className="text-lg">
-        <TypographyH3 text={`Information About Your Game: ${game.game.title}`} />
-        <div>
+        <TypographyH3>
+          Information About Your Game:{" "}
+          <span className="capitalize">{ratedGame.game?.title}</span>
+        </TypographyH3>
+        <div className="capitalize">
           <p>
-            <span className="font-bold">Karma:</span> {game.coolness}
+            <span className="font-bold">Karma:</span> {ratedGame.coolness}
           </p>
           <p>
-            <span className="font-bold">platforms:</span> {game.game.platforms.join(",")}
+            <span className="font-bold">rating count:</span> {ratedGame.rating_count}
           </p>
           <p>
-            <span className="font-bold">rating count:</span> {game.rating_count}
-          </p>
-          <p>
-            <span className="font-bold">
-              Your game&apos;s percentile in rating count:
-            </span>{" "}
-            {data.ratedGamePercentile}%
+            Your game placed in the
+            <span className="font-bold"> top {100 - data.ratedGamePercentile}% </span>
+            of games.
           </p>
         </div>
       </div>

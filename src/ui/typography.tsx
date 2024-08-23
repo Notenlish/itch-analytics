@@ -20,11 +20,13 @@ export function TypographyH2({ text = "The People of the Kingdom" }: { text?: st
   );
 }
 
-export function TypographyH3({ text = "The Joke Tax" }: { text?: string }) {
+export function TypographyH3({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
-      <span>{text}</span>
-    </h3>
+    <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">{children}</h3>
   );
 }
 

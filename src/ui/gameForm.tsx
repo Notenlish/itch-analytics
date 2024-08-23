@@ -57,11 +57,11 @@ export default function GameForm() {
       );
       return;
     }
-    console.log(rateLink);
+    // console.log(rateLink);
     const base = rateLink.slice(0, index + 1);
-    console.log(base);
+    // console.log(base);
     const entriesLink = base + "entries";
-    console.log(base, entriesLink, rateLink);
+    // console.log(base, entriesLink, rateLink);
     const jamName = base.replace("https://itch.io/jam/", "");
     if (entriesLink == null || rateLink == null) {
       alert(
