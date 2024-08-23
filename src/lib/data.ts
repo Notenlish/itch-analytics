@@ -6,6 +6,11 @@ import * as cheerio from "cheerio";
 import { calculateSkewness, calculateKurtosis, calculatePointsIntervals, calculateVariance, calculateStandardDeviation } from "./utils";
 import { performance } from "perf_hooks";
 
+const minute = 60
+const hour = minute * 60
+const day = hour * 24
+
+
 const _scrapeJamJSONLink = async (entrieslink: string) => {
     // TODO: actually refactor this (not a joke)
 
@@ -165,7 +170,7 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string) => {
 // who cares, if they dont allow bigger caches, 
 // then Ill just fetch it, per game, per jam, bcuz cache system looks at func args :shrug:
 const analyzeJam = cache((entryJsonLink,rateLink) => _analyzeJam(entryJsonLink,rateLink), ["JamAnalyze"], {
-    revalidate: 1  // seconds
+    revalidate: hour  // seconds
 })
 
 const _getGame = (games:JamGame[], rateLink:string) => {
