@@ -1,15 +1,22 @@
 import { sql } from "@vercel/postgres";
 import { unstable_cache as cache, unstable_noStore as noStore } from "next/cache";
 
+import { JamGame } from "./types";
+
 import axios from "axios";
 import * as cheerio from "cheerio";
 import { calculateSkewness, calculateKurtosis, calculatePointsIntervals, calculateVariance, calculateStandardDeviation } from "./utils";
 import { performance } from "perf_hooks";
 
-const minute = 60
-const hour = minute * 60
-const day = hour * 24
+let minute = 60
+let hour = minute * 60
+let day = hour * 24
 
+if (process.env.NEXT_PUBLIC_IS_DEV) {
+    minute = 1;
+    hour = 1;
+    day = 1;
+}
 
 const _scrapeJamJSONLink = async (entrieslink: string) => {
     // TODO: actually refactor this (not a joke)
@@ -68,29 +75,7 @@ export const scrapeJamJSONLink = cache(async (entrieslink) => _scrapeJamJSONLink
 )
 
 
-type JamGame = {
-    rating_count: number,
-    created_at: string,
-    id: number,
-    url: string,
-    coolness: number,
-    game: {
-        title: string,
-        url: string,
-        user: {
-            url: string,
-            id: number,
-            name: string
-        },
-        id: number,
-        cover: string,
-        short_text: string,
-        cover_color: string,
-        platforms: string[]
-    },
-    // what is this?
-    field_responses: string[]
-}
+
 
 // the problem is this, for me to calculate position etc. correctly I need to cache stuff
 // BUT I CANNOT CACHE THE FRIGGEN GAMES BCUZ TOO BIG
@@ -100,29 +85,36 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string) => {
     const response = await axios.get(entryJsonLink);
     const data = response.data;
 
-    const games: JamGame[] = data["jam_games"]
+    // sorted in ascending order
+    const games: JamGame[] = data["jam_games"].sort((a:JamGame, b:JamGame) => a.rating_count - b.rating_count)
+    const numGames = games.length
     // small to big
-    const ratings = games.map(game => game.rating_count).sort((a, b) => a - b);
-    const sumOfRatings = ratings.reduce((pre, cur, cur_i) => pre + cur);
-    const numGames = ratings.length
+    const sortedRatings = games.map(game => game.rating_count);
+    const sumOfRatings = sortedRatings.reduce((pre, cur) => pre + cur);
+    
+    const sortedKarmas = games.map(game => game.coolness);
+    const sumOfKarmas = sortedKarmas.reduce((pre, cur) => pre + cur);
+    
+    const medianRating = sortedRatings[Math.round(numGames / 2)];
+    const meanRating = Math.round(sumOfRatings / numGames);
+    const medianKarma = sortedKarmas[Math.round(numGames) / 2];
+    const meanKarma = Math.round(sumOfKarmas / numGames);
 
-    const median = ratings[Math.round(numGames / 2)];
-    const mean = Math.round(sumOfRatings / numGames);
-    const kurtosis = calculateKurtosis(ratings);
-    const skewness = calculateSkewness(ratings);
-    const variance = calculateVariance(ratings, mean);
-    const standardDeviation = calculateStandardDeviation(ratings, mean)
+    const kurtosis = calculateKurtosis(sortedRatings);
+    const skewness = calculateSkewness(sortedRatings);
+    const variance = calculateVariance(sortedRatings, meanRating);
+    const standardDeviation = calculateStandardDeviation(sortedRatings, meanRating)
 
     const percentile = (percent: number) => {
         const index = Math.floor(percent * numGames);
-        return ratings[index];
+        return sortedRatings[index];
     };
     const getGameFromPercentile = (percent:number) => {
         const i = Math.floor(percent * numGames)
         return games[i];
     }
 
-    const points = calculatePointsIntervals(ratings, sumOfRatings, mean)
+    const points = calculatePointsIntervals({sortedRatings}, {sortedKarmas})
     const smolData = {games:[], ratings:[]}
     const size = 0.01  // every 1%
     for (let index = 0; index <= 1; index += size) {
@@ -136,29 +128,26 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string) => {
     const ratedGame = _getGame(games, rateLink)
 
     // why add 1? i dont get
-    const position = ratings.indexOf(ratedGame.rating_count) + 1; // Adding 1 to make it 1-based index
+    const position = sortedRatings.indexOf(ratedGame.rating_count) + 1; // Adding 1 to make it 1-based index
 
     let ratedGamePercentile = (position / numGames) * 100;
     ratedGamePercentile = Math.round(ratedGamePercentile * 100) / 100
     
 
     const out = {
-        smallest: ratings[0],
-        biggest: ratings[numGames - 1],
-        median: median,
-        mean: mean,
-        variance:variance,
-        standardDeviation: standardDeviation,
-        kurtosis: kurtosis,
-        skewness: skewness,
-        points: points,
-        top99Percent: percentile(.99),
-        top99_5Percent: percentile(.995),
-        smolGames: smolData.games,
+        smallestRating: sortedRatings[0],
+        biggestRating: sortedRatings[numGames - 1],
+        medianRating,
+        meanRating,
+        variance,
+        standardDeviation,
+        kurtosis,
+        skewness,
+        points,
         smolRatings: smolData.ratings,
         numGames: games.length,
-        ratedGame: ratedGame,
-        ratedGamePercentile: ratedGamePercentile,
+        ratedGame,
+        ratedGamePercentile,
     }
     return out
 }

@@ -1,5 +1,6 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
+import { GraphBarPoint } from "./types";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -53,33 +54,34 @@ export const calculateCDF = (ratings: number[]) => {
   return cdf;
 };
 
-export const calculatePointsIntervals = (sortedValues: number[], sum:number, mean:number) => {
-  const arrlength = sortedValues.length;
+export const calculatePointsIntervals = ({sortedRatings}:{sortedRatings:number[]},{sortedKarmas}:{sortedKarmas:number[]}) => {
+  const arrlength = sortedRatings.length;
 
   const percentile = (i: number) => {
       const index = Math.floor(i * (arrlength - 1));
-      const v = sortedValues[index];
-      return v;
+      const rating = sortedRatings[index];
+      const karma = sortedKarmas[index]
+      return {rating, karma};
   };
   const to_percentage_str = (v:number) => {
     const out = Math.round(v * 2) / 2
     return out.toString()
   }
 
-  const points:any[] = [];
+  const points:GraphBarPoint[] = [];
   const stepSize = 0.05; // 5% step size
 
   const calc = (v:number) => {
       const _percent = v * 100;
-      const val = percentile(v); // Convert v to percentage
+      const {rating, karma} = percentile(v); // Convert v to percentage
       const percent = to_percentage_str(_percent);
-      return {
-          percentile: percent,  // Store the percentile value (0%, 5%, 10%, etc.)
-          // ok this is incorrect lmao
-          // cdf: val,  // The corresponding CDF value
-          rating: val,
-          name:`${percent}%`,
-      };
+      const obj = {
+        percentile: _percent,  // 5% 10% etc.
+        rating: rating,
+        karma: karma,
+        name:`${percent}%`,
+    } as GraphBarPoint
+      return obj;
   }
 
   for (let v = 0; v <= 0.9; v += stepSize) {

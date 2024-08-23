@@ -21,15 +21,13 @@ const chartData = [
 ];
 
 const chartConfig = {
-  /*
-  cdf: {
-    label: "CDF",
-    color: "#F59E0B",
-  },
-  */
   rating: {
     label: "Rating",
     color: "#FACC15",
+  },
+  karma: {
+    label: "Karma",
+    color: "#F59E0B",
   },
 } satisfies ChartConfig;
 
@@ -72,6 +70,7 @@ type JamData = {
   points: {
     percentile: number;
     // cdf: number;
+    // TODO: add cdf? (how)
     rating: number;
     name: string;
   }[];
@@ -95,7 +94,7 @@ export default function JamGraph({ data }: { data: JamData }) {
         <TypographyH2 text={`Statistics about ${data.jamTitle}`}></TypographyH2>
       </div>
       <div>
-        <TypographyH3 text="All Games"></TypographyH3>
+        <TypographyH3 text="Rating Counts By Percentile"></TypographyH3>
         <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
           {/* @ts-ignore */}
           <BarChart accessibilityLayer data={data["points"]}>
@@ -111,10 +110,26 @@ export default function JamGraph({ data }: { data: JamData }) {
             <ChartLegend content={<ChartLegendContent />} />
             <YAxis dataKey="rating" />
             <Bar dataKey="rating" scale="log" fill="var(--color-rating)" radius={4} />
-            {/*
-        <Bar dataKey="cdf" fill="var(--color-cdf)" radius={4} />
-        <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
-        */}
+          </BarChart>
+        </ChartContainer>
+      </div>
+      <div>
+        <TypographyH3 text="Karma By Percentile"></TypographyH3>
+        <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+          {/* @ts-ignore */}
+          <BarChart accessibilityLayer data={data["points"]}>
+            <CartesianGrid vertical={false} />
+            <XAxis
+              dataKey="name"
+              tickLine={false}
+              tickMargin={10}
+              axisLine={false}
+              tickFormatter={(value) => value.slice(0, 4)}
+            />
+            <ChartTooltip content={<ChartTooltipContent />} />
+            <ChartLegend content={<ChartLegendContent />} />
+            <YAxis dataKey="karma" />
+            <Bar dataKey="karma" fill="var(--color-karma)" radius={4} />
           </BarChart>
         </ChartContainer>
       </div>
@@ -146,7 +161,7 @@ export default function JamGraph({ data }: { data: JamData }) {
         <TypographyH3 text={`Information About Your Game: ${game.game.title}`} />
         <div>
           <p>
-            <span className="font-bold">Coolness:</span> {game.coolness}
+            <span className="font-bold">Karma:</span> {game.coolness}
           </p>
           <p>
             <span className="font-bold">platforms:</span> {game.game.platforms.join(",")}
@@ -155,7 +170,9 @@ export default function JamGraph({ data }: { data: JamData }) {
             <span className="font-bold">rating count:</span> {game.rating_count}
           </p>
           <p>
-            <span className="font-bold">Your game&apos;s percentile in rating count:</span>{" "}
+            <span className="font-bold">
+              Your game&apos;s percentile in rating count:
+            </span>{" "}
             {data.ratedGamePercentile}%
           </p>
         </div>

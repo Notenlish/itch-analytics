@@ -14,8 +14,12 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
-import JamGraph from "./JamGraph";
+import { useRouter } from "next/navigation";
+
+let defaultJamRateLink: string | undefined = undefined;
+if (process.env.NEXT_PUBLIC_IS_DEV) {
+  defaultJamRateLink = "https://itch.io/jam/gmtk-2024/rate/2913552";
+}
 
 // example rate url: https://itch.io/jam/gmtk-2024/rate/2913552
 const formSchema = z.object({
@@ -35,12 +39,9 @@ export default function GameForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      // jamRateLink: "https://itch.io/jam/gmtk-2024/rate/2913552",
+      jamRateLink: defaultJamRateLink,
     },
   });
-
-  const [submitted, setSubmitted] = useState(false);
-  const [jamData, setJamData] = useState([]);
 
   // https://itch.io/jam/gmtk-2024/rate/2913552
   // ->
@@ -56,54 +57,40 @@ export default function GameForm() {
     }
     const base = rateLink.slice(0, index + 1);
     const entriesLink = base + "entries";
-
-    // TODO: allow people to share their jam game urls n stuff
-
+    console.log(base, entriesLink, rateLink);
+    const jamName = base.replace("https://itch.io/jam/", "");
     const sendData = async () => {
-      const link = `/api/getJamGame?ratelink=${rateLink}&entrieslink=${entriesLink}`;
-      const response = await fetch(link);
-      const data = await response.json();
-      setJamData(data);
-      setSubmitted(true);
-      console.log(data);
+      router.push(`/${jamName}?ratelink=${rateLink}&entrieslink=${entriesLink}`);
     };
     sendData();
   }
+  const router = useRouter();
 
   return (
-    <>
-      {submitted ? (
-        <div className="lg:w-[80%]">
-          {/* @ts-ignore */}
-          <JamGraph data={jamData} />
-        </div>
-      ) : (
-        <div className="lg:min-w-80">
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-              <FormField
-                control={form.control}
-                name="jamRateLink"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="xl:text-lg">
-                      Enter your game&apos;s jam rating link:
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="https://itch.io/jam/gmtk-2024/rate/2913552"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <Button type="submit">Submit</Button>
-            </form>
-          </Form>
-        </div>
-      )}
-    </>
+    <div className="lg:min-w-80">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <FormField
+            control={form.control}
+            name="jamRateLink"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="xl:text-lg">
+                  Enter your game&apos;s jam rating link:
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="https://itch.io/jam/gmtk-2024/rate/2913552"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit">Submit</Button>
+        </form>
+      </Form>
+    </div>
   );
 }
