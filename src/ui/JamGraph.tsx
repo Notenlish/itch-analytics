@@ -10,6 +10,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+import { roundValue } from "@/lib/utils";
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },
@@ -45,8 +46,82 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
   });
   return (
     <div className="flex flex-col gap-12">
+      <div className="text-lg">
+        <TypographyH2>
+          Information About Your Game:{" "}
+          <div className="capitalize mb-4">
+            <span className="capitalize">{ratedGame.game?.title}</span>
+          </div>
+        </TypographyH2>
+        <div className="capitalize">
+          <p>
+            <span className="font-bold">Karma:</span> {ratedGame.coolness}
+          </p>
+          <p>
+            <span className="font-bold">rating count:</span> {ratedGame.rating_count}
+          </p>
+          <div>
+            {data.ratedGamePercentile > 50 ? (
+              <p>
+                Your game placed in the
+                <span className="font-bold">
+                  {" "}
+                  top {roundValue(100 - data.ratedGamePercentile, 2)}%{" "}
+                </span>
+                of games. You will not get a score reduction since your rating score is
+                higher than bottom 50%.
+                <br />
+                <br />
+                <span className="font-bold">Congrats!</span>
+              </p>
+            ) : (
+              <p>
+                Your game placed in the
+                <span className="font-bold"> bottom {data.ratedGamePercentile}% </span>
+                of games.{" "}
+                <span className="font-bold">You will get a score reduction</span> as your
+                rating count is lower than median rating of{" "}
+                <span className="font-bold">{data.medianRating}</span>
+                <br />
+                <br />
+                <span className="font-bold">
+                  Don&apos;t worry! You still have a chance.
+                </span>
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
       <div>
-        <TypographyH2 text={`Statistics about ${data.jamTitle}`}></TypographyH2>
+        <TypographyH2>Statistics about {data.jamTitle}</TypographyH2>
+      </div>
+      <div className="">
+        <p>
+          Kurtosis: <span className="font-bold">{data.kurtosis}</span>
+        </p>
+        <p>
+          Skewness: <span className="font-bold">{data.skewness}</span>
+        </p>
+        <p>
+          Variance: <span className="font-bold">{data.variance}</span>
+        </p>
+        <p>
+          Standard Deviation: <span className="font-bold">{data.standardDeviation}</span>
+        </p>
+        <p>
+          Median: <span className="font-bold">{data.medianRating}</span>
+          <br />
+          If you get below median, Itch.io will lower your score.
+        </p>
+        <p>
+          Mean Rating: <span className="font-bold">{data.meanRating}</span>
+        </p>
+        <p>
+          Highest rating count: <span className="font-bold">{data.biggestRating}</span>
+        </p>
+        <p>
+          Lowest rating count: <span className="font-bold">{data.smallestRating}</span>
+        </p>
       </div>
       <div>
         <TypographyH3>Rating Counts By Percentile</TypographyH3>
@@ -111,25 +186,6 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
         */}
           </BarChart>
         </ChartContainer>
-      </div>
-      <div className="text-lg">
-        <TypographyH3>
-          Information About Your Game:{" "}
-          <span className="capitalize">{ratedGame.game?.title}</span>
-        </TypographyH3>
-        <div className="capitalize">
-          <p>
-            <span className="font-bold">Karma:</span> {ratedGame.coolness}
-          </p>
-          <p>
-            <span className="font-bold">rating count:</span> {ratedGame.rating_count}
-          </p>
-          <p>
-            Your game placed in the
-            <span className="font-bold"> top {100 - data.ratedGamePercentile}% </span>
-            of games.
-          </p>
-        </div>
       </div>
     </div>
   );

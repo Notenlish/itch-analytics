@@ -12,10 +12,14 @@ export function TypographyH1({
   );
 }
 
-export function TypographyH2({ text = "The People of the Kingdom" }: { text?: string }) {
+export function TypographyH2({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 border-none text-center capitalize">
-      {text}
+      {children}
     </h2>
   );
 }

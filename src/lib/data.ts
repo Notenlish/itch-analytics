@@ -5,7 +5,7 @@ import { JamGame, JamGraphData } from "./types";
 
 import axios from "axios";
 import * as cheerio from "cheerio";
-import { calculateSkewness, calculateKurtosis, calculatePointsIntervals, calculateVariance, calculateStandardDeviation } from "./utils";
+import { calculateSkewness, calculateKurtosis, calculatePointsIntervals, calculateVariance, calculateStandardDeviation, roundValue } from "./utils";
 import { performance } from "perf_hooks";
 
 let minute = 60
@@ -196,8 +196,7 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
     const position = sortedRatings.indexOf(ratedGame.rating_count) + 1; // Adding 1 to make it 1-based index
 
     let ratedGamePercentile = (position / numGames) * 100;
-    ratedGamePercentile = Math.round(ratedGamePercentile * 50) / 50
-    
+    ratedGamePercentile = roundValue(ratedGamePercentile, 1)
 
     const out = {
         smallestRating: sortedRatings[0],

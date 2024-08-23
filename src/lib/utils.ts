@@ -13,7 +13,7 @@ export const calculateMean = (data: number[]) => {
 
 export const calculateStandardDeviation = (data: number[], mean: number) => {
   const variance = data.reduce((acc, value) => acc + Math.pow(value - mean, 2), 0) / data.length;
-  return Math.sqrt(variance);
+  return roundValue(Math.sqrt(variance), 2);
 };
 
 export const calculateSkewness = (data: number[]) => {
@@ -24,7 +24,7 @@ export const calculateSkewness = (data: number[]) => {
   const skewness = (n * data.reduce((acc, value) => acc + Math.pow((value - mean) / stdDev, 3), 0)) /
                    ((n - 1) * (n - 2));
 
-  return skewness;
+  return roundValue(skewness, 2);
 };
 
 export const calculateKurtosis = (data: number[]) => {
@@ -36,7 +36,7 @@ export const calculateKurtosis = (data: number[]) => {
                    ((n - 1) * (n - 2) * (n - 3)) -
                    (3 * Math.pow(n - 1, 2)) / ((n - 2) * (n - 3));
 
-  return kurtosis;
+  return roundValue(kurtosis, 2);
 };
 
 export const calculateCDF = (ratings: number[]) => {
@@ -105,6 +105,19 @@ export const calculateDeviance = (data: number[], mean:number): number[] => {
 };
 
 export const calculateVariance = (data: number[], mean:number): number => {
-  return data.reduce((acc, value) => acc + Math.pow(value - mean, 2), 0) / data.length;
+  const v = data.reduce((acc, value) => acc + Math.pow(value - mean, 2), 0) / data.length
+  return roundValue(v, 2);
 };
 
+
+/**
+ * Rounds a number to a specified number of decimal places.
+ * 
+ * @param {number} value - The number to be rounded.
+ * @param {number} decimals - The number of decimal places to round to.
+ * @returns {number} - The rounded number.
+ */
+export const roundValue = (value:number, decimals = 0) => {
+  const factor = Math.pow(10, decimals);
+  return Math.round(value * factor) / factor;
+}

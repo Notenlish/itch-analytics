@@ -29,7 +29,7 @@ export default function RootLayout({
       <body className={`min-h-screen bg-background antialiased ${poppins.className}`}>
         <>
           <header className="pt-8">
-            <Link href="/">
+            <Link className="hover:underline" href="/">
               <TypographyH2 text="Itch.io Analytics" />
             </Link>
           </header>
