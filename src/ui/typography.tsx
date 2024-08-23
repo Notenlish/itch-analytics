@@ -1,3 +1,5 @@
+import React from "react";
+
 export function TypographyH1({
   text = "Taxing Laughter: The Joke Tax Chronicles",
 }: {
@@ -18,9 +20,11 @@ export function TypographyH2({ text = "The People of the Kingdom" }: { text?: st
   );
 }
 
-export function TypographyH3() {
+export function TypographyH3({ text = "The Joke Tax" }: { text?: string }) {
   return (
-    <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">The Joke Tax</h3>
+    <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+      <span>{text}</span>
+    </h3>
   );
 }
 
@@ -44,8 +48,8 @@ export function TypographyP() {
 export function TypographyBlockquote() {
   return (
     <blockquote className="mt-6 border-l-2 pl-6 italic">
-      &quot;After all,&quot; he said, &quot;everyone enjoys a good joke, so it&apos;s only fair that they
-      should pay for the privilege.&quot;
+      &quot;After all,&quot; he said, &quot;everyone enjoys a good joke, so it&apos;s only
+      fair that they should pay for the privilege.&quot;
     </blockquote>
   );
 }

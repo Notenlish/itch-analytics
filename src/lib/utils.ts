@@ -53,30 +53,56 @@ export const calculateCDF = (ratings: number[]) => {
   return cdf;
 };
 
-export const calculatePointsIntervals = (sortedValues: number[]) => {
-  // Sort the rating counts
+export const calculatePointsIntervals = (sortedValues: number[], sum:number, mean:number) => {
   const arrlength = sortedValues.length;
 
-  const percentile = (percent: number) => {
-      const index = Math.round((percent / 100) * arrlength);
-      return sortedValues[index];
+  const percentile = (i: number) => {
+      const index = Math.floor(i * (arrlength - 1));
+      const v = sortedValues[index];
+      return v;
   };
-
-  const points = [];
-  const stepSize = 0.05; // 5% step size
-
-  for (let v = 0; v <= 1; v += stepSize) {
-      const val = percentile(v * 100); // Convert v to percentage
-      const _percent = Math.round(v*100)
-      points.push({
-          percentile: _percent,  // Store the percentile value (0%, 5%, 10%, etc.)
-          cdf: val,  // The corresponding CDF value
-          rating: sortedValues[Math.floor(v*arrlength)],
-          name:`${_percent}%`
-      });
+  const to_percentage_str = (v:number) => {
+    const out = Math.round(v * 2) / 2
+    return out.toString()
   }
 
+  const points:any[] = [];
+  const stepSize = 0.05; // 5% step size
+
+  const calc = (v:number) => {
+      const _percent = v * 100;
+      const val = percentile(v); // Convert v to percentage
+      const percent = to_percentage_str(_percent);
+      return {
+          percentile: percent,  // Store the percentile value (0%, 5%, 10%, etc.)
+          // ok this is incorrect lmao
+          // cdf: val,  // The corresponding CDF value
+          rating: val,
+          name:`${percent}%`,
+      };
+  }
+
+  for (let v = 0; v <= 0.9; v += stepSize) {
+      points.push(calc(v));  // elements up to 90%
+  } // 90 92.5 97.5
+  points.push(calc(0.925))
+  points.push(calc(0.95))
+  points.push(calc(0.96))
+  points.push(calc(0.97))
+  points.push(calc(0.975))
+  points.push(calc(0.98))
+  points.push(calc(0.985))
+  points.push(calc(0.99))
+  points.push(calc(0.995))
+  points.push(calc(1.0))
   return points;
 };
 
+export const calculateDeviance = (data: number[], mean:number): number[] => {
+  return data.map(value => value - mean);
+};
+
+export const calculateVariance = (data: number[], mean:number): number => {
+  return data.reduce((acc, value) => acc + Math.pow(value - mean, 2), 0) / data.length;
+};
 

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-import { scrapeJamJSONLink, analyzeJam } from '@/lib/data';
+import { scrapeJamJSONLink, analyzeAll } from '@/lib/data';
 
 
 type GetJamPageFormData = {
@@ -16,7 +16,7 @@ export async function GET(request:Request) {
         return NextResponse.json({error:"Invalid link"}, {status:400})
     }
     const json_url = await scrapeJamJSONLink(entrieslink);
-    const out = await analyzeJam(json_url);
+    const out = await analyzeAll(json_url, ratelink)
     
     return NextResponse.json(out, { status:200 })
 }

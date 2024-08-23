@@ -62,47 +62,48 @@ export default function GameForm() {
     const sendData = async () => {
       const link = `/api/getJamGame?ratelink=${rateLink}&entrieslink=${entriesLink}`;
       const response = await fetch(link);
-      const data = await response.json()
+      const data = await response.json();
       setJamData(data);
       setSubmitted(true);
-      console.log(data["CdfPoints"])
+      console.log(data);
     };
     sendData();
   }
 
   return (
-    <div className="lg:min-w-80">
+    <>
       {submitted ? (
-        <>
+        <div className="lg:w-[80%]">
           {/* @ts-ignore */}
           <JamGraph data={jamData} />
-          <p>Your game</p>
-        </>
+        </div>
       ) : (
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <FormField
-              control={form.control}
-              name="jamRateLink"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="xl:text-lg">
-                    Enter your game&apos;s jam rating link:
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="https://itch.io/jam/gmtk-2024/rate/2913552"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button type="submit">Submit</Button>
-          </form>
-        </Form>
+        <div className="lg:min-w-80">
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <FormField
+                control={form.control}
+                name="jamRateLink"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="xl:text-lg">
+                      Enter your game&apos;s jam rating link:
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="https://itch.io/jam/gmtk-2024/rate/2913552"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <Button type="submit">Submit</Button>
+            </form>
+          </Form>
+        </div>
       )}
-    </div>
+    </>
   );
 }

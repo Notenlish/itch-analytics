@@ -3,8 +3,8 @@ import { unstable_cache as cache, unstable_noStore as noStore } from "next/cache
 
 import axios from "axios";
 import * as cheerio from "cheerio";
-import { calculateSkewness, calculateKurtosis, calculatePointsIntervals } from "./utils";
-
+import { calculateSkewness, calculateKurtosis, calculatePointsIntervals, calculateVariance, calculateStandardDeviation } from "./utils";
+import { performance } from "perf_hooks";
 
 const _scrapeJamJSONLink = async (entrieslink: string) => {
     // TODO: actually refactor this (not a joke)
@@ -25,7 +25,6 @@ const _scrapeJamJSONLink = async (entrieslink: string) => {
 
     let obj = scriptTag.slice(i + 1 + searchFor.length);
 
-    // "entries_url":"\/jam\/379683\/entries.json"
     const entry_search = "entries.json"
     const entries_i = obj.search(entry_search);
     let right = entries_i + entry_search.length
@@ -36,37 +35,40 @@ const _scrapeJamJSONLink = async (entrieslink: string) => {
     let _json_url = obj.slice(left, right) as string;
     _json_url = _json_url.replaceAll(/\\\//g, '/').replaceAll("//", "/")
     if (_json_url.length > 100 || _json_url.includes("/unrated")) {
-        // console.log("AAAA EVERYTHING IS BROKEN. IDK WHY THIS EVEN HAPPENS")
         const a = `"entries_url":"`;
         left = _json_url.search(a) + a.length;
         const b = `entries.json`;
         right = _json_url.search(b) + b.length;
         _json_url = _json_url.slice(left, right)
-        // console.log("THIS BETTER WORK", _json_url)
     }
     const json_url = `https://itch.io${_json_url}`  // /jam/stuff/entries.json
+
+    const rawtitle = "Rate Honey Our House is 10 Feet for Deep for by for Notenlish for GMTK Game Jam 2024"//$('[property="og:title"]').attr("content") as string;
+    // "Rate Honey Our House is 10 Feet Deep by for Notenlish for GMTK Game Jam 2024"
+    let title = rawtitle.toLowerCase();
+    // in case the title has more than 1 for
+    while (title.includes("for")) {
+        const i = title.search("for")
+        title = title.slice(i + "for".length)
+        console.log(title)
+    }
+    console.log("done", title)
+
+
     return json_url
 }
-
-// export const scrapeJamJSONLink = _scrapeJamJSONLink
-
-// Bu aptal cache system nedense bazen manyıyor
-// o yüzden cache yok.
-// EDİT: sorun cache system de değilmiş
-// mal olan benim
-// zort
 
 export const scrapeJamJSONLink = cache(async (entrieslink) => _scrapeJamJSONLink(entrieslink),
     ["jamJsonLink"],
     {
-        revalidate: 1  // 1 hour
+        revalidate: 1  // seconds
     }
 )
 
 
 type JamGame = {
     rating_count: number,
-    created_at: Date,
+    created_at: string,
     id: number,
     url: string,
     coolness: number,
@@ -88,45 +90,109 @@ type JamGame = {
     field_responses: string[]
 }
 
-export const _analyzeJam = async (entryJsonLink: string) => {
-    // console.log("BANA BAK ENTRY JSON LINK BU:", entryJsonLink)
+// the problem is this, for me to calculate position etc. correctly I need to cache stuff
+// BUT I CANNOT CACHE THE FRIGGEN GAMES BCUZ TOO BIG
+// solution? add ratelink to the _analyzeJam function, and let next.js happily fetch 2mb for every single friggen game
+// I hate next.js
+const _analyzeJam = async (entryJsonLink: string, rateLink:string) => {    
     const response = await axios.get(entryJsonLink);
     const data = response.data;
 
     const games: JamGame[] = data["jam_games"]
     // small to big
     const ratings = games.map(game => game.rating_count).sort((a, b) => a - b);
-    const totalRatings = ratings.reduce((pre, cur, cur_i) => pre + cur);
+    const sumOfRatings = ratings.reduce((pre, cur, cur_i) => pre + cur);
     const numGames = ratings.length
 
     const median = ratings[Math.round(numGames / 2)];
-    const mean = Math.round(totalRatings / numGames);
+    const mean = Math.round(sumOfRatings / numGames);
     const kurtosis = calculateKurtosis(ratings);
     const skewness = calculateSkewness(ratings);
+    const variance = calculateVariance(ratings, mean);
+    const standardDeviation = calculateStandardDeviation(ratings, mean)
 
     const percentile = (percent: number) => {
         const index = Math.floor(percent * numGames);
         return ratings[index];
     };
+    const getGameFromPercentile = (percent:number) => {
+        const i = Math.floor(percent * numGames)
+        return games[i];
+    }
 
-    const CdfPoints = calculatePointsIntervals(ratings)
+    const points = calculatePointsIntervals(ratings, sumOfRatings, mean)
+    const smolData = {games:[], ratings:[]}
+    const size = 0.01  // every 1%
+    for (let index = 0; index <= 1; index += size) {
+        const smolGame = getGameFromPercentile(size);
+        // @ts-ignore
+        smolData.games.push(smolGame);
+        // @ts-ignore
+        smolData.ratings.push(smolGame.rating_count)
+    }
+
+    const ratedGame = _getGame(games, rateLink)
+
+    // why add 1? i dont get
+    const position = ratings.indexOf(ratedGame.rating_count) + 1; // Adding 1 to make it 1-based index
+
+    let ratedGamePercentile = (position / numGames) * 100;
+    ratedGamePercentile = Math.round(ratedGamePercentile * 100) / 100
+    
 
     const out = {
         smallest: ratings[0],
         biggest: ratings[numGames - 1],
         median: median,
         mean: mean,
+        variance:variance,
+        standardDeviation: standardDeviation,
         kurtosis: kurtosis,
         skewness: skewness,
-        CdfPoints: CdfPoints,
+        points: points,
         top99Percent: percentile(.99),
-        top99_5Percent: percentile(.995)
+        top99_5Percent: percentile(.995),
+        smolGames: smolData.games,
+        smolRatings: smolData.ratings,
+        numGames: games.length,
+        ratedGame: ratedGame,
+        ratedGamePercentile: ratedGamePercentile,
     }
     return out
 }
 
-export const analyzeJam = cache((entryJsonLink) => _analyzeJam(entryJsonLink), ["JamAnalyze"], {
-    revalidate: 1  // 1 min
+// AAAA, HOW AM I SUPPOSED TO GET GAMES AND RATINGS IF THE CACHE SIZE IS BIGGER THAN 2MB
+// IMAGINE LIMITING CACHE TO 2MB
+// AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+// who cares, if they dont allow bigger caches, 
+// then Ill just fetch it, per game, per jam, bcuz cache system looks at func args :shrug:
+const analyzeJam = cache((entryJsonLink,rateLink) => _analyzeJam(entryJsonLink,rateLink), ["JamAnalyze"], {
+    revalidate: 1  // seconds
 })
 
-// Todo: analyze the statistics for the entered jam game
+const _getGame = (games:JamGame[], rateLink:string) => {
+    const ratedGame = games.find((game, index) => {
+        const absUrl = `https://itch.io${game.url}`
+        if (absUrl == rateLink) {
+            return true
+        }
+    }) as JamGame
+    return ratedGame
+}
+
+const _analyzeAll = async (entryJsonLink: string, rateLink: string) => {
+    const startTime = performance.now()
+    console.log("starting")
+    const data = await analyzeJam(entryJsonLink, rateLink)
+    console.log("got data from analyzeJam:")
+    console.log(data)
+    console.log("rated game is here")
+
+
+    const endTime = performance.now()
+    console.log(`Took ${endTime - startTime} seconds for ${data.numGames} games in jam.`)
+    return data;
+}
+// I cant cache bcuz over 2mb :sadge:
+export const analyzeAll = _analyzeAll;
