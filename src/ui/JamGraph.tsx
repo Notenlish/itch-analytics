@@ -69,7 +69,7 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
                   top {roundValue(100 - data.ratedGamePercentile, 2)}%{" "}
                 </span>
                 of games. You will not get a score reduction since your rating score is
-                higher than bottom 50%.
+                higher than median rating of <span className="font-bold">{data.medianRating}</span>.
                 <br />
                 <br />
                 <span className="font-bold">Congrats!</span>
