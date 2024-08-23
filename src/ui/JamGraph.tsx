@@ -155,7 +155,7 @@ export default function JamGraph({ data }: { data: JamData }) {
             <span className="font-bold">rating count:</span> {game.rating_count}
           </p>
           <p>
-            <span className="font-bold">Your game's percentile in rating count:</span>{" "}
+            <span className="font-bold">Your game&apos;s percentile in rating count:</span>{" "}
             {data.ratedGamePercentile}%
           </p>
         </div>
