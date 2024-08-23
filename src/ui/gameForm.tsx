@@ -47,7 +47,14 @@ export default function GameForm() {
   // ->
   // https://itch.io/jam/gmtk-2024/entries
   function onSubmit(values: z.infer<typeof formSchema>) {
-    const rateLink = values.jamRateLink;
+    let rateLink = null;
+    // clean the ? part
+    if (values.jamRateLink.includes("?")) {
+      rateLink = values.jamRateLink.split("?")[0];
+    } else {
+      rateLink = values.jamRateLink;
+    }
+
     const index = rateLink.search("/rate/") as number;
     if (index == null) {
       alert(
@@ -55,10 +62,18 @@ export default function GameForm() {
       );
       return;
     }
+    console.log(rateLink);
     const base = rateLink.slice(0, index + 1);
+    console.log(base);
     const entriesLink = base + "entries";
     console.log(base, entriesLink, rateLink);
     const jamName = base.replace("https://itch.io/jam/", "");
+    if (entriesLink == null || rateLink == null) {
+      alert(
+        "Error! Couldn't parse link. Please make sure your url is like this: https://itch.io/jam/gmtk-2024/rate/2913552"
+      );
+      return;
+    }
     const sendData = async () => {
       router.push(`/${jamName}?ratelink=${rateLink}&entrieslink=${entriesLink}`);
     };
