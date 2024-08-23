@@ -35,7 +35,7 @@ export default function GameForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      jamRateLink: "https://itch.io/jam/gmtk-2024/rate/2913552",
+      // jamRateLink: "https://itch.io/jam/gmtk-2024/rate/2913552",
     },
   });
 

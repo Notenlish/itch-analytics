@@ -25,12 +25,12 @@ export default function Home() {
     {
       title: "Is this for profit?",
       content:
-        "I dont make money from it. If this project grows and I need to buy hosting, I might consider adding adds or at least donations so that I can keep the website up.",
+        "I dont make money from it. If this project grows and I need to buy hosting, I might consider adding a donation box so that I can keep the website up.",
     },
   ];
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-12 gap-24">
+    <main className="flex min-h-[90vh] flex-col items-center justify-between p-12 gap-24">
       <TypographyH1 text="Analyze Your GameJam Score for Itch.io" />
       <GameForm />
 

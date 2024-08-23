@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { poppins } from "./font";
 import "./globals.css";
 import { TypographyH2 } from "@/ui/typography";
+import Footer from "@/ui/footer";
 
 export const metadata: Metadata = {
   title: "Itch.io Analytics",
@@ -22,6 +23,7 @@ export default function RootLayout({
           </header>
           <div className="grid place-content-center">
             <div className="max-w-3xl">{children}</div>
+            <Footer />
           </div>
         </>
       </body>
