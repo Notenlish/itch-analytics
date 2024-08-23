@@ -24,7 +24,7 @@ export default function Home({ params }: { params: { jamName: string } }) {
       const response = await fetch(link);
       const data: JamGraphData = await response.json();
       setJamData(data);
-      // setSubmitted(true);
+      setSubmitted(true);
     };
     doStuff();
   }, []);
