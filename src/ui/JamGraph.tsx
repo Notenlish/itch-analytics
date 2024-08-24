@@ -145,7 +145,9 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
             </div>
             <p>
               Coolness is used to determine your &quot;karma&quot; rating. Itch uses it to
-              balance how many ratings you give vs how many you receive.
+              balance how many ratings you give vs how many you receive. You should rate
+              other games and give feedback to the developers to increase your coolness(and karma)
+              value.
             </p>
             <p>
               Median Coolness is: <span className="font-bold">{data.medianKarma}</span>
