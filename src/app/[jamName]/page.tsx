@@ -29,10 +29,22 @@ export default function Home({ params }: { params: { jamName: string } }) {
       const data: JamGraphData = await response.json();
       setJamData(data);
       setSubmitted(true);
-      console.log(data)
+      console.log(data);
     };
     doStuff();
   }, []);
+
+  const items = [
+    {
+      title: "When are statistics updated?",
+      content: "They are updated every hour.",
+    },
+    {
+      title: "What should I do to get more ratings.",
+      content:
+        'Increase your "coolness" value by commenting on other peoples games and rating them.',
+    },
+  ];
 
   return (
     <main className="flex min-h-[90vh] flex-col items-center justify-between p-6 lg:p-12 gap-24">
@@ -40,7 +52,9 @@ export default function Home({ params }: { params: { jamName: string } }) {
         {submitted ? (
           <TypographyH1>
             <span className="font-normal text-neutral-950">Results of: </span>&quot;
-            {jamData.ratedGame.game?.title}&quot;<span className="font-normal text-neutral-950"> in</span> <span>{prettyJamName}</span>
+            {jamData.ratedGame.game?.title}&quot;
+            <span className="font-normal text-neutral-950"> in</span>{" "}
+            <span>{prettyJamName}</span>
           </TypographyH1>
         ) : (
           <TypographyH1>Your Game results in {prettyJamName}</TypographyH1>
@@ -57,6 +71,7 @@ export default function Home({ params }: { params: { jamName: string } }) {
           <div className="font-bold">Loading...</div>
         </div>
       )}
+      <FAQ items={items}></FAQ>
     </main>
   );
 }
