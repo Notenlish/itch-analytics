@@ -82,11 +82,19 @@ const _scrapeJamJSONLink = async (entrieslink: string, rateLink:string) => {
     }
     _gametitle = _gametitle.trim()
 
-    const color = $("style#jam_theme").html();
-    console.log(color)
+    let color = $("style#jam_theme").html();
+    // color :root{--itchio_ui_bg: #282828}.page_widget{--itchio_link_color: #db0a14;--itchio_button_color: #db0a15;--itchio_button_fg_color: #ffffff;--itchio_button_shadow_color: #cf0009}
+    if (color) {
+        const c = "--itchio_button_color: "
+        const left = color.search(c)
+        color = color.slice(left + c.length)
+        color = color.split(";")[0].trim()
+    } else {
+        color = "#F59E0B"
+    }
 
     const gameTitle = _gametitle;
-    return {json_url, jamTitle, gameTitle}
+    return {json_url, jamTitle, gameTitle, color}
 }
 
 export const scrapeJamJSONLink = cache(async (entrieslink, rateLink) => _scrapeJamJSONLink(entrieslink, rateLink),
@@ -119,12 +127,15 @@ const _getEntryJSON = async (entryJsonLink: string) => {
     const sortedRatings = games.map(game => game.rating_count);
     const sumOfRatings = sortedRatings.reduce((pre, cur) => pre + cur);
     
-    const sortedKarmas = games.map(game => game.coolness);
-    const sumOfKarmas = sortedKarmas.reduce((pre, cur) => pre + cur);
+    // TODO: actually try to see if coolness is karma
+    // or if its something else
+    const KarmaByRating = games.map(game => game.coolness);
+    const sumOfKarmas = KarmaByRating.reduce((pre, cur) => pre + cur);
+    const sortedKarma = games.sort((a:JamGame, b:JamGame) => a.coolness - b.coolness).map((a)=>a.coolness)
     
     const medianRating = sortedRatings[Math.round(numGames / 2)];
     const meanRating = Math.round(sumOfRatings / numGames);
-    const medianKarma = sortedKarmas[Math.round(numGames) / 2];
+    const medianKarma = sortedKarma[Math.round(numGames / 2)];
     const meanKarma = Math.round(sumOfKarmas / numGames);
 
     const kurtosis = calculateKurtosis(sortedRatings);
@@ -141,7 +152,7 @@ const _getEntryJSON = async (entryJsonLink: string) => {
         return games[i];
     }
 
-    const points = calculatePointsIntervals({sortedRatings}, {sortedKarmas})
+    const points = calculatePointsIntervals({sortedRatings}, {KarmaByRating})
     
     const smolData = {games:[], ratings:[]}
     const size = 0.01  // every 1%
@@ -152,10 +163,11 @@ const _getEntryJSON = async (entryJsonLink: string) => {
         // @ts-ignore
         smolData.ratings.push(smolGame.rating_count)
     }
+    console.log("median karma", medianKarma)
     return {
         games,
         sortedRatings,
-        sortedKarmas,
+        KarmaByRating,
         numGames,
         medianRating,
         meanRating,
@@ -177,7 +189,7 @@ const getEntryJSON = cache((entryJsonLink)=>_getEntryJSON(entryJsonLink), ["Entr
 
 const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:string, gameTitle:string) => {    
     const {
-        games, sortedRatings, sortedKarmas, numGames,
+        games, sortedRatings, KarmaByRating, numGames,
         medianRating, meanRating, medianKarma, meanKarma, smolData, variance, standardDeviation,kurtosis, skewness,points
     } = await getEntryJSON(entryJsonLink);
 
@@ -185,6 +197,7 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
     ratedGame.game = {
         title:gameTitle,
     }
+    console.log("median karma", medianKarma)
 
     // why add 1? i dont get
     const position = sortedRatings.indexOf(ratedGame.rating_count) + 1; // Adding 1 to make it 1-based index
@@ -192,11 +205,17 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
     let ratedGamePercentile = (position / numGames) * 100;
     ratedGamePercentile = roundValue(ratedGamePercentile, 3)
 
+    const _sortedKarma = KarmaByRating.sort((a,b) => a-b)
+
     const out = {
         smallestRating: sortedRatings[0],
         biggestRating: sortedRatings[numGames - 1],
+        smallestKarma: _sortedKarma[0],
+        highestKarma:_sortedKarma[numGames-1],
         medianRating,
         meanRating,
+        meanKarma,
+        medianKarma,
         variance,
         standardDeviation,
         kurtosis,

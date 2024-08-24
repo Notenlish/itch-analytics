@@ -1,3 +1,5 @@
+import { number } from "zod";
+
 export let minute = 60
 export let hour = minute * 60
 export let day = hour * 24
@@ -44,15 +46,19 @@ export type JamGame = {
 export type GraphBarPoint = {
     percentile: number,  // 5, 10, 50, 95 etc.
     rating: number,
-    karma: number,
+    coolness: number,
     name: string,
 }
 
 export type JamGraphData = {
     smallestRating: number,
     biggestRating: number,
+    smallestKarma: number,
+    highestKarma:number,
     medianRating: number,
     meanRating: number,
+    meanKarma:number,
+    medianKarma:number,
     variance: number,
     standardDeviation:number,
     kurtosis:number,
@@ -63,4 +69,5 @@ export type JamGraphData = {
     ratedGame: JamGame,
     ratedGamePercentile:number,
     jamTitle: string,
+    color?:string,
 }

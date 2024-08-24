@@ -23,11 +23,11 @@ const chartData = [
 
 const chartConfig = {
   rating: {
-    label: "Rating",
+    label: "Avg Rating per Percentile",
     color: "#FACC15",
   },
-  karma: {
-    label: "Karma",
+  coolness: {
+    label: "Avg Coolness",
     color: "#F59E0B",
   },
 } satisfies ChartConfig;
@@ -39,11 +39,6 @@ This is required for the chart be responsive.
 
 export default function JamGraph({ data }: { data: JamGraphData }) {
   const ratedGame = data.ratedGame;
-  data.points = data.points.map((e, i) => {
-    // @ts-ignore
-    e.average_karma = e.karma;
-    return e;
-  });
   const _5to99percent = data.points.filter((e, i) => {
     if (5 <= e.percentile && e.percentile <= 99) {
       return true;
@@ -60,7 +55,7 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
         </TypographyH2>
         <div className="capitalize">
           <p>
-            <span className="font-bold">Karma:</span> {ratedGame.coolness}
+            <span className="font-bold">Coolness:</span> {ratedGame.coolness}
           </p>
           <p>
             <span className="font-bold">rating count:</span> {ratedGame.rating_count}
@@ -104,10 +99,12 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
       <div className="flex flex-col gap-8">
         <TypographyH2>
           <span className="font-normal">Statistics about </span>{" "}
-          <span className="capitalize">{data.jamTitle.replace("gmtk", "GMTK")}</span>
+          <span className="capitalize font-bold" style={{ color: data.color as string }}>
+            {data.jamTitle.replace("gmtk", "GMTK")}
+          </span>
         </TypographyH2>
         <>
-          <div className="">
+          <div className="flex flex-col gap-1">
             <div className="mb-2">
               <TypographyH3>Rating Count: </TypographyH3>
             </div>
@@ -127,10 +124,11 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
             <p>
               Median: <span className="font-bold">{data.medianRating}</span>
               <br />
-              If you get below median, Itch.io will lower your score.
+              Median is the amount of ratings of top 50%. If you get below median, Itch.io
+              will lower your score.
             </p>
             <p>
-              Mean Rating: <span className="font-bold">{data.meanRating}</span>
+              Average Rating count: <span className="font-bold">{data.meanRating}</span>
             </p>
             <p>
               Highest rating count:{" "}
@@ -139,6 +137,30 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
             <p>
               Lowest rating count:{" "}
               <span className="font-bold">{data.smallestRating}</span>
+            </p>
+          </div>
+          <div className="flex flex-col gap-1">
+            <div className="mb-2">
+              <TypographyH3>Coolness: </TypographyH3>
+            </div>
+            <p>
+              Coolness is used to determine your &quot;karma&quot; rating. Itch uses it to
+              balance how many ratings you give vs how many you receive.
+            </p>
+            <p>
+              Median Coolness is: <span className="font-bold">{data.medianKarma}</span>
+              <br />
+              Median is the Coolness value of top 50%.
+            </p>
+            <p>
+              Average Coolness: <span className="font-bold">{data.meanKarma}</span>
+            </p>
+            <p>
+              Smallest Coolness: <span className="font-bold">{data.smallestKarma}</span>
+            </p>
+            <p>
+              Highest Coolness is:
+              <span className="font-bold"> {data.highestKarma}</span>
             </p>
           </div>
           <div>
@@ -156,7 +178,8 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
                     // className="translate-y-8"
                     label={
                       <Label
-                        value={"Rating Count Percentile"}
+                        // Rating Count Percentile
+                        value={""}
                         dy={-5}
                         position={"bottom"}
                       />
@@ -180,7 +203,9 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
             </div>
           </div>
           <div>
-            <TypographyH3>Average Karma Compared To Rating Count Percentile</TypographyH3>
+            <TypographyH3>
+              Average Coolness Compared To Rating Count Percentile
+            </TypographyH3>
             <div className="mt-4">
               <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
                 {/* @ts-ignore */}
@@ -203,11 +228,11 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
                       <ChartTooltipContent
                         indicator="line"
                         // I cant do this as it gets rid of the beautiful colors of the chartooltipcontent
-                        // so it will just not write average karma for now
+                        // so it will just not write average coolness for now
                         // im waiting for a pr to merge..
                         /*
                       formatter={(v) => {
-                        return `Average Karma: ${roundValue(v,2)}`;
+                        return `Average Coolness: ${roundValue(v,2)}`;
                       }}
                       */
                       />
@@ -216,17 +241,17 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
                   <ChartLegend content={<ChartLegendContent />} />
                   <YAxis
                     label={{
-                      value: "Average Karma",
+                      value: "Average coolness",
                       angle: -90,
                       position: "insideCenter",
                       offset: 20,
                     }}
-                    dataKey="karma"
+                    dataKey="coolness"
                   />
                   <Bar
                     // label={{ value: 0, offset: 10 }}
-                    dataKey="karma"
-                    fill="var(--color-karma)"
+                    dataKey="coolness"
+                    fill="var(--color-coolness)"
                     radius={4}
                     barSize={"2.8%"}
                   />

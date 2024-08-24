@@ -54,7 +54,7 @@ export const calculateCDF = (ratings: number[]) => {
   return cdf;
 };
 
-export const calculatePointsIntervals = ({sortedRatings}:{sortedRatings:number[]},{sortedKarmas}:{sortedKarmas:number[]}) => {
+export const calculatePointsIntervals = ({sortedRatings}:{sortedRatings:number[]},{KarmaByRating}:{KarmaByRating:number[]}) => {
   const arrlength = sortedRatings.length;
 
   const percentile = (i: number) => {
@@ -84,7 +84,7 @@ export const calculatePointsIntervals = ({sortedRatings}:{sortedRatings:number[]
       let totalKarmaInBar = 0;
       // console.log(leftIndex, "to", rightIndex)
       for (let karmaIndex = leftIndex; karmaIndex <= rightIndex; karmaIndex++) {
-        const k = sortedKarmas[karmaIndex]
+        const k = KarmaByRating[karmaIndex]
         totalKarmaInBar += k;
       }
       const avgKarmaInBar = totalKarmaInBar / countPerBar
@@ -98,7 +98,7 @@ export const calculatePointsIntervals = ({sortedRatings}:{sortedRatings:number[]
     const obj = {
       percentile: _percent,  // 5% 10% etc.
       rating: rating,
-      karma: avgKarmaInBar,
+      coolness: avgKarmaInBar,
       name:`${percent}%`,
     } as GraphBarPoint
     return obj;

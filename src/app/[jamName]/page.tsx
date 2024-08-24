@@ -23,12 +23,13 @@ export default function Home({ params }: { params: { jamName: string } }) {
     const doStuff = async () => {
       const link = `/api/getJamGame?ratelink=${rateLink}&entrieslink=${entriesLink}`;
       const response = await fetch(link, {
-        cache: "force-cache",
+        cache: "no-cache",
         next: { revalidate: hour },
       });
       const data: JamGraphData = await response.json();
       setJamData(data);
       setSubmitted(true);
+      console.log(data)
     };
     doStuff();
   }, []);
@@ -37,11 +38,12 @@ export default function Home({ params }: { params: { jamName: string } }) {
     <main className="flex min-h-[90vh] flex-col items-center justify-between p-6 lg:p-12 gap-24">
       <div className="capitalize">
         {submitted ? (
-          <TypographyH1
-            text={`Results of: "${jamData.ratedGame.game?.title}" in ${prettyJamName}`}
-          />
+          <TypographyH1>
+            <span className="font-normal text-neutral-950">Results of: </span>"
+            {jamData.ratedGame.game?.title}"<span className="font-normal text-neutral-950"> in</span> <span>{prettyJamName}</span>
+          </TypographyH1>
         ) : (
-          <TypographyH1 text={`Your Game results in ${prettyJamName}`} />
+          <TypographyH1>Your Game results in {prettyJamName}</TypographyH1>
         )}
       </div>
 
