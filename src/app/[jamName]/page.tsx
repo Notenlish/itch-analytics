@@ -54,7 +54,7 @@ export default function Home({ params }: { params: { jamName: string } }) {
             <span className="font-normal text-neutral-950">Results of: </span>
             {jamData.ratedGame.game?.title}
             <span className="font-normal text-neutral-950"> in</span>{" "}
-            <span>{prettyJamName}</span>
+            <span className="capitalize">{prettyJamName}</span>
           </TypographyH1>
         ) : (
           <TypographyH1>Your Game results in {prettyJamName}</TypographyH1>

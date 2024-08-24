@@ -48,13 +48,8 @@ const _scrapeJamJSONLink = async (entrieslink: string, rateLink:string) => {
     
     //"Rate Honey Our House is 10 Feet for Deep for by for Notenlish for GMTK Game Jam 2024"
     const rawtitle = $('h1.jam_title_header a').html() as string;
-    let jamTitle = rawtitle.toLowerCase();
-    // in case the title has more than 1 for
-    while (jamTitle.includes("for")) {
-        const i = jamTitle.search("for")
-        jamTitle = jamTitle.slice(i + "for".length)
-    }
-    jamTitle = jamTitle.trim()
+    let jamTitle = rawtitle.trim()
+    console.log(jamTitle)
 
     // TODO: cache this, im too lazy to do it rn
     const response2 = await axios.get(rateLink)
@@ -67,23 +62,17 @@ const _scrapeJamJSONLink = async (entrieslink: string, rateLink:string) => {
     // if it is over, theres no "rate" word
     // although a game name could potentially include the word rate
     // I gotta be careful about that to see if the jam is still active
+    // I can use this to see if jam active
     if (_gametitle.includes("rate")) {
         _gametitle = _gametitle.split("rate")[1].trim()
     }
-    while (_gametitle.includes("for")) {
-        const i = _gametitle.search("for")
-        _gametitle.replace("for", "")
-        _gametitle = _gametitle.slice(0, i)
-    }
-    while (_gametitle.includes("by")) {
-        const i = _gametitle.search("by")
-        _gametitle.replace("by", "")
-        _gametitle = _gametitle.slice(0, i)
-    }
+    // no need to check for 'for' as if we just get slice from 0 to the last by it will work.
+    const lasti = _gametitle.lastIndexOf("by");
+    _gametitle = _gametitle.slice(0, lasti);
+
     _gametitle = _gametitle.trim()
 
     let color = $("style#jam_theme").html();
-    // color :root{--itchio_ui_bg: #282828}.page_widget{--itchio_link_color: #db0a14;--itchio_button_color: #db0a15;--itchio_button_fg_color: #ffffff;--itchio_button_shadow_color: #cf0009}
     if (color) {
         const c = "--itchio_button_color: "
         const left = color.search(c)
@@ -163,7 +152,6 @@ const _getEntryJSON = async (entryJsonLink: string) => {
         // @ts-ignore
         smolData.ratings.push(smolGame.rating_count)
     }
-    console.log("median karma", medianKarma)
     return {
         games,
         sortedRatings,
