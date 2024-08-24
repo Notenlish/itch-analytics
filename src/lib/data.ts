@@ -8,23 +8,13 @@ import * as cheerio from "cheerio";
 import { calculateSkewness, calculateKurtosis, calculatePointsIntervals, calculateVariance, calculateStandardDeviation, roundValue } from "./utils";
 import { performance } from "perf_hooks";
 
-let minute = 60
-let hour = minute * 60
-let day = hour * 24
-
-if (process.env.NEXT_PUBLIC_IS_DEV) {
-    const v = 1;
-    minute = v;
-    hour = v;
-    day = v;
-}
+import { hour, minute, day } from "./types";
 
 const _scrapeJamJSONLink = async (entrieslink: string, rateLink:string) => {
     // TODO: actually refactor this (not a joke)
-
     const response = await axios.get(entrieslink)
     const data = response.data;
-    const $ = cheerio.load(data);
+    const $ = cheerio.load(data);  // /jam/entries page
     // @ts-ignore
     const scriptTag = $(`script`).filter((i: number, el: Element) => {
         // @ts-ignore
@@ -55,9 +45,9 @@ const _scrapeJamJSONLink = async (entrieslink: string, rateLink:string) => {
         _json_url = _json_url.slice(left, right)
     }
     const json_url = `https://itch.io${_json_url}`  // /jam/stuff/entries.json
-
-    const rawtitle = "Rate Honey Our House is 10 Feet for Deep for by for Notenlish for GMTK Game Jam 2024"//$('[property="og:title"]').attr("content") as string;
-    // "Rate Honey Our House is 10 Feet Deep by for Notenlish for GMTK Game Jam 2024"
+    
+    //"Rate Honey Our House is 10 Feet for Deep for by for Notenlish for GMTK Game Jam 2024"
+    const rawtitle = $('h1.jam_title_header a').html() as string;
     let jamTitle = rawtitle.toLowerCase();
     // in case the title has more than 1 for
     while (jamTitle.includes("for")) {
@@ -66,30 +56,36 @@ const _scrapeJamJSONLink = async (entrieslink: string, rateLink:string) => {
     }
     jamTitle = jamTitle.trim()
 
-
-
     // TODO: cache this, im too lazy to do it rn
     const response2 = await axios.get(rateLink)
     const data2 = response2.data;
     const $2 = cheerio.load(data2);
 
-    const t = $2(`title`).html()?.toLowerCase() as string
+    let _gametitle = $2(`title`).html()?.toLowerCase() as string
     // Rate Honey Our House is 10 Feet Deep by Notenlish for GMTK Game Jam 2024 - itch.io
-    let t2 = t.split("rate")[1].trim()
-
-    while (t2.includes("for")) {
-        const i = t2.search("for")
-        t2.replace("for", "")
-        t2 = t2.slice(0, i)
+    // itch puts "rate" word if a jam isnt over
+    // if it is over, theres no "rate" word
+    // although a game name could potentially include the word rate
+    // I gotta be careful about that to see if the jam is still active
+    if (_gametitle.includes("rate")) {
+        _gametitle = _gametitle.split("rate")[1].trim()
     }
-    while (t2.includes("by")) {
-        const i = t2.search("by")
-        t2.replace("by", "")
-        t2 = t2.slice(0, i)
+    while (_gametitle.includes("for")) {
+        const i = _gametitle.search("for")
+        _gametitle.replace("for", "")
+        _gametitle = _gametitle.slice(0, i)
     }
-    t2 = t2.trim()
+    while (_gametitle.includes("by")) {
+        const i = _gametitle.search("by")
+        _gametitle.replace("by", "")
+        _gametitle = _gametitle.slice(0, i)
+    }
+    _gametitle = _gametitle.trim()
 
-    const gameTitle = t2;
+    const color = $("style#jam_theme").html();
+    console.log(color)
+
+    const gameTitle = _gametitle;
     return {json_url, jamTitle, gameTitle}
 }
 
@@ -190,13 +186,11 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
         title:gameTitle,
     }
 
-    // console.log(ratedGame)
-
     // why add 1? i dont get
     const position = sortedRatings.indexOf(ratedGame.rating_count) + 1; // Adding 1 to make it 1-based index
 
     let ratedGamePercentile = (position / numGames) * 100;
-    ratedGamePercentile = roundValue(ratedGamePercentile, 1)
+    ratedGamePercentile = roundValue(ratedGamePercentile, 3)
 
     const out = {
         smallestRating: sortedRatings[0],

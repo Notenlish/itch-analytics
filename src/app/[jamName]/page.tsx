@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 import { useSearchParams } from "next/navigation";
 import { JamGraphData } from "@/lib/types";
+import { hour } from "@/lib/types";
 
 export default function Home({ params }: { params: { jamName: string } }) {
   const prettyJamName = params.jamName.replaceAll("-", " ").replace("gmtk", "GMTK");
@@ -21,7 +22,10 @@ export default function Home({ params }: { params: { jamName: string } }) {
   useEffect(() => {
     const doStuff = async () => {
       const link = `/api/getJamGame?ratelink=${rateLink}&entrieslink=${entriesLink}`;
-      const response = await fetch(link);
+      const response = await fetch(link, {
+        cache: "force-cache",
+        next: { revalidate: hour },
+      });
       const data: JamGraphData = await response.json();
       setJamData(data);
       setSubmitted(true);
@@ -30,7 +34,7 @@ export default function Home({ params }: { params: { jamName: string } }) {
   }, []);
 
   return (
-    <main className="flex min-h-[90vh] flex-col items-center justify-between p-12 gap-24">
+    <main className="flex min-h-[90vh] flex-col items-center justify-between p-6 lg:p-12 gap-24">
       <div className="capitalize">
         {submitted ? (
           <TypographyH1

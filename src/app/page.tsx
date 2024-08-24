@@ -11,7 +11,7 @@ export default function Home() {
     {
       title: "Is this website safe?",
       content:
-        "This website uses public data available on itch.io for everyone. The website doesn't do anything malicious, in fact, its impossible to get sensitive information from your game's jam rating link.",
+        "This website scrapes public data available on itch.io for everyone. It's safe.",
     },
     {
       title: "Is this affiliated with Itch.io?",
@@ -30,7 +30,7 @@ export default function Home() {
     {
       title: "Is this for profit?",
       content:
-        "I dont make money from it. If this project grows and I need to buy hosting, I might consider adding a donation box so that I can keep the website up.",
+        "I don't make money from it. If this project grows and I need to buy hosting, I might consider adding a donation box so that I can keep the website up.",
     },
   ];
 
