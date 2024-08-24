@@ -36,7 +36,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-[90vh] flex-col items-center justify-between p-12 gap-24">
-      <TypographyH1 text="Analyze Your GameJam Score for Itch.io" />
+      <TypographyH1>Analyze Your GameJam Score for Itch.io</TypographyH1>
       <GameForm />
 
       <FAQ items={items} />
