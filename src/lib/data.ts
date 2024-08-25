@@ -3,11 +3,11 @@
 import { sql } from "@vercel/postgres";
 import { unstable_cache as cache, unstable_noStore as noStore } from "next/cache";
 
-import { RawJamGame, JamGraphData, ParsedJamGame, JsonEntryData } from "./types";
+import { RawJamGame, JamGraphData, ParsedJamGame, JsonEntryData, WordCloudData } from "./types";
 
 import axios from "axios";
 import * as cheerio from "cheerio";
-import { calculateSkewness, calculateKurtosis, calculatePointsIntervals, calculateVariance, calculateStandardDeviation, roundValue, parseGame, compressJson, decompressJson, minifyGame, deMinifyGame, analyzePlatforms } from "./utils";
+import { calculateSkewness, calculateKurtosis, calculatePointsIntervals, calculateVariance, calculateStandardDeviation, roundValue, parseGame, compressJson, decompressJson, minifyGame, deMinifyGame, analyzePlatforms, countStrInArr, UTF8AsASCII, PrepareWordCloud } from "./utils";
 import { performance } from "perf_hooks";
 
 import { hour, minute, day } from "./types";
@@ -101,7 +101,45 @@ const _getRatings = async (entryJsonLink: string) => {
 }
 const getRatings =1// = cache(()=>{})
 
+const _scrapeNormalGamePage = async(gameLink:string) => {
+    // not possible, I'd need to store game urls too.
+}
 
+
+const _scrapeGameRatingPage = async(rateLink:string) => {
+    const response = await axios.get(rateLink);
+    const data = response.data;
+    const $ = cheerio.load(data)
+
+    const d = $(`div.post_body.user_formatted`)
+    const comments = d.map((i, el)=>{
+        return PrepareWordCloud(UTF8AsASCII($(el).text().trim()))
+    }).get()
+
+    const words: string[] = []
+    for (const comment of comments) {
+        words.push(...comment.split(" ").filter((e)=>{
+            return e.slice(1)  // get rid of 1 letter words and also '' words
+        }))
+    }
+    const wordCounter = Object.entries(countStrInArr(words)).sort((a,b) => b[1] - a[1])
+
+    const highest20 = wordCounter.slice(0, 20).map(([word, count],i) => {
+        let size = "small"
+        if (i < 5) {
+            size = "large"
+        }
+        else if (i < 10) {
+            size = "medium"
+        }
+        return { word, count, size };
+    });
+    return highest20 as WordCloudData;
+}
+
+const scrapeGameRatingPage = cache((rateLink:string)=>_scrapeGameRatingPage(rateLink),["ScrapeGameRatingPageLOL"],{
+    revalidate:hour
+})
 
 const _getEntryJSON = async (entryJsonLink: string) => {
     const response = await axios.get(entryJsonLink);
@@ -182,8 +220,10 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
         medianRating, meanRating, medianKarma, meanKarma, variance, standardDeviation,kurtosis, skewness, points, PlatformPieData
     } = await decompressJson(_inp) as JsonEntryData
 
+
+    const wordCloud = await scrapeGameRatingPage(rateLink)
     
-    // what a bad solution...
+    // de-minify games bcuz next cache size
     const games = minifiedGames.map(e=>deMinifyGame(e))
 
     const _ratedGame = await _getGameFromGames(games, rateLink)
@@ -194,6 +234,10 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
 
     let ratedGamePercentile = (position / numGames) * 100;
     ratedGamePercentile = roundValue(ratedGamePercentile, 3)
+    console.log(numGames, position)
+    const ratedGamePosition = numGames - position + 1;
+    console.log(ratedGamePercentile)
+    // we use a 1 based system but computer doesnt understand that
 
     const _sortedKarma = KarmaByRating.sort((a,b) => a-b)
 
@@ -214,10 +258,10 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
         numGames: games.length,
         ratedGame,
         ratedGamePercentile,
+        ratedGamePosition,
         jamTitle,
-        // lol  // TODO: fix
-        gameTitle:"If you see this, something is broken",
-        PlatformPieData
+        PlatformPieData,
+        wordCloud
     } as JamGraphData
     return out
 }

@@ -12,6 +12,54 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+
+var escapable = /[\\\"\x00-\x1f\x7f-\uffff]/g;
+var meta = {    // table of character substitutions
+    '\b': '\\b',
+    '\t': '\\t',
+    '\n': '\\n',
+    '\f': '\\f',
+    '\r': '\\r',
+    '"' : '\\"',
+    '\\': '\\\\',
+};
+
+// @ts-ignore
+export function UTF8AsASCII(string) {
+
+    // Replace non-breaking spaces (\u00a0) with regular spaces (\x20)
+    string = string.replace(/\u00a0/g, ' ');
+
+    // If the string contains no control characters, no quote characters, and no
+    // backslash characters, then we can safely slap some quotes around it.
+    // Otherwise we must also replace the offending characters with safe escape
+    // sequences.
+    escapable.lastIndex = 0;
+    return escapable.test(string) ?
+        // @ts-ignore
+        '"' + string.replace(escapable, function (a) {
+            // @ts-ignore  
+            var c = meta[a];
+            return typeof c === 'string' ? c :
+                '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
+        }) + '"' :
+        '"' + string + '"';
+}
+
+/**
+ * 
+ * @param {string} : string
+ * @returns {string} - a string
+ */
+export function PrepareWordCloud(input: string): string {
+  const getRidOf = ["'", '"',"the","game", "the", "The","and", "to","To","with","With","In", "and","is","my", "as", "bit", ",","in", "on", "of"]
+  let out = input.toLowerCase();
+  getRidOf.forEach((e)=>{
+    out = out.replaceAll(e, "")
+  })
+  return out;
+}
+
 const __typeSizes = {
   undefined: () => 0,
   boolean: () => 4,
@@ -194,6 +242,19 @@ export const analyzePlatforms = (platformsByRatingNum:string[][])=>{
 export const roundValue = (value:number, decimals = 0) => {
   const factor = Math.pow(10, decimals);
   return Math.round(value * factor) / factor;
+}
+
+export const rankingTextInt = (v:number)=>{
+  const lastDigit = v % 10;
+  if (lastDigit == 1) {
+    return `${v}st`
+  } else if (lastDigit == 2) {
+    return `${v}nd`
+  } else if (lastDigit == 3) {
+    return `${v}rd`
+  } else {
+    return `${v}th`
+  }
 }
 
 export const calculateAdjustment = (median:number, rating_count:number) => {

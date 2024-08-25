@@ -10,9 +10,10 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { roundValue, getAdjustmentDropText } from "@/lib/utils";
+import { roundValue, getAdjustmentDropText, rankingTextInt } from "@/lib/utils";
 import FAQ from "./faq";
 import PlatformsChart from "./platformsCharts";
+import WordCloud from "./wordCloud";
 
 const chartConfig = {
   rating: {
@@ -61,9 +62,14 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
                   {" "}
                   top {roundValue(100 - data.ratedGamePercentile, 3)}%{" "}
                 </span>
-                of games in rating count. You will not get a score reduction since your
-                rating count is higher than median rating of{" "}
-                <span className="font-bold">{data.medianRating}</span>.
+                of games, with a ranking of
+                <span className="font-bold">
+                  {" "}
+                  {rankingTextInt(data.ratedGamePosition)}{" "}
+                </span>
+                in rating count. No score reduction will be applied since your rating
+                count is higher than the median of
+                <span className="font-bold"> {data.medianRating} </span>.
                 <br />
                 <br />
                 <span className="font-bold">Congrats on participating!</span>
@@ -286,6 +292,7 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
             </div>
           </div>
           <PlatformsChart chartData={data.PlatformPieData} jamTitle={data.jamTitle} />
+          <WordCloud data={data.wordCloud} />
         </>
       </div>
     </div>

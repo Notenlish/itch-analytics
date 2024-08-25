@@ -8,14 +8,14 @@ export let month = day * 30;
 export let year = day * 365;
 
 if (process.env.NEXT_PUBLIC_IS_DEV) {
-    const v = 1;
+    const v = 5;
     minute = v;
     hour = v;
     day = v;
     week = v;
     month = v;
     year = v;
-    console.log("RESET CACHE TIMERS TO 1 SECOND BECAUSE DEVELOPER MODE.")
+    console.log("RESET CACHE TIMERS TO 5 SECOND BECAUSE DEVELOPER MODE.")
 }
 
 
@@ -108,9 +108,11 @@ export type JamGraphData = {
     numGames: number,
     ratedGame: ParsedJamGame,
     ratedGamePercentile:number,
+    ratedGamePosition:number,
     jamTitle: string,
     color?:string,
-    PlatformPieData:PlatformPieChartData[]
+    PlatformPieData:PlatformPieChartData[],
+    wordCloud: WordCloudData,
 }
 
 export type JsonEntryData = {
@@ -136,3 +138,4 @@ export type PlatformPieChartData = {
     fill: string;
 }
 
+export type WordCloudData = { word:string, count:number, size:string }[]
