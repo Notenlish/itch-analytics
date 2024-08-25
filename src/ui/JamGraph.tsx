@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/chart";
 import { roundValue, getAdjustmentDropText } from "@/lib/utils";
 import FAQ from "./faq";
+import PlatformsChart from "./platformsCharts";
 
 const chartConfig = {
   rating: {
@@ -53,7 +54,7 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
             <span className="font-bold">rating count:</span> {ratedGame.rating_count}
           </p>
           <div>
-            {data.ratedGamePercentile > 50 ? (
+            {data.ratedGamePercentile >= 50 ? (
               <p>
                 Your game placed in the
                 <span className="font-bold">
@@ -284,6 +285,7 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
               </ChartContainer>
             </div>
           </div>
+          <PlatformsChart chartData={data.PlatformPieData} jamTitle={data.jamTitle} />
         </>
       </div>
     </div>

@@ -1,10 +1,36 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { GraphBarPoint } from "./types";
+import { ParsedJamGame, GraphBarPoint, RawJamGame, MinifiedJamGame, PlatformPieChartData } from "./types";
+import zlib from "zlib"
+import util from 'util';
+
+// Convert zlib functions to promises
+const gzipPromise = util.promisify(zlib.gzip);
+const unzipPromise = util.promisify(zlib.unzip);
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
+
+const __typeSizes = {
+  undefined: () => 0,
+  boolean: () => 4,
+  number: () => 8,
+  string: (item:string) => 2 * item.length,
+  // @ts-ignore
+  object: (item:object) =>
+    !item
+      ? 0
+      : Object.keys(item).reduce(
+        // @ts-ignore
+          (total, key) => sizeOfObject(key) + sizeOfObject(item[key]) + total,
+          0
+        ),
+};
+// @ts-ignore
+const sizeOfObject = (value) => __typeSizes[typeof value](value);
+const sizeOfBuffer = (buf:Buffer) => buf.byteLength; 
+
 
 export const calculateMean = (data: number[]) => {
   const sum = data.reduce((acc, value) => acc + value, 0);
@@ -135,6 +161,28 @@ export const calculateVariance = (data: number[], mean:number): number => {
   return roundValue(v, 2);
 };
 
+/**
+ * Python-like set counter for an array of strings
+ * @param {string[]} array - The number to be rounded.
+ * @returns {object} - Object with key:count structure.
+ */
+export function countStrInArr(array:string[]) {
+  var counter = new Object;
+  // @ts-ignore
+  array.forEach(val => counter[val] = (counter[val] || 0) + 1);
+  return counter;
+}
+
+export const analyzePlatforms = (platformsByRatingNum:string[][])=>{
+  const counter = countStrInArr(platformsByRatingNum.flat());
+  const data = Object.entries(counter).map((o)=>{
+    const platform = o[0]
+    const count = o[1]
+    return {"platform":platform, "count":count, fill:`var(--color-${platform})`} as PlatformPieChartData
+  });
+  return data;
+}
+
 
 /**
  * Rounds a number to a specified number of decimal places.
@@ -161,3 +209,98 @@ export const getAdjustmentDropText = (median:number, rating_count:number) => {
   const dropText = `${roundValue(drop, 2)}%`
   return dropText
 }
+
+export const parseGame = (obj:RawJamGame) => {
+  delete obj.id;
+  delete obj.game.id;
+  delete obj.game.user
+  delete obj.game.url
+  delete obj.game.cover
+
+  if (obj.contributors) {
+    delete obj.contributors;
+  }
+  // @ts-ignore
+  // contributors has the other team members, so team size is a minimum of 1(solo)
+  obj.team_size = obj.contributors ? obj.contributors.length : 1;
+  return obj as ParsedJamGame
+}
+
+export const minifyGame = (obj:ParsedJamGame) => {
+  const out = {
+    a:obj.coolness,
+    // only adds the key if value isnt null
+    // a great way to get rid of unnecessary keys that are null
+    ...(obj.field_responses && {b: obj.field_responses}),
+    c:obj.created_at,
+    d:obj.rating_count,
+    e:obj.url,
+    f:{
+      g:obj.game.title,
+      ...(obj.game.short_text && {l: obj.game.short_text}),
+      ...(obj.game.gif_cover && {m: obj.game.gif_cover}),
+      ...(obj.game.cover_color && {n: obj.game.cover_color}),
+      ...(obj.game.platforms && {o: obj.game.platforms}),
+    },
+    p:obj.team_size
+  } as MinifiedJamGame
+  
+  return out
+}
+
+export const deMinifyGame = (obj:MinifiedJamGame) => {
+  const out = {
+    coolness:obj.a,
+    created_at:obj.c,
+    rating_count:obj.d,
+    ...(obj.b && {field_responses: obj.b}),
+    url:obj.e,
+    game:{
+      title:obj.f.g,
+      ...(obj.f.l && {short_text: obj.f.l}),
+      ...(obj.f.m && {gif_cover: obj.f.m}),
+      ...(obj.f.n && {cover_color: obj.f.n}),
+      ...(obj.f.o && {platforms: obj.f.o}),
+    },
+    team_size:obj.p
+  } as ParsedJamGame
+  
+  return out
+}
+
+// EXPECTS ASCII DATA
+export const compressJson = async (entry:Object) => {
+  console.log(`Uncompressed as bytelength: ${roundValue(Buffer.byteLength(JSON.stringify(entry))/1024/1024,2)} MB`)
+  // console.log(`Uncompressed size: ${roundValue(sizeOfObject(entry)/1024/1024,2)} MB`)
+
+
+  const dataStr = JSON.stringify(entry)
+  try {
+      const buffer = await gzipPromise(dataStr);
+      console.log(`Compressed size with bytelength: ${roundValue(sizeOfBuffer(buffer) / 1024 / 1024,2)} MB`);
+      // console.log(`Compressed size with sizeofobj func: ${roundValue(sizeOfObject(buffer) / 1024 / 1024,2)} MB`)
+      return buffer
+    } catch {
+      console.error("ERROR! Couldn't compress entry. Returning null.")
+      return null
+    }
+  }
+
+
+// EXPECTS ASCII DATA
+export const decompressJson = async (buffer:Buffer)=>{
+  console.log(`Compressed size: ${roundValue(sizeOfBuffer(buffer) / 1024 / 1024,2)} MB`)
+
+  try {
+      const decompressedBuffer = await unzipPromise(buffer);
+      const jsonData = decompressedBuffer.toString("utf-8");
+      const decompressedData:Object = JSON.parse(jsonData);
+      console.log(
+        `Decompressed data size: ${roundValue(sizeOfObject(decompressedData) / 1024 / 1024,2)} MB`
+      );
+      return decompressedData
+    } catch (e){
+      console.error("Error decompressing data:", e);
+      return null
+    }
+  }

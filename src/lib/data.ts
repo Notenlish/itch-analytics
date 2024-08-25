@@ -1,11 +1,13 @@
+"use strict"
+
 import { sql } from "@vercel/postgres";
 import { unstable_cache as cache, unstable_noStore as noStore } from "next/cache";
 
-import { JamGame, JamGraphData } from "./types";
+import { RawJamGame, JamGraphData, ParsedJamGame, JsonEntryData } from "./types";
 
 import axios from "axios";
 import * as cheerio from "cheerio";
-import { calculateSkewness, calculateKurtosis, calculatePointsIntervals, calculateVariance, calculateStandardDeviation, roundValue } from "./utils";
+import { calculateSkewness, calculateKurtosis, calculatePointsIntervals, calculateVariance, calculateStandardDeviation, roundValue, parseGame, compressJson, decompressJson, minifyGame, deMinifyGame, analyzePlatforms } from "./utils";
 import { performance } from "perf_hooks";
 
 import { hour, minute, day } from "./types";
@@ -46,10 +48,8 @@ const _scrapeJamJSONLink = async (entrieslink: string, rateLink:string) => {
     }
     const json_url = `https://itch.io${_json_url}`  // /jam/stuff/entries.json
     
-    //"Rate Honey Our House is 10 Feet for Deep for by for Notenlish for GMTK Game Jam 2024"
     const rawtitle = $('h1.jam_title_header a').html() as string;
     let jamTitle = rawtitle.trim()
-    console.log(jamTitle)
 
     // TODO: cache this, im too lazy to do it rn
     const response2 = await axios.get(rateLink)
@@ -92,6 +92,15 @@ export const scrapeJamJSONLink = cache(async (entrieslink, rateLink) => _scrapeJ
         revalidate: hour  // seconds
     }
 )
+// https://itch.io/jam/379683/entries.json
+const _getRatings = async (entryJsonLink: string) => {
+    const response = await axios.get(entryJsonLink);
+    const data: RawJamGame[] = response.data;
+
+    return data.map((e)=>e.rating_count)
+}
+const getRatings =1// = cache(()=>{})
+
 
 
 const _getEntryJSON = async (entryJsonLink: string) => {
@@ -99,28 +108,20 @@ const _getEntryJSON = async (entryJsonLink: string) => {
     const data = response.data;
 
     // sorted in ascending order
-    const games: JamGame[] = data["jam_games"]
-        .map((game:JamGame)=>{
-            delete game.created_at;
-            delete game.field_responses
-            delete game.id
-            // We cant delete url because thats what we use to find the game from entries.json
-            delete game.game;
-            // muhahahaha
-            // cache system beni alt edemeyecek!!
-            return game
-        })
-        .sort((a:JamGame, b:JamGame) => a.rating_count - b.rating_count)
-    const numGames = games.length
+    const _GamesByRatingNum: ParsedJamGame[] = data["jam_games"]
+        .map((obj:RawJamGame)=> parseGame(obj) )
+        .sort((a:ParsedJamGame, b:ParsedJamGame) => a.rating_count - b.rating_count)
+
+    const numGames = _GamesByRatingNum.length
     // small to big
-    const sortedRatings = games.map(game => game.rating_count);
+    const sortedRatings = _GamesByRatingNum.map(game => game.rating_count);
     const sumOfRatings = sortedRatings.reduce((pre, cur) => pre + cur);
     
     // TODO: actually try to see if coolness is karma
     // or if its something else
-    const KarmaByRating = games.map(game => game.coolness);
+    const KarmaByRating = _GamesByRatingNum.map(game => game.coolness);
     const sumOfKarmas = KarmaByRating.reduce((pre, cur) => pre + cur);
-    const sortedKarma = games.sort((a:JamGame, b:JamGame) => a.coolness - b.coolness).map((a)=>a.coolness)
+    const sortedKarma = _GamesByRatingNum.sort((a:ParsedJamGame, b:ParsedJamGame) => a.coolness - b.coolness).map((a)=>a.coolness)
     
     const medianRating = sortedRatings[Math.round(numGames / 2)];
     const meanRating = Math.round(sumOfRatings / numGames);
@@ -138,22 +139,19 @@ const _getEntryJSON = async (entryJsonLink: string) => {
     };
     const getGameFromPercentile = (percent:number) => {
         const i = Math.floor(percent * numGames)
-        return games[i];
+        return _GamesByRatingNum[i];
     }
 
     const points = calculatePointsIntervals({sortedRatings}, {KarmaByRating})
-    
-    const smolData = {games:[], ratings:[]}
-    const size = 0.01  // every 1%
-    for (let index = 0; index <= 1; index += size) {
-        const smolGame = getGameFromPercentile(size);
-        // @ts-ignore
-        smolData.games.push(smolGame);
-        // @ts-ignore
-        smolData.ratings.push(smolGame.rating_count)
-    }
-    return {
-        games,
+    const platformsByRatingNum = _GamesByRatingNum.map((e)=>e.game.platforms).filter((e)=>{
+        return e !== undefined
+    })
+    const PlatformPieData = analyzePlatforms(platformsByRatingNum);
+
+    const minifiedGames = _GamesByRatingNum.map((e)=>minifyGame(e))
+
+    const out = {
+        minifiedGames,
         sortedRatings,
         KarmaByRating,
         numGames,
@@ -166,8 +164,9 @@ const _getEntryJSON = async (entryJsonLink: string) => {
         kurtosis,
         skewness,
         points,
-        smolData
-    }
+        PlatformPieData
+    } as JsonEntryData
+    return compressJson(out)
 }
 
 const getEntryJSON = cache((entryJsonLink)=>_getEntryJSON(entryJsonLink), ["EntryJSON"], {
@@ -175,20 +174,23 @@ const getEntryJSON = cache((entryJsonLink)=>_getEntryJSON(entryJsonLink), ["Entr
 })
 
 
-const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:string, gameTitle:string) => {    
+const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:string, gameTitle:string) => {
+    const _inp = await getEntryJSON(entryJsonLink) as Buffer;
+    
     const {
-        games, sortedRatings, KarmaByRating, numGames,
-        medianRating, meanRating, medianKarma, meanKarma, smolData, variance, standardDeviation,kurtosis, skewness,points
-    } = await getEntryJSON(entryJsonLink);
+        minifiedGames, sortedRatings, KarmaByRating, numGames,
+        medianRating, meanRating, medianKarma, meanKarma, variance, standardDeviation,kurtosis, skewness, points, PlatformPieData
+    } = await decompressJson(_inp) as JsonEntryData
 
-    const ratedGame = await _getGameFromGames(games, rateLink)
-    ratedGame.game = {
-        title:gameTitle,
-    }
-    console.log("median karma", medianKarma)
+    
+    // what a bad solution...
+    const games = minifiedGames.map(e=>deMinifyGame(e))
 
-    // why add 1? i dont get
-    const position = sortedRatings.indexOf(ratedGame.rating_count) + 1; // Adding 1 to make it 1-based index
+    const _ratedGame = await _getGameFromGames(games, rateLink)
+    const ratedGame = parseGame(_ratedGame);
+    
+    // Adding 1 to make it 1-based index(cgpt wrote this idk why add 1)
+    const position = sortedRatings.indexOf(ratedGame.rating_count) + 1;
 
     let ratedGamePercentile = (position / numGames) * 100;
     ratedGamePercentile = roundValue(ratedGamePercentile, 3)
@@ -209,33 +211,28 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
         kurtosis,
         skewness,
         points,
-        smolRatings: smolData.ratings,
         numGames: games.length,
         ratedGame,
         ratedGamePercentile,
         jamTitle,
-        gameTitle:"If you see this, something is broken"
+        // lol  // TODO: fix
+        gameTitle:"If you see this, something is broken",
+        PlatformPieData
     } as JamGraphData
     return out
 }
 
-// AAAA, HOW AM I SUPPOSED TO GET GAMES AND RATINGS IF THE CACHE SIZE IS BIGGER THAN 2MB
-// IMAGINE LIMITING CACHE TO 2MB
-// AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-
-// who cares, if they dont allow bigger caches, 
-// then Ill just fetch it, per game, per jam, bcuz cache system looks at func args :shrug:
 const analyzeJam = cache((entryJsonLink,rateLink,jamTitle,gameTitle) => _analyzeJam(entryJsonLink,rateLink,jamTitle,gameTitle), ["JamAnalyze"], {
     revalidate: hour  // seconds
 })
 
-const _getGameFromGames = (games:JamGame[], rateLink:string) => {
-    const ratedGame = games.find((game, index) => {
-        const absUrl = `https://itch.io${game.url}`
+const _getGameFromGames = (games:ParsedJamGame[], rateLink:string) => {
+    const ratedGame = games.find((obj, index) => {
+        const absUrl = `https://itch.io${obj.url}`
         if (absUrl == rateLink) {
             return true
         }
-    }) as JamGame
+    }) as ParsedJamGame
     return ratedGame
 }
 
@@ -249,4 +246,5 @@ const _analyzeAll = async (entryJsonLink: string, rateLink: string, jamTitle:str
     return data;
 }
 // maybe cache this?
+// meh, dunno
 export const analyzeAll = _analyzeAll;
