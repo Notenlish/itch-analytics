@@ -245,16 +245,27 @@ export const roundValue = (value:number, decimals = 0) => {
 }
 
 export const rankingTextInt = (v:number)=>{
-  const lastDigit = v % 10;
-  if (lastDigit == 1) {
-    return `${v}st`
-  } else if (lastDigit == 2) {
-    return `${v}nd`
-  } else if (lastDigit == 3) {
-    return `${v}rd`
-  } else {
-    return `${v}th`
+  // Handle special cases for 11th, 12th, 13th
+  let suffix;
+  let lastDigit;
+  if (10 <= v % 100 && v % 100 <= 13){
+      suffix = "th"
+    }
+  else{
+      // Determine the suffix based on the last digit
+      lastDigit = v % 10
+      if (lastDigit == 1){
+          suffix = "st"}
+      else if (lastDigit == 2){
+          suffix = "nd"}
+      else if (lastDigit == 3){
+          suffix = "rd"
+        }
+      else{
+          suffix = "th"
+        }
   }
+  return `${v}${suffix}`
 }
 
 export const calculateAdjustment = (median:number, rating_count:number) => {
