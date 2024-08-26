@@ -5,7 +5,7 @@ import { unstable_cache as cache, unstable_noStore as noStore } from "next/cache
 
 import { RawJamGame, JamGraphData, ParsedJamGame, JsonEntryData, WordCloudData, RawGameResult, MinifiedGameResult, ParsedGameResult, responsesChartData, GraphTeamToScorePoint, GraphRatingCountToScorePoint } from "./types";
 
-import axios from "axios";
+import axios, { toFormData } from "axios";
 import * as cheerio from "cheerio";
 import { calculateSkewness, calculateKurtosis, calculatePointsIntervals, calculateVariance, calculateStandardDeviation, roundValue, parseGame, compressJson, decompressJson, minifyGame, deMinifyGame, analyzePlatforms, countStrInArr, UTF8AsASCII, PrepareWordCloud, parseGameResult, minifyGameResult, deMinifyGameResult } from "./utils";
 import { performance } from "perf_hooks";
@@ -362,7 +362,52 @@ const _analyzeResults = async (results:ParsedGameResult[], games:ParsedJamGame[]
 
 
 
-    return { teamToScorePoints, ratingCountToScorePoints };
+
+    const gamesByRatingNum = games.sort((a,b) => a.rating_count - b.rating_count)
+    // why the same type? well uhh bcuz I dont need to write a new type and why not lol
+    const scoreToRatingNumPoints: GraphRatingCountToScorePoint[] = []
+    const calc3 = (v:number, stepSize:number) => {
+        const right = Math.floor(v * (arrLength - 1))
+        const game = gamesByRatingNum[right];
+        const getAverage = ()=>{
+            const left = Math.floor((v-stepSize) * (arrLength - 1))
+            const gamePerBar = right - left;
+            let totalScore = 0;
+            let totalRawScore = 0;
+            for (let avgIndex = left; avgIndex <= right; avgIndex++) {
+                const __game = gamesByRatingNum[avgIndex]
+                // ew
+                const matchingResult = results.find(result => result.title == __game.game.title)
+                totalScore += matchingResult?.score as number
+                totalRawScore += matchingResult?.raw_score as number
+            }
+            const avgScore = totalScore / gamePerBar
+            const avgRawScore = totalRawScore / gamePerBar
+            return {avgScore, avgRawScore} 
+        }
+        const {avgScore, avgRawScore} = getAverage()
+        const obj = {
+            ratingCount: game.rating_count,
+            score: avgScore,
+            rawScore: avgRawScore,
+            name: `${roundValue(game.rating_count, 2)}`
+        } as GraphRatingCountToScorePoint
+        return obj;
+    }
+    for (let index = stepSize; index < 0.8; index += stepSize) {
+        const point = calc3(index, stepSize)
+        scoreToRatingNumPoints.push(point)
+    }
+    scoreToRatingNumPoints.push(calc3(0.825,0.025))
+    scoreToRatingNumPoints.push(calc3(0.85,0.025))
+    scoreToRatingNumPoints.push(calc3(0.875,0.025))
+    scoreToRatingNumPoints.push(calc3(0.900,0.025))
+    scoreToRatingNumPoints.push(calc3(0.925,0.025))
+    scoreToRatingNumPoints.push(calc3(0.950,0.025))
+    scoreToRatingNumPoints.push(calc3(0.975,0.025))
+    scoreToRatingNumPoints.push(calc3(1.000,0.025))
+
+    return { teamToScorePoints, ratingCountToScorePoints, scoreToRatingNumPoints };
 }
 
 const analyzeResults = cache((results, games, ratedGame) => _analyzeResults(results, games, ratedGame), ["analyzeResults"],{
@@ -392,12 +437,14 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
     const ratedGame = parseGame(_ratedGame);
     let teamToScorePoints: GraphTeamToScorePoint[] | undefined;
     let ratingCountToScorePoints:GraphRatingCountToScorePoint[] | undefined;
+    let scoreToRatingNumPoints:GraphRatingCountToScorePoint[] | undefined;
     if (_inp_result) {
         const _results = await decompressJson(_inp_result) as MinifiedGameResult[];
         results = _results.map((e)=>deMinifyGameResult(e))
-        const { teamToScorePoints:_1, ratingCountToScorePoints:_2 } = await analyzeResults(results, games, ratedGame)
+        const { teamToScorePoints:_1, ratingCountToScorePoints:_2, scoreToRatingNumPoints:_3 } = await analyzeResults(results, games, ratedGame)
         teamToScorePoints = _1;
         ratingCountToScorePoints = _2;
+        scoreToRatingNumPoints = _3;
     }
     
     // Adding 1 to make it 1-based index(cgpt wrote this idk why add 1)
@@ -433,6 +480,7 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
         points,
         teamToScorePoints,
         ratingCountToScorePoints,
+        scoreToRatingNumPoints,
         numGames: games.length,
         ratedGame,
         ratedGamePercentile,

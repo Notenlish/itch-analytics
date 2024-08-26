@@ -174,6 +174,7 @@ export type JamGraphData = {
     points: GraphBarPoint[],
     teamToScorePoints : GraphTeamToScorePoint[] | undefined,
     ratingCountToScorePoints : GraphRatingCountToScorePoint[] | undefined,
+    scoreToRatingNumPoints: GraphRatingCountToScorePoint[] | undefined,
     numGames: number,
     ratedGame: ParsedJamGame,
     ratedGamePercentile:number,

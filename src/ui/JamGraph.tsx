@@ -17,6 +17,7 @@ import WordCloud from "./wordCloud";
 import ResponsesPieChart from "./responsesChart";
 import ScoreByTeamSizeGraph from "@/ui/scoreByTeamSizeGraph";
 import ScoreByRatingCount from "./ScoreByRatingCount";
+import RatingCountByScore from "./RatingCountByScore";
 
 const chartConfig = {
   rating: {
@@ -56,7 +57,7 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
             <span className="font-bold">{data.actualKarma}</span>
             <br />
             <span className="normal-case">
-              Karma is what itch.io uses to give people who rate other people an boost in
+              Karma is what itch.io uses to give people who rate other peoples an boost in
               ratings and votes.
             </span>{" "}
             <span className="font-bold normal-case">
@@ -319,6 +320,10 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
           />
           <ScoreByRatingCount
             results={data.ratingCountToScorePoints}
+            jamTitle={data.jamTitle}
+          />
+          <RatingCountByScore
+            results={data.scoreToRatingNumPoints}
             jamTitle={data.jamTitle}
           />
           {/*
