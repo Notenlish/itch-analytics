@@ -14,6 +14,9 @@ import { roundValue, getAdjustmentDropText, rankingTextInt } from "@/lib/utils";
 import FAQ from "./faq";
 import PlatformsChart from "./platformsCharts";
 import WordCloud from "./wordCloud";
+import ResponsesPieChart from "./responsesChart";
+import ScoreByTeamSizeGraph from "@/ui/scoreByTeamSizeGraph";
+import ScoreByRatingCount from "./ScoreByRatingCount";
 
 const chartConfig = {
   rating: {
@@ -190,6 +193,8 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
                   <ChartTooltip content={<ChartTooltipContent indicator="line" />} />
                   <ChartLegend content={<ChartLegendContent />} />
                   <YAxis
+                    scale={"log"}
+                    domain={["auto", "auto"]}
                     label={<Label value="Rating" angle={-90} dx={-5} offset={-10} />}
                     dataKey="rating"
                   />
@@ -292,6 +297,17 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
             </div>
           </div>
           <PlatformsChart chartData={data.PlatformPieData} jamTitle={data.jamTitle} />
+          <ScoreByTeamSizeGraph
+            results={data.teamToScorePoints}
+            jamTitle={data.jamTitle}
+          />
+          <ScoreByRatingCount
+            results={data.ratingCountToScorePoints}
+            jamTitle={data.jamTitle}
+          />
+          {/*
+          <ResponsesPieChart chartData={data.responsesChart} jamTitle={data.jamTitle} />
+          */}
           <WordCloud data={data.wordCloud} />
         </>
       </div>

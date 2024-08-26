@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { ParsedJamGame, GraphBarPoint, RawJamGame, MinifiedJamGame, PlatformPieChartData } from "./types";
+import { ParsedJamGame, GraphBarPoint, RawJamGame, MinifiedJamGame, PlatformPieChartData, RawGameResult, ParsedGameResult, MinifiedGameResult } from "./types";
 import zlib from "zlib"
 import util from 'util';
 
@@ -156,7 +156,6 @@ export const calculatePointsIntervals = ({sortedRatings}:{sortedRatings:number[]
       */
       const countPerBar = rightIndex - leftIndex;
       let totalKarmaInBar = 0;
-      // console.log(leftIndex, "to", rightIndex)
       for (let karmaIndex = leftIndex; karmaIndex <= rightIndex; karmaIndex++) {
         const k = KarmaByRating[karmaIndex]
         totalKarmaInBar += k;
@@ -340,9 +339,59 @@ export const deMinifyGame = (obj:MinifiedJamGame) => {
   return out
 }
 
+export const parseGameResult = (obj:RawGameResult) => {
+  delete obj.cover_url;
+  // @ts-ignore
+  obj.team_size = obj.contributors?.length
+  delete obj.contributors
+  delete obj.id
+  delete obj.rating_count;
+  delete obj.url
+  return obj as ParsedGameResult
+}
+
+export const minifyGameResult = (obj:ParsedGameResult) => {
+  const out = {
+    a: obj.score,  // score
+    b: obj.title,  // title
+    // I gotta do a for array for this
+    c: obj.criteria.map(e=>{
+      return {  // criteria
+        a: e.raw_score,  // raw_score
+        b: e.score,  // score
+        c: e.rank,  // rank
+        d: e.name  // name
+      }
+    }),
+    d: obj.rank,  // rank
+    e: obj.raw_score,  // raw_score
+    f:obj.team_size  // team_size
+  } as MinifiedGameResult
+  return out
+}
+
+export const deMinifyGameResult = (obj:MinifiedGameResult) => {
+  const out = {
+    score: obj.a,
+    title:obj.b,
+    criteria: obj.c.map(e=>{
+      return {  // criteria
+        raw_score: e.a,  // raw_score
+        score: e.b,  // score
+        rank: e.c,  // rank
+        name: e.d  // name
+      }
+    }),
+    rank: obj.d,  // rank
+    raw_score: obj.e,  // raw_score
+    team_size: obj.f  // team_size
+  } as ParsedGameResult
+  return out
+}
+
 // EXPECTS ASCII DATA
 export const compressJson = async (entry:Object) => {
-  console.log(`Uncompressed as bytelength: ${roundValue(Buffer.byteLength(JSON.stringify(entry))/1024/1024,2)} MB`)
+  // console.log(`Uncompressed as bytelength: ${roundValue(Buffer.byteLength(JSON.stringify(entry))/1024/1024,2)} MB`)
   // console.log(`Uncompressed size: ${roundValue(sizeOfObject(entry)/1024/1024,2)} MB`)
 
 
@@ -367,12 +416,15 @@ export const decompressJson = async (buffer:Buffer)=>{
       const decompressedBuffer = await unzipPromise(buffer);
       const jsonData = decompressedBuffer.toString("utf-8");
       const decompressedData:Object = JSON.parse(jsonData);
-      console.log(
-        `Decompressed data size: ${roundValue(sizeOfObject(decompressedData) / 1024 / 1024,2)} MB`
-      );
+      //console.log(
+      //  `Decompressed data size: ${roundValue(sizeOfObject(decompressedData) / 1024 / 1024,2)} MB`
+      //);
       return decompressedData
     } catch (e){
       console.error("Error decompressing data:", e);
       return null
     }
   }
+
+
+

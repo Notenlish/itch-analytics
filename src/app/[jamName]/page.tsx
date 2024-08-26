@@ -40,7 +40,7 @@ export default function Home({ params }: { params: { jamName: string } }) {
       content: "They are updated every hour.",
     },
     {
-      title: "What should I do to get more ratings.",
+      title: "What should I do to get more ratings?",
       content:
         'Increase your "coolness" value by commenting on other peoples games and rating them.',
     },

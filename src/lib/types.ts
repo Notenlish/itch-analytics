@@ -84,14 +84,81 @@ export type MinifiedJamGame = {
     p: number  // team_size
 }
 
+export type RawGameResult = {
+    score: number,
+    title: string,
+    cover_url?: string,  // will be deleted //
+    contributors?:{  // deleted, and len of contributors will be put into teamsize
+        id: number,
+        name: string
+    }[],
+    id?: number,  // will be deleted //
+    criteria: {
+        raw_score: number,
+        score: number,
+        rank: number,
+        name: string
+    }[],
+    rank: number,
+    raw_score: number,
+    rating_count?: number, // will be deleted //
+    url?: string // will be deleted //
+}
+
+export type ParsedGameResult = {
+    score: number,
+    title: string,
+    criteria: {
+        raw_score: number,
+        score: number,
+        rank: number,
+        name: string
+    }[],
+    rank: number,
+    raw_score: number,
+    team_size:number
+}
+
+export type MinifiedGameResult = {
+    a: number,  // score
+    b: string,  // title
+    c: {  // critaria
+        a: number,  // raw_score
+        b: number,  // score
+        c: number,  // rank
+        d: string  // name
+    }[],
+    d: number,  // rank
+    e: number,  // raw_score
+    f:number  // team_size
+}
+
+export type responsesChartData = {string:number}[]
+
 export type GraphBarPoint = {
     percentile: number,  // 5, 10, 50, 95 etc.
     rating: number,
     coolness: number,
-    name: string,
+    name: string,  // 5%
+}
+
+export type GraphTeamToScorePoint = {
+    teamSize: number,  // 5, 10, 50, 95 etc.
+    score: number,
+    rawScore:number,
+    ranking: number,  // 1(st), 2(nd), 3(rd) etc.
+    name: string,  // 1 2 3 4 5  (todo: make it say "team of size x")
+}
+
+export type GraphRatingCountToScorePoint = {
+    ratingCount: number,
+    score: number,
+    rawScore: number,
+    name: string
 }
 
 export type JamGraphData = {
+    responsesChart:responsesChartData,
     smallestRating: number,
     biggestRating: number,
     smallestKarma: number,
@@ -105,6 +172,8 @@ export type JamGraphData = {
     kurtosis:number,
     skewness:number,
     points: GraphBarPoint[],
+    teamToScorePoints : GraphTeamToScorePoint[] | undefined,
+    ratingCountToScorePoints : GraphRatingCountToScorePoint[] | undefined,
     numGames: number,
     ratedGame: ParsedJamGame,
     ratedGamePercentile:number,
@@ -116,6 +185,7 @@ export type JamGraphData = {
 }
 
 export type JsonEntryData = {
+    responsesChart:responsesChartData,
     minifiedGames:MinifiedJamGame[],
     sortedRatings:number[],
     KarmaByRating:number[],

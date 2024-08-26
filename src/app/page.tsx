@@ -1,8 +1,5 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { TypographyH1 } from "@/ui/typography";
 import GameForm from "@/ui/gameForm";
-import JamGraph from "@/ui/JamGraph";
 
 import FAQ from "@/ui/faq";
 
@@ -36,7 +33,9 @@ export default function Home() {
 
   return (
     <main className="flex min-h-[90vh] flex-col items-center justify-between p-12 gap-24">
-      <TypographyH1>Analyze Your GameJam Score for Itch.io</TypographyH1>
+      <div className="relative">
+        <TypographyH1>Analyze Your GameJam Score for Itch.io</TypographyH1>
+      </div>
       <GameForm />
 
       <FAQ items={items} />
