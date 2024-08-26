@@ -128,7 +128,7 @@ export const calculateCDF = (ratings: number[]) => {
   return cdf;
 };
 
-export const calculatePointsIntervals = ({sortedRatings}:{sortedRatings:number[]},{KarmaByRating}:{KarmaByRating:number[]}) => {
+export const calculatePointsIntervals = ({sortedRatings}:{sortedRatings:number[]},{CoolnessByRating}:{CoolnessByRating:number[]}) => {
   const arrlength = sortedRatings.length;
 
   const percentile = (i: number) => {
@@ -157,7 +157,7 @@ export const calculatePointsIntervals = ({sortedRatings}:{sortedRatings:number[]
       const countPerBar = rightIndex - leftIndex;
       let totalKarmaInBar = 0;
       for (let karmaIndex = leftIndex; karmaIndex <= rightIndex; karmaIndex++) {
-        const k = KarmaByRating[karmaIndex]
+        const k = CoolnessByRating[karmaIndex]
         totalKarmaInBar += k;
       }
       const avgKarmaInBar = totalKarmaInBar / countPerBar

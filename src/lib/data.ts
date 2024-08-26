@@ -168,16 +168,17 @@ const _getEntryJSON = async (entryJsonLink: string) => {
     // so, if its gmtk 2024, I will write smth
     // else just write response 1 response 2 etc.
 
-    // TODO: actually try to see if coolness is karma
+    // NOTE: "coolness" in itch api is actually just votes given
     // or if its something else
-    const KarmaByRating = _GamesByRatingNum.map(game => game.coolness);
-    const sumOfKarmas = KarmaByRating.reduce((pre, cur) => pre + cur);
-    const sortedKarma = _GamesByRatingNum.sort((a:ParsedJamGame, b:ParsedJamGame) => a.coolness - b.coolness).map((a)=>a.coolness)
+    const CoolnessByRating = _GamesByRatingNum.map(game => game.coolness);
+
+    const sumOfCoolness = CoolnessByRating.reduce((pre, cur) => pre + cur);
+    const sortedCoolness = _GamesByRatingNum.sort((a:ParsedJamGame, b:ParsedJamGame) => a.coolness - b.coolness).map((a)=>a.coolness)
     
     const medianRating = sortedRatings[Math.round(numGames / 2)];
     const meanRating = Math.round(sumOfRatings / numGames);
-    const medianKarma = sortedKarma[Math.round(numGames / 2)];
-    const meanKarma = Math.round(sumOfKarmas / numGames);
+    const medianCoolness = sortedCoolness[Math.round(numGames / 2)];
+    const meanCoolness = Math.round(sumOfCoolness / numGames);
 
     const kurtosis = calculateKurtosis(sortedRatings);
     const skewness = calculateSkewness(sortedRatings);
@@ -193,7 +194,7 @@ const _getEntryJSON = async (entryJsonLink: string) => {
         return _GamesByRatingNum[i];
     }
 
-    const points = calculatePointsIntervals({sortedRatings}, {KarmaByRating})
+    const points = calculatePointsIntervals({sortedRatings}, {CoolnessByRating})
     const platformsByRatingNum = _GamesByRatingNum.map((e)=>e.game.platforms).filter((e)=>{
         return e !== undefined
     })
@@ -205,12 +206,12 @@ const _getEntryJSON = async (entryJsonLink: string) => {
         responsesChart,
         minifiedGames,
         sortedRatings,
-        KarmaByRating,
+        KarmaByRating: CoolnessByRating,
         numGames,
         medianRating,
         meanRating,
-        medianKarma,
-        meanKarma,
+        medianKarma: medianCoolness,
+        meanKarma: meanCoolness,
         variance,
         standardDeviation,
         kurtosis,
@@ -409,6 +410,12 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
 
     const _sortedKarma = KarmaByRating.sort((a,b) => a-b)
 
+    // todo: fix variable names for coolness/karma
+    // calculation formula from: https://itch.io/t/4046566/what-exactly-is-karma-coolness-in-gamejams
+    const votes_given = ratedGame.coolness; 
+    const actualCoolness = (votes_given - ratedGame.rating_count) / (ratedGame.rating_count + 1)
+    const actualKarma = Math.log(1 + actualCoolness) - (Math.log(1 + ratedGame.rating_count) / Math.log(5))
+
     const out = {
         responsesChart,
         smallestRating: sortedRatings[0],
@@ -432,7 +439,8 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
         ratedGamePosition,
         jamTitle,
         PlatformPieData,
-        wordCloud
+        wordCloud,
+        actualKarma:roundValue(actualKarma,3)
     } as JamGraphData
     return out
 }

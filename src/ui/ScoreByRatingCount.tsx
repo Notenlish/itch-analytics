@@ -22,7 +22,7 @@ const chartConfig = {
   ratingCount: { label: "Rating Count" },
   score: {
     label: "Average rating count",
-    color: "#2563eb",
+    color: "#6d28d9",
   },
 } satisfies ChartConfig;
 

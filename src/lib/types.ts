@@ -182,6 +182,7 @@ export type JamGraphData = {
     color?:string,
     PlatformPieData:PlatformPieChartData[],
     wordCloud: WordCloudData,
+    actualKarma:number
 }
 
 export type JsonEntryData = {

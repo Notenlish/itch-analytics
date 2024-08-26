@@ -52,10 +52,22 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
         </TypographyH2>
         <div className="capitalize">
           <p>
-            <span className="font-bold">Coolness:</span> {ratedGame.coolness}
+            <span>Your karma: </span>
+            <span className="font-bold">{data.actualKarma}</span>
+            <br />
+            <span className="normal-case">
+              Karma is what itch.io uses to give people who rate other people an boost in
+              ratings and votes.
+            </span>{" "}
+            <span className="font-bold normal-case">
+              Please note that its expected for karma to be a negative value. You should
+              aim for the karma to be as close to zero.
+            </span>
+            <br />
           </p>
           <p>
-            <span className="font-bold">rating count:</span> {ratedGame.rating_count}
+            <span className="">rating count: </span>
+            <span className="font-bold">{ratedGame.rating_count}</span>
           </p>
           <div>
             {data.ratedGamePercentile >= 50 ? (
@@ -96,6 +108,10 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
               </p>
             )}
           </div>
+          <p>
+            <span className="font-bold">Votes you gave to other people:</span>{" "}
+            {ratedGame.coolness}
+          </p>
         </div>
       </div>
       <div className="flex flex-col gap-8">
