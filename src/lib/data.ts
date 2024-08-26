@@ -253,9 +253,9 @@ const getResultsJson = cache((resultsJsonLink:string) => _getResultsJson(results
 
 
 const _analyzeResults = async (results:ParsedGameResult[], games:ParsedJamGame[], ratedGame:ParsedJamGame) => {
-    console.log("ASDSADSADAS 11111111111111111")
+    // console.log("ASDSADSADAS 11111111111111111")
     // ascending(towards the end team size is bigger)
-    console.log("LEANASD", results.length)
+    // console.log("LEANASD", results.length)
     const resultsByTeamSize = results.sort((a,b)=>a.team_size - b.team_size)
     const arrLength = results.length
     
@@ -317,7 +317,7 @@ const _analyzeResults = async (results:ParsedGameResult[], games:ParsedJamGame[]
     teamToScorePoints.push(calc(0.975,0.025))
     teamToScorePoints.push(calc(1.000,0.025))
 
-    console.log("ASDSADSADAS 22222222222222222222")
+    // console.log("ASDSADSADAS 22222222222222222222")
 
     // score ==> x axis  rating count ==> y axis
     const resultsByScore = results.sort((a,b)=>a.score - b.score)
@@ -362,7 +362,7 @@ const _analyzeResults = async (results:ParsedGameResult[], games:ParsedJamGame[]
     ratingCountToScorePoints.push(calc2(0.975,0.025))
     ratingCountToScorePoints.push(calc2(1.000,0.025))
 
-    console.log("ASDSADSADAS 3333333333333333")
+    // console.log("ASDSADSADAS 3333333333333333")
 
 
     const gamesByRatingNum = games.sort((a,b) => a.rating_count - b.rating_count)
@@ -420,7 +420,7 @@ const _analyzeResults = async (results:ParsedGameResult[], games:ParsedJamGame[]
 
     const ratedGameResult = results.find(r => r.title == ratedGame.game.title)
 
-    console.log("ASDSADSADAS 999999999999999999")
+    // console.log("ASDSADSADAS 999999999999999999")
 
     return { teamToScorePoints, ratingCountToScorePoints, scoreToRatingNumPoints, ratedGameResult };
 }
@@ -432,7 +432,7 @@ const analyzeResults = cache((results, games, ratedGame) => _analyzeResults(resu
 const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:string, gameTitle:string) => {
     const resultsJsonLink = entryJsonLink.replace("entries.json", "results.json");
     const _inp = await getEntryJSON(entryJsonLink) as Buffer;
-    console.log("HAAHHAHAHAHHA 1111111111")
+    // console.log("HAAHHAHAHAHHA 1111111111")
     let results;
     const _inp_result = await getResultsJson(resultsJsonLink) as Buffer;
 
@@ -442,16 +442,16 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
         medianRating, meanRating, medianKarma, meanKarma, variance, standardDeviation,kurtosis, skewness, points, PlatformPieData
     } = await decompressJson(_inp) as JsonEntryData
 
-    console.log("HAAHHAHAHAHHA 22222222222222222")
+    // console.log("HAAHHAHAHAHHA 22222222222222222")
 
     const wordCloud = await scrapeGameRatingPage(rateLink)
     
-    console.log("HAAHHAHAHAHHA 33333333333333")
+    // console.log("HAAHHAHAHAHHA 33333333333333")
 
     // de-minify games bcuz next cache size
     const games = minifiedGames.map(e=>deMinifyGame(e))
 
-    console.log("HAAHHAHAHAHHA 4444444444444444")
+    // console.log("HAAHHAHAHAHHA 4444444444444444")
 
     const _ratedGame = await _getGameFromGames(games, rateLink)
     const ratedGame = parseGame(_ratedGame);
@@ -470,7 +470,7 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
             ratedGameResult = _4;
         }
     }
-    console.log("HAAHHAHAHAHHA 55555555555555")
+    //  console.log("HAAHHAHAHAHHA 55555555555555")
     
     // Adding 1 to make it 1-based index(cgpt wrote this idk why add 1)
     const position = sortedRatings.indexOf(ratedGame.rating_count) + 1;
@@ -486,9 +486,10 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
     // calculation formula from: https://itch.io/t/4046566/what-exactly-is-karma-coolness-in-gamejams
     const votes_given = ratedGame.coolness; 
     const actualCoolness = (votes_given - ratedGame.rating_count) / (ratedGame.rating_count + 1)
+    // neither all log 10 or all log natural doesnt work.
     const actualKarma = Math.log(1 + actualCoolness) - (Math.log(1 + ratedGame.rating_count) / Math.log(5))
 
-    console.log("HAAHHAHAHAHHA 66666666666666")
+    //console.log("HAAHHAHAHAHHA 66666666666666")
 
     const out = {
         responsesChart,
