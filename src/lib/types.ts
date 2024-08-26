@@ -183,7 +183,8 @@ export type JamGraphData = {
     color?:string,
     PlatformPieData:PlatformPieChartData[],
     wordCloud: WordCloudData,
-    actualKarma:number
+    actualKarma:number,
+    ratedGameResult:ParsedGameResult |undefined
 }
 
 export type JsonEntryData = {

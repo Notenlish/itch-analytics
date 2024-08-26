@@ -407,7 +407,10 @@ const _analyzeResults = async (results:ParsedGameResult[], games:ParsedJamGame[]
     scoreToRatingNumPoints.push(calc3(0.975,0.025))
     scoreToRatingNumPoints.push(calc3(1.000,0.025))
 
-    return { teamToScorePoints, ratingCountToScorePoints, scoreToRatingNumPoints };
+
+    const ratedGameResult = results.find(r => r.title == ratedGame.game.title)
+
+    return { teamToScorePoints, ratingCountToScorePoints, scoreToRatingNumPoints, ratedGameResult };
 }
 
 const analyzeResults = cache((results, games, ratedGame) => _analyzeResults(results, games, ratedGame), ["analyzeResults"],{
@@ -438,13 +441,15 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
     let teamToScorePoints: GraphTeamToScorePoint[] | undefined;
     let ratingCountToScorePoints:GraphRatingCountToScorePoint[] | undefined;
     let scoreToRatingNumPoints:GraphRatingCountToScorePoint[] | undefined;
+    let ratedGameResult: ParsedGameResult | undefined;
     if (_inp_result) {
         const _results = await decompressJson(_inp_result) as MinifiedGameResult[];
         results = _results.map((e)=>deMinifyGameResult(e))
-        const { teamToScorePoints:_1, ratingCountToScorePoints:_2, scoreToRatingNumPoints:_3 } = await analyzeResults(results, games, ratedGame)
+        const { teamToScorePoints:_1, ratingCountToScorePoints:_2, scoreToRatingNumPoints:_3, ratedGameResult:_4 } = await analyzeResults(results, games, ratedGame)
         teamToScorePoints = _1;
         ratingCountToScorePoints = _2;
         scoreToRatingNumPoints = _3;
+        ratedGameResult = _4;
     }
     
     // Adding 1 to make it 1-based index(cgpt wrote this idk why add 1)
@@ -488,7 +493,8 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
         jamTitle,
         PlatformPieData,
         wordCloud,
-        actualKarma:roundValue(actualKarma,3)
+        actualKarma:roundValue(actualKarma,3),
+        ratedGameResult
     } as JamGraphData
     return out
 }

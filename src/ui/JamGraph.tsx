@@ -37,6 +37,7 @@ This is required for the chart be responsive.
 
 export default function JamGraph({ data }: { data: JamGraphData }) {
   const ratedGame = data.ratedGame;
+  const ratedGameResult = data.ratedGameResult;
   const _5to99percent = data.points.filter((e, i) => {
     if (5 <= e.percentile && e.percentile <= 99) {
       return true;
@@ -112,6 +113,37 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
           <p>
             <span className="font-bold">Votes you gave to other people:</span>{" "}
             {ratedGame.coolness}
+          </p>
+          <p>
+            Your games score in the criteria:
+            <div>
+              <div className="mt-4 flex flex-col gap-4">
+                {ratedGameResult?.criteria.map((e) => {
+                  return (
+                    <div className="grid grid-cols-4 gap-2">
+                      <p className="font-xl">
+                        <span className="font-bold">{e.name}:</span>
+                      </p>
+                      <p>
+                        Rank: <span className="font-bold">{rankingTextInt(e.rank)}</span>
+                      </p>
+                      <p>
+                        Raw score:{" "}
+                        <span className="font-bold">{roundValue(e.raw_score, 3)}</span>
+                      </p>
+                      <p>
+                        Score: <span className="font-bold">{roundValue(e.score, 3)}</span>
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+              <p>Your rank is {rankingTextInt(ratedGameResult?.rank as number)}</p>
+              <p>
+                Your raw score is {roundValue(ratedGameResult?.raw_score as number, 3)}
+              </p>
+              <p>Your score is {roundValue(ratedGameResult?.score as number, 3)}</p>
+            </div>
           </p>
         </div>
       </div>
