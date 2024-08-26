@@ -115,10 +115,10 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
             {ratedGame.coolness}
           </p>
           <p>
-            Your games score in the criteria:
             <div>
               {ratedGameResult ? (
                 <div>
+                  Your games score in the criteria:
                   <div className="mt-4 flex flex-col gap-4">
                     {ratedGameResult?.criteria.map((e, i) => {
                       return (
@@ -144,12 +144,24 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
                       );
                     })}
                   </div>
-                  <p>Your rank is {rankingTextInt(ratedGameResult?.rank as number)}</p>
+                  <p>
+                    Your rank is{" "}
+                    <span className="font-bold">
+                      {rankingTextInt(ratedGameResult?.rank as number)}
+                    </span>
+                  </p>
                   <p>
                     Your raw score is{" "}
-                    {roundValue(ratedGameResult?.raw_score as number, 3)}
+                    <span className="font-bold">
+                      {roundValue(ratedGameResult?.raw_score as number, 3)}
+                    </span>
                   </p>
-                  <p>Your score is {roundValue(ratedGameResult?.score as number, 3)}</p>
+                  <p>
+                    Your score is{" "}
+                    <span className="font-bold">
+                      {roundValue(ratedGameResult?.score as number, 3)}
+                    </span>
+                  </p>
                 </div>
               ) : (
                 <></>
