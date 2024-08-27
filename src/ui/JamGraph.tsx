@@ -25,7 +25,7 @@ const chartConfig = {
     color: "#FACC15",
   },
   coolness: {
-    label: "Avg Coolness",
+    label: "Avg votes given",
     color: "#F59E0B",
   },
 } satisfies ChartConfig;
@@ -56,8 +56,10 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
           <p>
             <span>
               Your Coolness: <span className="font-bold">{data.actualCoolness}</span>
+              <br />
               Coolness is used by itch.io to calculate Karma.
             </span>
+            <br />
             <span>Your karma: </span>
             <span className="font-bold">{data.actualKarma}</span>
             <br />
@@ -289,7 +291,7 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
           </div>
           <div>
             <TypographyH3>
-              Average Coolness Compared To Rating Count Percentile
+              Average Votes Given Compared To Rating Count Percentile
             </TypographyH3>
             <div className="mt-4">
               <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
@@ -326,7 +328,7 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
                   <ChartLegend content={<ChartLegendContent />} />
                   <YAxis
                     label={{
-                      value: "Average coolness",
+                      value: "Average votes given",
                       angle: -90,
                       position: "insideCenter",
                       offset: 20,
