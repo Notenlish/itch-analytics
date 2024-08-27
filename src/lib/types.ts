@@ -184,6 +184,7 @@ export type JamGraphData = {
     PlatformPieData:PlatformPieChartData[],
     wordCloud: WordCloudData,
     actualKarma:number,
+    actualCoolness:number,
     ratedGameResult:ParsedGameResult |undefined
 }
 

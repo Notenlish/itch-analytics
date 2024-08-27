@@ -517,6 +517,7 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
         PlatformPieData,
         wordCloud,
         actualKarma:roundValue(actualKarma,3),
+        actualCoolness: roundValue(actualCoolness, 3),
         ratedGameResult
     } as JamGraphData
     return out

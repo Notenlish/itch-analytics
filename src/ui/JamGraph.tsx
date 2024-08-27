@@ -54,12 +54,19 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
         </TypographyH2>
         <div className="capitalize">
           <p>
+            <span>
+              Your Coolness: <span className="font-bold">{data.actualCoolness}</span>
+              Coolness is used by itch.io to calculate Karma.
+            </span>
             <span>Your karma: </span>
             <span className="font-bold">{data.actualKarma}</span>
             <br />
             <span className="normal-case">
               Karma is what itch.io uses to give people who rate other peoples an boost in
-              ratings and votes.
+              ratings and votes.{" "}
+              <span className="font-bold">
+                Karma calculation may not be 100% accurate.
+              </span>
             </span>{" "}
             <span className="font-bold normal-case">
               Please note that its expected for karma to be a negative value. You should
