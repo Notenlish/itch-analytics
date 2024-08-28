@@ -42,7 +42,6 @@ const _scrapeJamJSONLink = async (entrieslink: string, rateLink:string) => {
         const optionsRaw = fullPage.slice(OptionsLeftIndex, optionsRightIndex) as string
         optionsData = JSON.parse(optionsRaw)
     }
-    console.log(optionsData)
 
     const entry_key = "entries_url"
     let left = obj.search(entry_key) + entry_key.length + 3;
@@ -464,6 +463,8 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
 
     // console.log("HAAHHAHAHAHHA 4444444444444444")
 
+    // avg score by 
+
     const _ratedGame = await _getGameFromGames(games, rateLink)
     const ratedGame = parseGame(_ratedGame);
     let teamToScorePoints: GraphTeamToScorePoint[] | undefined;
@@ -481,9 +482,8 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
             ratedGameResult = _4;
         }
     }
-    //  console.log("HAAHHAHAHAHHA 55555555555555")
     
-    // Adding 1 to make it 1-based index(cgpt wrote this idk why add 1)
+    // Adding 1 to make it 1-based
     const position = sortedRatings.indexOf(ratedGame.rating_count) + 1;
 
     let ratedGamePercentile = (position / numGames) * 100;
@@ -497,10 +497,7 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
     // calculation formula from: https://itch.io/t/4046566/what-exactly-is-karma-coolness-in-gamejams
     const votes_given = ratedGame.coolness; 
     const actualCoolness = (votes_given - ratedGame.rating_count) / (ratedGame.rating_count + 1)
-    // neither all log 10 or all log natural doesnt work.
-    const actualKarma = Math.log(1 + actualCoolness) - (Math.log(1 + ratedGame.rating_count) / Math.log(5))
-
-    //console.log("HAAHHAHAHAHHA 66666666666666")
+    const actualKarma = Math.log(1 + ratedGame.coolness) - Math.log(1 + ratedGame.rating_count) / Math.log(5)
 
     const out = {
         responsesChart,

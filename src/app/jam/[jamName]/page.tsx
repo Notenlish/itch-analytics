@@ -16,12 +16,13 @@ export default function Home({ params }: { params: { jamName: string } }) {
   const searchParams = useSearchParams();
   const rateLink = searchParams.get("ratelink") || null;
   const entriesLink = searchParams.get("entrieslink") || null;
+  const rawJamName = searchParams.get("jamname") || null;
 
   const [submitted, setSubmitted] = useState(false);
   const [jamData, setJamData] = useState({} as JamGraphData);
   useEffect(() => {
     const doStuff = async () => {
-      const link = `/api/getJamGame?ratelink=${rateLink}&entrieslink=${entriesLink}`;
+      const link = `/api/getJamGame?ratelink=${rateLink}&entrieslink=${entriesLink}&jamname=${rawJamName}`;
       const response = await fetch(link, {
         cache: "no-cache",
         next: { revalidate: hour },
@@ -29,7 +30,6 @@ export default function Home({ params }: { params: { jamName: string } }) {
       const data: JamGraphData = await response.json();
       setJamData(data);
       setSubmitted(true);
-      console.log(data);
     };
     doStuff();
   }, []);

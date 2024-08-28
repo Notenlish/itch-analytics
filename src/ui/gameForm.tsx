@@ -18,8 +18,8 @@ import { useRouter } from "next/navigation";
 
 let defaultJamRateLink: string | undefined = undefined;
 if (process.env.NEXT_PUBLIC_IS_DEV) {
-  // https://itch.io/jam/godot-wild-jam-72/rate/2902486
-  defaultJamRateLink = "https://itch.io/jam/gmtk-2024/rate/2913552";
+  // https://itch.io/jam/gmtk-2024/rate/2913552
+  defaultJamRateLink = "https://itch.io/jam/godot-wild-jam-72/rate/2902486";
 }
 
 // example rate url: https://itch.io/jam/gmtk-2024/rate/2913552
@@ -70,10 +70,12 @@ export default function GameForm() {
       );
       return;
     }
-    const sendData = async () => {
-      router.push(`/${jamName}?ratelink=${rateLink}&entrieslink=${entriesLink}`);
+    const doStuff = async () => {
+      router.push(
+        `/jam/${jamName}?ratelink=${rateLink}&entrieslink=${entriesLink}&jamname=${jamName}`
+      );
     };
-    sendData();
+    doStuff();
   }
   const router = useRouter();
 

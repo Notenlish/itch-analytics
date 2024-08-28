@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dostuff": "node -r dotenv/config ./scripts/dostuff.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -20,6 +21,7 @@
     "cheerio": "^1.0.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "dotenv": "^16.4.5",
     "lucide-react": "^0.429.0",
     "next": "14.2.6",
     "react": "^18",
