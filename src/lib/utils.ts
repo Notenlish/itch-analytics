@@ -220,15 +220,30 @@ export function countStrInArr(array:string[]) {
   return counter;
 }
 
-export const analyzePlatforms = (platformsByRatingNum:string[][])=>{
-  const counter = countStrInArr(platformsByRatingNum.flat());
-  const data = Object.entries(counter).map((o)=>{
-    const platform = o[0]
-    const count = o[1]
-    return {"platform":platform, "count":count, fill:`var(--color-${platform})`} as PlatformPieChartData
+export const analyzePlatforms = (platformsByRatingNum: string[][]) => {
+  const combinationsMap: { [key: string]: number } = {};
+
+  platformsByRatingNum.forEach(platforms => {
+    // Sort platforms alphabetically to ensure consistent combinations
+    const sortedCombination = platforms.sort().join('-');
+
+    // Increment the count for this combination in the map
+    if (combinationsMap[sortedCombination]) {
+      combinationsMap[sortedCombination]++;
+    } else {
+      combinationsMap[sortedCombination] = 1;
+    }
   });
+
+  // Convert the map to an array of objects suitable for pie chart data
+  const data = Object.keys(combinationsMap).map(combination => ({
+    "platform": combination,
+    "count": combinationsMap[combination],
+    "fill": `var(--color-${combination})`
+  } as PlatformPieChartData));
+
   return data;
-}
+};
 
 
 /**

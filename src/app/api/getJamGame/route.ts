@@ -16,9 +16,9 @@ export async function GET(request:Request) {
         return NextResponse.json({error:"Invalid link"}, {status:400})
     }
     // console.log(entrieslink, ratelink)
-    const {json_url, jamTitle, gameTitle, color} = await scrapeJamJSONLink(entrieslink, ratelink);
+    const {json_url, jamTitle, gameTitle, color, optionsData} = await scrapeJamJSONLink(entrieslink, ratelink);
     // console.log(json_url, jamTitle)
-    const _out = await analyzeAll(json_url, ratelink, jamTitle, gameTitle)
+    const _out = await analyzeAll(json_url, ratelink, jamTitle, gameTitle, optionsData)
     const out = {color, ..._out}
     // console.log("DONE")
 

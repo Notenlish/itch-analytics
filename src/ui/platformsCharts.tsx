@@ -41,6 +41,67 @@ const chartConfig = {
     label: "Web",
     color: "#6d28d9",
   },
+  "linux-osx-web-windows": {
+    label: "Linux Osx Web Windows ",
+    color: "#EF4444",
+  },
+  "android-web": {
+    label: "Android Web ",
+    color: "#F97316",
+  },
+  "osx-windows": {
+    label: "Windows Osx ",
+    color: "#A3FA15",
+  },
+  "osx-web-windows": {
+    label: "Web Windows Osx ",
+    color: "#15B5FA",
+  },
+  "web-windows": {
+    label: "Web Windows ",
+    color: "#153AFA",
+  },
+  "linux-web-windows": {
+    label: "Linux Web Windows ",
+    color: "#A60EDB",
+  },
+  "linux-osx-windows": {
+    label: "Linux Osx Windows ",
+    color: "#C321A9",
+  },
+  "linux-windows": {
+    label: "Linux Windows ",
+    color: "#DB358F",
+  },
+  "android-web-windows": {
+    label: "Android Web Windows ",
+    color: "#DB3553",
+  },
+  "android-windows": {
+    label: "Android Windows ",
+    color: "#B99619",
+  },
+  "android-linux-windows": {
+    label: "Android Linux Windows ",
+    color: "#60CC1F",
+  },
+  "android-linux-web-windows": {
+    label: "Android Linux Web Windows ",
+    color: "#B94919",
+  },
+  // bro what kinda combination is this
+  "android-linux-osx-web-windows": {
+    label: "Android Linux Osx Web Windows ",
+    color: "#B8D448",
+  },
+  "android-linux-osx-windows": {
+    label: "Android Linux Osx Windows ",
+    color: "#1FCC64",
+  },
+  "linux-web": {
+    label: "Linux Web ",
+    color: "#54CCE6",
+  },
 } satisfies ChartConfig;
 
 export default function PlatformsChart({
@@ -58,14 +119,14 @@ export default function PlatformsChart({
       <CardContent className="flex-1 pb-0">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square max-h-[250px]">
+          className="mx-auto aspect-square max-h-[400px]">
           <PieChart>
             <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Pie data={chartData} dataKey="count" nameKey="platform"></Pie>
             <ChartLegend
-              fontSize={20}
+              fontSize={16}
               content={<ChartLegendContent nameKey="platform" />}
-              className="-translate-y-2 flex-wrap gap-2 [&>*]:basis-1/4 [&>*]:justify-center"
+              className=" w-full -translate-y-2 flex-wrap gap-2 [&>*]:basis-1/4 [&>*]:justify-center"
             />
           </PieChart>
         </ChartContainer>

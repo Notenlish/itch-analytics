@@ -185,7 +185,7 @@ export type JamGraphData = {
     wordCloud: WordCloudData,
     actualKarma:number,
     actualCoolness:number,
-    ratedGameResult:ParsedGameResult |undefined
+    ratedGameResult:ParsedGameResult | undefined
 }
 
 export type JsonEntryData = {
@@ -203,8 +203,18 @@ export type JsonEntryData = {
     kurtosis:number,
     skewness:number,
     points:GraphBarPoint[],
-    PlatformPieData:PlatformPieChartData[]
+    PlatformPieData:PlatformPieChartData[],
+    options: JsonOptions | undefined
 }
+
+export type JsonOptions = {
+    id:number,
+    name:string,
+    options:{
+        name:string,
+        id:string
+    }[]
+}[]
 
 export type PlatformPieChartData = {
     platform: string;

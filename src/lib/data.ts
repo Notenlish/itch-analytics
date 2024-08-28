@@ -3,7 +3,7 @@
 import { sql } from "@vercel/postgres";
 import { unstable_cache as cache, unstable_noStore as noStore } from "next/cache";
 
-import { RawJamGame, JamGraphData, ParsedJamGame, JsonEntryData, WordCloudData, RawGameResult, MinifiedGameResult, ParsedGameResult, responsesChartData, GraphTeamToScorePoint, GraphRatingCountToScorePoint } from "./types";
+import { RawJamGame, JamGraphData, ParsedJamGame, JsonEntryData, WordCloudData, RawGameResult, MinifiedGameResult, ParsedGameResult, responsesChartData, GraphTeamToScorePoint, GraphRatingCountToScorePoint, JsonOptions } from "./types";
 
 import axios, { toFormData } from "axios";
 import * as cheerio from "cheerio";
@@ -17,6 +17,7 @@ const _scrapeJamJSONLink = async (entrieslink: string, rateLink:string) => {
     const response = await axios.get(entrieslink)
     const data = response.data;
     const $ = cheerio.load(data);  // /jam/entries page
+    const fullPage = $.html()
     // @ts-ignore
     const scriptTag = $(`script`).filter((i: number, el: Element) => {
         // @ts-ignore
@@ -33,6 +34,14 @@ const _scrapeJamJSONLink = async (entrieslink: string, rateLink:string) => {
     const entry_search = "entries.json"
     const entries_i = obj.search(entry_search);
     let right = entries_i + entry_search.length
+
+    let optionsData: JsonOptions | undefined;
+    if (fullPage.includes("fields:")) {
+        const OptionsLeftIndex = fullPage.search("fields:") + "fields:".length
+        const optionsRightIndex = fullPage.search(',"lunr_js_url')
+        const optionsRaw = fullPage.slice(OptionsLeftIndex, optionsRightIndex) as string
+        optionsData = JSON.parse(optionsRaw)
+    }
 
     const entry_key = "entries_url"
     let left = obj.search(entry_key) + entry_key.length + 3;
@@ -85,7 +94,7 @@ const _scrapeJamJSONLink = async (entrieslink: string, rateLink:string) => {
     }
 
     const gameTitle = _gametitle;
-    return {json_url, jamTitle, gameTitle, color}
+    return {json_url, jamTitle, gameTitle, color, optionsData}
 }
 
 export const scrapeJamJSONLink = cache(async (entrieslink, rateLink) => _scrapeJamJSONLink(entrieslink, rateLink),
@@ -94,6 +103,7 @@ export const scrapeJamJSONLink = cache(async (entrieslink, rateLink) => _scrapeJ
         revalidate: hour  // seconds
     }
 )
+// what is this function :skull:
 // https://itch.io/jam/379683/entries.json
 const _getRatings = async (entryJsonLink: string) => {
     const response = await axios.get(entryJsonLink);
@@ -429,7 +439,7 @@ const analyzeResults = cache((results, games, ratedGame) => _analyzeResults(resu
     revalidate:hour
 })
 
-const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:string, gameTitle:string) => {
+const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:string, gameTitle:string, optionsData:JsonOptions|undefined) => {
     const resultsJsonLink = entryJsonLink.replace("entries.json", "results.json");
     const _inp = await getEntryJSON(entryJsonLink) as Buffer;
     // console.log("HAAHHAHAHAHHA 1111111111")
@@ -523,7 +533,7 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
     return out
 }
 
-const analyzeJam = cache((entryJsonLink,rateLink,jamTitle,gameTitle) => _analyzeJam(entryJsonLink,rateLink,jamTitle,gameTitle), ["JamAnalyze"], {
+const analyzeJam = cache((entryJsonLink,rateLink,jamTitle,gameTitle,optionsData) => _analyzeJam(entryJsonLink,rateLink,jamTitle,gameTitle, optionsData), ["JamAnalyze"], {
     revalidate: hour  // seconds
 })
 
@@ -537,9 +547,9 @@ const _getGameFromGames = (games:ParsedJamGame[], rateLink:string) => {
     return ratedGame
 }
 
-const _analyzeAll = async (entryJsonLink: string, rateLink: string, jamTitle:string, gameTitle:string) => {
+const _analyzeAll = async (entryJsonLink: string, rateLink: string, jamTitle:string, gameTitle:string, optionsData:JsonOptions|undefined) => {
     const startTime = performance.now()
-    const data = await analyzeJam(entryJsonLink, rateLink, jamTitle, gameTitle)
+    const data = await analyzeJam(entryJsonLink, rateLink, jamTitle, gameTitle, optionsData)
 
     const endTime = performance.now()
     const dif = endTime - startTime
