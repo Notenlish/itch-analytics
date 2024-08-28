@@ -18,7 +18,8 @@ import { useRouter } from "next/navigation";
 
 let defaultJamRateLink: string | undefined = undefined;
 if (process.env.NEXT_PUBLIC_IS_DEV) {
-  defaultJamRateLink = "https://itch.io/jam/godot-wild-jam-72/rate/2902486";
+  // https://itch.io/jam/godot-wild-jam-72/rate/2902486
+  defaultJamRateLink = "https://itch.io/jam/gmtk-2024/rate/2913552";
 }
 
 // example rate url: https://itch.io/jam/gmtk-2024/rate/2913552

@@ -89,6 +89,10 @@ const chartConfig = {
     label: "Android Linux Web Windows ",
     color: "#B94919",
   },
+  "linux-osx-web": {
+    label: "Linux Osx Web",
+    color: "#FAFF1B",
+  },
   // bro what kinda combination is this
   "android-linux-osx-web-windows": {
     label: "Android Linux Osx Web Windows ",
