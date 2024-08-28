@@ -42,6 +42,7 @@ const _scrapeJamJSONLink = async (entrieslink: string, rateLink:string) => {
         const optionsRaw = fullPage.slice(OptionsLeftIndex, optionsRightIndex) as string
         optionsData = JSON.parse(optionsRaw)
     }
+    console.log(optionsData)
 
     const entry_key = "entries_url"
     let left = obj.search(entry_key) + entry_key.length + 3;

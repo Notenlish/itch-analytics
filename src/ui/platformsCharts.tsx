@@ -102,6 +102,10 @@ const chartConfig = {
     label: "Linux Web ",
     color: "#54CCE6",
   },
+  "osx-web": {
+    label: "Osx Web",
+    color: "#35B615",
+  },
 } satisfies ChartConfig;
 
 export default function PlatformsChart({
@@ -119,14 +123,14 @@ export default function PlatformsChart({
       <CardContent className="flex-1 pb-0">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square max-h-[400px]">
+          className="mx-auto aspect-square max-h-[500px]">
           <PieChart>
             <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Pie data={chartData} dataKey="count" nameKey="platform"></Pie>
             <ChartLegend
               fontSize={16}
               content={<ChartLegendContent nameKey="platform" />}
-              className=" w-full -translate-y-2 flex-wrap gap-2 [&>*]:basis-1/4 [&>*]:justify-center"
+              className=" w-full -translate-y-2 flex-wrap gap-x-2 gap-y-0 [&>*]:basis-1/4 [&>*]:justify-center"
             />
           </PieChart>
         </ChartContainer>
