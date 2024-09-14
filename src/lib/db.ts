@@ -1,27 +1,47 @@
-import { sql } from '@vercel/postgres';
+import { unstable_cache as cache } from "next/cache";
+import { hour } from "./types";
 
-export async function addUrl(url:string) {
-    try {
-        if (url.length > 1024) {
-            throw new Error("URL too long")
-        }
-        const lastModified = new Date().toUTCString()
-        const createdAt = new Date().toUTCString()
-        
-        await sql`INSERT INTO itch_analytics_urls (createdAt, lastmodified, url)
-        VALUES (${createdAt}, ${lastModified}, ${url})
-        ON CONFLICT (url) DO NOTHING;`;
-        console.log(`added ${url} url.`)
-    } catch(e) {
-        console.error(e)
-    }
+const KEY = process.env.API_SECRET_KEY;
+const VPS_IP = process.env.VPS_IP;
+
+async function _getPaginatedJams(i: number) {
+  const data = JSON.stringify({ key: KEY, i: i });
+  const response = await fetch(`${VPS_IP}/api/get-jams/`, { method: "POST", body: data });
+  return response.ok ? await response.json() : null;
 }
 
-export async function getAllUrls() {
-    try {
-        const data = await sql`SELECT * FROM itch_analytics_urls`
-        return data
-    } catch (error) {
-        console.error(error)
-    }
+export const getPaginatedJams = cache(
+  (i: number) => _getPaginatedJams(i),
+  ["PLZgetPaginatedJams"],
+  {
+    revalidate: hour * 2,
+  }
+);
+
+async function _getJamBySlug(slug: string) {
+  const data = JSON.stringify({ key: KEY, slug: slug });
+  const response = await fetch(`${VPS_IP}/api/get-jam-by-slug/`, {
+    method: "POST",
+    body: data,
+  });
+  return response.ok ? await response.json() : null;
 }
+
+export const getJamBySlug = cache((slug) => _getJamBySlug(slug), ["GetJamBySlug"], {
+  revalidate: hour,
+});
+
+async function _getJamSubmissionBySlug(jamSlug: string, gameSlug: string) {
+  const data = JSON.stringify({ key: KEY, jamSlug: jamSlug, gameSlug: gameSlug });
+  const response = await fetch(`${VPS_IP}/api/get-jam-submission-by-slug`, {
+    method: "POST",
+    body: data,
+  });
+  return response.ok ? await response.json() : null;
+}
+
+export const getJamSubmissionSlug = cache(
+  (jamSlug, gameSlug) => _getJamSubmissionBySlug(jamSlug, gameSlug),
+  ["GetJamSubmissionSlug"],
+  { revalidate: hour }
+);

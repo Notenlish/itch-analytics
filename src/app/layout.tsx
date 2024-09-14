@@ -10,6 +10,10 @@ import Head from "next/head";
 export const metadata: Metadata = {
   title: "Itch.io Analytics - Analyze Your Game's Jam Results",
   description: "Analyze your Itch.io Game Jam results and view jam statistics",
+  verification: {
+    // Google Search Console
+    google: "Gurmrqg74NHiG1yD0S6seTXKXN1R3bL7-aVK38bjBNk",
+  },
 };
 
 export default function RootLayout({
@@ -20,13 +24,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <GoogleAnalytics gaId="G-08BE4C6F4F" />
-      <Head>
-        {/* Google Search Console verification */}
-        <meta
-          name="google-site-verification"
-          content="Gurmrqg74NHiG1yD0S6seTXKXN1R3bL7-aVK38bjBNk"
-        />
-      </Head>
       <body className={`min-h-screen bg-background antialiased ${poppins.className}`}>
         <>
           <header className="pt-8">
