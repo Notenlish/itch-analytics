@@ -58,22 +58,19 @@ export default function GameForm() {
       );
       return;
     }
-    // console.log(rateLink);
+
+    const rateID = rateLink.slice(index + "/rate/".length);
+
     const base = rateLink.slice(0, index + 1);
-    // console.log(base);
-    const entriesLink = base + "entries";
-    // console.log(base, entriesLink, rateLink);
     const jamName = base.replace("https://itch.io/jam/", "");
-    if (entriesLink == null || rateLink == null) {
+    if (rateID == null) {
       alert(
         "Error! Couldn't parse link. Please make sure your url is like this: https://itch.io/jam/gmtk-2024/rate/2913552"
       );
       return;
     }
     const doStuff = async () => {
-      router.push(
-        `/jam/${jamName}?ratelink=${rateLink}&entrieslink=${entriesLink}&jamname=${jamName}`
-      );
+      router.push(`/jam/${jamName}/${rateID}`);
     };
     doStuff();
   }

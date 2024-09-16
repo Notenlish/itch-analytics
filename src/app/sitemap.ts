@@ -1,44 +1,46 @@
-import type { MetadataRoute } from 'next'
-import { getAllUrls } from '@/lib/db'
+import type { MetadataRoute } from "next";
+import { getAllUrls } from "@/lib/db";
+import { unstable_noStore } from "next/cache";
 
 type CustomUrl = {
-  id: number,
-  lastmodified: Date,
-  createdat: Date,
-  url: string
-}
+  id: number;
+  lastmodified: Date;
+  createdat: Date;
+  url: string;
+};
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Fetch the data from the database
+  unstable_noStore(); // DONT CACHE IT.
+
   const result = await getAllUrls();
   // @ts-ignore
   const data: CustomUrl[] = result.rows;
-  console.log("DATA IS",data)
+  console.log("DATA IS", data);
 
-  const base = "https://itch-analytics.vercel.app";
+  const base = process.env.BASE_URL;
   let urls = [
     {
-      url: '/',
+      url: "/",
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: "yearly",
       priority: 1,
     },
     {
-      url: '/jam/',
+      url: "/jam/",
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "daily",
       priority: 0.8,
     },
   ];
 
   // Add URLs from the database
-  data.forEach(obj => {
-    const escapedUrl = obj.url.replace(/&/g, '&amp;');
+  data.forEach((obj) => {
+    const escapedUrl = obj.url.replace(/&/g, "&amp;");
     urls.push({
       url: escapedUrl,
       priority: 0.6,
       lastModified: obj.lastmodified,
-      changeFrequency: "monthly"
+      changeFrequency: "monthly",
     });
   });
 
@@ -49,7 +51,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return { ...obj, url };
   }) as MetadataRoute.Sitemap;
 
-  console.log("OUT IS",out)
+  console.log("OUT IS", out);
 
   return out;
 }

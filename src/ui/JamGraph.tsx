@@ -123,60 +123,56 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
             <span className="font-bold">Votes you gave to other people:</span>{" "}
             {ratedGame.coolness}
           </p>
-          <p>
-            <div>
-              {ratedGameResult ? (
-                <div>
-                  Your games score in the criteria:
-                  <div className="mt-4 flex flex-col gap-4">
-                    {ratedGameResult?.criteria.map((e, i) => {
-                      return (
-                        <div key={i} className="grid grid-cols-4 gap-2">
-                          <p className="font-xl">
-                            <span className="font-bold">{e.name}:</span>
-                          </p>
-                          <p>
-                            Rank:{" "}
-                            <span className="font-bold">{rankingTextInt(e.rank)}</span>
-                          </p>
-                          <p>
-                            Raw score:{" "}
-                            <span className="font-bold">
-                              {roundValue(e.raw_score, 3)}
-                            </span>
-                          </p>
-                          <p>
-                            Score:{" "}
-                            <span className="font-bold">{roundValue(e.score, 3)}</span>
-                          </p>
-                        </div>
-                      );
-                    })}
-                  </div>
-                  <p>
-                    Your rank is{" "}
-                    <span className="font-bold">
-                      {rankingTextInt(ratedGameResult?.rank as number)}
-                    </span>
-                  </p>
-                  <p>
-                    Your raw score is{" "}
-                    <span className="font-bold">
-                      {roundValue(ratedGameResult?.raw_score as number, 3)}
-                    </span>
-                  </p>
-                  <p>
-                    Your score is{" "}
-                    <span className="font-bold">
-                      {roundValue(ratedGameResult?.score as number, 3)}
-                    </span>
-                  </p>
+          <div>
+            {ratedGameResult ? (
+              <div>
+                Your games score in the criteria:
+                <div className="mt-4 flex flex-col gap-4">
+                  {ratedGameResult?.criteria.map((e, i) => {
+                    return (
+                      <div key={i} className="grid grid-cols-4 gap-2">
+                        <p className="font-xl">
+                          <span className="font-bold">{e.name}:</span>
+                        </p>
+                        <p>
+                          Rank:{" "}
+                          <span className="font-bold">{rankingTextInt(e.rank)}</span>
+                        </p>
+                        <p>
+                          Raw score:{" "}
+                          <span className="font-bold">{roundValue(e.raw_score, 3)}</span>
+                        </p>
+                        <p>
+                          Score:{" "}
+                          <span className="font-bold">{roundValue(e.score, 3)}</span>
+                        </p>
+                      </div>
+                    );
+                  })}
                 </div>
-              ) : (
-                <></>
-              )}
-            </div>
-          </p>
+                <p>
+                  Your rank is{" "}
+                  <span className="font-bold">
+                    {rankingTextInt(ratedGameResult?.rank as number)}
+                  </span>
+                </p>
+                <p>
+                  Your raw score is{" "}
+                  <span className="font-bold">
+                    {roundValue(ratedGameResult?.raw_score as number, 3)}
+                  </span>
+                </p>
+                <p>
+                  Your score is{" "}
+                  <span className="font-bold">
+                    {roundValue(ratedGameResult?.score as number, 3)}
+                  </span>
+                </p>
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
       </div>
       <div className="flex flex-col gap-8">

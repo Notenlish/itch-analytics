@@ -38,8 +38,8 @@ async function main() {
   const client = await db.connect();
   console.log("connected");
 
-  await dropTable(client);
-  await initUrlTable(client);
+  await truncateTable(client);
+  // await initUrlTable(client);
 
   await client.end();
   console.log("done.");
