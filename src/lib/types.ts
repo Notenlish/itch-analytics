@@ -2,6 +2,7 @@ import { number } from "zod";
 
 export let minute = 60
 export let hour = minute * 60
+export let halfHour = hour / 2;
 export let day = hour * 24
 export let week = day * 7;
 export let month = day * 30;
@@ -11,6 +12,7 @@ if (process.env.NEXT_PUBLIC_IS_DEV) {
     const v = 5;
     minute = v;
     hour = v;
+    halfHour = v;
     day = v;
     week = v;
     month = v;

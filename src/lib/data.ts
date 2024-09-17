@@ -10,7 +10,7 @@ import * as cheerio from "cheerio";
 import { calculateSkewness, calculateKurtosis, calculatePointsIntervals, calculateVariance, calculateStandardDeviation, roundValue, parseGame, compressJson, decompressJson, minifyGame, deMinifyGame, analyzePlatforms, countStrInArr, UTF8AsASCII, PrepareWordCloud, parseGameResult, minifyGameResult, deMinifyGameResult } from "./utils";
 import { performance } from "perf_hooks";
 
-import { hour, minute, day } from "./types";
+import { hour, halfHour, minute, day } from "./types";
 
 const _scrapeJamJSONLink = async (entrieslink: string, rateLink:string) => {
     // TODO: actually refactor this (not a joke)
@@ -100,7 +100,7 @@ const _scrapeJamJSONLink = async (entrieslink: string, rateLink:string) => {
 export const scrapeJamJSONLink = cache(async (entrieslink, rateLink) => _scrapeJamJSONLink(entrieslink, rateLink),
     ["jamJsonLink"],
     {
-        revalidate: hour  // seconds
+        revalidate: halfHour  // seconds
     }
 )
 // what is this function :skull:
@@ -150,7 +150,7 @@ const _scrapeGameRatingPage = async(rateLink:string) => {
 }
 
 const scrapeGameRatingPage = cache((rateLink:string)=>_scrapeGameRatingPage(rateLink),["ScrapeGameRatingPageLOL"],{
-    revalidate:hour
+    revalidate:halfHour
 })
 
 const _getEntryJSON = async (entryJsonLink: string) => {
@@ -233,7 +233,7 @@ const _getEntryJSON = async (entryJsonLink: string) => {
 }
 
 const getEntryJSON = cache((entryJsonLink)=>_getEntryJSON(entryJsonLink), ["EntryJSON"], {
-    revalidate:hour
+    revalidate:halfHour
 })
 
 
@@ -258,7 +258,7 @@ const _getResultsJson = async (resultsJsonLink:string) => {
 }
 
 const getResultsJson = cache((resultsJsonLink:string) => _getResultsJson(resultsJsonLink), ["ResultsJsonFetchAndAnalyze"], {
-    revalidate:minute
+    revalidate:15 * minute
 })
 
 
@@ -436,7 +436,7 @@ const _analyzeResults = async (results:ParsedGameResult[], games:ParsedJamGame[]
 }
 
 const analyzeResults = cache((results, games, ratedGame) => _analyzeResults(results, games, ratedGame), ["analyzeResults"],{
-    revalidate:hour
+    revalidate:halfHour
 })
 
 const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:string, gameTitle:string, optionsData:JsonOptions|undefined) => {
@@ -532,7 +532,7 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
 }
 
 const analyzeJam = cache((entryJsonLink,rateLink,jamTitle,gameTitle,optionsData) => _analyzeJam(entryJsonLink,rateLink,jamTitle,gameTitle, optionsData), ["JamAnalyze"], {
-    revalidate: hour  // seconds
+    revalidate: halfHour  // seconds
 })
 
 const _getGameFromGames = (games:ParsedJamGame[], rateLink:string) => {
