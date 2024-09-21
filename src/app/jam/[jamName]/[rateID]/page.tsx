@@ -28,7 +28,7 @@ export default async function Home({
   // this is absolute because this api is called from server, not client
   const link = `${process.env.BASE_URL}/api/getJamGame?ratelink=${rateLink}&entrieslink=${entriesLink}&jamname=${rawJamName}`;
   const response = await fetch(link, {
-    // cant use both, revalidate 
+    // cant use both, revalidate
     // cache: "force-cache",
     next: { revalidate: hour },
   });
@@ -38,7 +38,7 @@ export default async function Home({
 
   const items = [
     {
-      title: "When are statistics updated?",
+      title: "How often are statistics updated?",
       content: "They are updated every hour.",
     },
     {
@@ -65,6 +65,12 @@ export default async function Home({
       </div>
 
       <FAQ items={items}></FAQ>
+
+      {/* Question: Should I link to Jamlytics */}
+      {/* Answer: Uhhh Idk. Maybe once my tool is better than his. */}
+      {/*
+      <p>Don't forget to check out <a className="text-amber-500 underline" href="https://jamlytics.itch.io/">Jamlytics</a> by Quinten too!</p>
+      */}
     </main>
   );
 }

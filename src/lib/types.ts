@@ -1,4 +1,8 @@
-import { number } from "zod";
+// ts doesnt allow to only ignore spesific errors
+// AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA, WHYYYY
+// THEY LITERALLY CLOSED THE PR: https://github.com/microsoft/TypeScript/issues/19139#issuecomment-2137362645
+// @ts-ignore
+import { number } from "zod";  
 
 export let minute = 60;
 export let hour = minute * 60;

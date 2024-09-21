@@ -496,7 +496,7 @@ const _analyzeJam = async (entryJsonLink: string, rateLink:string, jamTitle:stri
     // todo: fix variable names for coolness/karma
     // calculation formula from: https://itch.io/t/4046566/what-exactly-is-karma-coolness-in-gamejams
     const votes_given = ratedGame.coolness; 
-    const actualCoolness = (votes_given - ratedGame.rating_count) / (ratedGame.rating_count + 1)
+    const actualCoolness = ratedGame.coolness;
     const actualKarma = Math.log(1 + ratedGame.coolness) - Math.log(1 + ratedGame.rating_count) / Math.log(5)
 
     const out = {
