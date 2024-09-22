@@ -2,7 +2,7 @@
 // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA, WHYYYY
 // THEY LITERALLY CLOSED THE PR: https://github.com/microsoft/TypeScript/issues/19139#issuecomment-2137362645
 // @ts-ignore
-import { number } from "zod";  
+import { number } from "zod";
 
 export let minute = 60;
 export let hour = minute * 60;
@@ -13,7 +13,7 @@ export let month = day * 30;
 export let year = day * 365;
 
 if (process.env.NEXT_PUBLIC_IS_DEV) {
-  const v = 5;
+  const v = 1;
   minute = v;
   hour = v;
   halfHour = v;

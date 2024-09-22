@@ -5,6 +5,12 @@ import FAQ from "@/ui/faq";
 import { JamGraphData } from "@/lib/types";
 import { hour } from "@/lib/types";
 
+// gotta move back to csr, smh
+// I dont know what I'm doing with this ISR thing, next.js docs just told me to add these.
+// invalidate page after 1 hour
+export const revalidate = hour;
+export const dynamicParams = true;
+
 export default async function Home({
   params,
 }: {
@@ -24,13 +30,16 @@ export default async function Home({
   // gmtk-2024/
   const rawJamName = params.jamName;
 
-  // why am I sending request to my api though my server :sobbing:
-  // this is absolute because this api is called from server, not client
-  const link = `${process.env.BASE_URL}/api/getJamGame?ratelink=${rateLink}&entrieslink=${entriesLink}&jamname=${rawJamName}`;
+  const random = `${Math.random() * 100}${params.jamName}`;
+
+  // why am I sending request to my server api though my ssr page :skull:
+  // this is absolute url because this api is called from server, not client
+  const link = `${process.env.BASE_URL}/api/getJamGame?ratelink=${rateLink}&entrieslink=${entriesLink}&jamname=${rawJamName}?random=${random}`;
   const response = await fetch(link, {
-    // cant use both, revalidate
-    // cache: "force-cache",
-    next: { revalidate: hour },
+    // cant use both, revalidate or cache
+    // no cache basically means cache
+    cache: "no-cache",
+    // next: { revalidate: hour },
   });
 
   const data: JamGraphData = await response.json();
@@ -49,7 +58,7 @@ export default async function Home({
   ];
 
   return (
-    <main className="flex min-h-[90vh] flex-col items-center justify-between p-6 lg:p-12 gap-24">
+    <main className="flex min-h-[90vh] flex-col items-center justify-between p-6 lg:p-12 gap-24 px-12 sm:px-0">
       <div className="capitalize">
         <TypographyH1>
           <span className="font-normal text-neutral-950">Results of: </span>
@@ -66,11 +75,13 @@ export default async function Home({
 
       <FAQ items={items}></FAQ>
 
-      {/* Question: Should I link to Jamlytics */}
-      {/* Answer: Uhhh Idk. Maybe once my tool is better than his. */}
-      {/*
-      <p>Don't forget to check out <a className="text-amber-500 underline" href="https://jamlytics.itch.io/">Jamlytics</a> by Quinten too!</p>
-      */}
+      <p className="text-lg font-normal">
+        Don't forget to check out{" "}
+        <a className="text-blue-500 font-bold" href="https://discord.gg/AsQChfzBuF">
+          Jamlytics
+        </a>{" "}
+        by Quinten too!
+      </p>
     </main>
   );
 }

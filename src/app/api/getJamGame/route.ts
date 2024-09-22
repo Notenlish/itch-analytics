@@ -8,6 +8,9 @@ type GetJamPageFormData = {
   entriesLink: string;
 };
 
+// wait, im not catching this???
+// does this mean that the cache problem is at data.ts?
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
 
@@ -18,6 +21,9 @@ export async function GET(request: Request) {
 
   const entrieslink = searchParams.get("entrieslink") || null;
   const jamName = searchParams.get("jamname") || null;
+  const random = searchParams.get("random") || null;
+
+  console.log(`Got random with: ${random}`);
 
   if (!ratelink || !entrieslink) {
     return NextResponse.json({ error: "Invalid link" }, { status: 400 });
@@ -35,5 +41,9 @@ export async function GET(request: Request) {
   // sounds like a good idea, what could go wrong.
   const url = `/jam/${jamName}/${rateID}`;
   addUrl(url);
-  return NextResponse.json(out, { status: 200 });
+
+  const headers = new Headers();
+  headers.set("Cache-Control", "no-cache");
+
+  return NextResponse.json(out, { status: 200, headers: headers });
 }

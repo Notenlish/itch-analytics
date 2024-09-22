@@ -32,7 +32,7 @@ export default function RootLayout({
             </Link>
           </header>
           <div className="grid place-content-center">
-            <div className="max-w-3xl">{children}</div>
+            <div className="max-w-4xl">{children}</div>
             <Footer />
           </div>
         </>
