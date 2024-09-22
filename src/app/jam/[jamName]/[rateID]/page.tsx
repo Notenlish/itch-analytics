@@ -76,7 +76,7 @@ export default async function Home({
       <FAQ items={items}></FAQ>
 
       <p className="text-lg font-normal">
-        Don't forget to check out{" "}
+        Don&apos;t forget to check out{" "}
         <a className="text-blue-500 font-bold" href="https://discord.gg/AsQChfzBuF">
           Jamlytics
         </a>{" "}
