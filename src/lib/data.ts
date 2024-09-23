@@ -46,7 +46,15 @@ import { hour, halfHour, minute, day } from "./types";
 
 const _scrapeJamJSONLink = async (entrieslink: string, rateLink: string) => {
   // TODO: actually refactor this (not a joke)
+  // hahahahah baya güldüm la
+  // refactor ne demekki usta
+  // biz kodu maintain ediyoruz, yani sadece bozulduğunda düzeltiyoruz.
+
   const response = await axios.get(entrieslink);
+  if (response.status == 429) {
+    console.warn("Got rate limited...");
+    // nothing I can do.(I mean sure I could tell the user to stop but whats the fun in that.)
+  }
   const data = response.data;
   const $ = cheerio.load(data); // /jam/entries page
   const fullPage = $.html();
@@ -199,10 +207,15 @@ const _getEntryJSON = async (entryJsonLink: string) => {
   const response = await axios.get(entryJsonLink);
   const data = response.data;
 
+  const gamesByPopularity: ParsedJamGame[] = data["jam_games"].map((obj: RawJamGame) =>
+    parseGame(obj)
+  );
+  // itch.io gives them sorted by popularity by default
+
   // sorted in ascending order
-  const _GamesByRatingNum: ParsedJamGame[] = data["jam_games"]
-    .map((obj: RawJamGame) => parseGame(obj))
-    .sort((a: ParsedJamGame, b: ParsedJamGame) => a.rating_count - b.rating_count);
+  const _GamesByRatingNum: ParsedJamGame[] = gamesByPopularity.sort(
+    (a: ParsedJamGame, b: ParsedJamGame) => a.rating_count - b.rating_count
+  );
 
   const numGames = _GamesByRatingNum.length;
   // small to big
@@ -256,7 +269,7 @@ const _getEntryJSON = async (entryJsonLink: string) => {
     });
   const PlatformPieData = analyzePlatforms(platformsByRatingNum);
 
-  const minifiedGames = _GamesByRatingNum.map((e) => minifyGame(e));
+  const minifiedGames = gamesByPopularity.map((e) => minifyGame(e));
 
   const out = {
     responsesChart,
@@ -550,7 +563,14 @@ const _analyzeJam = async (
 
   // avg score by
 
-  const _ratedGame = await _getGameFromGames(games, rateLink);
+  const { _ratedGame, ratedGamePopularity } = await _getGameFromGames(games, rateLink);
+
+  const ratedGamePopularityRank = ratedGamePopularity;
+  const ratedGamePopularityPercentage = ratedGamePopularity / games.length * 100;
+
+  // if for some reason the calculations get fucked, I can just sort the games variable by rating count
+  // lets just try without sorting
+
   const ratedGame = parseGame(_ratedGame);
   let teamToScorePoints: GraphTeamToScorePoint[] | undefined;
   let ratingCountToScorePoints: GraphRatingCountToScorePoint[] | undefined;
@@ -618,6 +638,8 @@ const _analyzeJam = async (
     actualKarma: roundValue(actualKarma, 3),
     actualCoolness: roundValue(actualCoolness, 3),
     ratedGameResult,
+    ratedGamePopularityRank,
+    ratedGamePopularityPercentage,
   } as JamGraphData;
   return out;
 };
@@ -632,13 +654,15 @@ const analyzeJam = cache(
 );
 
 const _getGameFromGames = (games: ParsedJamGame[], rateLink: string) => {
-  const ratedGame = games.find((obj, index) => {
+  let ratedGamePopularity = 0;
+  const _ratedGame = games.find((obj, index) => {
     const absUrl = `https://itch.io${obj.url}`;
     if (absUrl == rateLink) {
+      ratedGamePopularity = index;
       return true;
     }
   }) as ParsedJamGame;
-  return ratedGame;
+  return { _ratedGame, ratedGamePopularity };
 };
 
 const _analyzeAll = async (

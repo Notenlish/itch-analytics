@@ -20,7 +20,12 @@ export async function GET(request: Request) {
   const rateID = ratelink?.split("/rate/")[1];
 
   const entrieslink = searchParams.get("entrieslink") || null;
-  const jamName = searchParams.get("jamname") || null;
+  let jamName = searchParams.get("jamname") || null;
+  if (!jamName) {
+    return NextResponse.json({ error: "Invalid Jam Name" }, { status: 400 });
+  }
+  jamName = jamName?.split("?")[0]; // get rid of the ?random=1231251.15133 part
+
   const random = searchParams.get("random") || null;
 
   console.log(`Got random with: ${random}`);
@@ -40,8 +45,13 @@ export async function GET(request: Request) {
   // reconstructing url in api
   // sounds like a good idea, what could go wrong.
   const url = `/jam/${jamName}/${rateID}`;
-  addUrl(url);
+  // why am I not checking if its localhost :cry:
+  if (!process.env.NEXT_PUBLIC_IS_DEV) {
+    // not running in localhost, so add url.
+    addUrl(url);
+  }
 
+  // probably this isnt the correct way
   const headers = new Headers();
   headers.set("Cache-Control", "no-cache");
 

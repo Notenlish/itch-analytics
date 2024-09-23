@@ -4,22 +4,39 @@ import JamGraph from "@/ui/JamGraph";
 import FAQ from "@/ui/faq";
 import { JamGraphData } from "@/lib/types";
 import { hour } from "@/lib/types";
+import { Metadata, ResolvingMetadata } from "next";
 
 // gotta move back to csr, smh
 // I dont know what I'm doing with this ISR thing, next.js docs just told me to add these.
 // invalidate page after 1 hour
+
 export const revalidate = hour;
 export const dynamicParams = true;
 
-export default async function Home({
-  params,
-}: {
+const prettifyJamName = (text: string) =>
+  text.replaceAll("-", " ").replace("gmtk", "GMTK");
+
+type PageProps = {
   params: { jamName: string; rateID: string };
-}) {
+};
+
+// cant do the dynamic title and descrpition, I'd need to fetch the game page from api(and api has to fetch it) or store in db but a game may not be found in the db
+// So best solution is to just not care, its not like im losing out on billions of seo ad revenue lol
+
+export async function generateMetadata(
+  { params }: PageProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  return {
+    alternates: { canonical: `/${params.jamName}/${params.rateID}` },
+  };
+}
+
+export default async function Home({ params }: PageProps) {
   // gmtk-2024
   params.jamName;
 
-  const prettyJamName = params.jamName.replaceAll("-", " ").replace("gmtk", "GMTK");
+  const prettyJamName = prettifyJamName(params.jamName);
   const rateID = Number.parseInt(params.rateID);
 
   // https://itch.io/jam/gmtk-2024/rate/2911865
@@ -30,7 +47,7 @@ export default async function Home({
   // gmtk-2024/
   const rawJamName = params.jamName;
 
-  const random = `${Math.random() * 100}${params.jamName}`;
+  const random = `${Math.random() * 10000}`;
 
   // why am I sending request to my server api though my ssr page :skull:
   // this is absolute url because this api is called from server, not client

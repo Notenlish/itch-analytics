@@ -196,6 +196,8 @@ export type JamGraphData = {
   actualKarma: number;
   actualCoolness: number;
   ratedGameResult: ParsedGameResult | undefined;
+  ratedGamePopularityRank: number;
+  ratedGamePopularityPercentage: number;
 };
 
 export type JsonEntryData = {

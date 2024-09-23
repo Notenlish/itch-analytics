@@ -59,7 +59,8 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
               <br />
               Coolness is used by itch.io to calculate Karma.
             </span>
-            <br /><br />
+            <br />
+            <br />
             <span>Your karma: </span>
             <span className="font-bold">{data.actualKarma}</span>
             <br />
@@ -70,7 +71,34 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
             <br />
             <br />
           </p>
+          <div>
+            <p>
+              Your game ranked{" "}
+              <span className="font-bold">
+                {rankingTextInt(data.ratedGamePopularityRank)}
+              </span>{" "}
+              in popularity. Thats{" "}
+              {data.ratedGamePopularityPercentage <= 50 ? (
+                <span>
+                  top{" "}
+                  <span className="font-bold">
+                    {roundValue(data.ratedGamePopularityPercentage, 3)}%
+                  </span>{" "}
+                  in popularity.
+                </span>
+              ) : (
+                <span>
+                  bottom{" "}
+                  <span className="font-bold">
+                    {roundValue(100 - data.ratedGamePopularityPercentage, 3)}%
+                  </span>{" "}
+                  in popularity.
+                </span>
+              )}
+            </p>
+          </div>
           <p>
+            <br />
             <span className="">rating count: </span>
             <span className="font-bold">{ratedGame.rating_count}</span>
           </p>
@@ -92,7 +120,12 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
                 <span className="font-bold"> {data.medianRating} </span>.
                 <br />
                 <br />
+                Votes you gave to other people:
+                <span className="font-bold"> {ratedGame.coolness}</span>
+                <br />
                 <span className="font-bold">Congrats on participating!</span>
+                <br />
+                <br />
               </p>
             ) : (
               <p>
@@ -107,16 +140,18 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
                 <span className="font-bold">{data.medianRating}</span>
                 <br />
                 <br />
+                Votes you gave to other people:
+                <span className="font-bold"> {ratedGame.coolness}</span>
+                <br />
+                <br />
                 <span className="font-bold">
                   Don&apos;t worry! You still have a chance.
                 </span>
+                <br />
+                <br />
               </p>
             )}
           </div>
-          <p>
-            <span className="font-bold">Votes you gave to other people:</span>{" "}
-            {ratedGame.coolness}
-          </p>
           <div>
             {ratedGameResult ? (
               <div>
