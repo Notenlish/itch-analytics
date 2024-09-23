@@ -4,7 +4,7 @@ import JamGraph from "@/ui/JamGraph";
 import FAQ from "@/ui/faq";
 import { JamGraphData } from "@/lib/types";
 import { hour } from "@/lib/types";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata /* ResolvingMetadata */ } from "next";
 
 // gotta move back to csr, smh
 // I dont know what I'm doing with this ISR thing, next.js docs just told me to add these.
@@ -25,7 +25,7 @@ type PageProps = {
 
 export async function generateMetadata(
   { params }: PageProps,
-  parent: ResolvingMetadata
+  parent: any
 ): Promise<Metadata> {
   return {
     alternates: { canonical: `/${params.jamName}/${params.rateID}` },
