@@ -213,7 +213,8 @@ const _getEntryJSON = async (entryJsonLink: string) => {
   // itch.io gives them sorted by popularity by default
 
   // sorted in ascending order
-  const _GamesByRatingNum: ParsedJamGame[] = gamesByPopularity.sort(
+  // I NEED to do [...arr].sort() so that it doesnt mutate the data
+  const _GamesByRatingNum: ParsedJamGame[] = [...gamesByPopularity].sort(
     (a: ParsedJamGame, b: ParsedJamGame) => a.rating_count - b.rating_count
   );
 
@@ -332,9 +333,7 @@ const _analyzeResults = async (
   games: ParsedJamGame[],
   ratedGame: ParsedJamGame
 ) => {
-  // console.log("ASDSADSADAS 11111111111111111")
   // ascending(towards the end team size is bigger)
-  // console.log("LEANASD", results.length)
   const resultsByTeamSize = results.sort((a, b) => a.team_size - b.team_size);
   const arrLength = results.length;
 
@@ -396,8 +395,6 @@ const _analyzeResults = async (
   teamToScorePoints.push(calc(0.975, 0.025));
   teamToScorePoints.push(calc(1.0, 0.025));
 
-  // console.log("ASDSADSADAS 22222222222222222222")
-
   // score ==> x axis  rating count ==> y axis
   const resultsByScore = results.sort((a, b) => a.score - b.score);
   const ratingCountToScorePoints: GraphRatingCountToScorePoint[] = [];
@@ -442,8 +439,6 @@ const _analyzeResults = async (
   ratingCountToScorePoints.push(calc2(0.95, 0.025));
   ratingCountToScorePoints.push(calc2(0.975, 0.025));
   ratingCountToScorePoints.push(calc2(1.0, 0.025));
-
-  // console.log("ASDSADSADAS 3333333333333333")
 
   const gamesByRatingNum = games.sort((a, b) => a.rating_count - b.rating_count);
   // why the same type? well uhh bcuz I dont need to write a new type and why not lol
@@ -501,8 +496,6 @@ const _analyzeResults = async (
 
   const ratedGameResult = results.find((r) => r.title == ratedGame.game.title);
 
-  // console.log("ASDSADSADAS 999999999999999999")
-
   return {
     teamToScorePoints,
     ratingCountToScorePoints,
@@ -528,7 +521,6 @@ const _analyzeJam = async (
 ) => {
   const resultsJsonLink = entryJsonLink.replace("entries.json", "results.json");
   const _inp = (await getEntryJSON(entryJsonLink)) as Buffer;
-  // console.log("HAAHHAHAHAHHA 1111111111")
   let results;
   const _inp_result = (await getResultsJson(resultsJsonLink)) as Buffer;
 
@@ -550,23 +542,15 @@ const _analyzeJam = async (
     PlatformPieData,
   } = (await decompressJson(_inp)) as JsonEntryData;
 
-  // console.log("HAAHHAHAHAHHA 22222222222222222")
-
   const wordCloud = await scrapeGameRatingPage(rateLink);
-
-  // console.log("HAAHHAHAHAHHA 33333333333333")
 
   // de-minify games bcuz next cache size
   const games = minifiedGames.map((e) => deMinifyGame(e));
 
-  // console.log("HAAHHAHAHAHHA 4444444444444444")
-
-  // avg score by
-
   const { _ratedGame, ratedGamePopularity } = await _getGameFromGames(games, rateLink);
 
   const ratedGamePopularityRank = ratedGamePopularity;
-  const ratedGamePopularityPercentage = ratedGamePopularity / games.length * 100;
+  const ratedGamePopularityPercentage = (ratedGamePopularity / games.length) * 100;
 
   // if for some reason the calculations get fucked, I can just sort the games variable by rating count
   // lets just try without sorting
@@ -658,6 +642,7 @@ const _getGameFromGames = (games: ParsedJamGame[], rateLink: string) => {
   const _ratedGame = games.find((obj, index) => {
     const absUrl = `https://itch.io${obj.url}`;
     if (absUrl == rateLink) {
+      // humans start at 1 for ranking, but that messes with the computations so do it at ssr(or csr if I have changed to that)
       ratedGamePopularity = index;
       return true;
     }

@@ -75,7 +75,8 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
             <p>
               Your game ranked{" "}
               <span className="font-bold">
-                {rankingTextInt(data.ratedGamePopularityRank)}
+                {/* Humans start at 1 for ranking. */}
+                {rankingTextInt(data.ratedGamePopularityRank + 1)}
               </span>{" "}
               in popularity. Thats{" "}
               {data.ratedGamePopularityPercentage <= 50 ? (
