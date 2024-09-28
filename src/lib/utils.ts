@@ -37,6 +37,9 @@ var meta = {
 // and just use this regex pattern (would need to convert to js, thats for python)
 // ` re.sub(r'[^ \w+]', '', some_string) `
 
+// Quinten told me this should work:
+// ` const words = str.matchAll(/([A-Z])\w+/gi).map(e=>e.toLowerCase()) `
+
 export function UTF8AsASCII(string: string) {
   // Replace non-breaking spaces (\u00a0) with regular spaces (\x20)
   string = string.replace(/\u00a0/g, " ");
