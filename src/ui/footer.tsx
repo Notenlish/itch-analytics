@@ -9,7 +9,15 @@ export default function Footer() {
         rel="noopener noreferrer"
         href="https://notenlish.vercel.app/">
         Notenlish
-      </a>
+      </a>{" "}
+      -{" "}
+      <span className="text-lg font-normal">
+        You can check out{" "}
+        <a className="text-green-600 font-bold" href="https://discord.gg/AsQChfzBuF">
+          Jamlytics
+        </a>{" "}
+        by Quinten too!
+      </span>
     </footer>
   );
 }

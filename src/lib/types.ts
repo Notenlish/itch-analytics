@@ -13,7 +13,7 @@ export let month = day * 30;
 export let year = day * 365;
 
 if (process.env.NEXT_PUBLIC_IS_DEV) {
-  const v = 1;
+  const v = 9999;
   minute = v;
   hour = v;
   halfHour = v;

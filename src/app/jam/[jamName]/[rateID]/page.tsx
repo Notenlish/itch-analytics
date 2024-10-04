@@ -92,13 +92,14 @@ export default async function Home({ params }: PageProps) {
 
       <FAQ items={items}></FAQ>
 
-      <p className="text-lg font-normal">
-        Don&apos;t forget to check out{" "}
-        <a className="text-blue-500 font-bold" href="https://discord.gg/AsQChfzBuF">
-          Jamlytics
-        </a>{" "}
-        by Quinten too!
-      </p>
+      <div className="text-lg">
+        Gaza is starving, you can donate to help them here:{" "}
+        <a
+          className=" inline text-blue-500 font-bold"
+          href="https://www.islamic-relief.org.uk/giving/appeals/palestine/">
+          Donate To Gaza
+        </a>
+      </div>
     </main>
   );
 }
