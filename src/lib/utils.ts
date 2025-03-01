@@ -33,7 +33,7 @@ var meta = {
   "\\": "\\\\",
 };
 
-// I could just ignore all of these weird shit
+// I could just ignore all of this weird stuff
 // and just use this regex pattern (would need to convert to js, thats for python)
 // ` re.sub(r'[^ \w+]', '', some_string) `
 
@@ -240,6 +240,7 @@ export const calculatePointsIntervals = (
   points.push(calc(0.99, 0.005));
   points.push(calc(0.995, 0.005));
   points.push(calc(1.0, 0.005));
+  // this is a dumb way of doing it
   return points;
 };
 
@@ -341,6 +342,9 @@ export const getAdjustmentDropText = (median: number, rating_count: number) => {
 };
 
 export const parseGame = (obj: RawJamGame) => {
+  // need to get around the 2mb cache limit
+  // or you know, rent an actual server and use py + ts and fix the whole entire thing
+  // I dont have enough time for that.
   delete obj.id;
   delete obj.game.id;
   delete obj.game.user;

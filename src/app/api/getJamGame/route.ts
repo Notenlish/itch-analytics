@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { scrapeJamJSONLink, analyzeAll } from "@/lib/data";
-import { addUrl } from "@/lib/db";
+import { addUrl as addUrlToDB } from "@/lib/db";
 
 type GetJamPageFormData = {
   ratelink: string;
@@ -33,25 +33,22 @@ export async function GET(request: Request) {
   if (!ratelink || !entrieslink) {
     return NextResponse.json({ error: "Invalid link" }, { status: 400 });
   }
-  // console.log(entrieslink, ratelink)
+
   const { json_url, jamTitle, gameTitle, color, optionsData } = await scrapeJamJSONLink(
     entrieslink,
     ratelink
   );
-  // console.log(json_url, jamTitle)
   const _out = await analyzeAll(json_url, ratelink, jamTitle, gameTitle, optionsData);
   const out = { color, ..._out };
 
-  // reconstructing url in api
-  // sounds like a good idea, what could go wrong.
   const url = `/jam/${jamName}/${rateID}`;
-  // why am I not checking if its localhost :cry:
+
   if (!process.env.NEXT_PUBLIC_IS_DEV) {
-    // not running in localhost, so add url.
-    addUrl(url);
+    // not running in dev, so add url to db.
+    addUrlToDB(url);
   }
 
-  // probably this isnt the correct way
+  // not sure if its the right way
   const headers = new Headers();
   headers.set("Cache-Control", "no-cache");
 

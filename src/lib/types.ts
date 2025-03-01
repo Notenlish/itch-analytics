@@ -13,7 +13,7 @@ export let month = day * 30;
 export let year = day * 365;
 
 if (process.env.NEXT_PUBLIC_IS_DEV) {
-  const v = 9999;
+  const v = 5;
   minute = v;
   hour = v;
   halfHour = v;
@@ -21,7 +21,7 @@ if (process.env.NEXT_PUBLIC_IS_DEV) {
   week = v;
   month = v;
   year = v;
-  console.log("RESET CACHE TIMERS TO 5 SECOND BECAUSE DEVELOPER MODE.");
+  console.log("RESET CACHE TIMERS TO 5 SECONDS BECAUSE DEVELOPER MODE.");
 }
 
 // jam games with some useless data.

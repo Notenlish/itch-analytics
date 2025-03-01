@@ -114,9 +114,8 @@ const _scrapeJamJSONLink = async (entrieslink: string, rateLink: string) => {
   // if it is over, theres no "rate" word
   // although a game name could potentially include the word rate
   // I gotta be careful about that to see if the jam is still active
-  // I can use this to see if jam active
   // we cant use this to see if jam active, even if I do .startswith someone could just have a game starting with 'rate this game'
-  // aka, gotta fetch results.json :sad:
+  // aka, gotta fetch results.json
   if (_gametitle.includes("rate")) {
     _gametitle = _gametitle.split("rate")[1].trim();
   }
@@ -147,19 +146,6 @@ export const scrapeJamJSONLink = cache(
     revalidate: halfHour, // seconds
   }
 );
-// what is this function :skull:
-// https://itch.io/jam/379683/entries.json
-const _getRatings = async (entryJsonLink: string) => {
-  const response = await axios.get(entryJsonLink);
-  const data: RawJamGame[] = response.data;
-
-  return data.map((e) => e.rating_count);
-};
-const getRatings = 1; // = cache(()=>{})
-
-const _scrapeNormalGamePage = async (gameLink: string) => {
-  // not possible, I'd need to store game urls too.
-};
 
 const _scrapeGameRatingPage = async (rateLink: string) => {
   const response = await axios.get(rateLink);
@@ -213,7 +199,7 @@ const _getEntryJSON = async (entryJsonLink: string) => {
   // itch.io gives them sorted by popularity by default
 
   // sorted in ascending order
-  // I NEED to do [...arr].sort() so that it doesnt mutate the data
+  // do [...arr].sort() so data doesnt get mutated.
   const _GamesByRatingNum: ParsedJamGame[] = [...gamesByPopularity].sort(
     (a: ParsedJamGame, b: ParsedJamGame) => a.rating_count - b.rating_count
   );
@@ -300,7 +286,7 @@ const getEntryJSON = cache(
   }
 );
 
-// results dont change after jam ends and theyre released once: aka cache that boi
+// results dont change after jam ends and theyre released once: aka cache that
 /**
  * Must be called only if the jam has ended
  * @param {string} resultsJsonLink
@@ -309,12 +295,10 @@ const getEntryJSON = cache(
 const _getResultsJson = async (resultsJsonLink: string) => {
   try {
     const response = await axios.get(resultsJsonLink);
-    // jam has, in fact, ended
+    // jam has ended
     const data: RawGameResult[] = response.data["results"];
     return compressJson(data.map((e) => minifyGameResult(parseGameResult(e))));
   } catch (e) {
-    // 404
-    console.log("Probably 404?");
     console.error(e);
     return null;
   }
@@ -375,6 +359,7 @@ const _analyzeResults = async (
       rawScore: avgRawScore,
       ranking: avgRank,
       // todo: fix this
+      // fix what?
       name: `${result.team_size}`,
     } as GraphTeamToScorePoint;
     return obj;
@@ -384,16 +369,10 @@ const _analyzeResults = async (
     const point = calc(index, stepSize);
     teamToScorePoints.push(point);
   }
-  // wow, no for loop, how expressive
-  // too lazy, too bad
-  teamToScorePoints.push(calc(0.825, 0.025));
-  teamToScorePoints.push(calc(0.85, 0.025));
-  teamToScorePoints.push(calc(0.875, 0.025));
-  teamToScorePoints.push(calc(0.9, 0.025));
-  teamToScorePoints.push(calc(0.925, 0.025));
-  teamToScorePoints.push(calc(0.95, 0.025));
-  teamToScorePoints.push(calc(0.975, 0.025));
-  teamToScorePoints.push(calc(1.0, 0.025));
+
+  for (let i = 0.825; i < 1.0; i += 0.025) {
+    teamToScorePoints.push(calc(i, 0.025));
+  }
 
   // score ==> x axis  rating count ==> y axis
   const resultsByScore = results.sort((a, b) => a.score - b.score);
@@ -431,14 +410,9 @@ const _analyzeResults = async (
     const point = calc2(index, stepSize);
     ratingCountToScorePoints.push(point);
   }
-  ratingCountToScorePoints.push(calc2(0.825, 0.025));
-  ratingCountToScorePoints.push(calc2(0.85, 0.025));
-  ratingCountToScorePoints.push(calc2(0.875, 0.025));
-  ratingCountToScorePoints.push(calc2(0.9, 0.025));
-  ratingCountToScorePoints.push(calc2(0.925, 0.025));
-  ratingCountToScorePoints.push(calc2(0.95, 0.025));
-  ratingCountToScorePoints.push(calc2(0.975, 0.025));
-  ratingCountToScorePoints.push(calc2(1.0, 0.025));
+  for (let i = 0.825; i < 1.0; i += 0.025) {
+    ratingCountToScorePoints.push(calc2(i, 0.025));
+  }
 
   const gamesByRatingNum = games.sort((a, b) => a.rating_count - b.rating_count);
   // why the same type? well uhh bcuz I dont need to write a new type and why not lol
@@ -485,15 +459,10 @@ const _analyzeResults = async (
     const point = calc3(index, stepSize);
     scoreToRatingNumPoints.push(point);
   }
-  scoreToRatingNumPoints.push(calc3(0.825, 0.025));
-  scoreToRatingNumPoints.push(calc3(0.85, 0.025));
-  scoreToRatingNumPoints.push(calc3(0.875, 0.025));
-  scoreToRatingNumPoints.push(calc3(0.9, 0.025));
-  scoreToRatingNumPoints.push(calc3(0.925, 0.025));
-  scoreToRatingNumPoints.push(calc3(0.95, 0.025));
-  scoreToRatingNumPoints.push(calc3(0.975, 0.025));
-  scoreToRatingNumPoints.push(calc3(1.0, 0.025));
 
+  for (let i = 0.825; i < 1.0; i += 0.025) {
+    scoreToRatingNumPoints.push(calc3(i, 0.025));
+  }
   const ratedGameResult = results.find((r) => r.title == ratedGame.game.title);
 
   return {
@@ -552,7 +521,7 @@ const _analyzeJam = async (
   const ratedGamePopularityRank = ratedGamePopularity;
   const ratedGamePopularityPercentage = (ratedGamePopularity / games.length) * 100;
 
-  // if for some reason the calculations get fucked, I can just sort the games variable by rating count
+  // if for some reason the calculations get broken, I can just sort the 'games' variable by rating count
   // lets just try without sorting
 
   const ratedGame = parseGame(_ratedGame);
@@ -589,10 +558,13 @@ const _analyzeJam = async (
 
   // todo: fix variable names for coolness/karma
   // calculation formula from: https://itch.io/t/4046566/what-exactly-is-karma-coolness-in-gamejams
+  // so basically, the 'coolness' from the api is just max(votes_given - disqualified_votes)
+  // karma is calculated as Math.log(1 + coolness) - log(1 + votes_received) / log(5)
   const votes_given = ratedGame.coolness;
+  const votes_received = ratedGame.rating_count;
   const actualCoolness = ratedGame.coolness;
   const actualKarma =
-    Math.log(1 + ratedGame.coolness) - Math.log(1 + ratedGame.rating_count) / Math.log(5);
+    Math.log(1 + votes_given) - Math.log(1 + votes_received) / Math.log(5);
 
   const out = {
     responsesChart,
