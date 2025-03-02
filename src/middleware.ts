@@ -10,8 +10,6 @@ export async function middleware(req: NextRequest) {
     }
   })();
 
-  const headers = Object.fromEntries(req.headers);
-
   const method = req.method;
 
   // check if request matches ruleset.
@@ -21,14 +19,14 @@ export async function middleware(req: NextRequest) {
     // Check if any header matches a blocked value
     for (const [key, blockedValues] of Object.entries(rules.headers || {})) {
       const headerValue = req.headers.get(key) || "UNKNOWN";
-      console.log(
-        `Key: ${key} -|- headerValue: ${headerValue} -|- blockedValues: ${blockedValues}`
-      );
+      // console.log(
+      //   `Key: ${key} -|- headerValue: ${headerValue} -|- blockedValues: ${blockedValues}`
+      // );
+
       // @ts-ignore
       if (blockedValues.includes(headerValue)) return true;
     }
 
-    // Check if IP is in the blocked range
     if (req.ip && rules.ip_ranges) {
       // @ts-ignore
       if (rules.ip_ranges.some((range) => req.ip.startsWith(range.split(".")[0]))) {
@@ -39,11 +37,9 @@ export async function middleware(req: NextRequest) {
     return false;
   })();
 
-  // console.log("shouldBlock:", shouldBlock);
 
   if (shouldBlock) {
     if (rules.method?.strict_block.includes(method)) {
-      // Strict block for POST, PUT, DELETE → Return 503
       console.log("503 - Blocked");
       await delay(1000 + Math.random() * 2000);
       return NextResponse.json({ message: "Service Unavailable" }, { status: 503 });
@@ -74,30 +70,6 @@ export async function middleware(req: NextRequest) {
 
   return NextResponse.next();
 }
-// @ts-ignore
-function matchesRules(requestData, ruleSet) {
-  return Object.keys(ruleSet).some((key) => {
-    // @ts-ignore
-    return ruleSet[key].some((value) =>
-      requestData[key]?.toLowerCase().includes(value.toLowerCase())
-    );
-  });
-}
-
-// @ts-ignore
-function matchesIP(ip, blockedRanges) {
-  if (!ip) return false;
-  // @ts-ignore
-  return blockedRanges.some((range) => ip.startsWith(range.split(".")[0]));
-}
-
-// @ts-ignore
-function matchesCookies(req, blockedCookies) {
-  const cookieHeader = req.headers.get("cookie") || "";
-  // @ts-ignore
-  return blockedCookies.some((cookie) => cookieHeader.includes(cookie));
-}
-
 function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
