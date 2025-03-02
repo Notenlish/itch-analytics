@@ -26,8 +26,8 @@ export async function GET(request: Request) {
   }
   jamName = jamName?.split("?")[0]; // get rid of the ?random=1231251.15133 part
 
+  // I assume this was to make the code not use the cache?? or something?? idk.
   const random = searchParams.get("random") || null;
-
   console.log(`Got random with: ${random}`);
 
   if (!ratelink || !entrieslink) {
@@ -48,7 +48,7 @@ export async function GET(request: Request) {
     addUrlToDB(url);
   }
 
-  // not sure if its the right way
+  // Use the past content, but always check with the server to get the most up-to-date data.
   const headers = new Headers();
   headers.set("Cache-Control", "no-cache");
 
