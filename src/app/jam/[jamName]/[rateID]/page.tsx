@@ -97,7 +97,7 @@ export default async function Home({ params }: PageProps) {
       <FAQ items={items}></FAQ>
 
       <div className="text-lg">
-        Gaza is starving, you can donate to help them here:{" "}
+        Gaza is starving in the genocide, you can donate to help them here:{" "}
         <a
           className=" inline text-blue-500 font-bold"
           href="https://www.islamic-relief.org.uk/giving/appeals/palestine/">
