@@ -4,7 +4,7 @@ import githubSVG from "@/../public/github.svg";
 
 export default function Footer() {
   return (
-    <footer className="text-center pt-6 pb-4 text-lg flex gap-2 items-center justify-center">
+    <footer className="text-center pt-6 pb-4 px-4 text-lg flex gap-2 flex-wrap items-center justify-center">
       Made by{" "}
       <a
         className="text-amber-500 font-semibold"
