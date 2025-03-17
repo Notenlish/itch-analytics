@@ -74,8 +74,9 @@ export default async function Home({ params }: PageProps) {
     },
     {
       title: "How is coolness and karma calculated?",
-      content: "Coolness is calculated with: max(votes_given - disqualified_votes) of each contributor related to the project. karma is calculated with: log(1 + coolness) - (log(1 + votes_received) / log(5)) source: https://itch.io/t/4046566/what-exactly-is-karma-coolness-in-gamejams"
-    }
+      content:
+        "Coolness is calculated with: max(votes_given - disqualified_votes) of each contributor related to the project. karma is calculated with: log(1 + coolness) - (log(1 + votes_received) / log(5)) source: https://itch.io/t/4046566/what-exactly-is-karma-coolness-in-gamejams",
+    },
   ];
 
   return (

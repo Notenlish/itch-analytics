@@ -1,4 +1,4 @@
-import { Metadata, /* ResolvingMetadata */ } from "next";
+import { Metadata /* ResolvingMetadata */ } from "next";
 import { poppins } from "./font";
 import "./globals.css";
 import { TypographyH2 } from "@/ui/typography";
@@ -16,7 +16,7 @@ export async function generateMetadata(parent: any): Promise<Metadata> {
     metadataBase: new URL(process.env.BASE_URL as string),
     alternates: { canonical: "/" },
     openGraph: {
-      images: ["/og-thumbnail.webp"],
+      images: ["/og-thumbnail.png"],
     },
   };
 }
