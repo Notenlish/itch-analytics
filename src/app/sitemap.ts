@@ -35,6 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     */
   ];
 
+  /*
   // Add URLs from the database
   data.forEach((obj) => {
     const escapedUrl = obj.url.replace(/&/g, "&amp;");
@@ -45,6 +46,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
     });
   });
+  */
 
   // Format URLs and return
   const out = urls.map((obj) => {
