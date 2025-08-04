@@ -339,7 +339,7 @@ class Extractor:
         for obj in data["results"]:
             print(f"working on results for {obj['title']}")
             print(
-                f"the friggen jamgame id is type: {type(obj["id"])} and value: {obj["id"]}"
+                f"the friggen jamgame id is type: {type(obj['id'])} and value: {obj['id']}"
             )
             statement = select(JamGame).where(
                 (JamGame.game_id == obj["id"]) & (JamGame.url == obj["url"])

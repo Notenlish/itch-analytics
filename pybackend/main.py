@@ -37,7 +37,9 @@ def long_scrape_jam_task(
     extractor.find_entries_json(url, session)
 
 
-app = FastAPI(lifespan=lifespan)
+app = FastAPI(
+    lifespan=lifespan,
+)
 
 
 @app.post("/api/get-jam")
