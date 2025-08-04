@@ -1,0 +1,6 @@
+pydantic
+requests
+sqlmodel
+beautifulsoup4
+fastapi
+uvicorn

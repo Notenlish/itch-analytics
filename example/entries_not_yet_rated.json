@@ -1,0 +1,2927 @@
+{
+  "jam_games": [
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Evading rules",
+        "user": {
+          "id": 9819389,
+          "url": "https:\/\/ninabirb.itch.io",
+          "name": "NinaBirb"
+        },
+        "platforms": ["web"],
+        "title": "Loopholes",
+        "id": 3766272,
+        "url": "https:\/\/ninabirb.itch.io\/loopholes",
+        "cover_color": "#c96060",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDE3MjYwLnBuZw==\/300x240%23c\/Z6jlNY.png"
+      },
+      "coolness": 0,
+      "id": 730362,
+      "url": "\/jam\/gmtk-2025\/rate\/3766272",
+      "created_at": "2025-07-31 06:57:11"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Chase Yourself, Find Freedom",
+        "user": {
+          "id": 7087007,
+          "url": "https:\/\/soshingames.itch.io",
+          "name": "Soshin Games"
+        },
+        "platforms": ["web"],
+        "title": "Iterate101",
+        "id": 3766341,
+        "url": "https:\/\/soshingames.itch.io\/iterate101",
+        "cover_color": "#22202f",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDE3NTY2LmpwZw==\/300x240%23c\/lo1wHC.jpg"
+      },
+      "coolness": 0,
+      "id": 730402,
+      "url": "\/jam\/gmtk-2025\/rate\/3766341",
+      "created_at": "2025-07-31 07:55:17"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "cover_color": "#1e0000",
+        "title": "Aegros",
+        "id": 3764334,
+        "url": "https:\/\/gaborvagyok03.itch.io\/aegros",
+        "user": {
+          "id": 1456262,
+          "url": "https:\/\/gaborvagyok03.itch.io",
+          "name": "gaborvagyok03"
+        },
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDA3MjY5LnBuZw==\/300x240%23c\/iPAlQ9.png"
+      },
+      "coolness": 0,
+      "id": 729904,
+      "url": "\/jam\/gmtk-2025\/rate\/3764334",
+      "created_at": "2025-07-30 17:20:39"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "i made this in like 20 minutes",
+        "user": {
+          "id": 8548758,
+          "url": "https:\/\/gamemakerguy.itch.io",
+          "name": "GameMakerGuy"
+        },
+        "platforms": ["web"],
+        "title": "Quite Possibly The Worst Racing Game Known To Man",
+        "id": 3764994,
+        "url": "https:\/\/gamemakerguy.itch.io\/quite-possibly-the-worst-racing-game-known-to-man",
+        "cover_color": "#000000",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDEwMTc2LnBuZw==\/300x240%23c\/I22roo.png"
+      },
+      "coolness": 0,
+      "id": 730023,
+      "url": "\/jam\/gmtk-2025\/rate\/3764994",
+      "created_at": "2025-07-30 20:34:47"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "The worlds most basic game!",
+        "user": {
+          "id": 5073777,
+          "url": "https:\/\/fageltomten.itch.io",
+          "name": "FagelTomten"
+        },
+        "platforms": ["web"],
+        "title": "Coloup",
+        "id": 3764567,
+        "url": "https:\/\/fageltomten.itch.io\/coloup",
+        "cover_color": "#f8f8f8",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDEwNTAzLmpwZw==\/300x240%23c\/cQ6SeE.jpg"
+      },
+      "coolness": 0,
+      "contributors": [
+        { "name": "FagelTomten", "url": "https:\/\/fageltomten.itch.io" },
+        { "name": "Smalandaren", "url": "https:\/\/smalandaren.itch.io" }
+      ],
+      "url": "\/jam\/gmtk-2025\/rate\/3764567",
+      "created_at": "2025-07-30 21:13:24",
+      "id": 730042
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "*Not furry paws btw*",
+        "user": {
+          "id": 4867324,
+          "url": "https:\/\/novadigitaldev.itch.io",
+          "name": "NovaDev"
+        },
+        "platforms": ["web"],
+        "title": "Fury Paws",
+        "id": 3691628,
+        "url": "https:\/\/novadigitaldev.itch.io\/fury-paws",
+        "cover_color": "#ffffff",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDA3OTY0LnBuZw==\/300x240%23c\/r6Jzyi.png"
+      },
+      "coolness": 0,
+      "id": 729924,
+      "url": "\/jam\/gmtk-2025\/rate\/3691628",
+      "created_at": "2025-07-30 17:58:08"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Console based incremental game about trains.",
+        "user": {
+          "id": 585325,
+          "url": "https:\/\/jorbits.itch.io",
+          "name": "JOrbits"
+        },
+        "platforms": ["web"],
+        "title": "Exponential Locomotion",
+        "id": 3767253,
+        "url": "https:\/\/jorbits.itch.io\/exponential-locomotion",
+        "cover_color": "#28282e",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDIyNDUxLnBuZw==\/300x240%23c\/z8ACVO.png"
+      },
+      "coolness": 0,
+      "id": 730755,
+      "url": "\/jam\/gmtk-2025\/rate\/3767253",
+      "created_at": "2025-07-31 14:32:24"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "VERY SIMPLE loop game",
+        "user": {
+          "id": 12836337,
+          "url": "https:\/\/mrholdendev.itch.io",
+          "name": "MrholdenDev"
+        },
+        "platforms": ["windows"],
+        "title": "LoopRunner",
+        "id": 3765105,
+        "url": "https:\/\/mrholdendev.itch.io\/looprunner",
+        "cover_color": "#4ef700",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDEwODQzLnBuZw==\/300x240%23c\/zJqz%2FM.png"
+      },
+      "coolness": 0,
+      "id": 730048,
+      "url": "\/jam\/gmtk-2025\/rate\/3765105",
+      "created_at": "2025-07-30 21:21:01"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Shoot loops at loops by drawing loops in this absolutely loopy game!",
+        "user": {
+          "id": 6508007,
+          "url": "https:\/\/tylergoodman.itch.io",
+          "name": "Ast*risk"
+        },
+        "title": "Loop Lancer",
+        "id": 3766183,
+        "url": "https:\/\/tylergoodman.itch.io\/looplancer",
+        "cover_color": "#3d2d50",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDE3MzQ0LnBuZw==\/300x240%23c\/d8gBxT.png"
+      },
+      "coolness": 0,
+      "id": 730364,
+      "url": "\/jam\/gmtk-2025\/rate\/3766183",
+      "created_at": "2025-07-31 06:59:20"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "it's free!",
+        "user": {
+          "id": 10041461,
+          "url": "https:\/\/estebanesteban.itch.io",
+          "name": "estebanesteban"
+        },
+        "platforms": ["windows"],
+        "title": "my memory of freedom",
+        "id": 3764397,
+        "url": "https:\/\/estebanesteban.itch.io\/mymemorytakingshape",
+        "cover_color": "#000000",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDA4MTg0LnBuZw==\/300x240%23c\/AjJaqs.png"
+      },
+      "coolness": 0,
+      "id": 730025,
+      "url": "\/jam\/gmtk-2025\/rate\/3764397",
+      "created_at": "2025-07-30 20:36:33"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "cover_color": "#00191e",
+        "platforms": ["web"],
+        "title": "Day After Loop",
+        "id": 3764865,
+        "url": "https:\/\/astravorix.itch.io\/day-after-loop",
+        "user": {
+          "id": 10125148,
+          "url": "https:\/\/astravorix.itch.io",
+          "name": "astravorix"
+        },
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDA5NjA3LnBuZw==\/300x240%23c\/Cr1m0A.png"
+      },
+      "coolness": 0,
+      "id": 730525,
+      "url": "\/jam\/gmtk-2025\/rate\/3764865",
+      "created_at": "2025-07-31 11:21:45"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "cover_color": "#eeeeee",
+        "title": "looop racer",
+        "id": 3766647,
+        "url": "https:\/\/teddy131313.itch.io\/looop-racer",
+        "user": {
+          "id": 14445476,
+          "url": "https:\/\/teddy131313.itch.io",
+          "name": "teddy131313"
+        },
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDE5NDAxLnBuZw==\/300x240%23c\/ax3sXS.png"
+      },
+      "coolness": 0,
+      "id": 730485,
+      "url": "\/jam\/gmtk-2025\/rate\/3766647",
+      "created_at": "2025-07-31 10:40:25"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Get the ball all the way to the Green Point!",
+        "user": {
+          "id": 13754041,
+          "url": "https:\/\/evertonfirmeza.itch.io",
+          "name": "Everton Firmeza"
+        },
+        "platforms": ["windows"],
+        "title": "MÖBIUS",
+        "id": 3765871,
+        "url": "https:\/\/evertonfirmeza.itch.io\/mobius",
+        "cover_color": "#000000",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDE1MTA0LnBuZw==\/300x240%23c\/4bCI1E.png"
+      },
+      "coolness": 0,
+      "id": 730488,
+      "url": "\/jam\/gmtk-2025\/rate\/3765871",
+      "created_at": "2025-07-31 10:42:41"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Circuit racing with a deadly twist",
+        "user": {
+          "id": 10296421,
+          "url": "https:\/\/allusionsent.itch.io",
+          "name": "AllusionsEnt"
+        },
+        "title": "Super Xtreme Racing",
+        "id": 3342447,
+        "url": "https:\/\/allusionsent.itch.io\/game-jam-xtreme-racing",
+        "cover_color": "#131e3d",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIwMTU5Njk1LnBuZw==\/300x240%23c\/c%2Blbwe.png"
+      },
+      "coolness": 0,
+      "id": 729920,
+      "url": "\/jam\/gmtk-2025\/rate\/3342447",
+      "created_at": "2025-07-30 17:47:01"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "a short dropper inspired game made in scratch for the GMTK GameJam 2025",
+        "user": {
+          "id": 14457081,
+          "url": "https:\/\/chipneedssleep.itch.io",
+          "name": "ChipNeedsSleep"
+        },
+        "platforms": ["windows", "osx", "linux", "web"],
+        "title": "Astro-leaf:prepare for drop",
+        "id": 3764872,
+        "url": "https:\/\/chipneedssleep.itch.io\/astro-leafprepare-for-drop",
+        "cover_color": "#eeeeee",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDA5NjU4LnBuZw==\/300x240%23c\/LMb5aK.png"
+      },
+      "coolness": 0,
+      "id": 730002,
+      "url": "\/jam\/gmtk-2025\/rate\/3764872",
+      "created_at": "2025-07-30 20:08:38"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "You are a parachuter trying to avoid obstacles as you fall through the infinite loopingsky.",
+        "user": {
+          "id": 13921537,
+          "url": "https:\/\/code-comet.itch.io",
+          "name": "Code Comet"
+        },
+        "title": "Parachute Panic!",
+        "id": 3664854,
+        "url": "https:\/\/code-comet.itch.io\/parachute-panic",
+        "platforms": ["web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIxODA4MTM4LnBuZw==\/300x240%23c\/hD9xzy.png"
+      },
+      "coolness": 0,
+      "id": 729961,
+      "url": "\/jam\/gmtk-2025\/rate\/3664854",
+      "created_at": "2025-07-30 18:53:39"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Loop tracks to pickup passengers!",
+        "user": {
+          "id": 6050870,
+          "url": "https:\/\/adumbpineapple.itch.io",
+          "name": "ADumbPineapple"
+        },
+        "title": "Passenger Pickup",
+        "id": 3766331,
+        "url": "https:\/\/adumbpineapple.itch.io\/passenger-pickup",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDE3NDE2LnBuZw==\/300x240%23c\/wNjcRH.png"
+      },
+      "coolness": 0,
+      "id": 730389,
+      "url": "\/jam\/gmtk-2025\/rate\/3766331",
+      "created_at": "2025-07-31 07:31:22"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Project for the GMTK 2025",
+        "user": {
+          "id": 10634492,
+          "url": "https:\/\/phrbmr.itch.io",
+          "name": "phrbmr"
+        },
+        "title": "LoopooL",
+        "id": 3764070,
+        "url": "https:\/\/phrbmr.itch.io\/gmtk25",
+        "platforms": ["web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDE1NDEzLnBuZw==\/300x240%23c\/OhJjMu.png"
+      },
+      "coolness": 0,
+      "id": 729970,
+      "url": "\/jam\/gmtk-2025\/rate\/3764070",
+      "created_at": "2025-07-30 19:08:33"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "A puzzle game about Time Inversion",
+        "user": {
+          "id": 6131468,
+          "url": "https:\/\/studioz-yt.itch.io",
+          "name": "Studioz YT"
+        },
+        "platforms": ["windows"],
+        "title": "Inversion",
+        "id": 3694296,
+        "url": "https:\/\/studioz-yt.itch.io\/inversion",
+        "cover_color": "#fe2a16",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIxOTg1NDg1LnBuZw==\/300x240%23c\/ECWYhx.png"
+      },
+      "coolness": 0,
+      "id": 729977,
+      "url": "\/jam\/gmtk-2025\/rate\/3694296",
+      "created_at": "2025-07-30 19:19:55"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "cover_color": "#b88585",
+        "platforms": ["windows", "web"],
+        "title": "Dodge",
+        "id": 3765551,
+        "url": "https:\/\/niltonfirmo71.itch.io\/dodge",
+        "user": {
+          "id": 11672866,
+          "url": "https:\/\/niltonfirmo71.itch.io",
+          "name": "niltonfirmo71"
+        },
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDEzNDU1LnBuZw==\/300x240%23c\/SXvare.png"
+      },
+      "coolness": 0,
+      "id": 730150,
+      "url": "\/jam\/gmtk-2025\/rate\/3765551",
+      "created_at": "2025-07-31 00:21:40"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Short automation game",
+        "user": {
+          "id": 4542055,
+          "url": "https:\/\/carrothead.itch.io",
+          "name": "CarrotHead"
+        },
+        "platforms": ["web"],
+        "title": "Warfabricator",
+        "id": 3766511,
+        "url": "https:\/\/carrothead.itch.io\/warfabricator",
+        "cover_color": "#4f6781",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDE4Nzg2LnBuZw==\/300x240%23c\/SfVRwz.png"
+      },
+      "coolness": 0,
+      "contributors": [
+        { "name": "CarrotHead", "url": "https:\/\/carrothead.itch.io" },
+        { "name": "ajkrooneman", "url": "https:\/\/ajkrooneman.itch.io" }
+      ],
+      "url": "\/jam\/gmtk-2025\/rate\/3766511",
+      "created_at": "2025-07-31 09:13:55",
+      "id": 730443
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "How long can you survive?",
+        "user": {
+          "id": 14459426,
+          "url": "https:\/\/jobot333.itch.io",
+          "name": "Jobot333"
+        },
+        "platforms": ["web"],
+        "title": "WizBoy Survival",
+        "id": 3764939,
+        "url": "https:\/\/jobot333.itch.io\/wizboy-survival",
+        "cover_color": "#404240",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDEwMzczLmpwZw==\/300x240%23c\/l%2B2WbJ.jpg"
+      },
+      "coolness": 0,
+      "id": 730171,
+      "url": "\/jam\/gmtk-2025\/rate\/3764939",
+      "created_at": "2025-07-31 01:02:12"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 4546920,
+          "url": "https:\/\/indie-games-for-life.itch.io",
+          "name": "Indie Games For life"
+        },
+        "title": "loop",
+        "id": 3765890,
+        "url": "https:\/\/indie-games-for-life.itch.io\/loop",
+        "platforms": ["web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDE1MjQxLnBuZw==\/300x240%23c\/DeC1jG.png"
+      },
+      "coolness": 0,
+      "id": 730237,
+      "url": "\/jam\/gmtk-2025\/rate\/3765890",
+      "created_at": "2025-07-31 03:07:31"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Submission for the GMTK Game Jam 2025",
+        "user": {
+          "id": 4174982,
+          "url": "https:\/\/jordansmithsgames.itch.io",
+          "name": "jordansmithsgames"
+        },
+        "title": "Cyclus",
+        "id": 3763829,
+        "url": "https:\/\/jordansmithsgames.itch.io\/cyclus",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "contributors": [
+        {
+          "name": "jordansmithsgames",
+          "url": "https:\/\/jordansmithsgames.itch.io"
+        },
+        { "name": "Johnny Delgado", "url": "https:\/\/johndelgado.itch.io" }
+      ],
+      "url": "\/jam\/gmtk-2025\/rate\/3763829",
+      "created_at": "2025-07-30 19:25:32",
+      "id": 729981
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Loop - Words in the loop",
+        "user": {
+          "id": 13611392,
+          "url": "https:\/\/lostwords.itch.io",
+          "name": "lostwords"
+        },
+        "platforms": ["web"],
+        "title": "Loop",
+        "id": 3765887,
+        "url": "https:\/\/lostwords.itch.io\/loop",
+        "cover_color": "#f1d5d5",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI0NTUwLnBuZw==\/300x240%23c\/wy1ilN.png"
+      },
+      "coolness": 0,
+      "id": 730490,
+      "url": "\/jam\/gmtk-2025\/rate\/3765887",
+      "created_at": "2025-07-31 10:44:46"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 12935189,
+          "url": "https:\/\/charllcrot.itch.io",
+          "name": "Charllcrot"
+        },
+        "title": "The game that doesn't go anywhere",
+        "id": 3766452,
+        "url": "https:\/\/charllcrot.itch.io\/the-game-that-doesnt-go-anywhere",
+        "platforms": ["web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDE4MzIxLnBuZw==\/300x240%23c\/hRfoDX.png"
+      },
+      "coolness": 0,
+      "id": 730437,
+      "url": "\/jam\/gmtk-2025\/rate\/3766452",
+      "created_at": "2025-07-31 09:03:32"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "A Loop Game",
+        "user": {
+          "id": 11103157,
+          "url": "https:\/\/yellow-artichoke.itch.io",
+          "name": "Yellow_Artichoke"
+        },
+        "platforms": ["windows"],
+        "title": "LooPProtect",
+        "id": 3767266,
+        "url": "https:\/\/yellow-artichoke.itch.io\/loopprotect",
+        "cover_color": "#00014a",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDIyMzQ4LnBuZw==\/300x240%23c\/vJdSBI.png"
+      },
+      "coolness": 0,
+      "id": 730749,
+      "url": "\/jam\/gmtk-2025\/rate\/3767266",
+      "created_at": "2025-07-31 14:22:08"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "A game for the GMTK Game Jam 2025",
+        "user": {
+          "id": 5145398,
+          "url": "https:\/\/thefunfactory.itch.io",
+          "name": "TheFunFactory"
+        },
+        "title": "The Loop",
+        "id": 3767100,
+        "url": "https:\/\/thefunfactory.itch.io\/the-loop",
+        "platforms": ["web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDIxNDkzLnBuZw==\/300x240%23c\/GWluIA.png"
+      },
+      "coolness": 0,
+      "id": 730698,
+      "url": "\/jam\/gmtk-2025\/rate\/3767100",
+      "created_at": "2025-07-31 13:20:31"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "https:\/\/jjojjo22.itch.io\/doggin-plawter",
+        "user": {
+          "id": 13358973,
+          "url": "https:\/\/jjojjo22.itch.io",
+          "name": "henderluis3"
+        },
+        "platforms": ["windows", "linux"],
+        "title": "Doggin Plawter",
+        "id": 3477457,
+        "url": "https:\/\/jjojjo22.itch.io\/doggin-plawter",
+        "cover_color": "#b09b4c",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIwODE1MDA4LnBuZw==\/300x240%23c\/VNgFLe.png"
+      },
+      "coolness": 0,
+      "id": 729980,
+      "url": "\/jam\/gmtk-2025\/rate\/3477457",
+      "created_at": "2025-07-30 19:22:17"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Serve food, beat high scores",
+        "user": {
+          "id": 9191222,
+          "url": "https:\/\/etper.itch.io",
+          "name": "amogoose"
+        },
+        "platforms": ["web"],
+        "title": "Loop Bites",
+        "id": 3767437,
+        "url": "https:\/\/etper.itch.io\/loop-bites",
+        "cover_color": "#7e3515",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDIzMzc0LnBuZw==\/300x240%23c\/43%2F00s.png"
+      },
+      "coolness": 0,
+      "id": 730784,
+      "url": "\/jam\/gmtk-2025\/rate\/3767437",
+      "created_at": "2025-07-31 15:33:03"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "loop your way out without getting caught in your trail!",
+        "user": {
+          "id": 11845282,
+          "url": "https:\/\/bumblebeethan.itch.io",
+          "name": "BumbleBeethan"
+        },
+        "platforms": ["web"],
+        "title": "Tiny Spiller",
+        "id": 3767097,
+        "url": "https:\/\/bumblebeethan.itch.io\/tiny-spiller",
+        "cover_color": "#000000",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDIxODM2LnBuZw==\/300x240%23c\/x3Kc1%2F.png"
+      },
+      "coolness": 0,
+      "id": 730746,
+      "url": "\/jam\/gmtk-2025\/rate\/3767097",
+      "created_at": "2025-07-31 14:20:37"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "A game about a looping ball in a circle that gives you loops to upgrade the looping, made for GMTK Jam 2025",
+        "user": {
+          "id": 14457785,
+          "url": "https:\/\/richyplays112.itch.io",
+          "name": "RichyPlays112"
+        },
+        "title": "Looping",
+        "id": 3765236,
+        "url": "https:\/\/richyplays112.itch.io\/looping-gmtk25",
+        "platforms": ["web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDE1OTQwLnBuZw==\/300x240%23c\/ixeOEb.png"
+      },
+      "coolness": 0,
+      "id": 730274,
+      "url": "\/jam\/gmtk-2025\/rate\/3765236",
+      "created_at": "2025-07-31 04:16:51"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 12634504,
+          "url": "https:\/\/magicchess1244.itch.io",
+          "name": "magicchess1244"
+        },
+        "title": "Looping caos",
+        "id": 3767053,
+        "url": "https:\/\/magicchess1244.itch.io\/looping-caos",
+        "platforms": ["windows"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDIyMjQ4LnBuZw==\/300x240%23c\/C6y%2FVc.png"
+      },
+      "coolness": 0,
+      "id": 730735,
+      "url": "\/jam\/gmtk-2025\/rate\/3767053",
+      "created_at": "2025-07-31 14:10:14"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 11536683,
+          "url": "https:\/\/flipfishdabrave.itch.io",
+          "name": "Flipfish"
+        },
+        "title": "To The Surface Web",
+        "id": 3379452,
+        "url": "https:\/\/flipfishdabrave.itch.io\/to-the-surface-final",
+        "platforms": ["web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIwMTczMTM3LnBuZw==\/300x240%23c\/NSEyAf.png"
+      },
+      "coolness": 0,
+      "id": 729975,
+      "url": "\/jam\/gmtk-2025\/rate\/3379452",
+      "created_at": "2025-07-30 19:16:52"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "You are an archer. You have to save the town from the attack of the GIMPS.",
+        "user": {
+          "id": 3743330,
+          "url": "https:\/\/levimakesgames.itch.io",
+          "name": "Levente"
+        },
+        "platforms": ["web"],
+        "title": "Archery Loop",
+        "id": 3767364,
+        "url": "https:\/\/levimakesgames.itch.io\/archery-loop",
+        "cover_color": "#040037",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDIyOTA1LnBuZw==\/300x240%23c\/LtKMOL.png"
+      },
+      "coolness": 0,
+      "id": 730772,
+      "url": "\/jam\/gmtk-2025\/rate\/3767364",
+      "created_at": "2025-07-31 15:05:35"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "TicTacToe",
+        "user": {
+          "id": 4924720,
+          "url": "https:\/\/05marko.itch.io",
+          "name": "05MarKo"
+        },
+        "title": "Sushi XO",
+        "id": 3767556,
+        "url": "https:\/\/05marko.itch.io\/sushi-xo",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDIzNjI2LmpwZw==\/300x240%23c\/2XFtrm.jpg"
+      },
+      "coolness": 0,
+      "id": 730817,
+      "url": "\/jam\/gmtk-2025\/rate\/3767556",
+      "created_at": "2025-07-31 16:41:53"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "cover_color": "#36ff25",
+        "platforms": ["windows"],
+        "title": "CAT GEM",
+        "id": 3766840,
+        "url": "https:\/\/gold-monkey-prod.itch.io\/cat-gem",
+        "user": {
+          "id": 8333793,
+          "url": "https:\/\/gold-monkey-prod.itch.io",
+          "name": "Golden Monkey Productions"
+        },
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDIwMTIxLmpwZw==\/300x240%23c\/oEgZ1D.jpg"
+      },
+      "coolness": 0,
+      "id": 730722,
+      "url": "\/jam\/gmtk-2025\/rate\/3766840",
+      "created_at": "2025-07-31 13:47:50"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "A lonely child is trapped in a looping nightmare.",
+        "user": {
+          "id": 13953465,
+          "url": "https:\/\/heerspatia.itch.io",
+          "name": "盒儿"
+        },
+        "platforms": ["windows"],
+        "title": "Tommy's Nightmare",
+        "id": 3711742,
+        "url": "https:\/\/heerspatia.itch.io\/tommys-nightmare",
+        "cover_color": "#000000",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyMzM3OTgzLnBuZw==\/300x240%23c\/H3lT51.png"
+      },
+      "coolness": 0,
+      "id": 730786,
+      "url": "\/jam\/gmtk-2025\/rate\/3711742",
+      "created_at": "2025-07-31 15:42:11"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "stuck in 2 loops",
+        "user": {
+          "id": 10901076,
+          "url": "https:\/\/edog3.itch.io",
+          "name": "edog3"
+        },
+        "title": "looped",
+        "id": 3767104,
+        "url": "https:\/\/edog3.itch.io\/looped",
+        "platforms": ["web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDIyMzAzLnBuZw==\/300x240%23c\/kgASrY.png"
+      },
+      "coolness": 0,
+      "id": 730741,
+      "url": "\/jam\/gmtk-2025\/rate\/3767104",
+      "created_at": "2025-07-31 14:15:21"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "cover_color": "#364089",
+        "platforms": ["web"],
+        "title": "Nailed It!",
+        "id": 3766862,
+        "url": "https:\/\/superastro1212.itch.io\/nailed-it",
+        "user": {
+          "id": 14466635,
+          "url": "https:\/\/superastro1212.itch.io",
+          "name": "SuperAstro1212"
+        },
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI1MDg4LnBuZw==\/300x240%23c\/mBE5r4.png"
+      },
+      "coolness": 0,
+      "id": 730843,
+      "url": "\/jam\/gmtk-2025\/rate\/3766862",
+      "created_at": "2025-07-31 17:22:34"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Reference to Groundhog's day.",
+        "user": {
+          "id": 14191969,
+          "url": "https:\/\/yuri777611.itch.io",
+          "name": "Yuri777611"
+        },
+        "title": "Hamster's Day",
+        "id": 3768009,
+        "url": "https:\/\/yuri777611.itch.io\/hamsters-day",
+        "platforms": ["windows", "osx", "linux", "web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI2MjA0LnBuZw==\/300x240%23c\/vNKvFZ.png"
+      },
+      "coolness": 0,
+      "id": 730894,
+      "url": "\/jam\/gmtk-2025\/rate\/3768009",
+      "created_at": "2025-07-31 18:39:47"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 12196689,
+          "url": "https:\/\/jao-victor.itch.io",
+          "name": "jao victor"
+        },
+        "title": "ENDLESS",
+        "id": 3767933,
+        "url": "https:\/\/jao-victor.itch.io\/endless",
+        "platforms": ["windows"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI1NDEzLmpwZw==\/300x240%23c\/RjXfNZ.jpg"
+      },
+      "coolness": 0,
+      "id": 730877,
+      "url": "\/jam\/gmtk-2025\/rate\/3767933",
+      "created_at": "2025-07-31 18:07:08"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Sisyphus' Journey",
+        "user": {
+          "id": 7983261,
+          "url": "https:\/\/stumpid-miester.itch.io",
+          "name": "stumpid"
+        },
+        "platforms": ["web"],
+        "title": "The Boulder Cannot Be Stopped.",
+        "id": 3767996,
+        "url": "https:\/\/stumpid-miester.itch.io\/the-boulder-cannot-be-stopped",
+        "cover_color": "#57452b",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI2MzcwLnBuZw==\/300x240%23c\/uold9Y.png"
+      },
+      "coolness": 0,
+      "id": 730888,
+      "url": "\/jam\/gmtk-2025\/rate\/3767996",
+      "created_at": "2025-07-31 18:31:50"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "A choose your own story where every decision ultimately leads to yours, or another's downfall",
+        "user": {
+          "id": 8991023,
+          "url": "https:\/\/micad.itch.io",
+          "name": "micad"
+        },
+        "platforms": ["windows", "web"],
+        "title": "You Can Only Lose",
+        "id": 3765164,
+        "url": "https:\/\/micad.itch.io\/ycol",
+        "cover_color": "#c2c2c2",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI3NDM4LnBuZw==\/300x240%23c\/dSBBD0.png"
+      },
+      "coolness": 0,
+      "id": 730928,
+      "url": "\/jam\/gmtk-2025\/rate\/3765164",
+      "created_at": "2025-07-31 19:40:28"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Puzzle Platformer where the map shifts in a loop",
+        "user": {
+          "id": 12860782,
+          "url": "https:\/\/yassien1.itch.io",
+          "name": "yassien1"
+        },
+        "title": "Shifting Caves",
+        "id": 3767259,
+        "url": "https:\/\/yassien1.itch.io\/shifting-caves",
+        "platforms": ["web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI1NTE1LnBuZw==\/300x240%23c\/CNJxik.png"
+      },
+      "coolness": 0,
+      "id": 730748,
+      "url": "\/jam\/gmtk-2025\/rate\/3767259",
+      "created_at": "2025-07-31 14:21:24"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 3866232,
+          "url": "https:\/\/atahan-itchio.itch.io",
+          "name": "Atahan"
+        },
+        "title": "GRAM GMTK 2025",
+        "id": 3765437,
+        "url": "https:\/\/atahan-itchio.itch.io\/gram-gmtk-2025",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730112,
+      "url": "\/jam\/gmtk-2025\/rate\/3765437",
+      "created_at": "2025-07-30 23:13:39"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "cover_color": "#1e3441",
+        "platforms": ["web"],
+        "title": "Loopy Larry",
+        "id": 3767899,
+        "url": "https:\/\/timbojay.itch.io\/loopy-larry",
+        "user": {
+          "id": 162503,
+          "url": "https:\/\/timbojay.itch.io",
+          "name": "Timbo Johnson"
+        },
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI1NDU1LnBuZw==\/300x240%23c\/ieU9xo.png"
+      },
+      "coolness": 0,
+      "id": 730941,
+      "url": "\/jam\/gmtk-2025\/rate\/3767899",
+      "created_at": "2025-07-31 19:58:18"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Use obstacles to loop the mob!",
+        "user": {
+          "id": 13704980,
+          "url": "https:\/\/blackbearymoose.itch.io",
+          "name": "blackbearymoose"
+        },
+        "title": "AVOID",
+        "id": 3767886,
+        "url": "https:\/\/blackbearymoose.itch.io\/avoid",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI1NjkyLmpwZw==\/300x240%23c\/yk1YDN.jpg"
+      },
+      "coolness": 0,
+      "id": 730893,
+      "url": "\/jam\/gmtk-2025\/rate\/3767886",
+      "created_at": "2025-07-31 18:38:35"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "For GMTK 2025 Game Jam",
+        "user": {
+          "id": 13821280,
+          "url": "https:\/\/electroxu.itch.io",
+          "name": "Electroxu"
+        },
+        "title": "Island Loop",
+        "id": 3767861,
+        "url": "https:\/\/electroxu.itch.io\/island-loop",
+        "platforms": ["windows"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI2NDQxLnBuZw==\/300x240%23c\/iilY2Q.png"
+      },
+      "coolness": 0,
+      "id": 730898,
+      "url": "\/jam\/gmtk-2025\/rate\/3767861",
+      "created_at": "2025-07-31 18:49:17"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Ninja+Cats = nothing good...",
+        "user": {
+          "id": 14429916,
+          "url": "https:\/\/tizzzioacaso.itch.io",
+          "name": "TizzzioAcaso"
+        },
+        "platforms": ["windows"],
+        "title": "Midnight Neko Rush",
+        "id": 3767848,
+        "url": "https:\/\/tizzzioacaso.itch.io\/midnight-neko-rush",
+        "cover_color": "#eeeeee",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI1MjQzLmpwZw==\/300x240%23c\/rOKBa2.jpg"
+      },
+      "coolness": 0,
+      "id": 730861,
+      "url": "\/jam\/gmtk-2025\/rate\/3767848",
+      "created_at": "2025-07-31 17:41:51"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 2763362,
+          "url": "https:\/\/beepsterr.itch.io",
+          "name": "Beeps"
+        },
+        "title": "Beatsbox",
+        "id": 3767177,
+        "url": "https:\/\/beepsterr.itch.io\/beatsbox",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI2OTMyLnBuZw==\/300x240%23c\/X6gvJN.png"
+      },
+      "coolness": 0,
+      "id": 730895,
+      "url": "\/jam\/gmtk-2025\/rate\/3767177",
+      "created_at": "2025-07-31 18:41:27"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Funny short game interactive toch screen",
+        "user": {
+          "id": 4788852,
+          "url": "https:\/\/cabesita-h.itch.io",
+          "name": "Cabesita Hernandez"
+        },
+        "platforms": ["web"],
+        "title": "Mad Costumer Simulator",
+        "id": 3767785,
+        "url": "https:\/\/cabesita-h.itch.io\/mad-costumer-simulator",
+        "cover_color": "#afbfd2",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI1MTQ1LnBuZw==\/300x240%23c\/gB1u9L.png"
+      },
+      "coolness": 0,
+      "id": 730846,
+      "url": "\/jam\/gmtk-2025\/rate\/3767785",
+      "created_at": "2025-07-31 17:25:34"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "made for gmtk game jam 2025",
+        "user": {
+          "id": 12613404,
+          "url": "https:\/\/lunchucks.itch.io",
+          "name": "lunchucks"
+        },
+        "title": "Loop",
+        "id": 3767452,
+        "url": "https:\/\/lunchucks.itch.io\/loop",
+        "platforms": ["web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDIzNTM1LnBuZw==\/300x240%23c\/Uzawv6.png"
+      },
+      "coolness": 0,
+      "id": 730782,
+      "url": "\/jam\/gmtk-2025\/rate\/3767452",
+      "created_at": "2025-07-31 15:30:00"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "cover_color": "#eeeeee",
+        "platforms": ["windows"],
+        "title": "Inescapable Dungeon (Loopgeon)",
+        "id": 3766558,
+        "url": "https:\/\/markerthecreator.itch.io\/inescapable-dungeon-loopgeon",
+        "user": {
+          "id": 8888941,
+          "url": "https:\/\/markerthecreator.itch.io",
+          "name": "Markerthecreator!!!"
+        },
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDE4Nzc0LnBuZw==\/300x240%23c\/Xcxtwq.png"
+      },
+      "coolness": 0,
+      "id": 730461,
+      "url": "\/jam\/gmtk-2025\/rate\/3766558",
+      "created_at": "2025-07-31 09:43:14"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Mode for the GMTK Game Jam 2025",
+        "user": {
+          "id": 9010748,
+          "url": "https:\/\/divodev-42.itch.io",
+          "name": "DivoDev_42"
+        },
+        "title": "LoopDays",
+        "id": 3766598,
+        "url": "https:\/\/divodev-42.itch.io\/loopdays",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730501,
+      "url": "\/jam\/gmtk-2025\/rate\/3766598",
+      "created_at": "2025-07-31 10:53:05"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Leave trail behind to use it in the next loop!",
+        "user": {
+          "id": 1254037,
+          "url": "https:\/\/jasutsu.itch.io",
+          "name": "Jasutsu"
+        },
+        "title": "Loop Trail",
+        "id": 3766266,
+        "url": "https:\/\/jasutsu.itch.io\/loop-trail",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730357,
+      "url": "\/jam\/gmtk-2025\/rate\/3766266",
+      "created_at": "2025-07-31 06:49:52"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Will you able to send the cake to your Girlfriend's birthday party?",
+        "user": {
+          "id": 4463724,
+          "url": "https:\/\/antargataworks.itch.io",
+          "name": "AntargataWorks"
+        },
+        "title": "Shoot! The Cake!",
+        "id": 3766683,
+        "url": "https:\/\/antargataworks.itch.io\/cake-game",
+        "cover_color": "#ba5f23",
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730497,
+      "url": "\/jam\/gmtk-2025\/rate\/3766683",
+      "created_at": "2025-07-31 10:48:55"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Capture your cow herd and drive off bandits!",
+        "user": {
+          "id": 8405310,
+          "url": "https:\/\/playingpenguin.itch.io",
+          "name": "PlayingPenguin"
+        },
+        "title": "CowCatcherCommotion",
+        "id": 3766749,
+        "url": "https:\/\/playingpenguin.itch.io\/cowcatcherc",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730537,
+      "url": "\/jam\/gmtk-2025\/rate\/3766749",
+      "created_at": "2025-07-31 11:35:20"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Avoid to burn out of the loop!",
+        "user": {
+          "id": 14456908,
+          "url": "https:\/\/onverraplustard.itch.io",
+          "name": "OnVerraPlusTard"
+        },
+        "title": "BurnOOt!",
+        "id": 3766691,
+        "url": "https:\/\/onverraplustard.itch.io\/burnoot",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDE5NDExLnBuZw==\/300x240%23c\/OuNvWV.png"
+      },
+      "coolness": 0,
+      "id": 730493,
+      "url": "\/jam\/gmtk-2025\/rate\/3766691",
+      "created_at": "2025-07-31 10:47:13"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Draw a roller coster",
+        "user": {
+          "id": 8468682,
+          "url": "https:\/\/nikkcc.itch.io",
+          "name": "Nick"
+        },
+        "title": "roller coster",
+        "id": 3766610,
+        "url": "https:\/\/nikkcc.itch.io\/roller-coster",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730467,
+      "url": "\/jam\/gmtk-2025\/rate\/3766610",
+      "created_at": "2025-07-31 10:13:12"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "cover_color": "#929292",
+        "platforms": ["web"],
+        "title": "loop bot",
+        "id": 3766774,
+        "url": "https:\/\/mertalidaskin.itch.io\/loop-bot",
+        "user": {
+          "id": 10624696,
+          "url": "https:\/\/mertalidaskin.itch.io",
+          "name": "mertalidaskin"
+        },
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDIwMDMxLnBuZw==\/300x240%23c\/sRpZxp.png"
+      },
+      "coolness": 0,
+      "id": 730522,
+      "url": "\/jam\/gmtk-2025\/rate\/3766774",
+      "created_at": "2025-07-31 11:16:41"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "new update!",
+        "user": {
+          "id": 10373918,
+          "url": "https:\/\/e4us-entertainment.itch.io",
+          "name": "E4US DEVELOPMENT"
+        },
+        "title": "HospyFospy:Chapter 1 - REMAKED",
+        "id": 2620223,
+        "url": "https:\/\/e4us-entertainment.itch.io\/hospyfospychapter-1",
+        "cover_color": "#000000",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzE5MDgzMjUxLnBuZw==\/300x240%23c\/KNY7gh.png"
+      },
+      "coolness": 0,
+      "id": 730913,
+      "url": "\/jam\/gmtk-2025\/rate\/2620223",
+      "created_at": "2025-07-31 19:11:30"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 12606810,
+          "url": "https:\/\/jajadannn.itch.io",
+          "name": "jajadannn"
+        },
+        "title": "Retry Adventure",
+        "id": 3766846,
+        "url": "https:\/\/jajadannn.itch.io\/retry-adventure",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDIwMjE2LnBuZw==\/300x240%23c\/NjP4MO.png"
+      },
+      "coolness": 0,
+      "id": 730544,
+      "url": "\/jam\/gmtk-2025\/rate\/3766846",
+      "created_at": "2025-07-31 11:44:35"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 13917515,
+          "url": "https:\/\/capitalas.itch.io",
+          "name": "capitalas"
+        },
+        "title": "apple clicker",
+        "id": 3767753,
+        "url": "https:\/\/capitalas.itch.io\/apple-clicker",
+        "platforms": ["web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI0ODM5LnBuZw==\/300x240%23c\/exqfXR.png"
+      },
+      "coolness": 0,
+      "id": 730832,
+      "url": "\/jam\/gmtk-2025\/rate\/3767753",
+      "created_at": "2025-07-31 16:59:52"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 5176735,
+          "url": "https:\/\/786786.itch.io",
+          "name": "786786"
+        },
+        "title": "Thread the needle",
+        "id": 3767738,
+        "url": "https:\/\/786786.itch.io\/thread-the-needle",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730837,
+      "url": "\/jam\/gmtk-2025\/rate\/3767738",
+      "created_at": "2025-07-31 17:07:55"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Short Description  Geometrloop is a fast-paced arcade game where you control a square on a never-ending journey.",
+        "user": {
+          "id": 13773326,
+          "url": "https:\/\/ziexdev.itch.io",
+          "name": "ZiexDev"
+        },
+        "title": "GeometrLoop",
+        "id": 3767647,
+        "url": "https:\/\/ziexdev.itch.io\/geometrloop",
+        "platforms": ["windows"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI0MTM1LnBuZw==\/300x240%23c\/VQv7pP.png"
+      },
+      "coolness": 0,
+      "id": 730814,
+      "url": "\/jam\/gmtk-2025\/rate\/3767647",
+      "created_at": "2025-07-31 16:39:16"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "the best game of all time",
+        "user": {
+          "id": 14468695,
+          "url": "https:\/\/yahyajj.itch.io",
+          "name": "yahyajj"
+        },
+        "title": "POPI POPI",
+        "id": 3767537,
+        "url": "https:\/\/yahyajj.itch.io\/popi-popi",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDIzODAyLnBuZw==\/300x240%23c\/VKKaDv.png"
+      },
+      "coolness": 0,
+      "id": 730795,
+      "url": "\/jam\/gmtk-2025\/rate\/3767537",
+      "created_at": "2025-07-31 15:58:38"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 2605901,
+          "url": "https:\/\/panzareon.itch.io",
+          "name": "Panzareon"
+        },
+        "title": "Loop Builder",
+        "id": 3767962,
+        "url": "https:\/\/panzareon.itch.io\/loop-builder",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730881,
+      "url": "\/jam\/gmtk-2025\/rate\/3767962",
+      "created_at": "2025-07-31 18:23:15"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "cover_color": "#b86f50",
+        "title": "The Door Loop",
+        "id": 3768098,
+        "url": "https:\/\/mahmoudshanap.itch.io\/the-door-loop",
+        "user": {
+          "id": 11930835,
+          "url": "https:\/\/mahmoudshanap.itch.io",
+          "name": "MahmoudShanap"
+        },
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730906,
+      "url": "\/jam\/gmtk-2025\/rate\/3768098",
+      "created_at": "2025-07-31 19:01:15"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "A tabletop style racing game where you guide a starship to overcome your rivals in style!",
+        "user": {
+          "id": 10802813,
+          "url": "https:\/\/desatta.itch.io",
+          "name": "DeSatta"
+        },
+        "title": "Style Racer",
+        "id": 3768086,
+        "url": "https:\/\/desatta.itch.io\/style-racer",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730902,
+      "url": "\/jam\/gmtk-2025\/rate\/3768086",
+      "created_at": "2025-07-31 18:52:57"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Completely Normal Game",
+        "user": {
+          "id": 8456428,
+          "url": "https:\/\/eli64.itch.io",
+          "name": "Eli Martin"
+        },
+        "platforms": ["web"],
+        "title": "Super Cleaning Protagonist",
+        "id": 3768171,
+        "url": "https:\/\/eli64.itch.io\/super-cleaning-protagonist-scp",
+        "cover_color": "#000000",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI3MDQyLnBuZw==\/300x240%23c\/7Q0Cni.png"
+      },
+      "coolness": 0,
+      "id": 730920,
+      "url": "\/jam\/gmtk-2025\/rate\/3768171",
+      "created_at": "2025-07-31 19:24:41"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 14173122,
+          "url": "https:\/\/zeyad-shoban.itch.io",
+          "name": "zeyad-shoban"
+        },
+        "title": "eternal strife",
+        "id": 3768151,
+        "url": "https:\/\/zeyad-shoban.itch.io\/eternal-strife",
+        "platforms": ["web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI2OTI3LnBuZw==\/300x240%23c\/zRi6w4.png"
+      },
+      "coolness": 0,
+      "id": 730915,
+      "url": "\/jam\/gmtk-2025\/rate\/3768151",
+      "created_at": "2025-07-31 19:12:05"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "A game for the GMTK game jam made using my own c++ game framework.",
+        "user": {
+          "id": 7060118,
+          "url": "https:\/\/piggo4676.itch.io",
+          "name": "Piggo4676"
+        },
+        "title": "Loop",
+        "id": 3766815,
+        "url": "https:\/\/piggo4676.itch.io\/loop",
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730540,
+      "url": "\/jam\/gmtk-2025\/rate\/3766815",
+      "created_at": "2025-07-31 11:38:37"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "BALL TAP",
+        "user": {
+          "id": 12553316,
+          "url": "https:\/\/agamexxother.itch.io",
+          "name": "AGAMEXOTHER"
+        },
+        "title": "BALL TAP",
+        "id": 3767275,
+        "url": "https:\/\/agamexxother.itch.io\/ball-tap",
+        "platforms": ["web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI2MTM2LnBuZw==\/300x240%23c\/TANdDF.png"
+      },
+      "coolness": 0,
+      "id": 730753,
+      "url": "\/jam\/gmtk-2025\/rate\/3767275",
+      "created_at": "2025-07-31 14:29:17"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 11191134,
+          "url": "https:\/\/moomoodylan.itch.io",
+          "name": "MooMooDylan"
+        },
+        "title": "Space Precision Flyers",
+        "id": 3767183,
+        "url": "https:\/\/moomoodylan.itch.io\/space-precision-flyers",
+        "platforms": ["windows"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDIxOTkxLnBuZw==\/300x240%23c\/KjamTT.png"
+      },
+      "coolness": 0,
+      "id": 730725,
+      "url": "\/jam\/gmtk-2025\/rate\/3767183",
+      "created_at": "2025-07-31 13:50:29"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "froot loops",
+        "user": {
+          "id": 9934679,
+          "url": "https:\/\/tuvo-codes.itch.io",
+          "name": "Tuvo"
+        },
+        "title": "Froot Loops Game",
+        "id": 3766937,
+        "url": "https:\/\/tuvo-codes.itch.io\/froot-loops-game",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730592,
+      "url": "\/jam\/gmtk-2025\/rate\/3766937",
+      "created_at": "2025-07-31 12:25:36"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 13920831,
+          "url": "https:\/\/sral2o12.itch.io",
+          "name": "sral2o12"
+        },
+        "title": "Gmtk-project-LvD",
+        "id": 3766917,
+        "url": "https:\/\/sral2o12.itch.io\/gmtk-project-lvd",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730587,
+      "url": "\/jam\/gmtk-2025\/rate\/3766917",
+      "created_at": "2025-07-31 12:18:32"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Here, death is never the end, it’s just another beginning",
+        "user": {
+          "id": 13851545,
+          "url": "https:\/\/jocaszj.itch.io",
+          "name": "Jocaszj"
+        },
+        "title": "Have a Good Death!",
+        "id": 3766864,
+        "url": "https:\/\/jocaszj.itch.io\/have-a-good-death",
+        "cover_color": "#000000",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI1MDQ1LnBuZw==\/300x240%23c\/PREk7N.png"
+      },
+      "coolness": 0,
+      "id": 730615,
+      "url": "\/jam\/gmtk-2025\/rate\/3766864",
+      "created_at": "2025-07-31 12:40:48"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Who will you sacrifice for the day to dawn again?",
+        "user": {
+          "id": 13345148,
+          "url": "https:\/\/ex-ignorantia.itch.io",
+          "name": "Ex Ignorantia"
+        },
+        "title": "Last Round at the End of the World",
+        "id": 3767184,
+        "url": "https:\/\/ex-ignorantia.itch.io\/last-round",
+        "cover_color": "#000000",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDIyMTkyLnBuZw==\/300x240%23c\/KUda0q.png"
+      },
+      "coolness": 0,
+      "id": 730750,
+      "url": "\/jam\/gmtk-2025\/rate\/3767184",
+      "created_at": "2025-07-31 14:22:35"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Bound to the blade. Hunted by your past.",
+        "user": {
+          "id": 7172491,
+          "url": "https:\/\/silveralcid.itch.io",
+          "name": "Silver Alcid"
+        },
+        "title": "Endless Echoes (WIP - 7\/30\/2025)",
+        "id": 3766977,
+        "url": "https:\/\/silveralcid.itch.io\/endless-echoes",
+        "cover_color": "#000000",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDIwOTc4LmpwZw==\/300x240%23c\/6Wh6hn.jpg"
+      },
+      "coolness": 0,
+      "id": 730699,
+      "url": "\/jam\/gmtk-2025\/rate\/3766977",
+      "created_at": "2025-07-31 13:21:04"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Boxy wants to buy the new RP6S DS Flip Handheld, help him get out of the loop by selling loops",
+        "user": {
+          "id": 13369342,
+          "url": "https:\/\/wigglingdog.itch.io",
+          "name": "wigglingdog"
+        },
+        "title": "isellloops.com",
+        "id": 3766179,
+        "url": "https:\/\/wigglingdog.itch.io\/isellloopscom",
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730326,
+      "url": "\/jam\/gmtk-2025\/rate\/3766179",
+      "created_at": "2025-07-31 05:52:53"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 14444403,
+          "url": "https:\/\/etephyr0.itch.io",
+          "name": "Etephyr0"
+        },
+        "gif_cover": "https:\/\/img.itch.zone\/aW1nLzIyNDIyNTY3LmdpZg==\/original\/E%2BLTwd.gif",
+        "title": "Goose in Loops",
+        "id": 3767090,
+        "url": "https:\/\/etephyr0.itch.io\/gooseinloops",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDIyNTY3LmdpZg==\/300x240%23cm\/tXsheM.gif"
+      },
+      "coolness": 0,
+      "id": 730754,
+      "url": "\/jam\/gmtk-2025\/rate\/3767090",
+      "created_at": "2025-07-31 14:31:49"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "cover_color": "#000000",
+        "platforms": ["web"],
+        "title": "Following the Rules",
+        "id": 3767149,
+        "url": "https:\/\/iambash-bro2010.itch.io\/following-the-rules",
+        "user": {
+          "id": 7852638,
+          "url": "https:\/\/iambash-bro2010.itch.io",
+          "name": "IAMBash_Bro2010"
+        },
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730715,
+      "url": "\/jam\/gmtk-2025\/rate\/3767149",
+      "created_at": "2025-07-31 13:40:27"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "The only way to beat this platformer is to well, Do it again!",
+        "user": {
+          "id": 13682314,
+          "url": "https:\/\/2014ngd.itch.io",
+          "name": "CatDude"
+        },
+        "title": "Do it again!",
+        "id": 3766178,
+        "url": "https:\/\/2014ngd.itch.io\/do-it-again-gmtk2025",
+        "platforms": ["windows"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730325,
+      "url": "\/jam\/gmtk-2025\/rate\/3766178",
+      "created_at": "2025-07-31 05:52:06"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "cover_color": "#000000",
+        "platforms": ["web"],
+        "title": "I can do it.",
+        "id": 3765486,
+        "url": "https:\/\/toneedgames.itch.io\/i-can-do-it",
+        "user": {
+          "id": 9758277,
+          "url": "https:\/\/toneedgames.itch.io",
+          "name": "ToNeed Games"
+        },
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730134,
+      "url": "\/jam\/gmtk-2025\/rate\/3765486",
+      "created_at": "2025-07-30 23:41:41"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 14463552,
+          "url": "https:\/\/chpurdy.itch.io",
+          "name": "chpurdy"
+        },
+        "title": "Pocket Racer",
+        "id": 3766035,
+        "url": "https:\/\/chpurdy.itch.io\/pocket-racer",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730287,
+      "url": "\/jam\/gmtk-2025\/rate\/3766035",
+      "created_at": "2025-07-31 04:38:34"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Racing Game",
+        "user": {
+          "id": 7451274,
+          "url": "https:\/\/mister-lightning.itch.io",
+          "name": "Mister Lightning"
+        },
+        "title": "The Cube Run 3: Memes Attacking",
+        "id": 3756924,
+        "url": "https:\/\/mister-lightning.itch.io\/the-cube-run-3-memes-attacking",
+        "platforms": ["windows", "web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyMzYwODM0LnBuZw==\/300x240%23c\/Jfdu05.png"
+      },
+      "coolness": 0,
+      "id": 729901,
+      "url": "\/jam\/gmtk-2025\/rate\/3756924",
+      "created_at": "2025-07-30 17:18:07"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Our game for GMTK game jam 2025",
+        "user": {
+          "id": 7449036,
+          "url": "https:\/\/alimad.itch.io",
+          "name": "Alimad-co"
+        },
+        "title": "GMTK-2025",
+        "id": 3760247,
+        "url": "https:\/\/alimad.itch.io\/gmtk25",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "contributors": [
+        { "name": "Alimad-co", "url": "https:\/\/alimad.itch.io" },
+        { "name": "Alpaca542", "url": "https:\/\/alpaca542.itch.io" }
+      ],
+      "url": "\/jam\/gmtk-2025\/rate\/3760247",
+      "created_at": "2025-07-30 17:29:26",
+      "id": 729909
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 2460436,
+          "url": "https:\/\/mangoman121.itch.io",
+          "name": "Mangoman"
+        },
+        "title": "GMTK 2025 Game!",
+        "id": 3755769,
+        "url": "https:\/\/mangoman121.itch.io\/gmtk-2025-game",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730039,
+      "url": "\/jam\/gmtk-2025\/rate\/3755769",
+      "created_at": "2025-07-30 21:07:34"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Jumpimal is a fast-paced game where you guide a cute animal through endless obstacles. Easy to play, hard to master!",
+        "user": {
+          "id": 13326173,
+          "url": "https:\/\/coder-py-exe.itch.io",
+          "name": "Coder X"
+        },
+        "platforms": ["web"],
+        "title": "Jumpimal",
+        "id": 3753692,
+        "url": "https:\/\/coder-py-exe.itch.io\/jumpimal",
+        "cover_color": "#000000",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI0Mzc5LnBuZw==\/300x240%23c\/ivo5kM.png"
+      },
+      "coolness": 0,
+      "id": 730575,
+      "url": "\/jam\/gmtk-2025\/rate\/3753692",
+      "created_at": "2025-07-31 12:10:32"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Age through different eras and be the commander you always wanted to be",
+        "user": {
+          "id": 14412598,
+          "url": "https:\/\/gab693.itch.io",
+          "name": "gab693"
+        },
+        "platforms": ["android"],
+        "title": "Age Of Warfare",
+        "id": 3754393,
+        "tags": [{ "name": "Game assets", "url": "\/game-assets" }],
+        "url": "https:\/\/gab693.itch.io\/age-of-warfare",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyMzQ2ODQ5LnBuZw==\/300x240%23c\/sRg4M7.png"
+      },
+      "coolness": 0,
+      "id": 730658,
+      "url": "\/jam\/gmtk-2025\/rate\/3754393",
+      "created_at": "2025-07-31 12:55:07"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Hero Slash Enemy Is a Simple Unity Game",
+        "user": {
+          "id": 14267721,
+          "url": "https:\/\/john-developer.itch.io",
+          "name": "John Developer"
+        },
+        "title": "Hero Slash Enemy",
+        "id": 3752583,
+        "url": "https:\/\/john-developer.itch.io\/hero-slash-enemy",
+        "platforms": ["android"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyMzM1NDE4LnBuZw==\/300x240%23c\/HnbleA.png"
+      },
+      "coolness": 0,
+      "id": 730369,
+      "url": "\/jam\/gmtk-2025\/rate\/3752583",
+      "created_at": "2025-07-31 07:02:45"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "My GMTK game jam submission.",
+        "user": {
+          "id": 5838212,
+          "url": "https:\/\/levitatingrobot.itch.io",
+          "name": "LevitatingRobot"
+        },
+        "title": "Synthetic Loop",
+        "id": 3761251,
+        "url": "https:\/\/levitatingrobot.itch.io\/gmtk2025",
+        "platforms": ["windows", "osx"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730829,
+      "url": "\/jam\/gmtk-2025\/rate\/3761251",
+      "created_at": "2025-07-31 16:56:04"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "a first person horror demo game",
+        "user": {
+          "id": 10046904,
+          "url": "https:\/\/nabilgaming.itch.io",
+          "name": "Nabil.gaming"
+        },
+        "platforms": ["windows"],
+        "title": "Evil Grandpa (demo)",
+        "id": 3762029,
+        "url": "https:\/\/nabilgaming.itch.io\/evilgrandpa",
+        "cover_color": "#000000",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyMzk1MjI0LnBuZw==\/300x240%23c\/7k8cz3.png"
+      },
+      "coolness": 0,
+      "id": 730062,
+      "url": "\/jam\/gmtk-2025\/rate\/3762029",
+      "created_at": "2025-07-30 21:46:29"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Test your mind",
+        "user": {
+          "id": 14026957,
+          "url": "https:\/\/game-some-studio.itch.io",
+          "name": "Game_some_studio"
+        },
+        "title": "Game quiz Master",
+        "id": 3763919,
+        "url": "https:\/\/game-some-studio.itch.io\/game-quiz-master",
+        "platforms": ["android"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDA0OTQwLmpwZw==\/300x240%23c\/Dt%2F57U.jpg"
+      },
+      "coolness": 0,
+      "id": 729935,
+      "url": "\/jam\/gmtk-2025\/rate\/3763919",
+      "created_at": "2025-07-30 18:11:02"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "You awaken from coma in the hospital. Staff and family are here for you but the days seem to blur together..",
+        "user": {
+          "id": 30679,
+          "url": "https:\/\/khan-amil.itch.io",
+          "name": "Khan-amil"
+        },
+        "title": "GMTK 2025",
+        "id": 3761840,
+        "url": "https:\/\/khan-amil.itch.io\/gmtk-2025",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730119,
+      "url": "\/jam\/gmtk-2025\/rate\/3761840",
+      "created_at": "2025-07-30 23:20:35"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 665869,
+          "url": "https:\/\/wayfarergames.itch.io",
+          "name": "theChief"
+        },
+        "title": "gmtk-2025",
+        "id": 3763878,
+        "url": "https:\/\/wayfarergames.itch.io\/gmtk-2025",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "contributors": [
+        { "name": "theChief", "url": "https:\/\/wayfarergames.itch.io" },
+        { "name": "Robbobin", "url": "https:\/\/robbobin.itch.io" }
+      ],
+      "url": "\/jam\/gmtk-2025\/rate\/3763878",
+      "created_at": "2025-07-30 17:03:18",
+      "id": 729883
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 4204296,
+          "url": "https:\/\/jugan0.itch.io",
+          "name": "Jugan0"
+        },
+        "title": "GMTK-2025",
+        "id": 3762574,
+        "url": "https:\/\/jugan0.itch.io\/gmtk-2025",
+        "platforms": ["windows"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "contributors": [
+        { "name": "Jugan0", "url": "https:\/\/jugan0.itch.io" },
+        { "name": "Phonetyx", "url": "https:\/\/phonetyx.itch.io" },
+        { "name": "eeveeights", "url": "https:\/\/eeveeights.itch.io" }
+      ],
+      "url": "\/jam\/gmtk-2025\/rate\/3762574",
+      "created_at": "2025-07-31 05:09:53",
+      "id": 730308
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "cover_color": "#eeeeee",
+        "platforms": ["windows", "osx", "linux", "android", "web"],
+        "title": "Chickcle",
+        "id": 3763790,
+        "url": "https:\/\/sigmaliez.itch.io\/chickcle",
+        "user": {
+          "id": 11976422,
+          "url": "https:\/\/sigmaliez.itch.io",
+          "name": "sigmali"
+        },
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI3Mjk1LnBuZw==\/300x240%23c\/o61utw.png"
+      },
+      "coolness": 0,
+      "id": 730453,
+      "url": "\/jam\/gmtk-2025\/rate\/3763790",
+      "created_at": "2025-07-31 09:29:26"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "This is so I have the jam project ready.",
+        "user": {
+          "id": 8933002,
+          "url": "https:\/\/jeroxia.itch.io",
+          "name": "Jeroxia"
+        },
+        "title": "Roped in",
+        "id": 3764166,
+        "url": "https:\/\/jeroxia.itch.io\/gmtk-jam-2025",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDA2MjcxLmpwZw==\/300x240%23c\/M0fex7.jpg"
+      },
+      "coolness": 0,
+      "id": 729900,
+      "url": "\/jam\/gmtk-2025\/rate\/3764166",
+      "created_at": "2025-07-30 17:14:47"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 14389778,
+          "url": "https:\/\/pawan-sah-1.itch.io",
+          "name": "Pawan sah 1"
+        },
+        "title": "Guess the image",
+        "id": 3749920,
+        "url": "https:\/\/pawan-sah-1.itch.io\/guess-the-image",
+        "platforms": ["windows", "osx", "linux", "android"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyMzIxMzUzLnBuZw==\/300x240%23c\/cU%2FxCV.png"
+      },
+      "coolness": 0,
+      "id": 730460,
+      "url": "\/jam\/gmtk-2025\/rate\/3749920",
+      "created_at": "2025-07-31 09:39:55"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Running game",
+        "user": {
+          "id": 13352340,
+          "url": "https:\/\/unknowndv.itch.io",
+          "name": "Unknowndv"
+        },
+        "title": "INTO THE WORLD",
+        "id": 3684658,
+        "url": "https:\/\/unknowndv.itch.io\/into-the-world",
+        "platforms": ["web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIxOTIzNDA3LmpwZw==\/300x240%23c\/gezsBs.jpg"
+      },
+      "coolness": 0,
+      "id": 730806,
+      "url": "\/jam\/gmtk-2025\/rate\/3684658",
+      "created_at": "2025-07-31 16:08:59"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "A fast-paced 2D side-scroller with unique enemies and pixel art.",
+        "user": {
+          "id": 13598587,
+          "url": "https:\/\/hnny07.itch.io",
+          "name": "Neuroblade fx"
+        },
+        "platforms": ["android"],
+        "title": "Space Bar",
+        "id": 3557494,
+        "url": "https:\/\/hnny07.itch.io\/space-bar",
+        "cover_color": "#3f2832",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIxMTgzNzQxLnBuZw==\/300x240%23c\/R%2Bj5Ic.png"
+      },
+      "coolness": 0,
+      "id": 730422,
+      "url": "\/jam\/gmtk-2025\/rate\/3557494",
+      "created_at": "2025-07-31 08:32:45"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "cover_color": "#000000",
+        "platforms": ["windows", "web"],
+        "title": "Climb of the Tiny Ball",
+        "id": 3584764,
+        "url": "https:\/\/aryan-gamedeveloper.itch.io\/climb-of-the-tiny-ball",
+        "user": {
+          "id": 11123429,
+          "url": "https:\/\/aryan-gamedeveloper.itch.io",
+          "name": "Aryan_GameDeveloper"
+        },
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIxMzM0NTEzLnBuZw==\/300x240%23c\/R8NHJa.png"
+      },
+      "coolness": 0,
+      "id": 730323,
+      "url": "\/jam\/gmtk-2025\/rate\/3584764",
+      "created_at": "2025-07-31 05:50:56"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "trust-me-bro",
+        "user": {
+          "id": 10267605,
+          "url": "https:\/\/0ankitkumar.itch.io",
+          "name": "Ankit Kumar"
+        },
+        "title": "Trust Me Bro",
+        "id": 3552860,
+        "url": "https:\/\/0ankitkumar.itch.io\/trust-me-bro",
+        "platforms": ["windows", "web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIxMTU1ODg3LnBuZw==\/300x240%23c\/cacngL.png"
+      },
+      "coolness": 0,
+      "id": 730383,
+      "url": "\/jam\/gmtk-2025\/rate\/3552860",
+      "created_at": "2025-07-31 07:24:04"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "short story game",
+        "user": {
+          "id": 9900488,
+          "url": "https:\/\/sahil-more.itch.io",
+          "name": "Psyheal"
+        },
+        "title": "Too high",
+        "id": 3032250,
+        "url": "https:\/\/sahil-more.itch.io\/too-high",
+        "platforms": ["windows", "web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzE4MTQyMTU0LnBuZw==\/300x240%23c\/IvxSik.png"
+      },
+      "coolness": 0,
+      "id": 730803,
+      "url": "\/jam\/gmtk-2025\/rate\/3032250",
+      "created_at": "2025-07-31 16:03:03"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Poppy Playtime Grabpack System",
+        "user": {
+          "id": 12182775,
+          "url": "https:\/\/chrisklucil1.itch.io",
+          "name": "chrisklucil1"
+        },
+        "platforms": ["windows", "osx", "linux", "android"],
+        "title": "Poppy Playtime Chapter 0?? (read desc)",
+        "id": 3382106,
+        "url": "https:\/\/chrisklucil1.itch.io\/poppy-playtime-grabpack-system",
+        "cover_color": "#710709",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIwMTg5Mzc2LnBuZw==\/300x240%23c\/Ili1wx.png"
+      },
+      "coolness": 0,
+      "id": 729928,
+      "url": "\/jam\/gmtk-2025\/rate\/3382106",
+      "created_at": "2025-07-30 18:07:15"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "A fast-paced dino runner with deadly traps and monster enemies. Can you survive extinction?",
+        "user": {
+          "id": 13645762,
+          "url": "https:\/\/warboy77.itch.io",
+          "name": "warboy77"
+        },
+        "title": "Dino Run: Escape the Extinction",
+        "id": 3744921,
+        "url": "https:\/\/warboy77.itch.io\/dino-run-escape-the-extinction",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyMjg5MjgyLnBuZw==\/300x240%23c\/CrwtSh.png"
+      },
+      "coolness": 0,
+      "id": 730186,
+      "url": "\/jam\/gmtk-2025\/rate\/3744921",
+      "created_at": "2025-07-31 01:44:29"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "cover_color": "#ffffff",
+        "title": "kills sans",
+        "id": 3588058,
+        "url": "https:\/\/fnaf-fan0.itch.io\/kills-sans",
+        "user": {
+          "id": 10336386,
+          "url": "https:\/\/fnaf-fan0.itch.io",
+          "name": "fnaf fan0"
+        },
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIxMzcxMjIzLmpwZw==\/300x240%23c\/bsfLdD.jpg"
+      },
+      "coolness": 0,
+      "id": 730818,
+      "url": "\/jam\/gmtk-2025\/rate\/3588058",
+      "created_at": "2025-07-31 16:42:13"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "cover_color": "#ffffff",
+        "platforms": ["windows"],
+        "title": "2d square jump jump",
+        "id": 3649895,
+        "url": "https:\/\/just-r.itch.io\/2d-square-jump-jump",
+        "user": {
+          "id": 6678609,
+          "url": "https:\/\/just-r.itch.io",
+          "name": "Just R"
+        },
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIxNzE4ODE5LnBuZw==\/300x240%23c\/cmHJwU.png"
+      },
+      "coolness": 0,
+      "id": 729889,
+      "url": "\/jam\/gmtk-2025\/rate\/3649895",
+      "created_at": "2025-07-30 17:05:43"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "A tiny type open world game",
+        "user": {
+          "id": 14026957,
+          "url": "https:\/\/game-some-studio.itch.io",
+          "name": "Game_some_studio"
+        },
+        "title": "OPEN WORLD ADVANCE",
+        "id": 3682810,
+        "url": "https:\/\/game-some-studio.itch.io\/open-world-advance",
+        "platforms": ["android"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIxOTIyMzUwLmpwZw==\/300x240%23c\/TFNYDI.jpg"
+      },
+      "coolness": 0,
+      "id": 730620,
+      "url": "\/jam\/gmtk-2025\/rate\/3682810",
+      "created_at": "2025-07-31 12:42:28"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "A best 2d shooter game for all!",
+        "user": {
+          "id": 13753770,
+          "url": "https:\/\/ivan-productions.itch.io",
+          "name": "Ivan Productions"
+        },
+        "platforms": ["windows", "linux", "android"],
+        "title": "Metal Havoc",
+        "id": 3607863,
+        "url": "https:\/\/ivan-productions.itch.io\/metal-havoc",
+        "price": "$4.99",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIxNDc3MjI3LnBuZw==\/300x240%23c\/%2FzDtbL.png"
+      },
+      "coolness": 0,
+      "id": 730542,
+      "url": "\/jam\/gmtk-2025\/rate\/3607863",
+      "created_at": "2025-07-31 11:43:31"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "cover_color": "#ff2525",
+        "title": "THE LOOP",
+        "id": 3679283,
+        "url": "https:\/\/hammad2497.itch.io\/the-loop",
+        "user": {
+          "id": 12533445,
+          "url": "https:\/\/hammad2497.itch.io",
+          "name": "hammad2497"
+        },
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIxODkxMTQ5LmpwZWc=\/300x240%23c\/AUMBTn.jpeg"
+      },
+      "coolness": 0,
+      "id": 729923,
+      "url": "\/jam\/gmtk-2025\/rate\/3679283",
+      "created_at": "2025-07-30 17:53:55"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "click",
+        "user": {
+          "id": 11016932,
+          "url": "https:\/\/saturn-computing-topic.itch.io",
+          "name": "Saturn_Computing-Topic"
+        },
+        "title": "Australian Pedestrian Crossing Keychain Clicker.exe",
+        "id": 3659264,
+        "url": "https:\/\/saturn-computing-topic.itch.io\/apckc-exe",
+        "platforms": ["windows"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730503,
+      "url": "\/jam\/gmtk-2025\/rate\/3659264",
+      "created_at": "2025-07-31 10:54:10"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 14458469,
+          "url": "https:\/\/gatvolstudios.itch.io",
+          "name": "GatvolStudios"
+        },
+        "title": "Project Re:Run",
+        "id": 3766127,
+        "url": "https:\/\/gatvolstudios.itch.io\/re-run",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDE3NDY0LnBuZw==\/300x240%23c\/b2q%2FST.png"
+      },
+      "coolness": 0,
+      "id": 730314,
+      "url": "\/jam\/gmtk-2025\/rate\/3766127",
+      "created_at": "2025-07-31 05:30:33"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 1735873,
+          "url": "https:\/\/notdurris.itch.io",
+          "name": "NotDurris"
+        },
+        "title": "Loopy",
+        "id": 3764302,
+        "url": "https:\/\/notdurris.itch.io\/loopy",
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 729885,
+      "url": "\/jam\/gmtk-2025\/rate\/3764302",
+      "created_at": "2025-07-30 17:03:23"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "cover_color": "#000000",
+        "platforms": ["web"],
+        "title": "J*b Simulator",
+        "id": 3764477,
+        "url": "https:\/\/austinszema.itch.io\/job-simulator",
+        "user": {
+          "id": 5520628,
+          "url": "https:\/\/austinszema.itch.io",
+          "name": "AustinSzema"
+        },
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDA4MzM3LnBuZw==\/300x240%23c\/yCpTBU.png"
+      },
+      "coolness": 0,
+      "id": 729945,
+      "url": "\/jam\/gmtk-2025\/rate\/3764477",
+      "created_at": "2025-07-30 18:29:28"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 12713222,
+          "url": "https:\/\/thecameroonsalmon.itch.io",
+          "name": "thecameroonsalmon"
+        },
+        "title": "Gmtk Loop- update later",
+        "id": 3765455,
+        "url": "https:\/\/thecameroonsalmon.itch.io\/gmtk-loop-update-later",
+        "cover": ""
+      },
+      "coolness": 0,
+      "contributors": [
+        {
+          "name": "thecameroonsalmon",
+          "url": "https:\/\/thecameroonsalmon.itch.io"
+        },
+        { "name": "SucMaGlizzzy", "url": "https:\/\/sucmaglizzzy.itch.io" }
+      ],
+      "url": "\/jam\/gmtk-2025\/rate\/3765455",
+      "created_at": "2025-07-30 23:24:38",
+      "id": 730123
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Medieval Fantasy Tower Defense game",
+        "user": {
+          "id": 9875871,
+          "url": "https:\/\/codehubhq.itch.io",
+          "name": "CODEHUB"
+        },
+        "title": "Age Of Renaissance",
+        "id": 3765468,
+        "url": "https:\/\/codehubhq.itch.io\/age-of-renaissance",
+        "platforms": ["web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDEyODk3LnBuZw==\/300x240%23c\/D46qaf.png"
+      },
+      "coolness": 0,
+      "id": 730141,
+      "url": "\/jam\/gmtk-2025\/rate\/3765468",
+      "created_at": "2025-07-31 00:07:58"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Submission for GMTK game jam 2025",
+        "user": {
+          "id": 262564,
+          "url": "https:\/\/furfoxsnakes.itch.io",
+          "name": "furfoxsnakes"
+        },
+        "title": "Track Star",
+        "id": 3765452,
+        "url": "https:\/\/furfoxsnakes.itch.io\/track-star",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730129,
+      "url": "\/jam\/gmtk-2025\/rate\/3765452",
+      "created_at": "2025-07-30 23:31:49"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Space to shoot every kill you get a bullet, shoot in a direction to redirect the boolets that way",
+        "user": {
+          "id": 8983912,
+          "url": "https:\/\/creaiton-spirit.itch.io",
+          "name": "Creaiton_spirit"
+        },
+        "title": "Bullet thingy",
+        "id": 3765353,
+        "url": "https:\/\/creaiton-spirit.itch.io\/bullet-thingy",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDEyNDE4LmpwZw==\/300x240%23c\/IB3Q5%2F.jpg"
+      },
+      "coolness": 0,
+      "id": 730090,
+      "url": "\/jam\/gmtk-2025\/rate\/3765353",
+      "created_at": "2025-07-30 22:46:13"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 14040371,
+          "url": "https:\/\/byte-ul.itch.io",
+          "name": "Byte-ul"
+        },
+        "title": "Roach Attack",
+        "id": 3765438,
+        "url": "https:\/\/byte-ul.itch.io\/roach-attack",
+        "platforms": ["web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDEzMTI5LmpwZw==\/300x240%23c\/CJTIv9.jpg"
+      },
+      "coolness": 0,
+      "id": 730130,
+      "url": "\/jam\/gmtk-2025\/rate\/3765438",
+      "created_at": "2025-07-30 23:32:48"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "A Poker game with a Loopy twist",
+        "user": {
+          "id": 8217666,
+          "url": "https:\/\/theterminalgamer.itch.io",
+          "name": "TheTerminalGamer"
+        },
+        "title": "Texas Loop-Em",
+        "id": 3765284,
+        "url": "https:\/\/theterminalgamer.itch.io\/texas-loop-em",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730079,
+      "url": "\/jam\/gmtk-2025\/rate\/3765284",
+      "created_at": "2025-07-30 22:21:35"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "A fast-paced rythm\/typing game",
+        "user": {
+          "id": 79407,
+          "url": "https:\/\/vrojak.itch.io",
+          "name": "vrojak"
+        },
+        "title": "Beatkey",
+        "id": 3768255,
+        "url": "https:\/\/vrojak.itch.io\/beatkey",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "contributors": [
+        { "name": "vrojak", "url": "https:\/\/vrojak.itch.io" },
+        { "name": "Sarranus", "url": "https:\/\/sarranus.itch.io" }
+      ],
+      "url": "\/jam\/gmtk-2025\/rate\/3768255",
+      "created_at": "2025-07-31 19:47:33",
+      "id": 730935
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "GMTK 2025 Game Jam",
+        "user": {
+          "id": 1640118,
+          "url": "https:\/\/ezaccly.itch.io",
+          "name": "Ezaccly"
+        },
+        "title": "BeatBoxer",
+        "id": 3765617,
+        "url": "https:\/\/ezaccly.itch.io\/beatboxer",
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730170,
+      "url": "\/jam\/gmtk-2025\/rate\/3765617",
+      "created_at": "2025-07-31 00:57:17"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Every second counts. Every checkpoint matters.",
+        "user": {
+          "id": 11001154,
+          "url": "https:\/\/pg-gamings.itch.io",
+          "name": "PG Gamings"
+        },
+        "title": "Pulsar Runner",
+        "id": 3765912,
+        "url": "https:\/\/pg-gamings.itch.io\/pulsar-runner",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDE1Mzg3LnBuZw==\/300x240%23c\/QmmVVl.png"
+      },
+      "coolness": 0,
+      "id": 730248,
+      "url": "\/jam\/gmtk-2025\/rate\/3765912",
+      "created_at": "2025-07-31 03:24:43"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "A race against failure and expectations",
+        "user": {
+          "id": 168315,
+          "url": "https:\/\/umagrillo.itch.io",
+          "name": "Uma Grillo"
+        },
+        "title": "Re-Runner",
+        "id": 3765549,
+        "url": "https:\/\/umagrillo.itch.io\/re-runner",
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730161,
+      "url": "\/jam\/gmtk-2025\/rate\/3765549",
+      "created_at": "2025-07-31 00:42:24"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Bröther, may I have some lööps?",
+        "user": {
+          "id": 14396592,
+          "url": "https:\/\/mazeconcat.itch.io",
+          "name": "mazeconcat"
+        },
+        "platforms": ["web"],
+        "title": "Lööp",
+        "id": 3765756,
+        "url": "https:\/\/mazeconcat.itch.io\/loop",
+        "cover_color": "#4f195a",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDE0NTIxLnBuZw==\/300x240%23c\/Vz2sxt.png"
+      },
+      "coolness": 0,
+      "id": 730204,
+      "url": "\/jam\/gmtk-2025\/rate\/3765756",
+      "created_at": "2025-07-31 02:15:41"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "puzzle",
+        "user": {
+          "id": 11650157,
+          "url": "https:\/\/poegonz.itch.io",
+          "name": "Poegon"
+        },
+        "platforms": ["web"],
+        "title": "Chess Loop",
+        "id": 3765672,
+        "url": "https:\/\/poegonz.itch.io\/chess-loop",
+        "cover_color": "#eeeeee",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDE0MDcyLnBuZw==\/300x240%23c\/whrk77.png"
+      },
+      "coolness": 0,
+      "id": 730175,
+      "url": "\/jam\/gmtk-2025\/rate\/3765672",
+      "created_at": "2025-07-31 01:17:19"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 850762,
+          "url": "https:\/\/golen.itch.io",
+          "name": "Golen"
+        },
+        "title": "Loop 2025",
+        "id": 3764307,
+        "url": "https:\/\/golen.itch.io\/loop-2025",
+        "platforms": ["windows", "osx", "linux", "web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDE1MTEyLnBuZw==\/300x240%23c\/vhJd%2FR.png"
+      },
+      "coolness": 0,
+      "id": 729892,
+      "url": "\/jam\/gmtk-2025\/rate\/3764307",
+      "created_at": "2025-07-30 17:06:48"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "cover_color": "#004cd9",
+        "platforms": ["web"],
+        "title": "Now, Go Again",
+        "id": 3765274,
+        "url": "https:\/\/ususstudios.itch.io\/now-go-again",
+        "user": {
+          "id": 11390798,
+          "url": "https:\/\/ususstudios.itch.io",
+          "name": "UsUsStudios"
+        },
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730903,
+      "url": "\/jam\/gmtk-2025\/rate\/3765274",
+      "created_at": "2025-07-31 18:54:22"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "A Silly Toy Based on Reading Poorly",
+        "user": {
+          "id": 10800942,
+          "url": "https:\/\/unheardgrace.itch.io",
+          "name": "UnheardGrace"
+        },
+        "title": "Duck Pool",
+        "id": 3765153,
+        "url": "https:\/\/unheardgrace.itch.io\/duck-pool",
+        "platforms": ["web"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDEyMDc3LnBuZw==\/300x240%23c\/f%2FmKVC.png"
+      },
+      "coolness": 0,
+      "id": 730054,
+      "url": "\/jam\/gmtk-2025\/rate\/3765153",
+      "created_at": "2025-07-30 21:32:37"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "replayable, short, fast paced fps",
+        "user": {
+          "id": 11669670,
+          "url": "https:\/\/sh1fter-fe.itch.io",
+          "name": "sh1fter"
+        },
+        "title": "cored",
+        "id": 3764665,
+        "url": "https:\/\/sh1fter-fe.itch.io\/cored",
+        "cover_color": "#000000",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDA4NTYzLnBuZw==\/300x240%23c\/RgSgE6.png"
+      },
+      "coolness": 0,
+      "id": 730455,
+      "url": "\/jam\/gmtk-2025\/rate\/3764665",
+      "created_at": "2025-07-31 09:31:33"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "cover_color": "#272756",
+        "platforms": ["web"],
+        "title": "Stargazer",
+        "id": 3764668,
+        "url": "https:\/\/paqulity.itch.io\/stargazer",
+        "user": {
+          "id": 13520422,
+          "url": "https:\/\/paqulity.itch.io",
+          "name": "PaQuliTY"
+        },
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730392,
+      "url": "\/jam\/gmtk-2025\/rate\/3764668",
+      "created_at": "2025-07-31 07:35:28"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 14416269,
+          "url": "https:\/\/football-rivals.itch.io",
+          "name": "Football_Rivals"
+        },
+        "title": "Endless Runner",
+        "id": 3764596,
+        "url": "https:\/\/football-rivals.itch.io\/endless",
+        "platforms": ["windows"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 729946,
+      "url": "\/jam\/gmtk-2025\/rate\/3764596",
+      "created_at": "2025-07-30 18:29:48"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 14393386,
+          "url": "https:\/\/jin77a.itch.io",
+          "name": "jin77a"
+        },
+        "platforms": ["windows"],
+        "price": "$1",
+        "id": 3764491,
+        "url": "https:\/\/jin77a.itch.io\/dungeon-monster-mastergame-jam",
+        "title": "Dungeon Monster Master(game jam)",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDA3OTYyLnBuZw==\/300x240%23c\/fMw2RP.png"
+      },
+      "coolness": 0,
+      "id": 729926,
+      "url": "\/jam\/gmtk-2025\/rate\/3764491",
+      "created_at": "2025-07-30 18:03:17"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 11360580,
+          "url": "https:\/\/ihoponyou.itch.io",
+          "name": "ihoponyou"
+        },
+        "title": "awesome game",
+        "id": 3764590,
+        "url": "https:\/\/ihoponyou.itch.io\/awesome-game",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 729950,
+      "url": "\/jam\/gmtk-2025\/rate\/3764590",
+      "created_at": "2025-07-30 18:33:13"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "Entry for the 2025 GMTK Game Jam!",
+        "user": {
+          "id": 2011772,
+          "url": "https:\/\/corinator1.itch.io",
+          "name": "corinator1"
+        },
+        "title": "Bird Again",
+        "id": 3765159,
+        "url": "https:\/\/corinator1.itch.io\/bird-again",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730056,
+      "url": "\/jam\/gmtk-2025\/rate\/3765159",
+      "created_at": "2025-07-30 21:35:59"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 8770217,
+          "url": "https:\/\/sanic06.itch.io",
+          "name": "Sanic06"
+        },
+        "title": "The Endless Day",
+        "id": 3764783,
+        "url": "https:\/\/sanic06.itch.io\/the-endless-day",
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730884,
+      "url": "\/jam\/gmtk-2025\/rate\/3764783",
+      "created_at": "2025-07-31 18:25:16"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 8405953,
+          "url": "https:\/\/tsweezy.itch.io",
+          "name": "tsweezy"
+        },
+        "title": "GMTK '25",
+        "id": 3764851,
+        "url": "https:\/\/tsweezy.itch.io\/gmtk-25",
+        "platforms": ["windows"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730006,
+      "url": "\/jam\/gmtk-2025\/rate\/3764851",
+      "created_at": "2025-07-30 20:18:30"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 11206358,
+          "url": "https:\/\/trishapixel.itch.io",
+          "name": "trisha.pixel"
+        },
+        "title": "Spooky Hotel",
+        "id": 3765123,
+        "url": "https:\/\/trishapixel.itch.io\/spooky-hotel",
+        "cover": ""
+      },
+      "coolness": 0,
+      "contributors": [
+        { "name": "trisha.pixel", "url": "https:\/\/trishapixel.itch.io" },
+        { "name": "BuEnVA", "url": "https:\/\/buenva.itch.io" }
+      ],
+      "url": "\/jam\/gmtk-2025\/rate\/3765123",
+      "created_at": "2025-07-30 21:19:05",
+      "id": 730046
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "platforms": ["windows"],
+        "cover_color": "#ffffff",
+        "price": "$2",
+        "title": "Don't Flip First",
+        "id": 3764848,
+        "url": "https:\/\/lionshead-development.itch.io\/dont-flip-first",
+        "user": {
+          "id": 14458971,
+          "url": "https:\/\/lionshead-development.itch.io",
+          "name": "LionsHead Development"
+        },
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDA5NTMwLnBuZw==\/300x240%23c\/THFPUC.png"
+      },
+      "coolness": 0,
+      "id": 730849,
+      "url": "\/jam\/gmtk-2025\/rate\/3764848",
+      "created_at": "2025-07-31 17:28:53"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "user": {
+          "id": 14322954,
+          "url": "https:\/\/duxpoint.itch.io",
+          "name": "duxpoint"
+        },
+        "title": "Echo Escape",
+        "id": 3765087,
+        "url": "https:\/\/duxpoint.itch.io\/echo-escape",
+        "platforms": ["web"],
+        "cover": ""
+      },
+      "coolness": 0,
+      "id": 730036,
+      "url": "\/jam\/gmtk-2025\/rate\/3765087",
+      "created_at": "2025-07-30 21:05:27"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "We are here.",
+        "user": {
+          "id": 10065687,
+          "url": "https:\/\/iamdoingstuff.itch.io",
+          "name": "IAmDoingStuff"
+        },
+        "platforms": ["web"],
+        "title": "Slime Bouncer V3.2.2",
+        "id": 3764996,
+        "url": "https:\/\/iamdoingstuff.itch.io\/slime-bouncer",
+        "cover_color": "#e78b47",
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI2NzM4LnBuZw==\/300x240%23c\/FwPMa%2F.png"
+      },
+      "coolness": 0,
+      "id": 730029,
+      "url": "\/jam\/gmtk-2025\/rate\/3764996",
+      "created_at": "2025-07-30 20:38:46"
+    },
+    {
+      "rating_count": 0,
+      "game": {
+        "short_text": "A short puzzle game where you must activate colored buttons in the correct sequence before the time loop resets.",
+        "user": {
+          "id": 7715352,
+          "url": "https:\/\/cjulien02.itch.io",
+          "name": "cjulien02"
+        },
+        "title": "Time Loops",
+        "id": 3768330,
+        "url": "https:\/\/cjulien02.itch.io\/time-loops",
+        "platforms": ["windows"],
+        "cover": "https:\/\/img.itch.zone\/aW1nLzIyNDI3OTczLnBuZw==\/300x240%23c\/7lqCKK.png"
+      },
+      "coolness": 0,
+      "id": 730956,
+      "url": "\/jam\/gmtk-2025\/rate\/3768330",
+      "created_at": "2025-07-31 20:20:23"
+    }
+  ],
+  "generated_on": 1753993723.069
+}

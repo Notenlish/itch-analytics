@@ -1,0 +1,3506 @@
+{
+  "jam_games": [
+    {
+      "coolness": 17,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzY2Njk4LnBuZw==/300x240%23c/Z83g0a.png",
+        "user": {
+          "id": 835775,
+          "url": "https://ccadori.itch.io",
+          "name": "CCadori"
+        },
+        "short_text": "An open world monster ship builder where the player must explore islands to find out what happened in this universe.",
+        "title": "Sailing in the Dark",
+        "id": 2903009,
+        "url": "https://ccadori.itch.io/sailing-in-the-dark",
+        "cover_color": "#07211C",
+        "platforms": ["windows", "web"]
+      },
+      "rating_count": 25,
+      "id": 577828,
+      "url": "/jam/godot-wild-jam-72/rate/2903009",
+      "created_at": "2024-08-17 16:03:21"
+    },
+    {
+      "coolness": 29,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzYzMzIyLnBuZw==/300x240%23c/vqo4uB.png",
+        "user": {
+          "id": 9225045,
+          "url": "https://nhutcho.itch.io",
+          "name": "nhutcho"
+        },
+        "short_text": "Control a Holy Duck army and fight of Darkness creatures known as \"Geese\"",
+        "title": "The Quackening",
+        "id": 2902486,
+        "url": "https://nhutcho.itch.io/the-quackening",
+        "cover_color": "#000000",
+        "platforms": ["web"]
+      },
+      "rating_count": 18,
+      "id": 577758,
+      "url": "/jam/godot-wild-jam-72/rate/2902486",
+      "created_at": "2024-08-17 09:01:39"
+    },
+    {
+      "coolness": 21,
+      "game": {
+        "user": {
+          "id": 11196105,
+          "url": "https://itsciapro.itch.io",
+          "name": "ItsCiaPro"
+        },
+        "short_text": "Fight for the light",
+        "title": "Strike The Dark",
+        "id": 2906210,
+        "url": "https://itsciapro.itch.io/strike-the-dark",
+        "cover": "https://img.itch.zone/aW1nLzE3MzgzOTQ3LnBuZw==/300x240%23c/yF8UZn.png",
+        "platforms": ["web"]
+      },
+      "rating_count": 35,
+      "id": 578746,
+      "url": "/jam/godot-wild-jam-72/rate/2906210",
+      "created_at": "2024-08-18 19:33:37"
+    },
+    {
+      "coolness": 24,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc2ODA0LnBuZw==/300x240%23c/Rm%2FpCN.png",
+        "user": {
+          "id": 9139659,
+          "url": "https://munnchai.itch.io",
+          "name": "munnchai"
+        },
+        "cover_color": "#392946",
+        "id": 2904974,
+        "url": "https://munnchai.itch.io/detective-duck-and-the-murderous-mallard",
+        "title": "Detective Duck and the Murderous Mallard",
+        "platforms": ["web"]
+      },
+      "rating_count": 14,
+      "id": 578188,
+      "url": "/jam/godot-wild-jam-72/rate/2904974",
+      "created_at": "2024-08-18 12:27:45",
+      "contributors": [
+        {
+          "name": "munnchai",
+          "url": "https://munnchai.itch.io"
+        },
+        {
+          "name": "jaqlynai",
+          "url": "https://jaqlynai.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 6,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzY1NDE0LnBuZw==/300x240%23c/gFK%2FDJ.png",
+        "user": {
+          "id": 8814197,
+          "url": "https://renevanderark.itch.io",
+          "name": "Stuff René Made"
+        },
+        "cover_color": "#01000f",
+        "id": 2886491,
+        "url": "https://renevanderark.itch.io/whisked",
+        "title": "Whisked",
+        "platforms": ["windows", "linux", "web"]
+      },
+      "rating_count": 15,
+      "id": 577763,
+      "url": "/jam/godot-wild-jam-72/rate/2886491",
+      "created_at": "2024-08-17 09:38:09",
+      "contributors": [
+        {
+          "name": "Stuff René Made",
+          "url": "https://renevanderark.itch.io"
+        },
+        {
+          "name": "AWK",
+          "url": "https://awk.itch.io"
+        },
+        {
+          "name": "Memeland",
+          "url": "https://memeland.itch.io"
+        },
+        {
+          "name": "2lif3",
+          "url": "https://2lif3.itch.io"
+        },
+        {
+          "name": "KameronGuajardoVGM",
+          "url": "https://kameronguajardovgm.itch.io"
+        },
+        {
+          "name": "Lumii",
+          "url": "https://lumii0.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 16,
+      "game": {
+        "user": {
+          "id": 4147970,
+          "url": "https://prashantsingh.itch.io",
+          "name": "Prashant Singh"
+        },
+        "title": "Motion Blackout",
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc2ODAxLmdpZg==/300x240%23cm/py%2B2AF.gif",
+        "short_text": "Lights go out when you Move in this Rage Platformer",
+        "cover_color": "#eeeeee",
+        "id": 2901018,
+        "url": "https://prashantsingh.itch.io/motion-blackout",
+        "gif_cover": "https://img.itch.zone/aW1nLzE3Mzc2ODAxLmdpZg==/original/qsSCXl.gif",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 27,
+      "id": 578163,
+      "url": "/jam/godot-wild-jam-72/rate/2901018",
+      "created_at": "2024-08-18 11:30:07"
+    },
+    {
+      "coolness": 18,
+      "game": {
+        "user": {
+          "id": 1607366,
+          "url": "https://oleogustus.itch.io",
+          "name": "posshydra"
+        },
+        "short_text": "a game jam project with a dimension-shifting mechanic. developed together with MilopineDesign.",
+        "title": "lightswitch",
+        "id": 2906177,
+        "url": "https://oleogustus.itch.io/lightswitch",
+        "cover": "https://img.itch.zone/aW1nLzE5MTkzMDE4LnBuZw==/300x240%23c/k3pUdy.png",
+        "platforms": ["web"]
+      },
+      "rating_count": 12,
+      "id": 578731,
+      "url": "/jam/godot-wild-jam-72/rate/2906177",
+      "created_at": "2024-08-18 19:22:26"
+    },
+    {
+      "coolness": 2,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3NDM5MzEyLnBuZw==/300x240%23c/JmxYFY.png",
+        "user": {
+          "id": 5233626,
+          "url": "https://graphific.itch.io",
+          "name": "graphific"
+        },
+        "cover_color": "#eeeeee",
+        "id": 2893760,
+        "url": "https://graphific.itch.io/spirit-hands",
+        "title": "Spirit Hands",
+        "platforms": ["web"]
+      },
+      "rating_count": 11,
+      "id": 580210,
+      "url": "/jam/godot-wild-jam-72/rate/2893760",
+      "created_at": "2024-08-19 23:31:29"
+    },
+    {
+      "coolness": 3,
+      "game": {
+        "user": {
+          "id": 10897279,
+          "url": "https://phorpho.itch.io",
+          "name": "phorpho"
+        },
+        "short_text": "Unleash your inner Wereduck.",
+        "title": "Curse of the Wereduck",
+        "id": 2883540,
+        "url": "https://phorpho.itch.io/curse-of-the-wereduck",
+        "cover": "https://img.itch.zone/aW1nLzE3MzcyOTgwLnBuZw==/300x240%23c/ieXUnY.png",
+        "platforms": ["web"]
+      },
+      "rating_count": 22,
+      "id": 578011,
+      "url": "/jam/godot-wild-jam-72/rate/2883540",
+      "created_at": "2024-08-18 03:03:06",
+      "contributors": [
+        {
+          "name": "phorpho",
+          "url": "https://phorpho.itch.io"
+        },
+        {
+          "name": "Kain",
+          "url": "https://kainosaurus.itch.io"
+        },
+        {
+          "name": "Kyle_D",
+          "url": "https://kyle-d.itch.io"
+        },
+        {
+          "name": "shimzini",
+          "url": "https://shimzini.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 18,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzkwOTU0LnBuZw==/300x240%23c/NS91vr.png",
+        "user": {
+          "id": 242767,
+          "url": "https://darkwooddragon.itch.io",
+          "name": "DarkwoodDragon"
+        },
+        "short_text": "Help Melt and Shadow complete the researcher's tests.",
+        "title": "Melt & Shadow",
+        "id": 2906126,
+        "url": "https://darkwooddragon.itch.io/melt-shadow",
+        "cover_color": "#222034",
+        "platforms": ["web"]
+      },
+      "rating_count": 11,
+      "id": 578735,
+      "url": "/jam/godot-wild-jam-72/rate/2906126",
+      "created_at": "2024-08-18 19:27:50"
+    },
+    {
+      "coolness": 20,
+      "game": {
+        "user": {
+          "id": 2372491,
+          "url": "https://maaack.itch.io",
+          "name": "Maaack"
+        },
+        "title": "A Darkness Like Gravity",
+        "cover": "https://img.itch.zone/aW1nLzE3NDA0MjIxLmdpZg==/300x240%23cm/g3CW95.gif",
+        "short_text": "Delve into darkness and return to the light.",
+        "cover_color": "#000000",
+        "id": 2894229,
+        "url": "https://maaack.itch.io/a-darkness-like-gravity",
+        "gif_cover": "https://img.itch.zone/aW1nLzE3NDA0MjIxLmdpZg==/original/1WzaYy.gif",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 19,
+      "id": 576506,
+      "url": "/jam/godot-wild-jam-72/rate/2894229",
+      "created_at": "2024-08-13 05:34:30",
+      "contributors": [
+        {
+          "name": "Maaack",
+          "url": "https://maaack.itch.io"
+        },
+        {
+          "name": "art_oldman",
+          "url": "https://art-oldman.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 3,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg0NjI1LnBuZw==/300x240%23c/Dgceaa.png",
+        "user": {
+          "id": 198005,
+          "url": "https://pgcomai.itch.io",
+          "name": "PGComai"
+        },
+        "short_text": "Recreate lost photos!",
+        "title": "Viewfinder",
+        "id": 2906290,
+        "url": "https://pgcomai.itch.io/viewfinder",
+        "cover_color": "#202020",
+        "platforms": ["windows", "osx", "linux"]
+      },
+      "rating_count": 7,
+      "id": 578779,
+      "url": "/jam/godot-wild-jam-72/rate/2906290",
+      "created_at": "2024-08-18 19:52:52"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "user": {
+          "id": 4107846,
+          "url": "https://voidnx64.itch.io",
+          "name": "VoidNX64"
+        },
+        "short_text": "Balance the powers of light and dark",
+        "title": "Beacon of Neutrality",
+        "id": 2902832,
+        "url": "https://voidnx64.itch.io/beacon-of-neutrality",
+        "cover": "https://img.itch.zone/aW1nLzE3MzY1NTE3LnBuZw==/300x240%23c/SlmpFU.png",
+        "platforms": ["web"]
+      },
+      "rating_count": 11,
+      "id": 577804,
+      "url": "/jam/godot-wild-jam-72/rate/2902832",
+      "created_at": "2024-08-17 14:16:11"
+    },
+    {
+      "coolness": 10,
+      "game": {
+        "user": {
+          "id": 9400434,
+          "url": "https://danhoangg.itch.io",
+          "name": "Dan Hoang"
+        },
+        "title": "Duck Souls",
+        "cover": "https://img.itch.zone/aW1nLzE3MzgyNDE1LmdpZg==/300x240%23cm/vrO%2B%2Bq.gif",
+        "short_text": "A short game including a duck, some torches and a lot of death",
+        "cover_color": "#000000",
+        "id": 2903576,
+        "url": "https://danhoangg.itch.io/duck-souls",
+        "gif_cover": "https://img.itch.zone/aW1nLzE3MzgyNDE1LmdpZg==/original/%2BvEwKG.gif",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 18,
+      "id": 577918,
+      "url": "/jam/godot-wild-jam-72/rate/2903576",
+      "created_at": "2024-08-17 21:02:47",
+      "contributors": [
+        {
+          "name": "Dan Hoang",
+          "url": "https://danhoangg.itch.io"
+        },
+        {
+          "name": "glogos",
+          "url": "https://glogos.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 2,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc5NTYzLnBuZw==/300x240%23c/ceXfaT.png",
+        "user": {
+          "id": 1980327,
+          "url": "https://renderinguser.itch.io",
+          "name": "Default Cube"
+        },
+        "short_text": "You are a creature of the light; Shrouded by the mass of the night",
+        "title": "Into The Light",
+        "id": 2893395,
+        "url": "https://renderinguser.itch.io/into-the-light",
+        "cover_color": "#000000",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 10,
+      "id": 578357,
+      "url": "/jam/godot-wild-jam-72/rate/2893395",
+      "created_at": "2024-08-18 15:05:05"
+    },
+    {
+      "coolness": 19,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzgyMzA3LnBuZw==/300x240%23c/xxCeHj.png",
+        "user": {
+          "id": 11147431,
+          "url": "https://glazed-cheese.itch.io",
+          "name": "Glazed Cheese Games"
+        },
+        "short_text": "help the shadow duck get to the bread and keep it from overheating",
+        "title": "Chasing The Bread",
+        "id": 2905934,
+        "url": "https://glazed-cheese.itch.io/chasing-the-bread",
+        "cover_color": "#eeeeee",
+        "platforms": ["windows", "osx", "linux"]
+      },
+      "rating_count": 8,
+      "id": 578674,
+      "url": "/jam/godot-wild-jam-72/rate/2905934",
+      "created_at": "2024-08-18 18:25:21"
+    },
+    {
+      "coolness": 3,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc3ODg0LnBuZw==/300x240%23c/ZQJPBV.png",
+        "user": {
+          "id": 72100,
+          "url": "https://shinzironine.itch.io",
+          "name": "Shinzironine"
+        },
+        "short_text": "A short survival horror at the end of times",
+        "title": "The Pit Must Be Fed",
+        "id": 2904725,
+        "url": "https://shinzironine.itch.io/the-pit-must-be-fed",
+        "cover_color": "#000000",
+        "platforms": ["web"]
+      },
+      "rating_count": 12,
+      "id": 578215,
+      "url": "/jam/godot-wild-jam-72/rate/2904725",
+      "created_at": "2024-08-18 13:00:56"
+    },
+    {
+      "coolness": 7,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc5ODUwLnBuZw==/300x240%23c/zDho5j.png",
+        "user": {
+          "id": 6648945,
+          "url": "https://matt-barley.itch.io",
+          "name": "MattBarley"
+        },
+        "short_text": "Little dark adventure",
+        "title": "Duck Souls. Brave the depths",
+        "id": 2905249,
+        "url": "https://matt-barley.itch.io/duck-souls-brave-to-the-depths",
+        "cover_color": "#0b9f93",
+        "platforms": ["windows", "osx", "linux"]
+      },
+      "rating_count": 12,
+      "id": 578720,
+      "url": "/jam/godot-wild-jam-72/rate/2905249",
+      "created_at": "2024-08-18 19:08:34",
+      "contributors": [
+        {
+          "name": "MattBarley",
+          "url": "https://matt-barley.itch.io"
+        },
+        {
+          "name": "Goose Loop",
+          "url": "https://gooseloop.itch.io"
+        },
+        {
+          "name": "TheUtterEmptiness",
+          "url": "https://theutteremptiness.itch.io"
+        },
+        {
+          "name": "Aike",
+          "url": "https://a1ke.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 9,
+      "game": {
+        "user": {
+          "id": 8897401,
+          "url": "https://ratracestudio.itch.io",
+          "name": "Rat Race Studio"
+        },
+        "title": "Light the Night",
+        "cover": "https://img.itch.zone/aW1nLzE3MzczNjg1LmdpZg==/300x240%23cm/DOs3%2FC.gif",
+        "short_text": "Game submission for the Godot Wild Jam #72",
+        "cover_color": "#0f175a",
+        "id": 2885802,
+        "url": "https://ratracestudio.itch.io/light-the-night",
+        "gif_cover": "https://img.itch.zone/aW1nLzE3MzczNjg1LmdpZg==/original/aIDDRX.gif",
+        "platforms": ["web"]
+      },
+      "rating_count": 17,
+      "id": 578811,
+      "url": "/jam/godot-wild-jam-72/rate/2885802",
+      "created_at": "2024-08-18 20:10:41",
+      "contributors": [
+        {
+          "name": "Rat Race Studio",
+          "url": "https://ratracestudio.itch.io"
+        },
+        {
+          "name": "Michael (iDigg)",
+          "url": "https://michaelwschultz.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 47,
+      "game": {
+        "user": {
+          "id": 156821,
+          "url": "https://jukepoks1.itch.io",
+          "name": "Jukepoks1"
+        },
+        "title": "Untitled Box Challenge",
+        "cover": "https://img.itch.zone/aW1nLzE3MzM2NjE3LmdpZg==/300x240%23cm/hvFxh5.gif",
+        "short_text": "Collect all the lights while the arena gets harder by every move.",
+        "cover_color": "#000000",
+        "id": 2897107,
+        "url": "https://jukepoks1.itch.io/untitled-box-challenge",
+        "gif_cover": "https://img.itch.zone/aW1nLzE3MzM2NjE3LmdpZg==/original/Ax7vgF.gif",
+        "platforms": ["web"]
+      },
+      "rating_count": 13,
+      "id": 577562,
+      "url": "/jam/godot-wild-jam-72/rate/2897107",
+      "created_at": "2024-08-16 16:21:52"
+    },
+    {
+      "coolness": 64,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE4NDQxMzU0LnBuZw==/300x240%23c/5EPuq0.png",
+        "user": {
+          "id": 11071019,
+          "url": "https://games-by-jorel.itch.io",
+          "name": "Jorel"
+        },
+        "short_text": "Play as a light wielding duck hero and save your duck friends with your sick combat skills!",
+        "title": "Light'em Ducks",
+        "id": 2905936,
+        "url": "https://games-by-jorel.itch.io/lightem-ducks",
+        "cover_color": "#080506",
+        "platforms": ["web"]
+      },
+      "rating_count": 38,
+      "id": 578690,
+      "url": "/jam/godot-wild-jam-72/rate/2905936",
+      "created_at": "2024-08-18 18:34:16"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzY5OTY2LnBuZw==/300x240%23c/luFONw.png",
+        "cover_color": "#142240",
+        "id": 2903228,
+        "url": "https://joncrow.itch.io/moustache-adventure",
+        "title": "Moustache Adventure Game",
+        "user": {
+          "id": 4691566,
+          "url": "https://joncrow.itch.io",
+          "name": "joncrow"
+        }
+      },
+      "rating_count": 7,
+      "id": 578358,
+      "url": "/jam/godot-wild-jam-72/rate/2903228",
+      "created_at": "2024-08-18 15:05:58"
+    },
+    {
+      "coolness": 19,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzgyNTg2LnBuZw==/300x240%23c/gbTyBz.png",
+        "user": {
+          "id": 6612238,
+          "url": "https://aardvarkio.itch.io",
+          "name": "aardvarkio"
+        },
+        "short_text": "Camera Man - Point and Click Hacking Adventure for GWJ72",
+        "title": "Camera Man",
+        "id": 2889283,
+        "url": "https://aardvarkio.itch.io/camera-man",
+        "cover_color": "#191919",
+        "platforms": ["windows", "osx", "web"]
+      },
+      "rating_count": 12,
+      "id": 578775,
+      "url": "/jam/godot-wild-jam-72/rate/2889283",
+      "created_at": "2024-08-18 19:52:03",
+      "contributors": [
+        {
+          "name": "aardvarkio",
+          "url": "https://aardvarkio.itch.io"
+        },
+        {
+          "name": "MrDryerAtNight",
+          "url": "https://mrdryeratnight.itch.io"
+        },
+        {
+          "name": "cosmicnomad12",
+          "url": "https://cosmicnomad12.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "user": {
+          "id": 3189511,
+          "url": "https://madparrot.itch.io",
+          "name": "Mad Parrot Studios"
+        },
+        "short_text": "An open world MMORPG where you fight slimes - but they are cursed!",
+        "title": "Farlandya - GWJ #72",
+        "id": 2908947,
+        "url": "https://madparrot.itch.io/farlandya-gwj-72",
+        "cover": "https://img.itch.zone/aW1nLzE3NDAwNDIxLnBuZw==/300x240%23c/Ccf32K.png",
+        "platforms": ["windows", "osx", "linux"]
+      },
+      "rating_count": 11,
+      "id": 579929,
+      "url": "/jam/godot-wild-jam-72/rate/2908947",
+      "created_at": "2024-08-19 21:04:17"
+    },
+    {
+      "coolness": 4,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg0NjkxLnBuZw==/300x240%23c/VebKb3.png",
+        "user": {
+          "id": 1998708,
+          "url": "https://oeslian.itch.io",
+          "name": "Oeslian"
+        },
+        "short_text": "A game where you have to navigate dark caves in a submarine.",
+        "title": "Deep Dark",
+        "id": 2905648,
+        "url": "https://oeslian.itch.io/deep-dark",
+        "cover_color": "#000000",
+        "platforms": ["windows", "osx", "linux"]
+      },
+      "rating_count": 8,
+      "id": 578772,
+      "url": "/jam/godot-wild-jam-72/rate/2905648",
+      "created_at": "2024-08-18 19:49:42"
+    },
+    {
+      "coolness": 1,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg0NjA3LnBuZw==/300x240%23c/b%2FhkKK.png",
+        "user": {
+          "id": 1447439,
+          "url": "https://racuh.itch.io",
+          "name": "Racuh"
+        },
+        "short_text": "retro inspired first person speed game, with heavy emphasis on lighting",
+        "title": "LUMEN",
+        "id": 2906339,
+        "url": "https://racuh.itch.io/lumen",
+        "cover_color": "#000000",
+        "platforms": ["windows", "osx", "linux"]
+      },
+      "rating_count": 7,
+      "id": 578799,
+      "url": "/jam/godot-wild-jam-72/rate/2906339",
+      "created_at": "2024-08-18 19:59:26"
+    },
+    {
+      "coolness": 7,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc2MTkxLnBuZw==/300x240%23c/h3fqVG.png",
+        "user": {
+          "id": 4893580,
+          "url": "https://speedyeyeball.itch.io",
+          "name": "SpeedyEyeBall"
+        },
+        "short_text": "Dimension switching puzzle/platformer",
+        "title": "Douceur Kay",
+        "id": 2904828,
+        "url": "https://speedyeyeball.itch.io/douceur-kay",
+        "cover_color": "#2f2f2f",
+        "platforms": ["windows", "osx", "linux"]
+      },
+      "rating_count": 11,
+      "id": 578783,
+      "url": "/jam/godot-wild-jam-72/rate/2904828",
+      "created_at": "2024-08-18 19:53:54",
+      "contributors": [
+        {
+          "name": "SpeedyEyeBall",
+          "url": "https://speedyeyeball.itch.io"
+        },
+        {
+          "name": "MutantGinga",
+          "url": "https://mutantginga.itch.io"
+        },
+        {
+          "name": "bigmonmulgrew",
+          "url": "https://bigmonmulgrew.itch.io"
+        },
+        {
+          "name": "Yuxxxi",
+          "url": "https://yuxxxi.itch.io"
+        },
+        {
+          "name": "Stondonk",
+          "url": "https://stondonk.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 15,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzQzMzE2LnBuZw==/300x240%23c/WlInvh.png",
+        "user": {
+          "id": 10044767,
+          "url": "https://busridestudio.itch.io",
+          "name": "busride studio"
+        },
+        "short_text": "Quacktical. Espionage. Action.",
+        "title": "Mallard Gear Solid",
+        "id": 2897635,
+        "url": "https://busridestudio.itch.io/mallard-gear-solid",
+        "cover_color": "#5a5a5a",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 34,
+      "id": 578212,
+      "url": "/jam/godot-wild-jam-72/rate/2897635",
+      "created_at": "2024-08-18 12:59:21",
+      "contributors": [
+        {
+          "name": "busride studio",
+          "url": "https://busridestudio.itch.io"
+        },
+        {
+          "name": "junkgolem",
+          "url": "https://junkgolem.itch.io"
+        },
+        {
+          "name": "Scratchy_SD",
+          "url": "https://scratchy-sd.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 14,
+      "game": {
+        "user": {
+          "id": 3797312,
+          "url": "https://shemodev.itch.io",
+          "name": "ShemoDev"
+        },
+        "short_text": "Investigate the destroyed Nova Sphere Laboratory.",
+        "title": "Nova Sphere Laboratory",
+        "id": 2906286,
+        "url": "https://shemodev.itch.io/nova-sphere-laboratory",
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg1MDU3LnBuZw==/300x240%23c/2a%2FTDX.png",
+        "platforms": ["windows", "osx", "linux"]
+      },
+      "rating_count": 10,
+      "id": 578785,
+      "url": "/jam/godot-wild-jam-72/rate/2906286",
+      "created_at": "2024-08-18 19:54:37"
+    },
+    {
+      "coolness": 13,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzczNTcwLnBuZw==/300x240%23c/ZcRv%2B6.png",
+        "user": {
+          "id": 11193663,
+          "url": "https://therryaki.itch.io",
+          "name": "therryaki"
+        },
+        "short_text": "Help papa duck dive through dark cave systems to find his lost ducklings",
+        "title": "Where the Quack?!",
+        "id": 2896627,
+        "url": "https://therryaki.itch.io/where-the-quack",
+        "cover_color": "#242322",
+        "platforms": ["windows", "osx", "linux"]
+      },
+      "rating_count": 9,
+      "id": 578770,
+      "url": "/jam/godot-wild-jam-72/rate/2896627",
+      "created_at": "2024-08-18 19:48:26",
+      "contributors": [
+        {
+          "name": "therryaki",
+          "url": "https://therryaki.itch.io"
+        },
+        {
+          "name": "eliteboo",
+          "url": "https://eliteboo.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 6,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzgzOTg5LnBuZw==/300x240%23c/q5K0XG.png",
+        "user": {
+          "id": 882533,
+          "url": "https://dreadlordcyberskull.itch.io",
+          "name": "DreadLordCyberSkull"
+        },
+        "short_text": "Dakota Duck is descending into The Dark Slime Dungeon! How deep in the dungeon can you go?",
+        "title": "Dakota Duck in The Dark Slime Dungeon",
+        "id": 2905008,
+        "url": "https://dreadlordcyberskull.itch.io/dakota-duck-in-the-dark-slime-dungeon",
+        "cover_color": "#142240",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 8,
+      "id": 578185,
+      "url": "/jam/godot-wild-jam-72/rate/2905008",
+      "created_at": "2024-08-18 12:15:35",
+      "contributors": [
+        {
+          "name": "DreadLordCyberSkull",
+          "url": "https://dreadlordcyberskull.itch.io"
+        },
+        {
+          "name": "Internetzspacezshipz",
+          "url": "https://internetzspacezshipz.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 5,
+      "game": {
+        "user": {
+          "id": 8959402,
+          "url": "https://freddox-g.itch.io",
+          "name": "Freddox"
+        },
+        "short_text": "Fight against Asteroids with your cannons of Photons and Dark Energy.",
+        "title": "Voidlight",
+        "id": 2906010,
+        "url": "https://freddox-g.itch.io/voidlight",
+        "cover_color": "#121d29",
+        "cover": "https://img.itch.zone/aW1nLzE3MzgzMDc3LmpwZWc=/300x240%23c/DGnl4F.jpeg"
+      },
+      "rating_count": 9,
+      "id": 578687,
+      "url": "/jam/godot-wild-jam-72/rate/2906010",
+      "created_at": "2024-08-18 18:32:58"
+    },
+    {
+      "coolness": 8,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzQ0NjEyLnBuZw==/300x240%23c/AV0P7%2F.png",
+        "user": {
+          "id": 7186949,
+          "url": "https://nubels64.itch.io",
+          "name": "Nubels64"
+        },
+        "short_text": "A small precision platformer with run and gun elements.",
+        "title": "Lights Out",
+        "id": 2895541,
+        "url": "https://nubels64.itch.io/lights-out",
+        "cover_color": "#4d4539",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 11,
+      "id": 577549,
+      "url": "/jam/godot-wild-jam-72/rate/2895541",
+      "created_at": "2024-08-16 14:55:41"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "user": {
+          "id": 11331432,
+          "url": "https://aquacrux.itch.io",
+          "name": "Aquacrux"
+        },
+        "short_text": "A Duck Vampire survivors/rougelike type game",
+        "title": "DuckLike",
+        "id": 2904399,
+        "url": "https://aquacrux.itch.io/ducklike",
+        "cover_color": "#028a4b",
+        "cover": ""
+      },
+      "rating_count": 6,
+      "id": 578030,
+      "url": "/jam/godot-wild-jam-72/rate/2904399",
+      "created_at": "2024-08-18 04:24:59"
+    },
+    {
+      "coolness": 1,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg0Mzg0LnBuZw==/300x240%23c/N6%2B4JZ.png",
+        "user": {
+          "id": 10255861,
+          "url": "https://yololesrab.itch.io",
+          "name": "YoloLeSrab"
+        },
+        "cover_color": "#000000",
+        "id": 2906288,
+        "url": "https://yololesrab.itch.io/lark",
+        "title": "lark",
+        "platforms": ["windows", "osx", "linux"]
+      },
+      "rating_count": 7,
+      "id": 578773,
+      "url": "/jam/godot-wild-jam-72/rate/2906288",
+      "created_at": "2024-08-18 19:50:44"
+    },
+    {
+      "coolness": 22,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg1OTkwLnBuZw==/300x240%23c/awuQi7.png",
+        "user": {
+          "id": 10133878,
+          "url": "https://lebjose.itch.io",
+          "name": "José Lebreuilly"
+        },
+        "short_text": "Explore during the day, but be cautious after the sun goes down",
+        "title": "They Grow During the Day",
+        "id": 2906306,
+        "url": "https://lebjose.itch.io/they-grow-during-the-day",
+        "cover_color": "#121a24",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 14,
+      "id": 578793,
+      "url": "/jam/godot-wild-jam-72/rate/2906306",
+      "created_at": "2024-08-18 19:57:13",
+      "contributors": [
+        {
+          "name": "José Lebreuilly",
+          "url": "https://lebjose.itch.io"
+        },
+        {
+          "name": "DaCozyOwl",
+          "url": "https://dacozyowl.itch.io"
+        },
+        {
+          "name": "SerenePixels",
+          "url": "https://serenepixels.itch.io"
+        },
+        {
+          "name": "prti",
+          "url": "https://prti.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 13,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzk0MjY0LnBuZw==/300x240%23c/eMlD%2FP.png",
+        "user": {
+          "id": 5791067,
+          "url": "https://elidef.itch.io",
+          "name": "Elidef"
+        },
+        "cover_color": "#435972",
+        "id": 2899940,
+        "url": "https://elidef.itch.io/gwj72",
+        "title": "Biora",
+        "platforms": ["windows"]
+      },
+      "rating_count": 7,
+      "id": 578800,
+      "url": "/jam/godot-wild-jam-72/rate/2899940",
+      "created_at": "2024-08-18 19:59:31"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzk3ODIwLnBuZw==/300x240%23c/tefLgX.png",
+        "title": "What the DUCK?",
+        "id": 2900781,
+        "url": "https://amir9120.itch.io/what-the-duck",
+        "user": {
+          "id": 5506799,
+          "url": "https://amir9120.itch.io",
+          "name": "AMIR9120"
+        },
+        "platforms": ["windows", "osx", "linux"]
+      },
+      "rating_count": 8,
+      "id": 577557,
+      "url": "/jam/godot-wild-jam-72/rate/2900781",
+      "created_at": "2024-08-16 15:31:36"
+    },
+    {
+      "coolness": 6,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE4NzgyMTI3LnBuZw==/300x240%23c/mKvJVZ.png",
+        "user": {
+          "id": 10805070,
+          "url": "https://xeddyxeddoso.itch.io",
+          "name": "xeddyxeddoso"
+        },
+        "short_text": "weird puzzle horror(?) game",
+        "title": "Something special?",
+        "id": 2906170,
+        "url": "https://xeddyxeddoso.itch.io/follow-the-light",
+        "cover_color": "#000000",
+        "platforms": ["windows", "osx"]
+      },
+      "rating_count": 10,
+      "id": 578727,
+      "url": "/jam/godot-wild-jam-72/rate/2906170",
+      "created_at": "2024-08-18 19:12:15"
+    },
+    {
+      "coolness": 6,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3NTA5OTY3LnBuZw==/300x240%23c/nawZ0Q.png",
+        "user": {
+          "id": 11242345,
+          "url": "https://ninjafrog8.itch.io",
+          "name": "Ninjafrog8"
+        },
+        "short_text": "Recover your magic, page by page, and defeat the darkness that has escaped, but don't let the magic corrupt you!",
+        "title": "The Book of Shadows",
+        "id": 2906348,
+        "url": "https://ninjafrog8.itch.io/thebookofshadows",
+        "cover_color": "#a82aff",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 11,
+      "id": 580421,
+      "url": "/jam/godot-wild-jam-72/rate/2906348",
+      "created_at": "2024-08-20 01:16:15"
+    },
+    {
+      "coolness": 6,
+      "game": {
+        "user": {
+          "id": 6516131,
+          "url": "https://virgames.itch.io",
+          "name": "Vir"
+        },
+        "short_text": "Reminisce through Polaroids as you say goodbye",
+        "title": "Memories",
+        "id": 2905971,
+        "url": "https://virgames.itch.io/memories",
+        "cover": "https://img.itch.zone/aW1nLzE3MzgwNjE0LnBuZw==/300x240%23c/WRuU5I.png"
+      },
+      "rating_count": 7,
+      "id": 578715,
+      "url": "/jam/godot-wild-jam-72/rate/2905971",
+      "created_at": "2024-08-18 19:03:20",
+      "contributors": [
+        {
+          "name": "Vir",
+          "url": "https://virgames.itch.io"
+        },
+        {
+          "name": "Scaredy Cat",
+          "url": "https://thescaredycat.itch.io"
+        },
+        {
+          "name": "Bentodrws",
+          "url": "https://bentodrws.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 56,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzczNDg2LnBuZw==/300x240%23c/g%2FKz4p.png",
+        "user": {
+          "id": 9297615,
+          "url": "https://kryscw.itch.io",
+          "name": "kryscw"
+        },
+        "short_text": "Pictures & Darkness",
+        "title": "Picturesque",
+        "id": 2904281,
+        "url": "https://kryscw.itch.io/picturesque",
+        "cover_color": "#000000",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 16,
+      "id": 578024,
+      "url": "/jam/godot-wild-jam-72/rate/2904281",
+      "created_at": "2024-08-18 03:37:25"
+    },
+    {
+      "coolness": 30,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzA4NzU4LnBuZw==/300x240%23c/ViOON%2F.png",
+        "user": {
+          "id": 7654945,
+          "url": "https://octahedral.itch.io",
+          "name": "Octahedral"
+        },
+        "short_text": "Defend yourself from the light",
+        "title": "Laser War",
+        "id": 2893772,
+        "url": "https://octahedral.itch.io/laser-war",
+        "cover_color": "#0d1b2a",
+        "platforms": ["android", "web"]
+      },
+      "rating_count": 19,
+      "id": 578168,
+      "url": "/jam/godot-wild-jam-72/rate/2893772",
+      "created_at": "2024-08-18 11:35:05"
+    },
+    {
+      "coolness": 1,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzI2NjExLnBuZw==/300x240%23c/1UIwoi.png",
+        "title": "Duck Survival",
+        "id": 2896418,
+        "url": "https://spherelost.itch.io/duck-survival",
+        "user": {
+          "id": 11325810,
+          "url": "https://spherelost.itch.io",
+          "name": "sphereLost"
+        }
+      },
+      "rating_count": 7,
+      "id": 576736,
+      "url": "/jam/godot-wild-jam-72/rate/2896418",
+      "created_at": "2024-08-14 12:53:01"
+    },
+    {
+      "coolness": 5,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg0MzU3LnBuZw==/300x240%23c/Vxs1W%2F.png",
+        "user": {
+          "id": 1643004,
+          "url": "https://wexdex.itch.io",
+          "name": "WexDex"
+        },
+        "short_text": "vampire survivors like",
+        "title": "Shadow's Edge",
+        "id": 2906264,
+        "url": "https://wexdex.itch.io/shadows-edge",
+        "cover_color": "#121010",
+        "platforms": ["windows", "osx", "linux"]
+      },
+      "rating_count": 8,
+      "id": 578768,
+      "url": "/jam/godot-wild-jam-72/rate/2906264",
+      "created_at": "2024-08-18 19:47:49",
+      "contributors": [
+        {
+          "name": "WexDex",
+          "url": "https://wexdex.itch.io"
+        },
+        {
+          "name": "Nocco07",
+          "url": "https://nocco07.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 34,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzgxMzE0LnBuZw==/300x240%23c/sVcSR6.png",
+        "user": {
+          "id": 10898881,
+          "url": "https://jinrty.itch.io",
+          "name": "JINRTY"
+        },
+        "short_text": "platformer with puzzle elements for Godot Wild jam #72",
+        "title": "Darkness of duck",
+        "id": 2904972,
+        "url": "https://jinrty.itch.io/darkness-of-duck",
+        "cover_color": "#40200b",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 18,
+      "id": 578340,
+      "url": "/jam/godot-wild-jam-72/rate/2904972",
+      "created_at": "2024-08-18 14:53:49"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "user": {
+          "id": 2022760,
+          "url": "https://kolegaliterat.itch.io",
+          "name": "Adrian Jaworek"
+        },
+        "short_text": "Grab some gold, avoid rocks!",
+        "title": "Shadowrock Shooter",
+        "id": 2905262,
+        "url": "https://kolegaliterat.itch.io/shadowrock-shooter",
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc4MzkxLnBuZw==/300x240%23c/YCWqaZ.png",
+        "platforms": ["windows", "osx"]
+      },
+      "rating_count": 7,
+      "id": 578271,
+      "url": "/jam/godot-wild-jam-72/rate/2905262",
+      "created_at": "2024-08-18 13:35:53"
+    },
+    {
+      "coolness": 43,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzcwNDY2LnBuZw==/300x240%23c/b6PslY.png",
+        "user": {
+          "id": 10959512,
+          "url": "https://rivvender.itch.io",
+          "name": "Rivvender"
+        },
+        "cover_color": "#282828",
+        "id": 2887933,
+        "url": "https://rivvender.itch.io/little-fox",
+        "title": "Little Fox",
+        "platforms": ["web"]
+      },
+      "rating_count": 24,
+      "id": 578701,
+      "url": "/jam/godot-wild-jam-72/rate/2887933",
+      "created_at": "2024-08-18 18:50:17"
+    },
+    {
+      "coolness": 6,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzY4NzkzLnBuZw==/300x240%23c/RA53%2Fd.png",
+        "user": {
+          "id": 1816656,
+          "url": "https://faer.itch.io",
+          "name": "Faer"
+        },
+        "short_text": "1-Versus-Self Roguelike",
+        "title": "Anter Ego",
+        "id": 2897345,
+        "url": "https://faer.itch.io/anter-ego",
+        "cover_color": "#000000",
+        "platforms": ["windows", "web"]
+      },
+      "rating_count": 10,
+      "id": 577868,
+      "url": "/jam/godot-wild-jam-72/rate/2897345",
+      "created_at": "2024-08-17 19:32:28"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzQ2NjQ2LnBuZw==/300x240%23c/%2BXm8BB.png",
+        "user": {
+          "id": 7305427,
+          "url": "https://chumtimestwo.itch.io",
+          "name": "chumchum"
+        },
+        "short_text": "Made in 6 Days for Godot Wild Jam #72!",
+        "title": "BOOM",
+        "id": 2899609,
+        "url": "https://chumtimestwo.itch.io/boom-unfinished",
+        "cover_color": "#29042a",
+        "platforms": ["windows", "osx", "web"]
+      },
+      "rating_count": 11,
+      "id": 577438,
+      "url": "/jam/godot-wild-jam-72/rate/2899609",
+      "created_at": "2024-08-15 23:26:38"
+    },
+    {
+      "coolness": 5,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzgzOTY3LnBuZw==/300x240%23c/0PKbX7.png",
+        "user": {
+          "id": 1332638,
+          "url": "https://tom-paul.itch.io",
+          "name": "Tom Paul"
+        },
+        "short_text": "Can you keep up with the appetites of three hungry ducklings?",
+        "title": "Gone Fishing",
+        "id": 2905057,
+        "url": "https://tom-paul.itch.io/gone-fishing",
+        "cover_color": "#0b1b26",
+        "platforms": ["web"]
+      },
+      "rating_count": 12,
+      "id": 578795,
+      "url": "/jam/godot-wild-jam-72/rate/2905057",
+      "created_at": "2024-08-18 19:58:08",
+      "contributors": [
+        {
+          "name": "Tom Paul",
+          "url": "https://tom-paul.itch.io"
+        },
+        {
+          "name": "stormhall",
+          "url": "https://stormhall.itch.io"
+        },
+        {
+          "name": "Mimas20",
+          "url": "https://mimas20.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 7,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzk5NDc3LnBuZw==/300x240%23c/JWQyov.png",
+        "user": {
+          "id": 4834241,
+          "url": "https://bluebrain.itch.io",
+          "name": "BlueBrain"
+        },
+        "short_text": "A throwback to the classics, can you escape this prison?",
+        "title": "Dark prisoner",
+        "id": 2905829,
+        "url": "https://bluebrain.itch.io/dark-prisoner",
+        "cover_color": "#222d38",
+        "platforms": ["web"]
+      },
+      "rating_count": 10,
+      "id": 578774,
+      "url": "/jam/godot-wild-jam-72/rate/2905829",
+      "created_at": "2024-08-18 19:51:24"
+    },
+    {
+      "coolness": 1,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzgzNTI4LnBuZw==/300x240%23c/UDrgk0.png",
+        "user": {
+          "id": 8917212,
+          "url": "https://pxlheart.itch.io",
+          "name": "Pixel"
+        },
+        "short_text": "Defend the world's last lighthouse from the scourge of The Blight!",
+        "title": "Blighthouse",
+        "id": 2906145,
+        "url": "https://pxlheart.itch.io/blighthouse",
+        "cover_color": "#4d4d4d",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 10,
+      "id": 578777,
+      "url": "/jam/godot-wild-jam-72/rate/2906145",
+      "created_at": "2024-08-18 19:52:16",
+      "contributors": [
+        {
+          "name": "Pixel",
+          "url": "https://pxlheart.itch.io"
+        },
+        {
+          "name": "grass eater 9000",
+          "url": "https://eatgrass9405.itch.io"
+        },
+        {
+          "name": "IonRobin",
+          "url": "https://ionrobin.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 89,
+      "game": {
+        "user": {
+          "id": 1811757,
+          "url": "https://garbagebunny69.itch.io",
+          "name": "GarbageBunny69"
+        },
+        "short_text": "You are a duck, you search in dark",
+        "title": "Ducking Dark",
+        "id": 2903700,
+        "url": "https://garbagebunny69.itch.io/ducking-dark",
+        "cover": "https://img.itch.zone/aW1nLzE3MzcwNDAxLnBuZw==/300x240%23c/r08ul9.png",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 16,
+      "id": 577942,
+      "url": "/jam/godot-wild-jam-72/rate/2903700",
+      "created_at": "2024-08-17 21:35:25"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "user": {
+          "id": 1913527,
+          "url": "https://masterofmosh.itch.io",
+          "name": "masterofmosh"
+        },
+        "title": "No Selfies with Space Rats",
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc5MjkzLmdpZg==/300x240%23cm/swnvUu.gif",
+        "short_text": "An 3D arcade game against space rats",
+        "cover_color": "#646464",
+        "id": 2903413,
+        "url": "https://masterofmosh.itch.io/nswsr",
+        "gif_cover": "https://img.itch.zone/aW1nLzE3Mzc5MjkzLmdpZg==/original/oqTuje.gif",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 11,
+      "id": 578363,
+      "url": "/jam/godot-wild-jam-72/rate/2903413",
+      "created_at": "2024-08-18 15:18:32",
+      "contributors": [
+        {
+          "name": "masterofmosh",
+          "url": "https://masterofmosh.itch.io"
+        },
+        {
+          "name": "CodeRaurus",
+          "url": "https://coderaurus.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 34,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg0ODQ2LnBuZw==/300x240%23c/qhpoXQ.png",
+        "user": {
+          "id": 9898200,
+          "url": "https://andreyschwarzkopf.itch.io",
+          "name": "Andrey Schwarzkopf"
+        },
+        "short_text": "A game about solving puzzles with two characters simultaneously.",
+        "title": "Light&Dark",
+        "id": 2905476,
+        "url": "https://andreyschwarzkopf.itch.io/lightanddark",
+        "cover_color": "#0b1528",
+        "platforms": ["web"]
+      },
+      "rating_count": 20,
+      "id": 578788,
+      "url": "/jam/godot-wild-jam-72/rate/2905476",
+      "created_at": "2024-08-18 19:55:15"
+    },
+    {
+      "coolness": 6,
+      "game": {
+        "user": {
+          "id": 5870777,
+          "url": "https://sevadusk.itch.io",
+          "name": "Sevadusk"
+        },
+        "title": "Shades Of Self",
+        "cover": "https://img.itch.zone/aW1nLzE3Nzg4NTk4LmdpZg==/300x240%23cm/lrrIHe.gif",
+        "short_text": "Switch between light and shadow as you explore 3 realms",
+        "cover_color": "#3c076c",
+        "id": 2906317,
+        "url": "https://sevadusk.itch.io/shades-of-self",
+        "gif_cover": "https://img.itch.zone/aW1nLzE3Nzg4NTk4LmdpZg==/original/MCQUC%2F.gif",
+        "platforms": ["windows", "linux", "web"]
+      },
+      "rating_count": 11,
+      "id": 578790,
+      "url": "/jam/godot-wild-jam-72/rate/2906317",
+      "created_at": "2024-08-18 19:56:12"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc3NjIwLnBuZw==/300x240%23c/QwJie5.png",
+        "title": "Within Light",
+        "id": 2905110,
+        "url": "https://ride-a-pig.itch.io/within-light",
+        "user": {
+          "id": 4303584,
+          "url": "https://ride-a-pig.itch.io",
+          "name": "Ride-A-Pig"
+        },
+        "platforms": ["windows", "web"]
+      },
+      "rating_count": 11,
+      "id": 578191,
+      "url": "/jam/godot-wild-jam-72/rate/2905110",
+      "created_at": "2024-08-18 12:30:48"
+    },
+    {
+      "coolness": 8,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzY4MTQyLnBuZw==/300x240%23c/1R7ax3.png",
+        "user": {
+          "id": 10483389,
+          "url": "https://growthdevlog.itch.io",
+          "name": "GrowthDevlog"
+        },
+        "cover_color": "#ffffff",
+        "id": 2903403,
+        "url": "https://growthdevlog.itch.io/shadows-spark",
+        "title": "Shadow`s Spark",
+        "platforms": ["web"]
+      },
+      "rating_count": 15,
+      "id": 578331,
+      "url": "/jam/godot-wild-jam-72/rate/2903403",
+      "created_at": "2024-08-18 14:43:34",
+      "contributors": [
+        {
+          "name": "GrowthDevlog",
+          "url": "https://growthdevlog.itch.io"
+        },
+        {
+          "name": "RootDev",
+          "url": "https://rootdevms.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzcxMDUyLnBuZw==/300x240%23c/Oi8ZvD.png",
+        "user": {
+          "id": 11304916,
+          "url": "https://toskun.itch.io",
+          "name": "Toska"
+        },
+        "short_text": "indie game made for Godot Wild Gamejam №72",
+        "title": "Duck-Quack",
+        "id": 2903858,
+        "url": "https://toskun.itch.io/quackduck",
+        "cover_color": "#cccccc",
+        "platforms": ["windows", "web"]
+      },
+      "rating_count": 9,
+      "id": 577971,
+      "url": "/jam/godot-wild-jam-72/rate/2903858",
+      "created_at": "2024-08-17 23:18:37"
+    },
+    {
+      "coolness": 5,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc1NzcwLnBuZw==/300x240%23c/VuTAe5.png",
+        "user": {
+          "id": 10965097,
+          "url": "https://orphic-dreaming.itch.io",
+          "name": "Orphic Dreaming"
+        },
+        "short_text": "Delve into Darkness",
+        "title": "Into Shadow",
+        "id": 2902585,
+        "url": "https://orphic-dreaming.itch.io/into-shadow",
+        "cover_color": "#000000",
+        "platforms": ["windows", "linux", "web"]
+      },
+      "rating_count": 12,
+      "id": 578187,
+      "url": "/jam/godot-wild-jam-72/rate/2902585",
+      "created_at": "2024-08-18 12:25:28"
+    },
+    {
+      "coolness": 79,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg1NDI4LnBuZw==/300x240%23c/Qnk4os.png",
+        "user": {
+          "id": 478077,
+          "url": "https://paco-orwin.itch.io",
+          "name": "pdil"
+        },
+        "cover_color": "#221228",
+        "id": 2892086,
+        "url": "https://paco-orwin.itch.io/immiscible",
+        "title": "Immiscible",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 18,
+      "id": 578787,
+      "url": "/jam/godot-wild-jam-72/rate/2892086",
+      "created_at": "2024-08-18 19:54:54"
+    },
+    {
+      "coolness": 46,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzgzNjc3LnBuZw==/300x240%23c/ubbE92.png",
+        "user": {
+          "id": 9122776,
+          "url": "https://tomasii.itch.io",
+          "name": "Tomasii"
+        },
+        "short_text": "As a small firefly, you gather light to keep the lanterns of the forest lit and keep darkness at bay!",
+        "title": "Lantern Light",
+        "id": 2906118,
+        "url": "https://tomasii.itch.io/lantern-light",
+        "cover_color": "#1c211f",
+        "platforms": ["web"]
+      },
+      "rating_count": 16,
+      "id": 578786,
+      "url": "/jam/godot-wild-jam-72/rate/2906118",
+      "created_at": "2024-08-18 19:54:43",
+      "contributors": [
+        {
+          "name": "Tomasii",
+          "url": "https://tomasii.itch.io"
+        },
+        {
+          "name": "Hydrohaven",
+          "url": "https://hydrohaven.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 136,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc0MjYyLnBuZw==/300x240%23c/g6riYP.png",
+        "user": {
+          "id": 9826012,
+          "url": "https://glasstacojar.itch.io",
+          "name": "glasstacojar"
+        },
+        "short_text": "Salivate to save the day (or ruin someone's day)",
+        "title": "Go Duck Go",
+        "id": 2903981,
+        "url": "https://glasstacojar.itch.io/go-duck-go",
+        "cover_color": "#1a7a3e",
+        "platforms": ["windows", "web"]
+      },
+      "rating_count": 19,
+      "id": 578046,
+      "url": "/jam/godot-wild-jam-72/rate/2903981",
+      "created_at": "2024-08-18 05:34:57"
+    },
+    {
+      "coolness": 4,
+      "game": {
+        "user": {
+          "id": 10639516,
+          "url": "https://lemonsmcgee.itch.io",
+          "name": "LemonsMcgee"
+        },
+        "short_text": "Collect both the Yin and the Yang within each level",
+        "title": "Yin-Yang Blink",
+        "id": 2905939,
+        "url": "https://lemonsmcgee.itch.io/yin-yang-blink",
+        "cover": "https://img.itch.zone/aW1nLzE3MzgzMDAxLnBuZw==/300x240%23c/ZrFi2a.png",
+        "platforms": ["windows", "osx", "linux"]
+      },
+      "rating_count": 7,
+      "id": 578660,
+      "url": "/jam/godot-wild-jam-72/rate/2905939",
+      "created_at": "2024-08-18 18:10:27"
+    },
+    {
+      "coolness": 147,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzcxODQ4LnBuZw==/300x240%23c/ln0RNR.png",
+        "user": {
+          "id": 3247276,
+          "url": "https://fatalsparrow.itch.io",
+          "name": "FatalSparrow"
+        },
+        "short_text": "Entry for Godot Wild Jam #72",
+        "title": "D.U.C.K. Into the Depths",
+        "id": 2894226,
+        "url": "https://fatalsparrow.itch.io/duck-into-the-depths",
+        "cover_color": "#000000",
+        "platforms": ["web"]
+      },
+      "rating_count": 54,
+      "id": 577980,
+      "url": "/jam/godot-wild-jam-72/rate/2894226",
+      "created_at": "2024-08-18 00:02:58"
+    },
+    {
+      "coolness": 16,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzgxNjQyLnBuZw==/300x240%23c/Dgkt4J.png",
+        "user": {
+          "id": 11178125,
+          "url": "https://i-like-snacks.itch.io",
+          "name": "i_like_snacks"
+        },
+        "short_text": "you are an extraterrestrial firefly in this atmospheric platformer.",
+        "title": "tell it to the stars",
+        "id": 2905753,
+        "url": "https://i-like-snacks.itch.io/tell-it-to-the-stars",
+        "cover_color": "#000000",
+        "platforms": ["web"]
+      },
+      "rating_count": 11,
+      "id": 578749,
+      "url": "/jam/godot-wild-jam-72/rate/2905753",
+      "created_at": "2024-08-18 19:34:10"
+    },
+    {
+      "coolness": 12,
+      "game": {
+        "user": {
+          "id": 11370965,
+          "url": "https://physiiic.itch.io",
+          "name": "PhysIIIc"
+        },
+        "short_text": "Can you escape their cruel captivity?",
+        "title": "Duck and Light",
+        "id": 2904456,
+        "url": "https://physiiic.itch.io/duck-and-light",
+        "cover": "https://img.itch.zone/aW1nLzE3MzczOTMxLnBuZw==/300x240%23c/7%2BPOLC.png",
+        "platforms": ["web"]
+      },
+      "rating_count": 11,
+      "id": 578760,
+      "url": "/jam/godot-wild-jam-72/rate/2904456",
+      "created_at": "2024-08-18 19:42:25"
+    },
+    {
+      "coolness": 24,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg0ODE2LnBuZw==/300x240%23c/JcUSD8.png",
+        "user": {
+          "id": 10427953,
+          "url": "https://alwinson.itch.io",
+          "name": "Alwin"
+        },
+        "short_text": "Entry for Godot Wild Jam 72 - \"Light and Dark\"",
+        "title": "The Adventures of Mothman",
+        "id": 2905390,
+        "url": "https://alwinson.itch.io/the-adventures-of-mothman",
+        "cover_color": "#000000",
+        "platforms": ["web"]
+      },
+      "rating_count": 16,
+      "id": 578759,
+      "url": "/jam/godot-wild-jam-72/rate/2905390",
+      "created_at": "2024-08-18 19:42:03"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "user": {
+          "id": 11021385,
+          "url": "https://randumbtoons.itch.io",
+          "name": "Randumbtoons"
+        },
+        "short_text": "TurnRpg",
+        "title": "One Boss Two Sides",
+        "id": 2889088,
+        "url": "https://randumbtoons.itch.io/one-boss-two-sides",
+        "cover": "https://img.itch.zone/aW1nLzE3Mjc4NjgwLnBuZw==/300x240%23c/1sAR5x.png",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 12,
+      "id": 575213,
+      "url": "/jam/godot-wild-jam-72/rate/2889088",
+      "created_at": "2024-08-10 16:31:46"
+    },
+    {
+      "coolness": 17,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg0MzY0LnBuZw==/300x240%23c/Qk1V2O.png",
+        "user": {
+          "id": 5820396,
+          "url": "https://satan-bouchuncoin.itch.io",
+          "name": "Satan Bouchuncoin"
+        },
+        "short_text": "Step through the shadow realm, solve puzzles, become a shaman",
+        "title": "Shadowstep",
+        "id": 2890410,
+        "url": "https://satan-bouchuncoin.itch.io/shadowstep",
+        "cover_color": "#9fc988",
+        "platforms": ["web"]
+      },
+      "rating_count": 24,
+      "id": 578764,
+      "url": "/jam/godot-wild-jam-72/rate/2890410",
+      "created_at": "2024-08-18 19:46:03",
+      "contributors": [
+        {
+          "name": "Satan Bouchuncoin",
+          "url": "https://satan-bouchuncoin.itch.io"
+        },
+        {
+          "name": "Bubulblu",
+          "url": "https://bubulblu.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 6,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg1NTAxLnBuZw==/300x240%23c/7yKIgI.png",
+        "title": "DRIM",
+        "id": 2905751,
+        "url": "https://starlightlacuna.itch.io/drim",
+        "user": {
+          "id": 7849168,
+          "url": "https://starlightlacuna.itch.io",
+          "name": "StarlightLacuna"
+        },
+        "platforms": ["web"]
+      },
+      "rating_count": 10,
+      "id": 578748,
+      "url": "/jam/godot-wild-jam-72/rate/2905751",
+      "created_at": "2024-08-18 19:34:04",
+      "contributors": [
+        {
+          "name": "StarlightLacuna",
+          "url": "https://starlightlacuna.itch.io"
+        },
+        {
+          "name": "Allalilacias",
+          "url": "https://allalilacias.itch.io"
+        },
+        {
+          "name": "itsumi_art",
+          "url": "https://itsumi-art.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 71,
+      "game": {
+        "user": {
+          "id": 11304204,
+          "url": "https://mixspoon.itch.io",
+          "name": "mixspoon"
+        },
+        "short_text": "Escape from the darkest creatures on Earth. Ducks.",
+        "title": "Fairies Vs Ducks",
+        "id": 2902534,
+        "url": "https://mixspoon.itch.io/fairies-vs-ducks",
+        "cover": "https://img.itch.zone/aW1nLzE3MzYzNzQwLnBuZw==/300x240%23c/%2B%2Bfg1R.png",
+        "platforms": ["windows", "web"]
+      },
+      "rating_count": 12,
+      "id": 577760,
+      "url": "/jam/godot-wild-jam-72/rate/2902534",
+      "created_at": "2024-08-17 09:10:43"
+    },
+    {
+      "coolness": 19,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzYzMDU1LnBuZw==/300x240%23c/oFz3od.png",
+        "user": {
+          "id": 8847940,
+          "url": "https://snail-licker69.itch.io",
+          "name": "snail_licker69"
+        },
+        "short_text": "An epic bullet hell shooter",
+        "title": "Orbs",
+        "id": 2902444,
+        "url": "https://snail-licker69.itch.io/orbs",
+        "cover_color": "#31101f",
+        "platforms": ["web"]
+      },
+      "rating_count": 14,
+      "id": 577748,
+      "url": "/jam/godot-wild-jam-72/rate/2902444",
+      "created_at": "2024-08-17 08:07:44"
+    },
+    {
+      "coolness": 5,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzcwODczLnBuZw==/300x240%23c/%2B6fXZd.png",
+        "user": {
+          "id": 8501798,
+          "url": "https://ace-of-4s.itch.io",
+          "name": "ace_of_4s"
+        },
+        "short_text": "Puzzle platformer for Godot Wild Jam #72!",
+        "title": "Luz Azul",
+        "id": 2903930,
+        "url": "https://ace-of-4s.itch.io/luz-azul",
+        "cover_color": "#141414",
+        "platforms": ["web"]
+      },
+      "rating_count": 16,
+      "id": 577991,
+      "url": "/jam/godot-wild-jam-72/rate/2903930",
+      "created_at": "2024-08-18 01:05:36"
+    },
+    {
+      "coolness": 1,
+      "game": {
+        "user": {
+          "id": 9238551,
+          "url": "https://skyegrey.itch.io",
+          "name": "skyegrey"
+        },
+        "short_text": "GWJ 72 Submission",
+        "title": "Kindling",
+        "id": 2905398,
+        "url": "https://skyegrey.itch.io/kindling",
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc5MzM2LnBuZw==/300x240%23c/cGd9%2BF.png",
+        "platforms": ["web"]
+      },
+      "rating_count": 15,
+      "id": 578330,
+      "url": "/jam/godot-wild-jam-72/rate/2905398",
+      "created_at": "2024-08-18 14:43:19"
+    },
+    {
+      "coolness": 5,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg1MTI4LnBuZw==/300x240%23c/mz%2Bjlb.png",
+        "user": {
+          "id": 8315097,
+          "url": "https://zeitless.itch.io",
+          "name": "John Fable"
+        },
+        "short_text": "Combat light and spread Eternal Darkness in this Isaac-like sci-fi setting.",
+        "title": "Eternal Darkness",
+        "id": 2885237,
+        "url": "https://zeitless.itch.io/zeimiuwu",
+        "cover_color": "#1b3e0d",
+        "platforms": ["web"]
+      },
+      "rating_count": 12,
+      "id": 578762,
+      "url": "/jam/godot-wild-jam-72/rate/2885237",
+      "created_at": "2024-08-18 19:43:53",
+      "contributors": [
+        {
+          "name": "John Fable",
+          "url": "https://zeitless.itch.io"
+        },
+        {
+          "name": "Mikudayo(Jp)",
+          "url": "https://mikudayojp.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 7,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc2ODk2LnBuZw==/300x240%23c/Arh2%2Bb.png",
+        "user": {
+          "id": 2910367,
+          "url": "https://pxlpush.itch.io",
+          "name": "pxlpush"
+        },
+        "short_text": "Shoot`em-up in space with ducks",
+        "title": "Commander Quacker and the Quack in the Spacetime Continuum",
+        "id": 2904968,
+        "url": "https://pxlpush.itch.io/commander-quacker",
+        "cover_color": "#000000",
+        "platforms": ["web"]
+      },
+      "rating_count": 13,
+      "id": 578155,
+      "url": "/jam/godot-wild-jam-72/rate/2904968",
+      "created_at": "2024-08-18 11:06:41"
+    },
+    {
+      "coolness": 19,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc4OTYwLnBuZw==/300x240%23c/uxdvSC.png",
+        "user": {
+          "id": 7655828,
+          "url": "https://w0nder-studi0s.itch.io",
+          "name": "Wonder_Studios"
+        },
+        "short_text": "Parkour Platformer",
+        "title": "Eclipse II The Darkest Day",
+        "id": 2905385,
+        "url": "https://w0nder-studi0s.itch.io/eclipse",
+        "cover_color": "#000000",
+        "platforms": ["web"]
+      },
+      "rating_count": 13,
+      "id": 578312,
+      "url": "/jam/godot-wild-jam-72/rate/2905385",
+      "created_at": "2024-08-18 14:23:02"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg0MzI4LnBuZw==/300x240%23c/3Nj8qA.png",
+        "user": {
+          "id": 2262070,
+          "url": "https://salemxxii.itch.io",
+          "name": "salem"
+        },
+        "short_text": "Side-view tower defense",
+        "title": "Nightfall",
+        "id": 2906237,
+        "url": "https://salemxxii.itch.io/nightfall",
+        "cover_color": "#001826",
+        "platforms": ["web"]
+      },
+      "rating_count": 10,
+      "id": 578767,
+      "url": "/jam/godot-wild-jam-72/rate/2906237",
+      "created_at": "2024-08-18 19:47:37"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "user": {
+          "id": 9489952,
+          "url": "https://hak0ta538.itch.io",
+          "name": "HAK0TA538"
+        },
+        "short_text": "A puzzle platformer where you must avoid light",
+        "title": "The Darkness Guides",
+        "id": 2903983,
+        "url": "https://hak0ta538.itch.io/the-darkness-guides",
+        "cover": "https://img.itch.zone/aW1nLzE3MzcxMDg3LnBuZw==/300x240%23c/qEtnGP.png",
+        "platforms": ["web"]
+      },
+      "rating_count": 13,
+      "id": 577964,
+      "url": "/jam/godot-wild-jam-72/rate/2903983",
+      "created_at": "2024-08-17 23:00:23"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE4OTY2NzIzLnBuZw==/300x240%23c/NVOpYR.png",
+        "user": {
+          "id": 5366460,
+          "url": "https://ziblo.itch.io",
+          "name": "Ziblo"
+        },
+        "short_text": "A very short game about finding some cute pixelated ducks!",
+        "title": "Ducks at Dawn!",
+        "id": 2906282,
+        "url": "https://ziblo.itch.io/ducks-at-dawn",
+        "cover_color": "#11003c",
+        "platforms": ["web"]
+      },
+      "rating_count": 18,
+      "id": 578791,
+      "url": "/jam/godot-wild-jam-72/rate/2906282",
+      "created_at": "2024-08-18 19:56:36"
+    },
+    {
+      "coolness": 24,
+      "game": {
+        "user": {
+          "id": 10379985,
+          "url": "https://londolan.itch.io",
+          "name": "Londolan"
+        },
+        "title": "CLUCK n QUACK SIMULATOR",
+        "cover": "https://img.itch.zone/aW1nLzE3MzUxOTA5LmdpZg==/300x240%23cm/9dE63r.gif",
+        "short_text": "Play two characters simultaneously and catch all chicklets in this chaotic game of tag.",
+        "cover_color": "#211243",
+        "id": 2893099,
+        "url": "https://londolan.itch.io/cluck-v-duck",
+        "gif_cover": "https://img.itch.zone/aW1nLzE3MzUxOTA5LmdpZg==/original/Lby4b1.gif",
+        "platforms": ["web"]
+      },
+      "rating_count": 14,
+      "id": 576989,
+      "url": "/jam/godot-wild-jam-72/rate/2893099",
+      "created_at": "2024-08-14 23:27:23"
+    },
+    {
+      "coolness": 23,
+      "game": {
+        "user": {
+          "id": 10720626,
+          "url": "https://chippper.itch.io",
+          "name": "Chippper"
+        },
+        "short_text": "Gather supplies and build your defenses while the light lasts. Predators lie in wait for darkness to strike.",
+        "title": "Woodland Wampage",
+        "id": 2887610,
+        "url": "https://chippper.itch.io/woodland-wampage",
+        "cover": "https://img.itch.zone/aW1nLzE3MzQ5ODM0LnBuZw==/300x240%23c/JhbPFk.png",
+        "platforms": ["web"]
+      },
+      "rating_count": 14,
+      "id": 578053,
+      "url": "/jam/godot-wild-jam-72/rate/2887610",
+      "created_at": "2024-08-18 06:12:06",
+      "contributors": [
+        {
+          "name": "Chippper",
+          "url": "https://chippper.itch.io"
+        },
+        {
+          "name": "Thallos",
+          "url": "https://thallos.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 2,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzgyOTk5LnBuZw==/300x240%23c/V%2FCjR%2F.png",
+        "user": {
+          "id": 11114012,
+          "url": "https://axewizardbgg.itch.io",
+          "name": "AxeWizardBGG"
+        },
+        "short_text": "You are a duck, abducted by a Wizard for some failed experiment, and now you must save the forest.",
+        "title": "Abduckted",
+        "id": 2891960,
+        "url": "https://axewizardbgg.itch.io/abduckted",
+        "cover_color": "#000a02",
+        "platforms": ["web"]
+      },
+      "rating_count": 10,
+      "id": 578683,
+      "url": "/jam/godot-wild-jam-72/rate/2891960",
+      "created_at": "2024-08-18 18:31:02"
+    },
+    {
+      "coolness": 15,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc1NDg5LnBuZw==/300x240%23c/6TyCpv.png",
+        "user": {
+          "id": 10688033,
+          "url": "https://videonoize.itch.io",
+          "name": "Videonoize"
+        },
+        "short_text": "A maze horror game about mental health struggles.",
+        "title": "Event Horizon",
+        "id": 2904734,
+        "url": "https://videonoize.itch.io/event-horizon",
+        "cover_color": "#000000",
+        "platforms": ["web"]
+      },
+      "rating_count": 14,
+      "id": 578493,
+      "url": "/jam/godot-wild-jam-72/rate/2904734",
+      "created_at": "2024-08-18 16:47:29"
+    },
+    {
+      "coolness": 7,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc2NTM5LnBuZw==/300x240%23c/YxDiJZ.png",
+        "user": {
+          "id": 2572895,
+          "url": "https://mega-64.itch.io",
+          "name": "Mega 64"
+        },
+        "cover_color": "#000000",
+        "id": 2904803,
+        "url": "https://mega-64.itch.io/beware-the-light",
+        "title": "Beware The Light",
+        "platforms": ["web"]
+      },
+      "rating_count": 12,
+      "id": 578301,
+      "url": "/jam/godot-wild-jam-72/rate/2904803",
+      "created_at": "2024-08-18 14:10:50",
+      "contributors": [
+        {
+          "name": "Mega 64",
+          "url": "https://mega-64.itch.io"
+        },
+        {
+          "name": "ArtanisEledil17",
+          "url": "https://artaniseledil17.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 7,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzgyMzQ4LnBuZw==/300x240%23c/I07osN.png",
+        "user": {
+          "id": 6265680,
+          "url": "https://8x8chicken.itch.io",
+          "name": "8x8chicken"
+        },
+        "short_text": "Switch your duck's color to collect bread",
+        "title": "Light and Duck",
+        "id": 2905945,
+        "url": "https://8x8chicken.itch.io/light-and-duck",
+        "cover_color": "#eeeeee",
+        "platforms": ["web"]
+      },
+      "rating_count": 14,
+      "id": 578652,
+      "url": "/jam/godot-wild-jam-72/rate/2905945",
+      "created_at": "2024-08-18 17:58:09"
+    },
+    {
+      "coolness": 14,
+      "game": {
+        "user": {
+          "id": 4702133,
+          "url": "https://sodagummy.itch.io",
+          "name": "SodaGummy"
+        },
+        "title": "Light Coffee Duck Toast",
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg4MDAxLmdpZg==/300x240%23cm/DRcONR.gif",
+        "short_text": "Toast bread and roast coffee to perfection, but watch out for the ducks!",
+        "cover_color": "#9d774f",
+        "id": 2893508,
+        "url": "https://sodagummy.itch.io/light-coffee-duck-toast",
+        "gif_cover": "https://img.itch.zone/aW1nLzE3Mzg4MDAxLmdpZg==/original/6taWzR.gif",
+        "platforms": ["web"]
+      },
+      "rating_count": 16,
+      "id": 577709,
+      "url": "/jam/godot-wild-jam-72/rate/2893508",
+      "created_at": "2024-08-17 03:31:54"
+    },
+    {
+      "coolness": 22,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg4MDE5LnBuZw==/300x240%23c/hkPl%2B3.png",
+        "user": {
+          "id": 10002989,
+          "url": "https://lgwv.itch.io",
+          "name": "LGWV"
+        },
+        "short_text": "A short \"RPG\" adventure where your choices, items, etc effect your \"Light\" (aka karma)",
+        "title": "Karma",
+        "id": 2904685,
+        "url": "https://lgwv.itch.io/karma",
+        "cover_color": "#eeeeee",
+        "platforms": ["web"]
+      },
+      "rating_count": 17,
+      "id": 578106,
+      "url": "/jam/godot-wild-jam-72/rate/2904685",
+      "created_at": "2024-08-18 09:05:15"
+    },
+    {
+      "coolness": 13,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg0NjUyLmpwZw==/300x240%23c/t%2Bzpcg.jpg",
+        "user": {
+          "id": 8180958,
+          "url": "https://misterclap.itch.io",
+          "name": "Misterclap"
+        },
+        "short_text": "Find your way through the dark corridors of the maze of torment",
+        "title": "Maze of Torment",
+        "id": 2906338,
+        "url": "https://misterclap.itch.io/maze-of-torment",
+        "cover_color": "#001404",
+        "platforms": ["web"]
+      },
+      "rating_count": 17,
+      "id": 581086,
+      "url": "/jam/godot-wild-jam-72/rate/2906338",
+      "created_at": "2024-08-20 05:48:25"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg0NTg2LnBuZw==/300x240%23c/H2TvF3.png",
+        "user": {
+          "id": 3048516,
+          "url": "https://reznovelty.itch.io",
+          "name": "Reznovelty"
+        },
+        "short_text": "Submission for Godot Wild Jam #72",
+        "title": "Fear of the Duck",
+        "id": 2906289,
+        "url": "https://reznovelty.itch.io/fear-of-the-duck",
+        "cover_color": "#202020",
+        "platforms": ["web"]
+      },
+      "rating_count": 12,
+      "id": 578796,
+      "url": "/jam/godot-wild-jam-72/rate/2906289",
+      "created_at": "2024-08-18 19:58:19",
+      "contributors": [
+        {
+          "name": "Reznovelty",
+          "url": "https://reznovelty.itch.io"
+        },
+        {
+          "name": "ToosDev",
+          "url": "https://zellturok.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 24,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzkwMDk1LnBuZw==/300x240%23c/t7lr3a.png",
+        "user": {
+          "id": 9141363,
+          "url": "https://breadrock.itch.io",
+          "name": "breadrock"
+        },
+        "short_text": "A small puzzle game based around a light-reactive environment.",
+        "title": "Lightsource",
+        "id": 2904863,
+        "url": "https://breadrock.itch.io/lightsource",
+        "cover_color": "#06151c",
+        "platforms": ["web"]
+      },
+      "rating_count": 21,
+      "id": 578328,
+      "url": "/jam/godot-wild-jam-72/rate/2904863",
+      "created_at": "2024-08-18 14:38:42"
+    },
+    {
+      "coolness": 8,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc3OTE0LmpwZw==/300x240%23c/3a0HKo.jpg",
+        "user": {
+          "id": 2058191,
+          "url": "https://nyltoons.itch.io",
+          "name": "Nyltoons"
+        },
+        "short_text": "Prey hunting game",
+        "title": "Chasing Durk",
+        "id": 2905187,
+        "url": "https://nyltoons.itch.io/chasing-durk",
+        "cover_color": "#fa5c5c",
+        "platforms": ["web"]
+      },
+      "rating_count": 10,
+      "id": 578284,
+      "url": "/jam/godot-wild-jam-72/rate/2905187",
+      "created_at": "2024-08-18 13:56:39"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg0NzI3LnBuZw==/300x240%23c/JpE%2FdY.png",
+        "user": {
+          "id": 7764233,
+          "url": "https://towafius.itch.io",
+          "name": "Towafius"
+        },
+        "short_text": "Escape the Mansion using light and sound to your advantage",
+        "title": "Residents of the Dark",
+        "id": 2906319,
+        "url": "https://towafius.itch.io/residents-of-the-dark",
+        "cover_color": "#32200a",
+        "platforms": ["web"]
+      },
+      "rating_count": 10,
+      "id": 578784,
+      "url": "/jam/godot-wild-jam-72/rate/2906319",
+      "created_at": "2024-08-18 19:54:16"
+    },
+    {
+      "coolness": 15,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc2Mjk1LnBuZw==/300x240%23c/l%2BZxEC.png",
+        "user": {
+          "id": 9154974,
+          "url": "https://kingpark.itch.io",
+          "name": "kingpark"
+        },
+        "short_text": "You are a vampire actor trying to navigate to your next scene, but avoid the lights on set!",
+        "title": "Lights Out, Action!",
+        "id": 2904837,
+        "url": "https://kingpark.itch.io/lights-out-action",
+        "cover_color": "#140f0f",
+        "platforms": ["windows", "web"]
+      },
+      "rating_count": 10,
+      "id": 578142,
+      "url": "/jam/godot-wild-jam-72/rate/2904837",
+      "created_at": "2024-08-18 10:24:57"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc3NjY4LnBuZw==/300x240%23c/HMBIyN.png",
+        "user": {
+          "id": 4858700,
+          "url": "https://ollieoa.itch.io",
+          "name": "OllieOA"
+        },
+        "short_text": "Puzzle Platformer about the inbetween and the challenges you face.",
+        "title": "[UNFINISHED] Inbetween",
+        "id": 2892676,
+        "url": "https://ollieoa.itch.io/inbetween",
+        "cover_color": "#000000",
+        "platforms": ["web"]
+      },
+      "rating_count": 12,
+      "id": 578201,
+      "url": "/jam/godot-wild-jam-72/rate/2892676",
+      "created_at": "2024-08-18 12:45:02"
+    },
+    {
+      "coolness": 4,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc3MDEwLnBuZw==/300x240%23c/a8Jzrl.png",
+        "user": {
+          "id": 10660348,
+          "url": "https://michld.itch.io",
+          "name": "michld"
+        },
+        "cover_color": "#000000",
+        "id": 2904996,
+        "url": "https://michld.itch.io/make-it-light-wild-jam-72",
+        "title": "Make It Light! - Wild Jam 72",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 11,
+      "id": 578167,
+      "url": "/jam/godot-wild-jam-72/rate/2904996",
+      "created_at": "2024-08-18 11:34:40"
+    },
+    {
+      "coolness": 2,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc1Njg0LnBuZw==/300x240%23c/k20ipz.png",
+        "user": {
+          "id": 11264832,
+          "url": "https://rasku.itch.io",
+          "name": "rasku"
+        },
+        "short_text": "Sneak around, escape, and most importantly QUACK.",
+        "title": "Quack in Business",
+        "id": 2904671,
+        "url": "https://rasku.itch.io/quack-in-business",
+        "cover_color": "#eeeeee",
+        "platforms": ["windows", "osx", "web"]
+      },
+      "rating_count": 11,
+      "id": 578090,
+      "url": "/jam/godot-wild-jam-72/rate/2904671",
+      "created_at": "2024-08-18 08:11:41"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "user": {
+          "id": 7799378,
+          "url": "https://karzka.itch.io",
+          "name": "Karzka"
+        },
+        "short_text": "My submission for the Godot Wild Jam #72",
+        "title": "Darkness Falls",
+        "id": 2900485,
+        "url": "https://karzka.itch.io/darkness-falls",
+        "cover": "https://img.itch.zone/aW1nLzE3MzUyMTI2LnBuZw==/300x240%23c/yz4YRK.png",
+        "platforms": ["web"]
+      },
+      "rating_count": 11,
+      "id": 577720,
+      "url": "/jam/godot-wild-jam-72/rate/2900485",
+      "created_at": "2024-08-17 04:49:42"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzcxODcxLnBuZw==/300x240%23c/P1cwrt.png",
+        "user": {
+          "id": 2508219,
+          "url": "https://vhaghar.itch.io",
+          "name": "Vhaghar"
+        },
+        "short_text": "Hide in a kitchen and try to find some food",
+        "title": "There's an ant in the kitchen",
+        "id": 2904057,
+        "url": "https://vhaghar.itch.io/theres-an-ant-in-the-kitchen",
+        "cover_color": "#000000",
+        "platforms": ["web"]
+      },
+      "rating_count": 12,
+      "id": 577983,
+      "url": "/jam/godot-wild-jam-72/rate/2904057",
+      "created_at": "2024-08-18 00:13:22"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzUyMTg2LnBuZw==/300x240%23c/%2BuqzW4.png",
+        "user": {
+          "id": 331741,
+          "url": "https://pandaqi.itch.io",
+          "name": "Pandaqi"
+        },
+        "short_text": "Throw shade at your beach tourists to prevent them getting sunburned.",
+        "title": "Sunbluck",
+        "id": 2896988,
+        "url": "https://pandaqi.itch.io/sunbluck",
+        "cover_color": "#fad180",
+        "platforms": ["web"]
+      },
+      "rating_count": 12,
+      "id": 577547,
+      "url": "/jam/godot-wild-jam-72/rate/2896988",
+      "created_at": "2024-08-16 14:34:33"
+    },
+    {
+      "coolness": 13,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3NDAwMzQ2LnBuZw==/300x240%23c/dBozji.png",
+        "user": {
+          "id": 10380268,
+          "url": "https://mrcecilpants.itch.io",
+          "name": "Garrit"
+        },
+        "short_text": "You arrive at a mansion in search of help but are you the one that needs helping?",
+        "title": "Into the Light",
+        "id": 2904048,
+        "url": "https://mrcecilpants.itch.io/into-the-light",
+        "cover_color": "#141414",
+        "platforms": ["web"]
+      },
+      "rating_count": 13,
+      "id": 578747,
+      "url": "/jam/godot-wild-jam-72/rate/2904048",
+      "created_at": "2024-08-18 19:33:53"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzYyMTYzLnBuZw==/300x240%23c/ZomQF%2B.png",
+        "user": {
+          "id": 10610713,
+          "url": "https://ladolr.itch.io",
+          "name": "ladolr"
+        },
+        "short_text": "Switch the playfield's color between black and white to avoid enemies and reach the goal.",
+        "title": "BLACK or WHITE",
+        "id": 2902141,
+        "url": "https://ladolr.itch.io/black-or-white",
+        "cover_color": "#ffffff",
+        "platforms": ["windows", "web"]
+      },
+      "rating_count": 11,
+      "id": 577728,
+      "url": "/jam/godot-wild-jam-72/rate/2902141",
+      "created_at": "2024-08-17 05:36:35"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzgwNDc4LnBuZw==/300x240%23c/ioIskx.png",
+        "user": {
+          "id": 3179146,
+          "url": "https://elliotced.itch.io",
+          "name": "elliotced"
+        },
+        "cover_color": "#35475c",
+        "id": 2905623,
+        "url": "https://elliotced.itch.io/snowbound-cave",
+        "title": "Snowbound Cave",
+        "platforms": ["web"]
+      },
+      "rating_count": 9,
+      "id": 578580,
+      "url": "/jam/godot-wild-jam-72/rate/2905623",
+      "created_at": "2024-08-18 17:05:53"
+    },
+    {
+      "coolness": 8,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzcxNDA5LnBuZw==/300x240%23c/5PnYsx.png",
+        "user": {
+          "id": 8873087,
+          "url": "https://averagestonksenjoyer.itch.io",
+          "name": "AverageStonksEnjoyer"
+        },
+        "cover_color": "#f6eeee",
+        "id": 2904007,
+        "url": "https://averagestonksenjoyer.itch.io/darklight",
+        "title": "DarkLight",
+        "platforms": ["web"]
+      },
+      "rating_count": 11,
+      "id": 578020,
+      "url": "/jam/godot-wild-jam-72/rate/2904007",
+      "created_at": "2024-08-18 03:30:57",
+      "contributors": [
+        {
+          "name": "AverageStonksEnjoyer",
+          "url": "https://averagestonksenjoyer.itch.io"
+        },
+        {
+          "name": "OrusLiOx",
+          "url": "https://orusliox.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 34,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc2Mjc5LnBuZw==/300x240%23c/FdUcfG.png",
+        "user": {
+          "id": 4340883,
+          "url": "https://visiotempus.itch.io",
+          "name": "VisioTempus"
+        },
+        "short_text": "Try to survive to the enemy cards using also cards.",
+        "title": "Card survivor",
+        "id": 2897382,
+        "url": "https://visiotempus.itch.io/card-survivor",
+        "cover_color": "#979797",
+        "platforms": ["web"]
+      },
+      "rating_count": 14,
+      "id": 578134,
+      "url": "/jam/godot-wild-jam-72/rate/2897382",
+      "created_at": "2024-08-18 09:52:38"
+    },
+    {
+      "coolness": 7,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzgyNzY5LnBuZw==/300x240%23c/1dBrZ7.png",
+        "user": {
+          "id": 7775663,
+          "url": "https://mellowcool.itch.io",
+          "name": "mellowcool"
+        },
+        "short_text": "Decide between good and evil to push back the hordes descending upon you",
+        "title": "Agkolo TD",
+        "id": 2905960,
+        "url": "https://mellowcool.itch.io/agkolo-td",
+        "cover_color": "#de9e41",
+        "platforms": ["web"]
+      },
+      "rating_count": 15,
+      "id": 578682,
+      "url": "/jam/godot-wild-jam-72/rate/2905960",
+      "created_at": "2024-08-18 18:30:55",
+      "contributors": [
+        {
+          "name": "mellowcool",
+          "url": "https://mellowcool.itch.io"
+        },
+        {
+          "name": "coolrex56",
+          "url": "https://coolrex56.itch.io"
+        },
+        {
+          "name": "melo_toni",
+          "url": "https://melo-toni.itch.io"
+        },
+        {
+          "name": "XtraKarma",
+          "url": "https://xtrakarma.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 3,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc1NjgzLnBuZw==/300x240%23c/5rXd4V.png",
+        "user": {
+          "id": 8095719,
+          "url": "https://ggury.itch.io",
+          "name": "Ggury"
+        },
+        "cover_color": "#000000",
+        "id": 2902069,
+        "url": "https://ggury.itch.io/duck-in-the-dark",
+        "title": "Duck in the dark",
+        "platforms": ["web"]
+      },
+      "rating_count": 12,
+      "id": 578154,
+      "url": "/jam/godot-wild-jam-72/rate/2902069",
+      "created_at": "2024-08-18 11:02:53"
+    },
+    {
+      "coolness": 2,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc0NjQ2LnBuZw==/300x240%23c/Av4fhb.png",
+        "user": {
+          "id": 10333227,
+          "url": "https://dpdp03.itch.io",
+          "name": "Dp"
+        },
+        "cover_color": "#000000",
+        "id": 2896126,
+        "url": "https://dpdp03.itch.io/dont-touch-the-dark",
+        "title": "Don't Touch the White!",
+        "platforms": ["web"]
+      },
+      "rating_count": 12,
+      "id": 578058,
+      "url": "/jam/godot-wild-jam-72/rate/2896126",
+      "created_at": "2024-08-18 06:41:45"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzgxNTY0LnBuZw==/300x240%23c/1cppF%2B.png",
+        "title": "Midnight Assassin",
+        "id": 2905741,
+        "url": "https://abush27.itch.io/midnight-assassin",
+        "user": {
+          "id": 11101920,
+          "url": "https://abush27.itch.io",
+          "name": "Abush27"
+        },
+        "platforms": ["web"]
+      },
+      "rating_count": 10,
+      "id": 578566,
+      "url": "/jam/godot-wild-jam-72/rate/2905741",
+      "created_at": "2024-08-18 17:03:16"
+    },
+    {
+      "coolness": 15,
+      "game": {
+        "user": {
+          "id": 51771,
+          "url": "https://rosskarchner.itch.io",
+          "name": "Ross Karchner"
+        },
+        "short_text": "​You're a duck! You're scared of the dark! Complete circuits to light the path to freedom!",
+        "title": "Quack Circuits",
+        "id": 2889052,
+        "url": "https://rosskarchner.itch.io/quack-circuits",
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg0MzY5LnBuZw==/300x240%23c/U9NMiy.png",
+        "platforms": ["web"]
+      },
+      "rating_count": 14,
+      "id": 578766,
+      "url": "/jam/godot-wild-jam-72/rate/2889052",
+      "created_at": "2024-08-18 19:47:06"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "user": {
+          "id": 10850215,
+          "url": "https://whackyjasprr.itch.io",
+          "name": "whackyjasprr"
+        },
+        "short_text": "gwj",
+        "title": "Board Logic",
+        "id": 2905752,
+        "url": "https://whackyjasprr.itch.io/gwj-board-logic",
+        "cover": "https://img.itch.zone/aW1nLzE3MzgxODY1LnBuZw==/300x240%23c/U1nfzk.png",
+        "platforms": ["web"]
+      },
+      "rating_count": 10,
+      "id": 578616,
+      "url": "/jam/godot-wild-jam-72/rate/2905752",
+      "created_at": "2024-08-18 17:26:46"
+    },
+    {
+      "coolness": 23,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzgyOTgxLnBuZw==/300x240%23c/GrOOXX.png",
+        "user": {
+          "id": 10225297,
+          "url": "https://sunnycat-dev.itch.io",
+          "name": "sunnycat"
+        },
+        "short_text": "Use power of light to repeal darkness! My submission for Godot Wild Jam #72",
+        "title": "Temple of Light",
+        "id": 2905996,
+        "url": "https://sunnycat-dev.itch.io/temple-of-light",
+        "cover_color": "#545262",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 12,
+      "id": 578698,
+      "url": "/jam/godot-wild-jam-72/rate/2905996",
+      "created_at": "2024-08-18 18:45:12"
+    },
+    {
+      "coolness": 8,
+      "game": {
+        "user": {
+          "id": 2949842,
+          "url": "https://ssbrush.itch.io",
+          "name": "Rush"
+        },
+        "short_text": "You've been seen and they are upon you. Bullets won't harm them you will need light.",
+        "title": "These are THEIR Forests",
+        "id": 2904976,
+        "url": "https://ssbrush.itch.io/these-are-their-forests",
+        "cover": "https://img.itch.zone/aW1nLzE3MzgyNTQwLnBuZw==/300x240%23c/VH0ZRc.png",
+        "platforms": ["web"]
+      },
+      "rating_count": 14,
+      "id": 578659,
+      "url": "/jam/godot-wild-jam-72/rate/2904976",
+      "created_at": "2024-08-18 18:10:12"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzM2Mzk2LnBuZw==/300x240%23c/Ln4kTh.png",
+        "user": {
+          "id": 10351781,
+          "url": "https://lorqie.itch.io",
+          "name": "Lorqie"
+        },
+        "short_text": "RedBisector's second published game",
+        "title": "Bring the Light Back",
+        "id": 2897976,
+        "url": "https://lorqie.itch.io/bring-the-light-back",
+        "cover_color": "#5d848f",
+        "platforms": ["web"]
+      },
+      "rating_count": 11,
+      "id": 577117,
+      "url": "/jam/godot-wild-jam-72/rate/2897976",
+      "created_at": "2024-08-15 07:17:50"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "user": {
+          "id": 11311321,
+          "url": "https://granitkartoffel.itch.io",
+          "name": "GranitKartoffel"
+        },
+        "short_text": "A game about fading light.",
+        "title": "Blinding Shadows",
+        "id": 2894498,
+        "url": "https://granitkartoffel.itch.io/blinding-shadows",
+        "cover": "https://img.itch.zone/aW1nLzE3MzEzNzk0LnBuZw==/300x240%23c/%2FAG4cg.png",
+        "platforms": ["web"]
+      },
+      "rating_count": 10,
+      "id": 576927,
+      "url": "/jam/godot-wild-jam-72/rate/2894498",
+      "created_at": "2024-08-14 19:58:15"
+    },
+    {
+      "coolness": 1,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg0NjM0LnBuZw==/300x240%23c/gz%2FGBf.png",
+        "title": "Light Wraith",
+        "id": 2901212,
+        "url": "https://mooseter07.itch.io/light-wraith",
+        "user": {
+          "id": 10006054,
+          "url": "https://mooseter07.itch.io",
+          "name": "Mooseter07"
+        },
+        "platforms": ["web"]
+      },
+      "rating_count": 11,
+      "id": 578769,
+      "url": "/jam/godot-wild-jam-72/rate/2901212",
+      "created_at": "2024-08-18 19:48:19"
+    },
+    {
+      "coolness": 3,
+      "game": {
+        "user": {
+          "id": 6421579,
+          "url": "https://katjkornegay.itch.io",
+          "name": "katjkornegay"
+        },
+        "short_text": "Godot Wild Jam #72",
+        "title": "Beacon Bound",
+        "id": 2905834,
+        "url": "https://katjkornegay.itch.io/beacon-bound",
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg0NjM3LnBuZw==/300x240%23c/m2d%2Fxw.png",
+        "platforms": ["web"]
+      },
+      "rating_count": 10,
+      "id": 578798,
+      "url": "/jam/godot-wild-jam-72/rate/2905834",
+      "created_at": "2024-08-18 19:59:22"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc2MjMzLnBuZw==/300x240%23c/cPJkDl.png",
+        "user": {
+          "id": 841486,
+          "url": "https://handola.itch.io",
+          "name": "Handola"
+        },
+        "short_text": "Shoot them all!! :3",
+        "title": "Ducks and Eyes",
+        "id": 2888802,
+        "url": "https://handola.itch.io/dae",
+        "cover_color": "#000000",
+        "platforms": ["web"]
+      },
+      "rating_count": 12,
+      "id": 578132,
+      "url": "/jam/godot-wild-jam-72/rate/2888802",
+      "created_at": "2024-08-18 09:52:07"
+    },
+    {
+      "coolness": 15,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc3ODEzLnBuZw==/300x240%23c/o8O1rB.png",
+        "user": {
+          "id": 1540243,
+          "url": "https://dan-waterfield.itch.io",
+          "name": "Dan Waterfield"
+        },
+        "short_text": "Escape the darkness.",
+        "title": "LAMENT",
+        "id": 2905093,
+        "url": "https://dan-waterfield.itch.io/lament",
+        "cover_color": "#000000",
+        "platforms": ["web"]
+      },
+      "rating_count": 13,
+      "id": 578199,
+      "url": "/jam/godot-wild-jam-72/rate/2905093",
+      "created_at": "2024-08-18 12:39:29"
+    },
+    {
+      "coolness": 10,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg0MzY4LnBuZw==/300x240%23c/ZvVQza.png",
+        "user": {
+          "id": 486725,
+          "url": "https://qwercus.itch.io",
+          "name": "qwercus"
+        },
+        "short_text": "Light all the torches to progress!",
+        "title": "Light and Dark",
+        "id": 2906287,
+        "url": "https://qwercus.itch.io/light-the-dark",
+        "cover_color": "#eeeeee",
+        "platforms": ["web"]
+      },
+      "rating_count": 10,
+      "id": 578794,
+      "url": "/jam/godot-wild-jam-72/rate/2906287",
+      "created_at": "2024-08-18 19:57:42"
+    },
+    {
+      "coolness": 24,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzgyOTYzLnBuZw==/300x240%23c/Yjyj0H.png",
+        "user": {
+          "id": 9035671,
+          "url": "https://ikkisoad.itch.io",
+          "name": "Ikkisoad"
+        },
+        "cover_color": "#ffffff",
+        "id": 2889449,
+        "url": "https://ikkisoad.itch.io/winged-worlds",
+        "title": "Winged Worlds",
+        "platforms": ["web"]
+      },
+      "rating_count": 10,
+      "id": 578679,
+      "url": "/jam/godot-wild-jam-72/rate/2889449",
+      "created_at": "2024-08-18 18:27:42",
+      "contributors": [
+        {
+          "name": "Ikkisoad",
+          "url": "https://ikkisoad.itch.io"
+        },
+        {
+          "name": "Makaai",
+          "url": "https://makaai.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 2,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzUzMDE2LnBuZw==/300x240%23c/er87JK.png",
+        "user": {
+          "id": 9091943,
+          "url": "https://razorbladegamer.itch.io",
+          "name": "RazorBladeGamer"
+        },
+        "short_text": "Find Ducko the duck, a click adventure",
+        "title": "Find Ducko",
+        "id": 2899642,
+        "url": "https://razorbladegamer.itch.io/find-ducko",
+        "cover_color": "#096774",
+        "platforms": ["web"]
+      },
+      "rating_count": 11,
+      "id": 578349,
+      "url": "/jam/godot-wild-jam-72/rate/2899642",
+      "created_at": "2024-08-18 14:59:40"
+    },
+    {
+      "coolness": 2,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg1OTI0LnBuZw==/300x240%23c/%2BKLgB8.png",
+        "user": {
+          "id": 9385004,
+          "url": "https://hyanejam.itch.io",
+          "name": "HyaneJam"
+        },
+        "short_text": "By day, you’re the kingdom’s hero. By night, you’re its greatest threat.",
+        "title": "Duality Drift",
+        "id": 2906295,
+        "url": "https://hyanejam.itch.io/duality-drift",
+        "cover_color": "#3c77e3",
+        "platforms": ["web"]
+      },
+      "rating_count": 11,
+      "id": 578789,
+      "url": "/jam/godot-wild-jam-72/rate/2906295",
+      "created_at": "2024-08-18 19:55:52"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzgyNTE5LnBuZw==/300x240%23c/w2YAc6.png",
+        "user": {
+          "id": 9691282,
+          "url": "https://notkirb5.itch.io",
+          "name": "NotKirb"
+        },
+        "short_text": "Survive against a horde of goblins",
+        "title": "Day and night",
+        "id": 2903964,
+        "url": "https://notkirb5.itch.io/day-and-night",
+        "cover_color": "#004355",
+        "platforms": ["web"]
+      },
+      "rating_count": 10,
+      "id": 578641,
+      "url": "/jam/godot-wild-jam-72/rate/2903964",
+      "created_at": "2024-08-18 17:50:20"
+    },
+    {
+      "coolness": 14,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzgyODg5LnBuZw==/300x240%23c/7ex2PG.png",
+        "title": "Switch - Godot Wild Jam #72",
+        "id": 2906029,
+        "url": "https://kab-games.itch.io/switch",
+        "user": {
+          "id": 4561939,
+          "url": "https://kab-games.itch.io",
+          "name": "KAB GAMES"
+        },
+        "platforms": ["web"]
+      },
+      "rating_count": 10,
+      "id": 578722,
+      "url": "/jam/godot-wild-jam-72/rate/2906029",
+      "created_at": "2024-08-18 19:10:42"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "",
+        "title": "Boxvill Airport GWJ 72",
+        "id": 2905179,
+        "url": "https://lipopopo.itch.io/boxvill-airport-test",
+        "user": {
+          "id": 10927395,
+          "url": "https://lipopopo.itch.io",
+          "name": "lipopopo"
+        },
+        "platforms": ["web"]
+      },
+      "rating_count": 9,
+      "id": 578644,
+      "url": "/jam/godot-wild-jam-72/rate/2905179",
+      "created_at": "2024-08-18 17:51:37"
+    },
+    {
+      "coolness": 2,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzY4Nzg5LnBuZw==/300x240%23c/h7GwcL.png",
+        "user": {
+          "id": 10293039,
+          "url": "https://kissabissagames.itch.io",
+          "name": "Kissa Bissa Games"
+        },
+        "short_text": "This is my wife's second game she's every made, she is really proud of it.",
+        "title": "Grandpa's Mice Problem",
+        "id": 2903478,
+        "url": "https://kissabissagames.itch.io/grandpas-mice-problem",
+        "cover_color": "#327345",
+        "platforms": ["web"]
+      },
+      "rating_count": 14,
+      "id": 579493,
+      "url": "/jam/godot-wild-jam-72/rate/2903478",
+      "created_at": "2024-08-19 15:39:34"
+    },
+    {
+      "coolness": 2,
+      "game": {
+        "user": {
+          "id": 11305113,
+          "url": "https://lietvamzdis.itch.io",
+          "name": "Lietvamzdis"
+        },
+        "short_text": "My first ever game. Made for the Godot Wild Jam #72 .I know it's about 3 minutes long but it's something",
+        "title": "Escaping the duality",
+        "id": 2905023,
+        "url": "https://lietvamzdis.itch.io/escaping-the-duality",
+        "cover": "",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 9,
+      "id": 578198,
+      "url": "/jam/godot-wild-jam-72/rate/2905023",
+      "created_at": "2024-08-18 12:37:32"
+    },
+    {
+      "coolness": 10,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg5NzI3LnBuZw==/300x240%23c/scaHxR.png",
+        "user": {
+          "id": 2138088,
+          "url": "https://smokiersword.itch.io",
+          "name": "SmokierSword"
+        },
+        "short_text": "Read fast, stay hidden—avoid the night watch of your parent!",
+        "title": "Hushed Hobbies",
+        "id": 2906206,
+        "url": "https://smokiersword.itch.io/hushed-hobbies",
+        "cover_color": "#42467a",
+        "platforms": ["web"]
+      },
+      "rating_count": 9,
+      "id": 578725,
+      "url": "/jam/godot-wild-jam-72/rate/2906206",
+      "created_at": "2024-08-18 19:11:15"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzY1MzY5LnBuZw==/300x240%23c/irnNHF.png",
+        "title": "Fight and Flight",
+        "id": 2902877,
+        "url": "https://warwal.itch.io/fight-and-flight",
+        "user": {
+          "id": 1110606,
+          "url": "https://warwal.itch.io",
+          "name": "warwal"
+        },
+        "platforms": ["web"]
+      },
+      "rating_count": 10,
+      "id": 577796,
+      "url": "/jam/godot-wild-jam-72/rate/2902877",
+      "created_at": "2024-08-17 13:33:29"
+    },
+    {
+      "coolness": 4,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc4NDc1LnBuZw==/300x240%23c/dwNWpX.png",
+        "title": "Moth Laboratory",
+        "id": 2905152,
+        "url": "https://chooseyourownrichard.itch.io/moth-laboratory",
+        "user": {
+          "id": 3418553,
+          "url": "https://chooseyourownrichard.itch.io",
+          "name": "ChooseYourOwnRichard"
+        },
+        "platforms": ["web"]
+      },
+      "rating_count": 11,
+      "id": 578208,
+      "url": "/jam/godot-wild-jam-72/rate/2905152",
+      "created_at": "2024-08-18 12:57:29"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzgwMDk4LnBuZw==/300x240%23c/kCPkui.png",
+        "user": {
+          "id": 10935935,
+          "url": "https://jidthakid.itch.io",
+          "name": "JidthaKid"
+        },
+        "short_text": "Bring night and day too keep balance",
+        "title": "Night and Day",
+        "id": 2905525,
+        "url": "https://jidthakid.itch.io/night-and-day",
+        "cover_color": "#3f2832",
+        "platforms": ["web"]
+      },
+      "rating_count": 10,
+      "id": 578379,
+      "url": "/jam/godot-wild-jam-72/rate/2905525",
+      "created_at": "2024-08-18 15:32:38"
+    },
+    {
+      "coolness": 10,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg0Njg5LnBuZw==/300x240%23c/BJ8Pi%2B.png",
+        "title": "The Tale of the Knight of Light",
+        "id": 2906270,
+        "url": "https://anonymyst.itch.io/game008",
+        "user": {
+          "id": 7349547,
+          "url": "https://anonymyst.itch.io",
+          "name": "Anonymyst"
+        },
+        "platforms": ["web"]
+      },
+      "rating_count": 11,
+      "id": 578765,
+      "url": "/jam/godot-wild-jam-72/rate/2906270",
+      "created_at": "2024-08-18 19:47:05"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "",
+        "title": "Camera Swapping Game",
+        "id": 2900689,
+        "url": "https://toaster-on-mass.itch.io/camera-swapping-game",
+        "user": {
+          "id": 3616025,
+          "url": "https://toaster-on-mass.itch.io",
+          "name": "Toaster_on_mass"
+        },
+        "platforms": ["web"]
+      },
+      "rating_count": 10,
+      "id": 577580,
+      "url": "/jam/godot-wild-jam-72/rate/2900689",
+      "created_at": "2024-08-16 16:52:42"
+    },
+    {
+      "coolness": 6,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzgwNzg5LnBuZw==/300x240%23c/peHExd.png",
+        "user": {
+          "id": 2946965,
+          "url": "https://bigbluealien.itch.io",
+          "name": "bigbluealien"
+        },
+        "short_text": "Submission for Godot Wild Jam #72",
+        "title": "Dark Caverns",
+        "id": 2905661,
+        "url": "https://bigbluealien.itch.io/dark-caverns",
+        "cover_color": "#1D1F21",
+        "platforms": ["web"]
+      },
+      "rating_count": 10,
+      "id": 578622,
+      "url": "/jam/godot-wild-jam-72/rate/2905661",
+      "created_at": "2024-08-18 17:32:57"
+    },
+    {
+      "coolness": 14,
+      "game": {
+        "user": {
+          "id": 362966,
+          "url": "https://yuro2d.itch.io",
+          "name": "yuro2d"
+        },
+        "short_text": "Wildjam72",
+        "title": "Light-GodotWildJam72",
+        "id": 2905835,
+        "url": "https://yuro2d.itch.io/light-godotwildjam72",
+        "cover": "https://img.itch.zone/aW1nLzE3MzkxMTAwLnBuZw==/300x240%23c/1oo19V.png",
+        "platforms": ["web"]
+      },
+      "rating_count": 9,
+      "id": 578604,
+      "url": "/jam/godot-wild-jam-72/rate/2905835",
+      "created_at": "2024-08-18 17:16:17"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzc5NjA3LnBuZw==/300x240%23c/FFlPFS.png",
+        "title": "Eqinox",
+        "id": 2905480,
+        "url": "https://blackhatwithwhitebrim.itch.io/eqinox",
+        "user": {
+          "id": 11374512,
+          "url": "https://blackhatwithwhitebrim.itch.io",
+          "name": "BlackHatWithWhiteBrim"
+        },
+        "platforms": ["web"]
+      },
+      "rating_count": 11,
+      "id": 578434,
+      "url": "/jam/godot-wild-jam-72/rate/2905480",
+      "created_at": "2024-08-18 16:21:24"
+    },
+    {
+      "coolness": 5,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg0NjU2LnBuZw==/300x240%23c/wtarPd.png",
+        "user": {
+          "id": 10257474,
+          "url": "https://thin-paper.itch.io",
+          "name": "Thin_Paper"
+        },
+        "cover_color": "#1d1c2c",
+        "id": 2906330,
+        "url": "https://thin-paper.itch.io/light-runner",
+        "title": "Light Runner",
+        "platforms": ["windows", "web"]
+      },
+      "rating_count": 26,
+      "id": 578797,
+      "url": "/jam/godot-wild-jam-72/rate/2906330",
+      "created_at": "2024-08-18 19:59:13",
+      "contributors": [
+        {
+          "name": "Thin_Paper",
+          "url": "https://thin-paper.itch.io"
+        },
+        {
+          "name": "Kinderz",
+          "url": "https://kinderz.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg1MjY1LnBuZw==/300x240%23c/G%2FEPI%2F.png",
+        "user": {
+          "id": 3930451,
+          "url": "https://greenrose7.itch.io",
+          "name": "Greenrose7"
+        },
+        "short_text": "A short puzzle game about getting just the right amount of light and darkness for Godot Wild Jam #72",
+        "title": "Sunshine & Shadows",
+        "id": 2889848,
+        "url": "https://greenrose7.itch.io/sunshineandshadows",
+        "cover_color": "#f0e4b8",
+        "platforms": ["web"]
+      },
+      "rating_count": 11,
+      "id": 578040,
+      "url": "/jam/godot-wild-jam-72/rate/2889848",
+      "created_at": "2024-08-18 04:51:46",
+      "contributors": [
+        {
+          "name": "Greenrose7",
+          "url": "https://greenrose7.itch.io"
+        },
+        {
+          "name": "Zuraniix",
+          "url": "https://zuraniix.itch.io"
+        }
+      ]
+    },
+    {
+      "coolness": 14,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzI2Njc4LnBuZw==/300x240%23c/BaFKv3.png",
+        "user": {
+          "id": 1464347,
+          "url": "https://magicburrito.itch.io",
+          "name": "MagicBurrito"
+        },
+        "short_text": "Play as a Light-hearted duck on a quest for food while evading the dark duck.",
+        "title": "Quack N' Dash",
+        "id": 2896401,
+        "url": "https://magicburrito.itch.io/quack-n-dash",
+        "cover_color": "#327345",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 13,
+      "id": 576803,
+      "url": "/jam/godot-wild-jam-72/rate/2896401",
+      "created_at": "2024-08-14 14:31:30"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "user": {
+          "id": 5462850,
+          "url": "https://kookaakoolaa.itch.io",
+          "name": "KooKaaKooLaa"
+        },
+        "short_text": "This duck is not so diffrent then the actual duck",
+        "title": "Light & Duck!",
+        "id": 2905612,
+        "url": "https://kookaakoolaa.itch.io/light-duck",
+        "cover": "https://img.itch.zone/aW1nLzE3MzgwNDU5LnBuZw==/300x240%23c/Q%2BGCmv.png",
+        "platforms": ["web"]
+      },
+      "rating_count": 10,
+      "id": 578671,
+      "url": "/jam/godot-wild-jam-72/rate/2905612",
+      "created_at": "2024-08-18 18:23:54"
+    },
+    {
+      "coolness": 43,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3Mzg0MDMyLnBuZw==/300x240%23c/MJFWlx.png",
+        "user": {
+          "id": 1988899,
+          "url": "https://quixjote.itch.io",
+          "name": "Quixjote"
+        },
+        "short_text": "Roguelike Dungeon to hunt down the Mighty Duck Boss",
+        "title": "Darkest Duck (Wild Jam Version)",
+        "id": 2906228,
+        "url": "https://quixjote.itch.io/darkest-duck",
+        "cover_color": "#1e1e1e",
+        "platforms": ["web"]
+      },
+      "rating_count": 17,
+      "id": 578739,
+      "url": "/jam/godot-wild-jam-72/rate/2906228",
+      "created_at": "2024-08-18 19:29:32"
+    },
+    {
+      "coolness": 37,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzgyMzA2LnBuZw==/300x240%23c/MFi4W2.png",
+        "user": {
+          "id": 5009972,
+          "url": "https://tanm.itch.io",
+          "name": "tanguy"
+        },
+        "short_text": "A walking simulator where you climb a mountain before it gets dark!",
+        "title": "Before It Gets Dark",
+        "id": 2905694,
+        "url": "https://tanm.itch.io/before-it-gets-dark",
+        "cover_color": "#000000",
+        "platforms": ["windows", "osx", "linux", "web"]
+      },
+      "rating_count": 12,
+      "id": 578507,
+      "url": "/jam/godot-wild-jam-72/rate/2905694",
+      "created_at": "2024-08-18 16:52:10"
+    },
+    {
+      "coolness": 4,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzU2ODc5LnBuZw==/300x240%23c/JI4hGv.png",
+        "user": {
+          "id": 3788290,
+          "url": "https://ciberalfil.itch.io",
+          "name": "ciberalfil"
+        },
+        "short_text": "Action game where you have to defeat enemies in waves, but you can only attack them on the light. How far can you go?",
+        "title": "Cut Light",
+        "id": 2901271,
+        "url": "https://ciberalfil.itch.io/cut-light",
+        "cover_color": "#6f6f6f",
+        "platforms": ["web"]
+      },
+      "rating_count": 11,
+      "id": 577610,
+      "url": "/jam/godot-wild-jam-72/rate/2901271",
+      "created_at": "2024-08-16 18:48:49"
+    },
+    {
+      "coolness": 0,
+      "game": {
+        "cover": "",
+        "user": {
+          "id": 513057,
+          "url": "https://mifuyne.itch.io",
+          "name": "Mifuyne"
+        },
+        "short_text": "A Godot Wild Jam Entry for August 2024",
+        "title": "What Lurks Within...",
+        "id": 2886308,
+        "url": "https://mifuyne.itch.io/what-lurks-within",
+        "cover_color": "#222",
+        "platforms": ["windows", "osx", "linux"]
+      },
+      "rating_count": 7,
+      "id": 578179,
+      "url": "/jam/godot-wild-jam-72/rate/2886308",
+      "created_at": "2024-08-18 12:00:44"
+    },
+    {
+      "coolness": 1,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzcwNTE3LnBuZw==/300x240%23c/pMBGKL.png",
+        "user": {
+          "id": 11025903,
+          "url": "https://lee-yam.itch.io",
+          "name": "Lee_yam"
+        },
+        "short_text": "Control your hero with WASD to bring light to Scurendale Castle.",
+        "title": "Afterglow",
+        "id": 2903831,
+        "url": "https://lee-yam.itch.io/afterglow",
+        "cover_color": "#000",
+        "platforms": ["web"]
+      },
+      "rating_count": 12,
+      "id": 577951,
+      "url": "/jam/godot-wild-jam-72/rate/2903831",
+      "created_at": "2024-08-17 22:04:53"
+    },
+    {
+      "coolness": 5,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzY5MTIwLnBuZw==/300x240%23c/%2Bawu8f.png",
+        "user": {
+          "id": 3489468,
+          "url": "https://ajaydas.itch.io",
+          "name": "AjayDas"
+        },
+        "short_text": "Journey through a realm divided by light and darkness",
+        "title": "INTO THE SHADOWS",
+        "id": 2903585,
+        "url": "https://ajaydas.itch.io/into-the-shadows",
+        "cover_color": "#1e2a38",
+        "platforms": ["web"]
+      },
+      "rating_count": 17,
+      "id": 577882,
+      "url": "/jam/godot-wild-jam-72/rate/2903585",
+      "created_at": "2024-08-17 20:35:51"
+    },
+    {
+      "coolness": 2,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzUzMzI3LnBuZw==/300x240%23c/wY7pFA.png",
+        "user": {
+          "id": 6596113,
+          "url": "https://auger-gaming.itch.io",
+          "name": "Auger gaming"
+        },
+        "short_text": "Survive the darkness",
+        "title": "Light Out",
+        "id": 2900698,
+        "url": "https://auger-gaming.itch.io/light-out",
+        "cover_color": "#676767",
+        "platforms": ["windows", "osx", "linux", "android"]
+      },
+      "rating_count": 8,
+      "id": 577543,
+      "url": "/jam/godot-wild-jam-72/rate/2900698",
+      "created_at": "2024-08-16 14:06:04"
+    },
+    {
+      "coolness": 13,
+      "game": {
+        "cover": "https://img.itch.zone/aW1nLzE3MzAyNDE5LmpwZWc=/300x240%23c/VxBu%2FF.jpeg",
+        "user": {
+          "id": 9893960,
+          "url": "https://syntaks.itch.io",
+          "name": "シンタコ"
+        },
+        "short_text": "Experimental 360º twitch shoot-em-up",
+        "title": "SDD1",
+        "id": 2888370,
+        "url": "https://syntaks.itch.io/sdd1",
+        "cover_color": "#3c1662",
+        "platforms": ["web"]
+      },
+      "rating_count": 23,
+      "id": 578593,
+      "url": "/jam/godot-wild-jam-72/rate/2888370",
+      "created_at": "2024-08-18 17:10:30"
+    }
+  ],
+  "generated_on": 1753982833.177
+}
