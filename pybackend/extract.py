@@ -36,13 +36,13 @@ class Extractor:
 
         print("found entries json url", entries_json_url)
 
-        res = requests.get(entries_json_url)
+        res = requests.get(entries_json_url, timeout=15)
         data = json.loads(res.text)
 
         self.extract_entries_json(gamejam, data, session)
         session.commit()
 
-        res = requests.get(results_json_url, timeout=5)
+        res = requests.get(results_json_url, timeout=15)
         data = json.loads(res.text)
         self.extract_results_json(gamejam, data, session)
         print("FINALLY. DONEEEEEE.")
@@ -87,8 +87,9 @@ class Extractor:
 
     def extract_entries_json(self, gamejam: GameJam, data: dict, session: Session):
         print("extracting entries json.")
-        for obj in data["jam_games"]:
-            print("working on obj::", obj["game"]["title"])
+        num_of_obj = len(data["jam_games"])
+        for i, obj in enumerate(data["jam_games"]):
+            print(f"{i/num_of_obj*100:.5f}% - working on obj::", obj["game"]["title"])
 
             statement = select(User).where(User.id == obj["game"]["user"]["id"])
             user = session.exec(statement).first()
@@ -336,11 +337,9 @@ class Extractor:
 
     def extract_results_json(self, gamejam: GameJam, data: dict, session: Session):
         print("extracting results.json")
-        for obj in data["results"]:
-            print(f"working on results for {obj['title']}")
-            print(
-                f"the friggen jamgame id is type: {type(obj['id'])} and value: {obj['id']}"
-            )
+        num_of_obj = len(data["jam_games"])
+        for i, obj in enumerate(data["results"]):
+            print(f"{i/num_of_obj*100:.5f}% - working on results for {obj['title']}")
             statement = select(JamGame).where(
                 (JamGame.game_id == obj["id"]) & (JamGame.url == obj["url"])
             )

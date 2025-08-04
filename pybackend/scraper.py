@@ -14,7 +14,7 @@ class Scraper:
     def scrape_jam_page(self, url: str):
         try:
             print(f"Scraping jam page {url}")
-            res = requests.get(url, timeout=5)
+            res = requests.get(url, timeout=10)
             res.encoding = "utf-8"
             res.raise_for_status()
             soup = BeautifulSoup(res.content, "html.parser", from_encoding="utf-8")
@@ -81,7 +81,7 @@ class Scraper:
 
     def scrape_submissions_page(self, url: str):
         print("Fetching submissions page:", url)
-        res = requests.get(url, timeout=5)
+        res = requests.get(url, timeout=10)
         if res.status_code != 200:
             raise Exception(
                 "Error! Got non-valid status code while fetching submissions page."
@@ -110,7 +110,7 @@ class Scraper:
     def scrape_user_page(self, url: str):
         try:
             print("Fetching user page:", url)
-            res = requests.get(url, timeout=5)
+            res = requests.get(url, timeout=10)
             res.raise_for_status()
 
             t = res.text
@@ -189,7 +189,7 @@ class Scraper:
 
     def scrape_jamgame_page(self, url: str):
         try:
-            res = requests.get(url, timeout=5)
+            res = requests.get(url, timeout=10)
             res.raise_for_status()
 
             screenshots = []
@@ -263,7 +263,7 @@ class Scraper:
                         print(
                             "DEBUG: getting url for the next page containing comments"
                         )
-                        res = requests.get(nextlink, timeout=5)
+                        res = requests.get(nextlink, timeout=10)
                         res.raise_for_status()
                         soup_for_comments = BeautifulSoup(
                             res.content, "html.parser", from_encoding="utf-8"
@@ -291,7 +291,7 @@ class Scraper:
 
     def scrape_game_page(self, url: str):
         try:
-            res = requests.get(url, timeout=5)
+            res = requests.get(url, timeout=10)
             soup = BeautifulSoup(res.content, "html.parser", from_encoding="utf-8")
 
             # game logo
