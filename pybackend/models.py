@@ -73,8 +73,8 @@ class JamGame(SQLModel, table=True):
     user: Optional["User"] = Relationship(back_populates="jamgames")
 
     # used by SQL as the actual column for the relationship.
-    game_id: Optional[int] = Field(foreign_key="game.id", unique=True)
-    game: Optional["Game"] = Relationship(back_populates="jamgame")
+    game_id: Optional[int] = Field(foreign_key="game.id")
+    game: Optional["Game"] = Relationship(back_populates="jamgames")
 
     question_responses: List[Dict] = Field(
         sa_column=sqlalchemy.Column(JSONList), default=[]
@@ -131,7 +131,8 @@ class Game(SQLModel, table=True):
     )
 
     # 1 game can be used as multiple jamgames.
-    jamgame: Optional["JamGame"] = Relationship(back_populates="game")
+    jamgames: List["JamGame"] = Relationship(back_populates="game")
+
     description: Optional[str]
 
     comments: List["GameComment"] = Relationship(back_populates="game")

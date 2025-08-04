@@ -50,3 +50,5 @@ TODO: fix the game page scraper not getting Updated and Published key value pair
 
 TODO: fix the weird unicode errors for other parts of the code too, just use that clean_text function and do .get_text() to bs4 tags.
 in order to fix weird unicode errors, set encoding to explicitly utf-8
+
+TODO: handle updating contributors when updating games.

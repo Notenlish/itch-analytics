@@ -40,6 +40,7 @@ class Extractor:
         data = json.loads(res.text)
 
         self.extract_entries_json(gamejam, data, session)
+        session.commit()
 
         res = requests.get(results_json_url, timeout=5)
         data = json.loads(res.text)
@@ -69,7 +70,7 @@ class Extractor:
                 gamejam.start_date = results["start_date"]
                 gamejam.end_date = results["end_date"]
                 gamejam.logo = results["logo"]
-                gamejam.title = results["logo"]
+                gamejam.title = results["title"]
                 gamejam.url = url
                 gamejam.voting_end_date = results["voting_end_date"]
                 gamejam.joined_count = results["joined_count"]
@@ -232,9 +233,10 @@ class Extractor:
             for metadata_key, metadata_value in gamepage_scrape_results[
                 "metadata"
             ].items():
+                # if I use 'and' instead of '&' it doesnt work.
                 statement = select(MetadataEntry).where(
-                    MetadataEntry.key == metadata_key
-                    and MetadataEntry.game_id == game.id
+                    (MetadataEntry.key == metadata_key)
+                    & (MetadataEntry.game_id == game.id)
                 )
                 metadata = session.exec(statement).first()
                 if metadata:
@@ -246,14 +248,18 @@ class Extractor:
                         game_id=game.id,
                         game=game,
                     )
+                    session.add(metadata)
 
             ### Game Comments
+            print("SKIBIDI SKIDIBI GAMECOMMENTS")
             for gamecomment_obj in gamepage_scrape_results["comments"]:
+                print("WORKING ON GAMECOMMENT", gamecomment_obj)
                 statement = select(GameComment).where(
                     GameComment.id == gamecomment_obj["id"]
                 )
                 gamecomment = session.exec(statement).first()
                 if gamecomment is None:
+                    print("COULDNT FIND GAMECOMMENT")
                     gamecomment = GameComment(
                         id=gamecomment_obj["id"],
                         content=gamecomment_obj["content"],
@@ -261,7 +267,9 @@ class Extractor:
                         game_id=game.id,
                         game=game,
                     )
+                    session.add(gamecomment)
                 else:
+                    print("FOUND GAMECOMMENT, UPDATING...")
                     gamecomment.date = gamecomment_obj["date"]
                     gamecomment.content = gamecomment_obj["content"]
 
@@ -330,7 +338,13 @@ class Extractor:
         print("extracting results.json")
         for obj in data["results"]:
             print(f"working on results for {obj['title']}")
-            statement = select(JamGame).where(JamGame.id == obj["id"])
+            print(
+                f"the friggen jamgame id is type: {type(obj["id"])} and value: {obj["id"]}"
+            )
+            statement = select(JamGame).where(
+                (JamGame.game_id == obj["id"]) & (JamGame.url == obj["url"])
+            )
+            # even if they change the url, the url in the entries.json would have also changed. so no worries ig.
             jamgame = session.exec(statement).first()
             if not jamgame:
                 raise Exception("Jamgame doesnt exist.")
@@ -341,8 +355,8 @@ class Extractor:
             for criteria_obj in obj["criteria"]:
                 print(f"finding criteria of {criteria_obj['name']}")
                 statement = select(Criteria).where(
-                    Criteria.jamgame_id == obj["id"]
-                    and Criteria.name == criteria_obj["name"]
+                    (Criteria.jamgame_id == obj["id"])
+                    & (Criteria.name == criteria_obj["name"])
                 )
                 criteria = session.exec(statement).first()
                 if criteria:
@@ -352,7 +366,6 @@ class Extractor:
                     criteria.rank = criteria_obj["rank"]
                 else:
                     criteria = Criteria(
-                        id=obj["id"],
                         score=criteria_obj["score"],
                         raw_score=criteria_obj["raw_score"],
                         rank=criteria_obj["rank"],
@@ -362,6 +375,7 @@ class Extractor:
                     session.add(criteria)
                     print(f"created criteria: {criteria.name}")
             print("DONE PROCESSING RESULTS.")
+        session.commit()
 
 
 def get_extractor():
