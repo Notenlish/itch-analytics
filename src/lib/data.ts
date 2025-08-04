@@ -618,7 +618,7 @@ const _analyzeJam = async (
     ratedGameResult,
     ratedGamePopularityRank,
     ratedGamePopularityPercentage,
-    dateProcessed: new Date(),
+    dateProcessed: new Date().toISOString(),
   } as JamGraphData;
   return out;
 };
