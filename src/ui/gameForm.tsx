@@ -16,6 +16,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
 
+import { useState } from "react";
+
 let defaultJamRateLink: string | undefined = undefined;
 if (process.env.NEXT_PUBLIC_IS_DEV) {
   // https://itch.io/jam/gmtk-2024/rate/2913552
@@ -36,6 +38,7 @@ const formSchema = z.object({
 });
 
 export default function GameForm() {
+  const [successMsg, setSuccessMsg] = useState("");
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -54,7 +57,7 @@ export default function GameForm() {
     const index = rateLink.search("/rate/") as number;
     if (index == null) {
       alert(
-        "Couldn't get jam link, make sure you uploaded the correct url.\n\nExample: https://itch.io/jam/gmtk-2024/rate/2913552"
+        "Couldn't get jam link, make sure you uploaded the correct url.\n\nExample: https://itch.io/jam/gmtk-2024/rate/2913552",
       );
       return;
     }
@@ -65,13 +68,14 @@ export default function GameForm() {
     const jamName = base.replace("https://itch.io/jam/", "");
     if (rateID == null) {
       alert(
-        "Error! Couldn't parse link. Please make sure your url is like this: https://itch.io/jam/gmtk-2024/rate/2913552"
+        "Error! Couldn't parse link. Please make sure your url is like this: https://itch.io/jam/gmtk-2024/rate/2913552",
       );
       return;
     }
     const doStuff = async () => {
       router.push(`/jam/${jamName}/${rateID}`);
     };
+    setSuccessMsg("Attempting to get statistics of your game...");
     doStuff();
   }
   const router = useRouter();
@@ -101,6 +105,7 @@ export default function GameForm() {
           <Button type="submit">Submit</Button>
         </form>
       </Form>
+      <span className="text-green-600">{successMsg}</span>
     </div>
   );
 }

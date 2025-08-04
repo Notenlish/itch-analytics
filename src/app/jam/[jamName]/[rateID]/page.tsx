@@ -25,7 +25,7 @@ type PageProps = {
 
 export async function generateMetadata(
   { params }: PageProps,
-  parent: any
+  parent: any,
 ): Promise<Metadata> {
   return {
     alternates: { canonical: `/${params.jamName}/${params.rateID}` },
@@ -65,7 +65,7 @@ export default async function Home({ params }: PageProps) {
   const items = [
     {
       title: "How often are statistics updated?",
-      content: "They are updated every hour.",
+      content: "They are updated every half hour.",
     },
     {
       title: "What should I do to get more ratings?",
@@ -91,6 +91,23 @@ export default async function Home({ params }: PageProps) {
       </div>
 
       <div className="lg:w-[80%]">
+        <div className="mb-8 p-6 max-w-2xl rounded-lg bg-gradient-to-br from-orange-100 to-orange-200  border border-orange-400">
+          <p>
+            ⚠️ Generated this analysis on{" "}
+            {new Date(data.dateProcessed).toLocaleString(undefined, {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: true,
+              timeZoneName: "long",
+            })}
+            . Data is updated every half hour.
+          </p>
+        </div>
+
         {/* @ts-ignore */}
         <JamGraph data={jamData} />
       </div>
@@ -101,7 +118,8 @@ export default async function Home({ params }: PageProps) {
         Gaza is starving in the genocide, you can donate to help them here:{" "}
         <a
           className=" inline text-blue-500 font-bold"
-          href="https://www.islamic-relief.org.uk/giving/appeals/palestine/">
+          href="https://www.islamic-relief.org.uk/giving/appeals/palestine/"
+        >
           Donate To Gaza
         </a>
       </div>

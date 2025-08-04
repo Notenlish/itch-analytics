@@ -198,6 +198,7 @@ export type JamGraphData = {
   ratedGameResult: ParsedGameResult | undefined;
   ratedGamePopularityRank: number;
   ratedGamePopularityPercentage: number;
+  dateProcessed: Date; // stores when the result was generated
 };
 
 export type JsonEntryData = {

@@ -1,7 +1,10 @@
 "use strict";
 
 import { sql } from "@vercel/postgres";
-import { unstable_cache as cache, unstable_noStore as noStore } from "next/cache";
+import {
+  unstable_cache as cache,
+  unstable_noStore as noStore,
+} from "next/cache";
 
 import {
   RawJamGame,
@@ -82,7 +85,10 @@ const _scrapeJamJSONLink = async (entrieslink: string, rateLink: string) => {
   if (fullPage.includes("fields:")) {
     const OptionsLeftIndex = fullPage.search("fields:") + "fields:".length;
     const optionsRightIndex = fullPage.search(',"lunr_js_url');
-    const optionsRaw = fullPage.slice(OptionsLeftIndex, optionsRightIndex) as string;
+    const optionsRaw = fullPage.slice(
+      OptionsLeftIndex,
+      optionsRightIndex,
+    ) as string;
     optionsData = JSON.parse(optionsRaw);
   }
 
@@ -144,7 +150,7 @@ export const scrapeJamJSONLink = cache(
   ["jamJsonLink"],
   {
     revalidate: halfHour, // seconds
-  }
+  },
 );
 
 const _scrapeGameRatingPage = async (rateLink: string) => {
@@ -164,10 +170,12 @@ const _scrapeGameRatingPage = async (rateLink: string) => {
     words.push(
       ...comment.split(" ").filter((e) => {
         return e.slice(1); // get rid of 1 letter words and also '' words
-      })
+      }),
     );
   }
-  const wordCounter = Object.entries(countStrInArr(words)).sort((a, b) => b[1] - a[1]);
+  const wordCounter = Object.entries(countStrInArr(words)).sort(
+    (a, b) => b[1] - a[1],
+  );
 
   const highest20 = wordCounter.slice(0, 20).map(([word, count], i) => {
     let size = "small";
@@ -186,22 +194,22 @@ const scrapeGameRatingPage = cache(
   ["ScrapeGameRatingPageLOL"],
   {
     revalidate: halfHour,
-  }
+  },
 );
 
 const _getEntryJSON = async (entryJsonLink: string) => {
   const response = await axios.get(entryJsonLink);
   const data = response.data;
 
-  const gamesByPopularity: ParsedJamGame[] = data["jam_games"].map((obj: RawJamGame) =>
-    parseGame(obj)
+  const gamesByPopularity: ParsedJamGame[] = data["jam_games"].map(
+    (obj: RawJamGame) => parseGame(obj),
   );
   // itch.io gives them sorted by popularity by default
 
   // sorted in ascending order
   // do [...arr].sort() so data doesnt get mutated.
   const _GamesByRatingNum: ParsedJamGame[] = [...gamesByPopularity].sort(
-    (a: ParsedJamGame, b: ParsedJamGame) => a.rating_count - b.rating_count
+    (a: ParsedJamGame, b: ParsedJamGame) => a.rating_count - b.rating_count,
   );
 
   const numGames = _GamesByRatingNum.length;
@@ -237,7 +245,10 @@ const _getEntryJSON = async (entryJsonLink: string) => {
   const kurtosis = calculateKurtosis(sortedRatings);
   const skewness = calculateSkewness(sortedRatings);
   const variance = calculateVariance(sortedRatings, meanRating);
-  const standardDeviation = calculateStandardDeviation(sortedRatings, meanRating);
+  const standardDeviation = calculateStandardDeviation(
+    sortedRatings,
+    meanRating,
+  );
 
   const percentile = (percent: number) => {
     const index = Math.floor(percent * numGames);
@@ -248,7 +259,10 @@ const _getEntryJSON = async (entryJsonLink: string) => {
     return _GamesByRatingNum[i];
   };
 
-  const points = calculatePointsIntervals({ sortedRatings }, { CoolnessByRating });
+  const points = calculatePointsIntervals(
+    { sortedRatings },
+    { CoolnessByRating },
+  );
   const platformsByRatingNum = _GamesByRatingNum
     .map((e) => e.game.platforms)
     .filter((e) => {
@@ -283,7 +297,7 @@ const getEntryJSON = cache(
   ["EntryJSON"],
   {
     revalidate: halfHour,
-  }
+  },
 );
 
 // results dont change after jam ends and theyre released once: aka cache that
@@ -309,13 +323,13 @@ const getResultsJson = cache(
   ["ResultsJsonFetchAndAnalyze"],
   {
     revalidate: 15 * minute,
-  }
+  },
 );
 
 const _analyzeResults = async (
   results: ParsedGameResult[],
   games: ParsedJamGame[],
-  ratedGame: ParsedJamGame
+  ratedGame: ParsedJamGame,
 ) => {
   // ascending(towards the end team size is bigger)
   const resultsByTeamSize = results.sort((a, b) => a.team_size - b.team_size);
@@ -390,7 +404,7 @@ const _analyzeResults = async (
         // How to match the games array to the results array
         // games in results array contain .title attribute which is also included in items of games array
         const matchingGame = games.find(
-          (game) => game.game.title == result.title
+          (game) => game.game.title == result.title,
         ) as ParsedJamGame;
         totalRatingCount += matchingGame?.rating_count;
       }
@@ -414,7 +428,9 @@ const _analyzeResults = async (
     ratingCountToScorePoints.push(calc2(i, 0.025));
   }
 
-  const gamesByRatingNum = games.sort((a, b) => a.rating_count - b.rating_count);
+  const gamesByRatingNum = games.sort(
+    (a, b) => a.rating_count - b.rating_count,
+  );
   // why the same type? well uhh bcuz I dont need to write a new type and why not lol
   const scoreToRatingNumPoints: GraphRatingCountToScorePoint[] = [];
   const calc3 = (v: number, stepSize: number) => {
@@ -437,7 +453,7 @@ const _analyzeResults = async (
         const __game = gamesByRatingNum[avgIndex];
         // ew
         const matchingResult = results.find(
-          (result) => result.title == __game.game.title
+          (result) => result.title == __game.game.title,
         );
         totalScore += matchingResult?.score as number;
         totalRawScore += matchingResult?.raw_score as number;
@@ -478,7 +494,7 @@ const analyzeResults = cache(
   ["analyzeResults"],
   {
     revalidate: halfHour,
-  }
+  },
 );
 
 const _analyzeJam = async (
@@ -486,7 +502,7 @@ const _analyzeJam = async (
   rateLink: string,
   jamTitle: string,
   gameTitle: string,
-  optionsData: JsonOptions | undefined
+  optionsData: JsonOptions | undefined,
 ) => {
   const resultsJsonLink = entryJsonLink.replace("entries.json", "results.json");
   const _inp = (await getEntryJSON(entryJsonLink)) as Buffer;
@@ -516,10 +532,14 @@ const _analyzeJam = async (
   // de-minify games bcuz next cache size
   const games = minifiedGames.map((e) => deMinifyGame(e));
 
-  const { _ratedGame, ratedGamePopularity } = await _getGameFromGames(games, rateLink);
+  const { _ratedGame, ratedGamePopularity } = await _getGameFromGames(
+    games,
+    rateLink,
+  );
 
   const ratedGamePopularityRank = ratedGamePopularity;
-  const ratedGamePopularityPercentage = (ratedGamePopularity / games.length) * 100;
+  const ratedGamePopularityPercentage =
+    (ratedGamePopularity / games.length) * 100;
 
   // if for some reason the calculations get broken, I can just sort the 'games' variable by rating count
   // lets just try without sorting
@@ -530,7 +550,9 @@ const _analyzeJam = async (
   let scoreToRatingNumPoints: GraphRatingCountToScorePoint[] | undefined;
   let ratedGameResult: ParsedGameResult | undefined;
   if (_inp_result) {
-    const _results = (await decompressJson(_inp_result)) as MinifiedGameResult[];
+    const _results = (await decompressJson(
+      _inp_result,
+    )) as MinifiedGameResult[];
     results = _results.map((e) => deMinifyGameResult(e));
     if (results.length != 0) {
       const {
@@ -596,6 +618,7 @@ const _analyzeJam = async (
     ratedGameResult,
     ratedGamePopularityRank,
     ratedGamePopularityPercentage,
+    dateProcessed: new Date(),
   } as JamGraphData;
   return out;
 };
@@ -606,7 +629,7 @@ const analyzeJam = cache(
   ["JamAnalyze"],
   {
     revalidate: halfHour, // seconds
-  }
+  },
 );
 
 const _getGameFromGames = (games: ParsedJamGame[], rateLink: string) => {
@@ -627,7 +650,7 @@ const _analyzeAll = async (
   rateLink: string,
   jamTitle: string,
   gameTitle: string,
-  optionsData: JsonOptions | undefined
+  optionsData: JsonOptions | undefined,
 ) => {
   const startTime = performance.now();
   const data = await analyzeJam(
@@ -635,7 +658,7 @@ const _analyzeAll = async (
     rateLink,
     jamTitle,
     gameTitle,
-    optionsData
+    optionsData,
   );
 
   const endTime = performance.now();

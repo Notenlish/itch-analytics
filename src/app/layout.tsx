@@ -7,9 +7,11 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import Link from "next/link";
 
 export async function generateMetadata(parent: any): Promise<Metadata> {
+  console.log(process.env.BASE_URL);
   return {
     title: "Itch.io Analytics - Analyze Your Game's Jam Results",
-    description: "Analyze your Itch.io Game Jam results and view jam statistics",
+    description:
+      "Analyze your Itch.io Game Jam results and view jam statistics",
     verification: {
       google: "Gurmrqg74NHiG1yD0S6seTXKXN1R3bL7-aVK38bjBNk",
     },
@@ -29,7 +31,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <GoogleAnalytics gaId="G-08BE4C6F4F" />
-      <body className={`min-h-screen bg-background antialiased ${poppins.className}`}>
+      <body
+        className={`min-h-screen bg-background antialiased ${poppins.className}`}
+      >
         <>
           <header className="pt-8">
             <Link className="hover:underline" href="/">
