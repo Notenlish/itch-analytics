@@ -132,6 +132,7 @@ class Scraper:
                     t = t.split(",")[0]
                 t = t.split("})")[0]
             t = t.split(',"')[0]
+            t = t.split("})")[0]
 
             id_str = t
 
