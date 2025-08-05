@@ -330,7 +330,7 @@ class Extractor:
 
     def extract_results_json(self, gamejam: GameJam, data: dict, session: Session):
         print("extracting results.json")
-        num_of_obj = len(data["jam_games"])
+        num_of_obj = len(data["results"])
         for i, obj in enumerate(data["results"]):
             print(f"{i/num_of_obj*100:.5f}% - working on results for {obj['title']}")
             statement = select(JamGame).where(

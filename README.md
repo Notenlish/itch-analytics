@@ -62,3 +62,7 @@ scraping takes too long. You cant always just stay connected to the server to ke
 verify its running: `pgrep -af "uvicorn main:app"`
 check logs: `tail -f uvicorn-itch-analytics.log` --> press `Ctrl+C` to stop tail
 send request to deep scrape a jam: `curl -d '{"url":"https://itch.io/jam/gmtk-2024/rate/2911191"}' -X POST http://0.0.0.0:12345/api/get-jam -H "Content-Type: application/json"`
+
+example curl command for getting the code to scrape smth:
+
+`curl -d '{"url":"<https://itch.io/jam/pygame-community-summer-jam-2024/rate/2830429"}>' -X POST <http://0.0.0.0:12345/api/get-jam> -H "Content-Type: application/json"`
