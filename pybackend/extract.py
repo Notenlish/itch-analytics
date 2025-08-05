@@ -16,6 +16,7 @@ from models import (
     Game,
     JamComment,
 )
+from utils import send_get_request
 from scraper import Scraper
 import json
 
@@ -36,54 +37,46 @@ class Extractor:
 
         print("found entries json url", entries_json_url)
 
-        res = requests.get(entries_json_url, timeout=15)
+        res = send_get_request(entries_json_url, timeout_base=15)
         data = json.loads(res.text)
 
         self.extract_entries_json(gamejam, data, session)
         session.commit()
 
-        res = requests.get(results_json_url, timeout=15)
+        res = send_get_request(results_json_url, timeout_base=15)
         data = json.loads(res.text)
         self.extract_results_json(gamejam, data, session)
         print("FINALLY. DONEEEEEE.")
 
     def extract_jam_page(self, url: str, session: Session):
-        try:
-            results = self.scraper.scrape_jam_page(url)
-            statement = select(GameJam).where(GameJam.id == results["id"])
-            gamejam = session.exec(statement).first()
-            if gamejam is None:
-                gamejam = GameJam(
-                    id=results["id"],
-                    logo=results["logo"],
-                    title=results["title"],
-                    url=url,
-                    entries_count=results["entries_count"],
-                    ratings_count=results["ratings_count"],
-                    joined_count=results["joined_count"],
-                    start_date=results["start_date"],
-                    end_date=results["end_date"],
-                    voting_end_date=results["voting_end_date"],
-                )
-                session.add(gamejam)
-            else:
-                gamejam.start_date = results["start_date"]
-                gamejam.end_date = results["end_date"]
-                gamejam.logo = results["logo"]
-                gamejam.title = results["title"]
-                gamejam.url = url
-                gamejam.voting_end_date = results["voting_end_date"]
-                gamejam.joined_count = results["joined_count"]
-                gamejam.entries_count = results["entries_count"]
-                gamejam.ratings_count = results["ratings_count"]
-            return gamejam
-
-        except requests.Timeout:
-            print(f"Timeout when fetching {url}")
-            raise Exception()
-        except requests.exceptions.RequestException as e:
-            print(f"Encountered error when fetching {url}:{e}")
-            raise Exception()
+        results = self.scraper.scrape_jam_page(url)
+        statement = select(GameJam).where(GameJam.id == results["id"])
+        gamejam = session.exec(statement).first()
+        if gamejam is None:
+            gamejam = GameJam(
+                id=results["id"],
+                logo=results["logo"],
+                title=results["title"],
+                url=url,
+                entries_count=results["entries_count"],
+                ratings_count=results["ratings_count"],
+                joined_count=results["joined_count"],
+                start_date=results["start_date"],
+                end_date=results["end_date"],
+                voting_end_date=results["voting_end_date"],
+            )
+            session.add(gamejam)
+        else:
+            gamejam.start_date = results["start_date"]
+            gamejam.end_date = results["end_date"]
+            gamejam.logo = results["logo"]
+            gamejam.title = results["title"]
+            gamejam.url = url
+            gamejam.voting_end_date = results["voting_end_date"]
+            gamejam.joined_count = results["joined_count"]
+            gamejam.entries_count = results["entries_count"]
+            gamejam.ratings_count = results["ratings_count"]
+        return gamejam
 
     def extract_entries_json(self, gamejam: GameJam, data: dict, session: Session):
         print("extracting entries json.")

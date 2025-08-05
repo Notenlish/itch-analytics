@@ -2,6 +2,33 @@ from datetime import datetime, timezone
 import re
 import html
 import unicodedata
+import time as time_sleeper
+import requests
+
+
+def send_get_request(url: str, timeout_base=15):
+    failed_counter = 0
+    wait_time = 0
+    timeout_counter = timeout_base
+
+    while failed_counter <= 5:
+        time_sleeper.sleep(wait_time)
+        try:
+            res = requests.get(url, timeout=timeout_counter)
+            res.raise_for_status()
+            res.encoding = "utf-8"
+            return res
+        except requests.Timeout:
+            failed_counter += 1
+            wait_time = 6 + 2**failed_counter
+            timeout_counter += 5 * failed_counter
+        except requests.RequestException as e:
+            print(f"Encountered RequestException Error: {e} when fetching {url}")
+            failed_counter += 1
+            wait_time = 6 + 2**failed_counter
+            timeout_counter += 5 * failed_counter
+
+    raise Exception(f"This isnt great. Tried to fetch {url} but ultimately failed.")
 
 
 def clean_text(text):
