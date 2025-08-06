@@ -11,7 +11,7 @@ def send_get_request(url: str, timeout_base=15):
     wait_time = 0
     timeout_counter = timeout_base
 
-    while failed_counter <= 5:
+    while failed_counter <= 15:
         time_sleeper.sleep(wait_time)
         try:
             res = requests.get(url, timeout=timeout_counter)
@@ -20,12 +20,12 @@ def send_get_request(url: str, timeout_base=15):
             return res
         except requests.Timeout:
             failed_counter += 1
-            wait_time = 6 + 2**failed_counter
+            wait_time = 6 + 3**failed_counter
             timeout_counter += 5 * failed_counter
         except requests.RequestException as e:
             print(f"Encountered RequestException Error: {e} when fetching {url}")
             failed_counter += 1
-            wait_time = 6 + 2**failed_counter
+            wait_time = 6 + 3**failed_counter
             timeout_counter += 5 * failed_counter
 
     raise Exception(f"This isnt great. Tried to fetch {url} but ultimately failed.")
