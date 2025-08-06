@@ -230,19 +230,11 @@ class Scraper:
                 print("scraped all comments, breaking out of loop.")
                 break
             else:
-                try:
-                    print("DEBUG: getting url for the next page containing comments")
-                    res = requests.get(nextlink, timeout=10)
-                    res.raise_for_status()
-                    soup_for_comments = BeautifulSoup(
-                        res.content, "html.parser", from_encoding="utf-8"
-                    )
-                except requests.exceptions.Timeout:
-                    print(f"Request to {url} timed out!!")
-                    raise Exception()  # dunno what to do if this happens
-                except requests.exceptions.RequestException as e:
-                    print(f"An error occurred while getting {url}:{e}")
-                    raise Exception()
+                print("DEBUG: getting url for the next page containing comments")
+                res = send_get_request(nextlink, timeout_base=10)
+                soup_for_comments = BeautifulSoup(
+                    res.content, "html.parser", from_encoding="utf-8"
+                )
         result = {
             "screenshots": screenshots,
             "field_responses": responses,
