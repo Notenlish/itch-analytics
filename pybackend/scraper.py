@@ -40,7 +40,7 @@ class Scraper:
                 t = script.text.strip()
                 t = t[t.find("{") :]
                 t = t[: t.find("}")] + "}"
-                print("found json:", t)
+                # print("found json:", t)
                 data_from_script = json.loads(t)
                 data_from_script["end_date"] = datetime.strptime(
                     data_from_script["end_date"], "%Y-%m-%d %H:%M:%S"
@@ -52,7 +52,7 @@ class Scraper:
                     data_from_script["voting_end_date"], "%Y-%m-%d %H:%M:%S"
                 )
                 break
-        print("Here is the data from the JSON:", data_from_script)
+        # print("Here is the data from the JSON:", data_from_script)
 
         return {
             "entries_count": stats.get("entries"),
@@ -84,7 +84,7 @@ class Scraper:
                 )
                 entries_url = "https://itch.io" + t
                 entries_url = entries_url.split("}),")[0]
-                print("entries url is", entries_url)
+                # print("entries url is", entries_url)
                 found = True
         if not found or entries_url is None:
             raise Exception("Couldn't find entries.json")
@@ -122,7 +122,7 @@ class Scraper:
         soup = BeautifulSoup(res.content, "html.parser", from_encoding="utf-8")
         tag = soup.select("#profile_header h1")
         if tag:
-            print("found h1 tag", tag)
+            # print("found h1 tag", tag)
             name = tag[0].text
         else:
             tag = soup.select(".stat_header_widget .text_container h2")
@@ -201,7 +201,7 @@ class Scraper:
                     responses.append({key: value})
                     key = None
                     value = None
-            print("Got all responses:", responses)
+            # print("Got all responses:", responses)
 
         ## Download Items
         # I commented this out since itch.io hides download items if youre unauthenticated.
@@ -216,7 +216,7 @@ class Scraper:
         comments = []
         soup_for_comments = soup
         while True:
-            print("working on scraping comments")
+            # print("working on scraping comments")
             scraped_all_comments = True
             nextlink = ""
             comments.extend(self._scrape_comments(soup_for_comments))
@@ -227,10 +227,10 @@ class Scraper:
                         nextlink = "https://itch.io" + str(tpl["href"])
                         scraped_all_comments = False
             if scraped_all_comments:
-                print("scraped all comments, breaking out of loop.")
+                # print("scraped all comments, breaking out of loop.")
                 break
             else:
-                print("DEBUG: getting url for the next page containing comments")
+                # print("DEBUG: getting url for the next page containing comments")
                 res = send_get_request(nextlink, timeout_base=10)
                 soup_for_comments = BeautifulSoup(
                     res.content, "html.parser", from_encoding="utf-8"

@@ -1,8 +1,6 @@
 from datetime import datetime
+import random
 
-from bs4 import BeautifulSoup
-import requests
-from sqlalchemy.engine import create
 from sqlmodel import Session, select
 from models import (
     Criteria,
@@ -18,12 +16,15 @@ from models import (
 )
 from utils import send_get_request
 from scraper import Scraper
+from bandwidth import BandwidthLimiter
 import json
+import time as time_sleeper
 
 
 class Extractor:
     def __init__(self):
         self.scraper = Scraper()
+        self.bandwidth_limiter = BandwidthLimiter()
 
     def find_entries_json(self, url: str, session: Session):
         jam_page_url = url.split("/rate/")[0]
@@ -37,13 +38,17 @@ class Extractor:
 
         print("found entries json url", entries_json_url)
 
-        res = send_get_request(entries_json_url, timeout_base=15)
+        res = send_get_request(
+            entries_json_url, self.bandwidth_limiter, timeout_base=15
+        )
         data = json.loads(res.text)
 
         self.extract_entries_json(gamejam, data, session)
         session.commit()
 
-        res = send_get_request(results_json_url, timeout_base=15)
+        res = send_get_request(
+            results_json_url, self.bandwidth_limiter, timeout_base=15
+        )
         data = json.loads(res.text)
         self.extract_results_json(gamejam, data, session)
         print("FINALLY. DONEEEEEE.")
@@ -94,20 +99,23 @@ class Extractor:
                 )
                 session.add(created_user)
                 user = created_user
-                print("created user:", created_user.name)
+                # print("created user:", created_user.name)
             else:
-                print("found user:", user.name)
+                pass
+                # print("found user:", user.name)
 
-            print(
-                f"DEBUG: Before trying to select game from db using {obj['game']['id']}"
-            )
+            # print(
+            #    f"DEBUG: Before trying to select game from db using {obj['game']['id']}"
+            # )
 
             jam_rate_url = "https://itch.io" + obj["url"]
             # before creating game object, first check the jamgame page to get some extra data.
             jampage_scrape_results = self.scraper.scrape_jamgame_page(jam_rate_url)
+            time_sleeper.sleep(random.uniform(0, 3))
             gamepage_scrape_results = self.scraper.scrape_game_page(
                 jampage_scrape_results["page_link"]
             )
+            time_sleeper.sleep(random.uniform(0, 3))
             # print(f"JAMPAGE scrape results: {jampage_scrape_results}")
 
             statement = select(Game).where(Game.id == obj["game"]["id"])
@@ -127,9 +135,9 @@ class Extractor:
                 contributors_list = []
 
                 if obj.get("contributors"):
-                    print("obj has contributors.")
+                    # print("obj has contributors.")
                     for contributor_obj in obj["contributors"]:
-                        print(f"Working on contributor {contributor_obj['name']}")
+                        # print(f"Working on contributor {contributor_obj['name']}")
                         # Scrape the individual pages of the users to get their user ids
                         scraped_contributor_data = self.scraper.scrape_user_page(
                             contributor_obj["url"]
@@ -139,10 +147,11 @@ class Extractor:
                             scraped_contributor_data
                             and "id" in scraped_contributor_data
                         ):
-                            print("scraped contributor", contributor_obj["name"])
+                            pass
+                            # print("scraped contributor", contributor_obj["name"])
                         else:
                             print(
-                                "Received invalid scrape data from scraper for the contributor."
+                                "WARNING! Received invalid scrape data from scraper for the contributor."
                             )
                             continue
 
@@ -179,7 +188,7 @@ class Extractor:
                 )
                 # print("DEBUG: After creating new Game instance")
                 session.add(game)
-                print(f"DEBUG: Added created game {game.title} to session")
+                # print(f"DEBUG: Added created game {game.title} to session")
             else:  # game obj exists already
                 game.cover = obj["game"]["cover"]
                 game.title = obj["game"]["title"]
@@ -192,7 +201,7 @@ class Extractor:
                 game.iframe_width = gamepage_scrape_results["iframe_width"]
                 game.iframe_height = gamepage_scrape_results["iframe_height"]
                 game.description = gamepage_scrape_results["description"]
-                print("found game", game.title)
+                # print("found game", game.title)
 
             ### Screenshot stuff
             for sc_obj in jampage_scrape_results["screenshots"]:
@@ -245,15 +254,15 @@ class Extractor:
                     session.add(metadata)
 
             ### Game Comments
-            print("SKIBIDI SKIDIBI GAMECOMMENTS")
+            print("Getting GAMECOMMENTS...")
             for gamecomment_obj in gamepage_scrape_results["comments"]:
-                print("WORKING ON GAMECOMMENT", gamecomment_obj)
+                # print("WORKING ON GAMECOMMENT", gamecomment_obj)
                 statement = select(GameComment).where(
                     GameComment.id == gamecomment_obj["id"]
                 )
                 gamecomment = session.exec(statement).first()
                 if gamecomment is None:
-                    print("COULDNT FIND GAMECOMMENT")
+                    # print("COULDNT FIND GAMECOMMENT")
                     gamecomment = GameComment(
                         id=gamecomment_obj["id"],
                         content=gamecomment_obj["content"],
@@ -263,7 +272,7 @@ class Extractor:
                     )
                     session.add(gamecomment)
                 else:
-                    print("FOUND GAMECOMMENT, UPDATING...")
+                    # print("FOUND GAMECOMMENT, UPDATING...")
                     gamecomment.date = gamecomment_obj["date"]
                     gamecomment.content = gamecomment_obj["content"]
 
@@ -291,7 +300,7 @@ class Extractor:
                     score=-1,
                 )
                 session.add(jamgame)
-                print("DEBUG: Successfully added new JamGame to session")
+                # print("DEBUG: Successfully added new JamGame to session")
             else:
                 # update jamgame
                 jamgame.url = jam_rate_url
@@ -303,7 +312,7 @@ class Extractor:
                 jamgame.gamejam_id = gamejam.id
                 jamgame.gamejam = gamejam
 
-                print(f"found jamgame {jamgame.title} and updated it. ")
+                # print(f"found jamgame {jamgame.title} and updated it. ")
 
             ### Jam Comments
             for comment_obj in jampage_scrape_results["comments"]:
@@ -344,15 +353,16 @@ class Extractor:
             jamgame.score = obj["score"]
             jamgame.rating_count = obj["rating_count"]
             jamgame.rank = obj["rank"]
+            print("working on criteria...")
             for criteria_obj in obj["criteria"]:
-                print(f"finding criteria of {criteria_obj['name']}")
+                # print(f"finding criteria of {criteria_obj['name']}")
                 statement = select(Criteria).where(
                     (Criteria.jamgame_id == obj["id"])
                     & (Criteria.name == criteria_obj["name"])
                 )
                 criteria = session.exec(statement).first()
                 if criteria:
-                    print(f"Updating criteria: {criteria.name}")
+                    # print(f"Updating criteria: {criteria.name}")
                     criteria.raw_score = criteria_obj["raw_score"]
                     criteria.score = criteria_obj["score"]
                     criteria.rank = criteria_obj["rank"]
@@ -365,7 +375,7 @@ class Extractor:
                         jamgame_id=obj["id"],
                     )
                     session.add(criteria)
-                    print(f"created criteria: {criteria.name}")
+                    # print(f"created criteria: {criteria.name}")
             print("DONE PROCESSING RESULTS.")
         session.commit()
 

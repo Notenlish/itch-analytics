@@ -4,31 +4,43 @@ import html
 import unicodedata
 import time as time_sleeper
 import requests
+from bandwidth import BandwidthLimiter
+import random
 
 
-def send_get_request(url: str, timeout_base=15):
+def send_get_request(
+    url: str, bandwidth_limiter: BandwidthLimiter, timeout_base=15, max_retries=15
+):
+    headers = {
+        "User-Agent": "ItchAnalytics Scraper/1.0 (Contact: https://notenlish.vercel.app/contact)"
+    }
+
     failed_counter = 0
-    wait_time = 0
-    timeout_counter = timeout_base
 
-    while failed_counter <= 15:
-        time_sleeper.sleep(wait_time)
+    while failed_counter <= max_retries:
         try:
             res = requests.get(url, timeout=timeout_counter)
             res.raise_for_status()
             res.encoding = "utf-8"
-            return res
-        except requests.Timeout:
-            failed_counter += 1
-            wait_time = 6 + 3**failed_counter
-            timeout_counter += 5 * failed_counter
-        except requests.RequestException as e:
-            print(f"Encountered RequestException Error: {e} when fetching {url}")
-            failed_counter += 1
-            wait_time = 6 + 3**failed_counter
-            timeout_counter += 5 * failed_counter
 
-    raise Exception(f"This isnt great. Tried to fetch {url} but ultimately failed.")
+            # track bandwidth
+            if bandwidth_limiter:
+                bandwidth_limiter.add_bytes(len(res.content))
+            return res
+        except requests.RequestException as e:
+            if res.status_code in (429, 503):
+                # do a longer, spesific backoff for rate limiting
+                backoff_time = 60 * (2**failed_counter) + random.uniform(0, 10)
+                print(
+                    f"Server responded with {res.status_code} - Backing off for {backoff_time} seconds."
+                )
+                time_sleeper.sleep(backoff_time)
+            failed_counter += 1
+            print(
+                f"Encountered Error: {e} when fetching {url}. Retry {failed_counter}/{max_retries}."
+            )
+
+    raise Exception(f"ERROR! Failed to fetch {url} after {max_retries} attempts.")
 
 
 def clean_text(text):
@@ -72,7 +84,7 @@ def get_filesize_from_string(s: str) -> int:
 def get_download_info_from_tags(download_tags):
     download_items = []
     for download_tag in download_tags:
-        print(f"WORKING ON DOWNLOAD TAG {download_tag.text}")
+        # print(f"WORKING ON DOWNLOAD TAG {download_tag.text}")
         download_name = download_tag.select(".info_column .upload_name .name")[0].text
 
         is_external_tag = download_tag.select(".external_label")
