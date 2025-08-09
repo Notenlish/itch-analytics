@@ -58,7 +58,9 @@ TODO: handle updating contributors when updating games.
 scraping takes too long. You cant always just stay connected to the server to keep uvicorn running. use nohup to make it still work even if you disconnect from ssh session.
 
 `source .venv/bin/activate`
-`nohup uvicorn main:app --reload --host 0.0.0.0 --port 12345 > ~/itch-analytics.log 2>&1 &`
+`nohup uvicorn main:app --host 0.0.0.0 --port 12345 > ~/itch-analytics.log 2>&1 &`
+NOTE: add --reload only for dev, not prod.
+
 verify its running: `pgrep -af "uvicorn main:app"`
 check logs: `tail -f itch-analytics.log` --> press `Ctrl+C` to stop tail
 send request to deep scrape a jam: `curl -d '{"url":"https://itch.io/jam/gmtk-2024/rate/2911191"}' -X POST http://0.0.0.0:12345/api/get-jam -H "Content-Type: application/json"`
@@ -66,4 +68,12 @@ send request to deep scrape a jam: `curl -d '{"url":"https://itch.io/jam/gmtk-20
 
 example curl command for getting the code to scrape smth:
 
-`curl -d '{"url":"<https://itch.io/jam/pygame-community-summer-jam-2024/rate/2830429"}>' -X POST <http://0.0.0.0:12345/api/get-jam> -H "Content-Type: application/json"`
+`curl -d '{"url":"https://itch.io/jam/pygame-community-summer-jam-2024/rate/2830429"}' -X POST http://0.0.0.0:12345/api/get-jam -H "Content-Type: application/json"`
+
+aaa example command on what to do when you accidentally start the uvicorn with --reload and cant close the process.
+
+```bash
+root@<IP>:~# sudo ss -ltnp | grep ':12345' || sudo lsof -nP -iTCP:12345 -sTCP:LISTEN
+LISTEN 0      2048         0.0.0.0:12345      0.0.0.0:*    users:(("python3",pid=647951,fd=3))
+root@<IP>:~# kill 647951
+```
