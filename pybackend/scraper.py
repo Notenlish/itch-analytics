@@ -1,24 +1,24 @@
 from datetime import datetime, time, timezone, tzinfo
 import json
-import requests
 from bs4 import BeautifulSoup, exceptions
-from sqlalchemy.orm import exc
 
+from bandwidth import BandwidthLimiter
 from utils import (
     clean_text,
     get_download_info_from_tags,
-    get_filesize_from_string,
     send_get_request,
 )
 
 
 class Scraper:
-    def __init__(self):
-        pass
+    def __init__(self, bandwidth_limiter: BandwidthLimiter):
+        self.bandwidth_limiter = bandwidth_limiter
 
     def scrape_jam_page(self, url: str):
         print(f"Scraping jam page {url}")
-        res = send_get_request(url, timeout_base=10)
+        res = send_get_request(
+            url, bandwidth_limiter=self.bandwidth_limiter, timeout_base=10
+        )
         soup = BeautifulSoup(res.content, "html.parser", from_encoding="utf-8")
         stats_container = soup.select(".stats_container")[0]
         stats = {}
@@ -68,7 +68,9 @@ class Scraper:
 
     def scrape_submissions_page(self, url: str):
         print("Fetching submissions page:", url)
-        res = send_get_request(url, timeout_base=10)
+        res = send_get_request(
+            url, bandwidth_limiter=self.bandwidth_limiter, timeout_base=10
+        )
         soup = BeautifulSoup(res.content, "html.parser", from_encoding="utf-8")
         found = False
         entries_url = None
@@ -92,7 +94,9 @@ class Scraper:
 
     def scrape_user_page(self, url: str):
         print("Fetching user page:", url)
-        res = send_get_request(url, timeout_base=10)
+        res = send_get_request(
+            url, bandwidth_limiter=self.bandwidth_limiter, timeout_base=10
+        )
 
         t = res.text
         if "new I.UserPage(" in t:
@@ -163,7 +167,9 @@ class Scraper:
         return comments
 
     def scrape_jamgame_page(self, url: str):
-        res = send_get_request(url, timeout_base=10)
+        res = send_get_request(
+            url, bandwidth_limiter=self.bandwidth_limiter, timeout_base=10
+        )
 
         screenshots = []
         soup = BeautifulSoup(res.content, "html.parser", from_encoding="utf-8")
@@ -231,7 +237,9 @@ class Scraper:
                 break
             else:
                 # print("DEBUG: getting url for the next page containing comments")
-                res = send_get_request(nextlink, timeout_base=10)
+                res = send_get_request(
+                    nextlink, bandwidth_limiter=self.bandwidth_limiter, timeout_base=10
+                )
                 soup_for_comments = BeautifulSoup(
                     res.content, "html.parser", from_encoding="utf-8"
                 )
@@ -244,7 +252,9 @@ class Scraper:
         return result
 
     def scrape_game_page(self, url: str):
-        res = send_get_request(url, timeout_base=10)
+        res = send_get_request(
+            url, bandwidth_limiter=self.bandwidth_limiter, timeout_base=10
+        )
         soup = BeautifulSoup(res.content, "html.parser", from_encoding="utf-8")
 
         # game logo

@@ -23,8 +23,8 @@ import time as time_sleeper
 
 class Extractor:
     def __init__(self):
-        self.scraper = Scraper()
-        self.bandwidth_limiter = BandwidthLimiter()
+        self.bandwidth_limiter = BandwidthLimiter(limit_mbps=1)
+        self.scraper = Scraper(bandwidth_limiter=self.bandwidth_limiter)
 
     def find_entries_json(self, url: str, session: Session):
         jam_page_url = url.split("/rate/")[0]
