@@ -16,25 +16,38 @@ def send_get_request(
     }
 
     failed_counter = 0
+    res = None
 
     while failed_counter <= max_retries:
         try:
             res = requests.get(url, timeout=timeout_base, headers=headers)
-            res.raise_for_status()
             res.encoding = "utf-8"
 
             # track bandwidth
             if bandwidth_limiter:
                 bandwidth_limiter.add_bytes(len(res.content))
+
+            res.raise_for_status()
+
             return res
         except requests.RequestException as e:
-            if res.status_code in (429, 503):
-                # do a longer, spesific backoff for rate limiting
-                backoff_time = 60 * (2**failed_counter) + random.uniform(0, 10)
+            if res and res.status_code in (429, 503):
+                # do a longer, specific backoff for rate limiting
+                # limit to 1 hour.
+                backoff_time = min(
+                    60 * (2**failed_counter) + random.uniform(0, 10), 3600
+                )
                 print(
                     f"Server responded with {res.status_code} - Backing off for {backoff_time} seconds."
                 )
                 time_sleeper.sleep(backoff_time)
+            elif res:
+                backoff_time = min(
+                    10 * (1.5**failed_counter) + random.uniform(0, 5), 3600
+                )
+                print(
+                    f"Server responded with this error code: {res.status_code} --- Backing off for {backoff_time} seconds."
+                )
             failed_counter += 1
             print(
                 f"Encountered Error: {e} when fetching {url}. Retry {failed_counter}/{max_retries}."
