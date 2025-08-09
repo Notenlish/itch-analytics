@@ -19,7 +19,7 @@ def send_get_request(
 
     while failed_counter <= max_retries:
         try:
-            res = requests.get(url, timeout=timeout_counter)
+            res = requests.get(url, timeout=timeout_base, headers=headers)
             res.raise_for_status()
             res.encoding = "utf-8"
 
