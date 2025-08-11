@@ -1,14 +1,8 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, BackgroundTasks, Depends
 from pydantic import BaseModel
-import pydantic
-from sqlmodel import Session, select
+from sqlmodel import Session
 from models import (
-    Game,
-    GameJam,
-    JamGame,
-    User,
-    # Comment,
     create_db_and_tables,
     get_session,
 )
@@ -30,11 +24,20 @@ class JamRequest(BaseModel):
 
 def long_scrape_jam_task(
     url: str,
-    session: Session,
-    extractor: Extractor,
 ):
-    print("starting long scrape jam task for", url)
-    extractor.find_entries_json(url, session)
+    from models import engine
+    from extract import get_extractor
+    import traceback
+    from sqlmodel import Session
+
+    print("MAIN: INFO: starting long scrape jam task for", url)
+    try:
+        with Session(engine) as session:
+            extractor = get_extractor()
+            extractor.find_entries_json(url, session)
+    except Exception as e:
+        print(f"MAIN: ERROR: Background scrape failed for {url}:{e}")
+        traceback.print_exc()
 
 
 app = FastAPI(
@@ -49,5 +52,6 @@ def get_jam(
     session: Session = Depends(get_session),
     extractor: Extractor = Depends(get_extractor),
 ):
-    background_tasks.add_task(long_scrape_jam_task, jam.url, session, extractor)
+    background_tasks.add_task(long_scrape_jam_task, jam.url)
+    print("responding to request to /api/get-jam")
     return {"message": "Scraping started in background"}
