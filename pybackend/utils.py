@@ -20,7 +20,15 @@ def send_get_request(
 
     while failed_counter <= max_retries:
         try:
-            res = requests.get(url, timeout=timeout_base, headers=headers)
+            # TLDR; this is needed because some profiles, like justin_c.itch.io have ssl certificates not working.
+            # dont know why. it just doesnt.
+            should_verify = (
+                failed_counter < 5
+            )  # verify ssl if 1st - 5th try, otherwise disable it.
+
+            res = requests.get(
+                url, timeout=timeout_base, headers=headers, verify=should_verify
+            )
             res.encoding = "utf-8"
 
             # track bandwidth
