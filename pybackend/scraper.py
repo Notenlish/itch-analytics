@@ -1,6 +1,6 @@
-from datetime import datetime, time, timezone, tzinfo
+from datetime import datetime
 import json
-from bs4 import BeautifulSoup, exceptions
+from bs4 import BeautifulSoup
 
 from bandwidth import BandwidthLimiter
 from utils import (
@@ -19,6 +19,8 @@ class Scraper:
         res = send_get_request(
             url, bandwidth_limiter=self.bandwidth_limiter, timeout_base=10
         )
+        if res is None:
+            return None
         soup = BeautifulSoup(res.content, "html.parser", from_encoding="utf-8")
         stats_container = soup.select(".stats_container")[0]
         stats = {}
@@ -71,9 +73,11 @@ class Scraper:
         res = send_get_request(
             url, bandwidth_limiter=self.bandwidth_limiter, timeout_base=10
         )
+        if res is None:
+            raise Exception("Couldnt fetch submissions page.")
         soup = BeautifulSoup(res.content, "html.parser", from_encoding="utf-8")
         found = False
-        entries_url = None
+        entries_url: str | None = None
         for script_tag in soup.find_all("script"):
             if '"entries_url"' in script_tag.text:
                 t = script_tag.text
@@ -85,6 +89,8 @@ class Scraper:
                     .replace("\\/", "/")
                 )
                 entries_url = "https://itch.io" + t
+                if not isinstance(entries_url, str):
+                    raise Exception("Entries url isnt string. my lsp is weird.")
                 entries_url = entries_url.split("}),")[0]
                 # print("entries url is", entries_url)
                 found = True
@@ -97,6 +103,8 @@ class Scraper:
         res = send_get_request(
             url, bandwidth_limiter=self.bandwidth_limiter, timeout_base=10
         )
+        if res is None:
+            return None
 
         t = res.text
         if "new I.UserPage(" in t:
@@ -171,6 +179,9 @@ class Scraper:
             url, bandwidth_limiter=self.bandwidth_limiter, timeout_base=10
         )
 
+        if res is None:
+            return None
+
         screenshots = []
         soup = BeautifulSoup(res.content, "html.parser", from_encoding="utf-8")
 
@@ -240,6 +251,8 @@ class Scraper:
                 res = send_get_request(
                     nextlink, bandwidth_limiter=self.bandwidth_limiter, timeout_base=10
                 )
+                if res is None:
+                    break  # comments were deleted while fetching that spesific page, assume all comments are fetched.
                 soup_for_comments = BeautifulSoup(
                     res.content, "html.parser", from_encoding="utf-8"
                 )
@@ -255,6 +268,8 @@ class Scraper:
         res = send_get_request(
             url, bandwidth_limiter=self.bandwidth_limiter, timeout_base=10
         )
+        if res is None:
+            return None
         soup = BeautifulSoup(res.content, "html.parser", from_encoding="utf-8")
 
         # game logo

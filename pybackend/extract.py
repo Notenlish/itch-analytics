@@ -41,6 +41,9 @@ class Extractor:
         res = send_get_request(
             entries_json_url, self.bandwidth_limiter, timeout_base=15
         )
+        if res is None:
+            print("ERROR: Couldn't fetch entries.json. Quitting...")
+            raise Exception(f"Couldnt fetch entries.json: {entries_json_url}")
         data = json.loads(res.text)
 
         self.extract_entries_json(gamejam, data, session)
@@ -49,12 +52,19 @@ class Extractor:
         res = send_get_request(
             results_json_url, self.bandwidth_limiter, timeout_base=15
         )
-        data = json.loads(res.text)
-        self.extract_results_json(gamejam, data, session)
+        if res is None:
+            print(
+                "WARNING: Couldn't fetch results.json. Skipping results json processing"
+            )
+        else:
+            data = json.loads(res.text)
+            self.extract_results_json(gamejam, data, session)
         print("FINALLY. DONEEEEEE.")
 
     def extract_jam_page(self, url: str, session: Session):
         results = self.scraper.scrape_jam_page(url)
+        if results is None:
+            raise Exception("Couldn't fetch jam page, quitting...", url)
         statement = select(GameJam).where(GameJam.id == results["id"])
         gamejam = session.exec(statement).first()
         if gamejam is None:
@@ -111,10 +121,22 @@ class Extractor:
             jam_rate_url = "https://itch.io" + obj["url"]
             # before creating game object, first check the jamgame page to get some extra data.
             jampage_scrape_results = self.scraper.scrape_jamgame_page(jam_rate_url)
+            if jampage_scrape_results is None:
+                print(
+                    "WARNING: Couldnt fetch jamgame page, skipping this entry object.",
+                    jam_rate_url,
+                )
+                continue
             time_sleeper.sleep(random.uniform(0, 3))
             gamepage_scrape_results = self.scraper.scrape_game_page(
                 jampage_scrape_results["page_link"]
             )
+            if gamepage_scrape_results is None:
+                print(
+                    "WARNING: Couldnt fetch game page, skipping this entry object.",
+                    jampage_scrape_results["page_link"],
+                )
+                continue
             time_sleeper.sleep(random.uniform(0, 3))
             # print(f"JAMPAGE scrape results: {jampage_scrape_results}")
 

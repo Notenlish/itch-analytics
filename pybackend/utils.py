@@ -39,6 +39,9 @@ def send_get_request(
 
             return res
         except requests.RequestException as e:
+            if res and res.status_code == 404:
+                # url not available.
+                return None
             if res and res.status_code in (429, 503):
                 # do a longer, specific backoff for rate limiting
                 # limit to 1 hour.
