@@ -38,27 +38,35 @@ def send_get_request(
             res.raise_for_status()
 
             return res
+        except requests.HTTPError as e:
+            if e.response is not None:
+                status_code = e.response.status_code
+                if status_code == 404:
+                    print(f"Got 404 for {url}. Skipping.")
+                    return None
+                elif status_code in (429, 503):
+                    # rate limiting / server unavailable
+                    backoff_time = min(
+                        60 * (2**failed_counter) + random.uniform(0, 10), 3600
+                    )
+                    print(
+                        f"Server responded {status_code} | backoff for {backoff_time:.1f} seconds"
+                    )
+                    time_sleeper.sleep(backoff_time)
+                else:
+                    backoff_time = min(
+                        10 * (1.5**failed_counter) + random.uniform(0, 5), 3600
+                    )
+                    print(
+                        f"HTTP {status_code} received | backoff for {backoff_time:.1f} seconds"
+                    )
+                    time_sleeper.sleep(backoff_time)
+            failed_counter += 1
+            print(f"Retry {failed_counter} / {max_retries} for {url}")
         except requests.RequestException as e:
-            if res and res.status_code == 404:
-                # url not available.
-                return None
-            if res and res.status_code in (429, 503):
-                # do a longer, specific backoff for rate limiting
-                # limit to 1 hour.
-                backoff_time = min(
-                    60 * (2**failed_counter) + random.uniform(0, 10), 3600
-                )
-                print(
-                    f"Server responded with {res.status_code} - Backing off for {backoff_time} seconds."
-                )
-                time_sleeper.sleep(backoff_time)
-            elif res:
-                backoff_time = min(
-                    10 * (1.5**failed_counter) + random.uniform(0, 5), 3600
-                )
-                print(
-                    f"Server responded with this error code: {res.status_code} --- Backing off for {backoff_time} seconds."
-                )
+            print(f"Connection error for {url} : {e}")
+            backoff_time = min(10 * (1.5**failed_counter) + random.uniform(0, 5), 3600)
+            time_sleeper.sleep(backoff_time)
             failed_counter += 1
             print(
                 f"Encountered Error: {e} when fetching {url}. Retry {failed_counter}/{max_retries}."
