@@ -97,7 +97,9 @@ class Extractor:
         print("extracting entries json.")
         num_of_obj = len(data["jam_games"])
         for i, obj in enumerate(data["jam_games"]):
-            print(f"{i/num_of_obj*100:.5f}% - working on obj::", obj["game"]["title"])
+            print(
+                f"{i / num_of_obj * 100:.5f}% - working on obj::", obj["game"]["title"]
+            )
 
             statement = select(User).where(User.id == obj["game"]["user"]["id"])
             user = session.exec(statement).first()
@@ -363,7 +365,9 @@ class Extractor:
         print("extracting results.json")
         num_of_obj = len(data["results"])
         for i, obj in enumerate(data["results"]):
-            print(f"{i/num_of_obj*100:.5f}% - working on results for {obj['title']}")
+            print(
+                f"{i / num_of_obj * 100:.5f}% - working on results for {obj['title']}"
+            )
             statement = select(JamGame).where(
                 (JamGame.game_id == obj["id"]) & (JamGame.url == obj["url"])
             )
@@ -373,7 +377,7 @@ class Extractor:
                 # the game was probably hidden(404) so it couldnt be added to the database.
                 # therefore we cant process it here.
                 print(
-                    f"WARNING: The {obj["title"]} game couldnt be found, most likely a 404 prevented it from being added to DB. Skipping the object."
+                    f"WARNING: The {obj['title']} game couldnt be found, most likely a 404 prevented it from being added to DB. Skipping the object."
                 )
                 continue
             jamgame.raw_score = obj["raw_score"]
