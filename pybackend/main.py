@@ -36,7 +36,9 @@ def long_scrape_jam_task(
             extractor = get_extractor()
             extractor.find_entries_json(url, session)
     except Exception as e:
-        print(f"MAIN: ERROR: Background scrape failed for {url}:{e}")
+        print(
+            f"MAIN: ERROR: Background scrape failed with this starting scrape url: {url} - Here is the error: {e}"
+        )
         traceback.print_exc()
 
 

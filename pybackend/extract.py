@@ -370,7 +370,12 @@ class Extractor:
             # even if they change the url, the url in the entries.json would have also changed. so no worries ig.
             jamgame = session.exec(statement).first()
             if not jamgame:
-                raise Exception("Jamgame doesnt exist.")
+                # the game was probably hidden(404) so it couldnt be added to the database.
+                # therefore we cant process it here.
+                print(
+                    f"WARNING: The {obj["title"]} game couldnt be found, most likely a 404 prevented it from being added to DB. Skipping the object."
+                )
+                continue
             jamgame.raw_score = obj["raw_score"]
             jamgame.score = obj["score"]
             jamgame.rating_count = obj["rating_count"]
@@ -398,7 +403,7 @@ class Extractor:
                     )
                     session.add(criteria)
                     # print(f"created criteria: {criteria.name}")
-            print("DONE PROCESSING RESULTS.")
+        print("DONE PROCESSING RESULTS. FINALLY.")
         session.commit()
 
 
