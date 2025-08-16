@@ -123,9 +123,15 @@ def get_download_info_from_tags(download_tags):
         is_external = len(is_external_tag) > 0
         download_size_bytes = -1
         if not is_external:
-            download_sizetext = download_tag.select(".info_column .file_size")[
-                0
-            ].text.lower()
+            download_sizetext_el = download_tag.select(".info_column .file_size")
+            if len(download_sizetext_el) == 0:
+                print(
+                    "WARNING: Skipping this download item as the download_sizetext could not be found."
+                )
+                continue  # skip this download item.
+
+            # successfully got the download item, continue processing.
+            download_sizetext = download_sizetext_el[0].text.lower()
             download_size_bytes = get_filesize_from_string(download_sizetext)
 
         # you can say
