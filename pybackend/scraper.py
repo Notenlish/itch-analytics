@@ -129,7 +129,12 @@ class Scraper:
 
         id_str = t
 
-        id = int(id_str)
+        try:
+            id = int(id_str)
+        except ValueError:
+            print("ERROR: Couldnt convert to int in user scraper.")
+            print("Here is the original string: ", res.text)
+            raise Exception()
 
         soup = BeautifulSoup(res.content, "html.parser", from_encoding="utf-8")
         tag = soup.select("#profile_header h1")
