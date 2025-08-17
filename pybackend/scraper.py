@@ -180,6 +180,7 @@ class Scraper:
         return comments
 
     def scrape_jamgame_page(self, url: str):
+        print(f"Sending request to {url} - jamgame page.")
         res = send_get_request(
             url, bandwidth_limiter=self.bandwidth_limiter, timeout_base=10
         )
@@ -232,7 +233,12 @@ class Scraper:
         #     f.write(soup.prettify())
         # download_tags = soup.select(".game_downloads upload")
 
-        game_page_link = soup.select(".responsive_column .forward_link")[0]["href"]
+        game_page_link = ""
+        game_page_link_elements = soup.select(".responsive_column .forward_link")
+        if len(game_page_link_elements) > 0:
+            game_page_link = game_page_link_elements[0]["href"]
+        else:
+            print(f"WARNING: Couldn't find an gamepage link element in {url}")
 
         ## Comments
         comments = []
