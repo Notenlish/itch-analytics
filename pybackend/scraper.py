@@ -8,6 +8,7 @@ from utils import (
     get_download_info_from_tags,
     send_get_request,
 )
+import json
 
 
 class Scraper:
@@ -134,7 +135,23 @@ class Scraper:
         except ValueError:
             print("ERROR: Couldnt convert to int in user scraper.")
             print("Here is the original string: ", res.text)
-            raise Exception()
+            print("Retrying...")
+            t = res.text
+            if "new I.UserPage(" in t:
+                t = t.split("new I.UserPage("[1])
+            if "," in t:
+                t = t.split(",")[1]
+            if ");" in t:
+                t = t.split(");")[0]
+            t = t.strip()
+            t_data = json.loads(t)
+            id = t_data["user_id"]
+            if isinstance(id, str):
+                id = int(id)
+            elif isinstance(id, int):
+                pass
+            else:
+                raise Exception()
 
         soup = BeautifulSoup(res.content, "html.parser", from_encoding="utf-8")
         tag = soup.select("#profile_header h1")
