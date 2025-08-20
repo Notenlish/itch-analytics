@@ -138,11 +138,12 @@ class Scraper:
             print("Retrying...")
             t = res.text
             if "new I.UserPage(" in t:
-                t = t.split("new I.UserPage("[1])
+                t = t.split("new I.UserPage(")[1]
             if "," in t:
                 t = t.split(",")[1]
             if ");" in t:
                 t = t.split(");")[0]
+            print("trying to strip t:", t)
             t = t.strip()
             t_data = json.loads(t)
             id = t_data["user_id"]
