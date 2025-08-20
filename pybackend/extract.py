@@ -96,6 +96,7 @@ class Extractor:
     def extract_entries_json(self, gamejam: GameJam, data: dict, session: Session):
         print("extracting entries json.")
         num_of_obj = len(data["jam_games"])
+        saved_num_of_obj = 0
         for i, obj in enumerate(data["jam_games"]):
             print(
                 f"{i / num_of_obj * 100:.5f}% - working on obj::", obj["game"]["title"]
@@ -357,7 +358,10 @@ class Extractor:
                     comment.author_submitted = comment_obj["author_submitted"]
                     comment.date = comment_obj["date"]
             # finished processing for this game_obj
+            saved_num_of_obj += 1
         session.commit()  # save changes to db
+
+        print(f"INFO: Was able to scrape {saved_num_of_obj} out of {num_of_obj}")
         print("Session committed successfully.")
         print("Done.")
 
@@ -380,8 +384,10 @@ class Extractor:
                     f"WARNING: The {obj['title']} game couldnt be found, most likely a 404 prevented it from being added to DB. Skipping the object."
                 )
                 continue
-            jamgame.raw_score = obj["raw_score"]
-            jamgame.score = obj["score"]
+            if obj.get("raw_score"):
+                jamgame.raw_score = obj["raw_score"]
+            if obj.get("score"):
+                jamgame.score = obj["score"]
             jamgame.rating_count = obj["rating_count"]
             jamgame.rank = obj["rank"]
             print("working on criteria...")
