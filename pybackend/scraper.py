@@ -136,13 +136,20 @@ class Scraper:
             print("ERROR: Couldnt convert to int in user scraper.")
             print("Here is the original string: ", res.text)
             print("Retrying...")
+
+            print("Trying again...")
             t = res.text
             if "new I.UserPage(" in t:
                 t = t.split("new I.UserPage(")[1]
             if "," in t:
-                t = t.split(",")[1]
+                index = t.find(",")
+                t = t[index + 1 :]
+                print("t2", t)
             if ");" in t:
-                t = t.split(");")[0]
+                index = t.find(");")
+                t = t[:index]
+                print("t3", t)
+
             print("trying to strip t:", t)
             t = t.strip()
             t_data = json.loads(t)
@@ -152,6 +159,7 @@ class Scraper:
             elif isinstance(id, int):
                 pass
             else:
+                print("id is of type", type(id))
                 raise Exception()
 
         soup = BeautifulSoup(res.content, "html.parser", from_encoding="utf-8")
