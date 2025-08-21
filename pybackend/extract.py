@@ -130,7 +130,7 @@ class Extractor:
                     jam_rate_url,
                 )
                 continue
-            time_sleeper.sleep(random.uniform(0, 3))
+            time_sleeper.sleep(random.uniform(0, 1))
             gamepage_scrape_results = self.scraper.scrape_game_page(
                 jampage_scrape_results["page_link"]
             )
@@ -140,7 +140,7 @@ class Extractor:
                     jampage_scrape_results["page_link"],
                 )
                 continue
-            time_sleeper.sleep(random.uniform(0, 3))
+            time_sleeper.sleep(random.uniform(0, 1))
             # print(f"JAMPAGE scrape results: {jampage_scrape_results}")
 
             statement = select(Game).where(Game.id == obj["game"]["id"])

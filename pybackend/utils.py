@@ -47,7 +47,7 @@ def send_get_request(
                 elif status_code in (429, 503):
                     # rate limiting / server unavailable
                     backoff_time = min(
-                        60 * (2**failed_counter) + random.uniform(0, 10), 3600
+                        50 * (2**failed_counter) + random.uniform(0, 5), 3600
                     )
                     print(
                         f"Server responded {status_code} | backoff for {backoff_time:.1f} seconds"
@@ -55,7 +55,7 @@ def send_get_request(
                     time_sleeper.sleep(backoff_time)
                 else:
                     backoff_time = min(
-                        10 * (1.5**failed_counter) + random.uniform(0, 5), 3600
+                        10 * (1.5**failed_counter) + random.uniform(0, 3), 3600
                     )
                     print(
                         f"HTTP {status_code} received | backoff for {backoff_time:.1f} seconds"
@@ -65,7 +65,7 @@ def send_get_request(
             print(f"Retry {failed_counter} / {max_retries} for {url}")
         except requests.RequestException as e:
             print(f"Connection error for {url} : {e}")
-            backoff_time = min(10 * (1.5**failed_counter) + random.uniform(0, 5), 3600)
+            backoff_time = min(9 * (1.5**failed_counter) + random.uniform(0, 4), 3600)
             time_sleeper.sleep(backoff_time)
             failed_counter += 1
             print(
