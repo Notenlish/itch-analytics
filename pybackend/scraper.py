@@ -259,6 +259,31 @@ class Scraper:
         #     f.write(soup.prettify())
         # download_tags = soup.select(".game_downloads upload")
 
+        ## Results table
+        results = []
+        results_table = soup.select(".ranking_results_table")
+        if len(results_table) > 0:
+            results_table = results_table[0]
+            rows = results_table.select("tr")
+            for row in rows:
+                print("row", row)
+                cols = row.select("td")
+                print("cols", cols)
+
+                category_name = cols[0].text
+                rank = cols[1].text.replace("#", "")
+                score = float(cols[2].text)
+                raw_score = float(cols[3].text)
+
+                results.append(
+                    {
+                        "name": category_name,
+                        "rank": rank,
+                        "score": score,
+                        "raw_score": raw_score,
+                    }
+                )
+
         game_page_link = ""
         game_page_link_elements = soup.select(".responsive_column .forward_link")
         if len(game_page_link_elements) > 0:
@@ -298,6 +323,7 @@ class Scraper:
             "field_responses": responses,
             "comments": comments,
             "page_link": game_page_link,
+            "results": results,
         }
         return result
 

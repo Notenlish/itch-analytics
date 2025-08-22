@@ -357,16 +357,42 @@ class Extractor:
                     comment.content = comment_obj["content"]
                     comment.author_submitted = comment_obj["author_submitted"]
                     comment.date = comment_obj["date"]
+
+            ## RESULTS
+            for result_obj in jampage_scrape_results["results"]:
+                statement = select(Criteria).where(
+                    (Criteria.jamgame_id == obj["id"])
+                    & (Criteria.name == result_obj["name"])
+                )
+                criteria = session.exec(statement).first()
+                if criteria:
+                    criteria.rank = result_obj["rank"]
+                    criteria.score = result_obj["score"]
+                    criteria.raw_score = result_obj["raw_score"]
+                else:
+                    criteria = Criteria(
+                        score=result_obj["score"],
+                        raw_score=result_obj["raw_score"],
+                        rank=result_obj["rank"],
+                        name=result_obj["name"],
+                        jamgame_id=obj["id"],
+                    )
+                    session.add(criteria)
+
             # finished processing for this game_obj
             saved_num_of_obj += 1
         session.commit()  # save changes to db
 
-        print(f"INFO: Was able to scrape {saved_num_of_obj} out of {num_of_obj}")
+        print(
+            f"INFO: Was able to scrape {saved_num_of_obj} out of {num_of_obj} - {saved_num_of_obj / num_of_obj * 100:.3f}% scraped."
+        )
         print("Session committed successfully.")
         print("Done.")
 
     def extract_results_json(self, gamejam: GameJam, data: dict, session: Session):
         print("extracting results.json")
+        print("Exitting extracting results.json BCUZ i need to test something.")
+        return
         num_of_obj = len(data["results"])
         for i, obj in enumerate(data["results"]):
             print(
