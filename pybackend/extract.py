@@ -417,6 +417,8 @@ class Extractor:
             print("working on criteria...")
             for criteria_obj in obj["criteria"]:
                 # print(f"finding criteria of {criteria_obj['name']}")
+                # The problem in here is that the obj['id'] gives the game id, not the JamGame id.
+                # I need to get the jamgame object in some other way.
                 statement = select(Criteria).where(
                     (Criteria.jamgame_id == obj["id"])
                     & (Criteria.name == criteria_obj["name"])
