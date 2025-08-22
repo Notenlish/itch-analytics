@@ -391,8 +391,6 @@ class Extractor:
 
     def extract_results_json(self, gamejam: GameJam, data: dict, session: Session):
         print("extracting results.json")
-        print("Exitting extracting results.json BCUZ i need to test something.")
-        return
         num_of_obj = len(data["results"])
         for i, obj in enumerate(data["results"]):
             print(
