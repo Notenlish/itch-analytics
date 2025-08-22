@@ -264,16 +264,18 @@ class Scraper:
         results_table = soup.select(".ranking_results_table")
         if len(results_table) > 0:
             results_table = results_table[0]
+            # thead exists but not tbody, why?
             rows = results_table.select("tr")
             for row in rows:
-                print("row", row)
                 cols = row.select("td")
-                print("cols", cols)
 
                 category_name = cols[0].text
-                rank = cols[1].text.replace("#", "")
-                score = float(cols[2].text)
-                raw_score = float(cols[3].text)
+                try:
+                    rank = int(cols[1].text.replace("#", ""))
+                    score = float(cols[2].text)
+                    raw_score = float(cols[3].text)
+                except ValueError:
+                    continue  # most likely the first row(which just names the values so we can ignore)
 
                 results.append(
                     {
