@@ -359,7 +359,11 @@ class Extractor:
                     comment.date = comment_obj["date"]
 
             ## RESULTS
+            criteria_count = 0
+            total_score = 0
+            total_raw_score = 0
             for result_obj in jampage_scrape_results["results"]:
+                criteria_count += 1
                 statement = select(Criteria).where(
                     (Criteria.jamgame_id == obj["id"])
                     & (Criteria.name == result_obj["name"])
@@ -378,6 +382,16 @@ class Extractor:
                         jamgame_id=obj["id"],
                     )
                     session.add(criteria)
+                total_score += criteria.score
+                total_raw_score += criteria.raw_score
+
+            # We need to do this since some jams might not give the score or raw score of all games in results.json
+            if criteria_count > 0:
+                calculated_score = total_score / criteria_count
+                calculated_raw_score = total_raw_score / criteria_count
+
+                jamgame.score = calculated_score
+                jamgame.raw_score = calculated_raw_score
 
             # finished processing for this game_obj
             saved_num_of_obj += 1
@@ -419,8 +433,28 @@ class Extractor:
                 # print(f"finding criteria of {criteria_obj['name']}")
                 # The problem in here is that the obj['id'] gives the game id, not the JamGame id.
                 # I need to get the jamgame object in some other way.
+                game_id = obj["id"]
+                game_of_criteria = session.exec(
+                    select(Game).where(Game.id == game_id)
+                ).first()
+                if game_of_criteria is None:
+                    print(
+                        f"WARNING: Couldn't find the game of the criteria object {criteria_obj}"
+                    )
+                    continue
+                jamgame_of_criteria = session.exec(
+                    select(JamGame).where(
+                        (JamGame.gamejam == gamejam)
+                        & (JamGame.game_id == game_of_criteria.id)
+                    )
+                ).first()
+                if jamgame_of_criteria is None:
+                    print(
+                        f"WARNING: Couldn't find the jamgame of the criteria object {criteria_obj}"
+                    )
+                    continue
                 statement = select(Criteria).where(
-                    (Criteria.jamgame_id == obj["id"])
+                    (Criteria.jamgame_id == jamgame.id)
                     & (Criteria.name == criteria_obj["name"])
                 )
                 criteria = session.exec(statement).first()

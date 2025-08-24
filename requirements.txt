@@ -4,3 +4,6 @@ sqlmodel
 beautifulsoup4
 fastapi
 uvicorn
+matplotlib
+pandas
+seaborn
