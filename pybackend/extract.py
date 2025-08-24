@@ -442,6 +442,7 @@ class Extractor:
                         f"WARNING: Couldn't find the game of the criteria object {criteria_obj}"
                     )
                     continue
+
                 jamgame_of_criteria = session.exec(
                     select(JamGame).where(
                         (JamGame.gamejam == gamejam)
@@ -453,6 +454,7 @@ class Extractor:
                         f"WARNING: Couldn't find the jamgame of the criteria object {criteria_obj}"
                     )
                     continue
+
                 statement = select(Criteria).where(
                     (Criteria.jamgame_id == jamgame.id)
                     & (Criteria.name == criteria_obj["name"])
