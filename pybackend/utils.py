@@ -166,3 +166,31 @@ def get_download_info_from_tags(download_tags):
             }
         )
     return download_items
+
+
+def competitive_ranking(rankings: list[int] | list[float]):
+    """Takes in a list of float/ints from high to low numbers"""
+    cur_rank = 0
+    out = []
+
+    last_val = None
+    dupes_count = 0
+    for rank_item_val in rankings:
+        # print(f"last: {last_val} - cur: {rank_item_val}")
+        if last_val == rank_item_val:
+            dupes_count += 1
+            # print("found dupe.")
+        else:
+            # print("not dupe, going to next rank")
+            cur_rank += 1 + dupes_count
+            dupes_count = 0
+
+        out.append(cur_rank)
+        last_val = rank_item_val
+    return out
+
+
+if __name__ == "__main__":
+    arr = [5.0, 4.5, 4.5, 4.5, 3.9, 3.8, 3.0, 3.0, 2.0]
+    print("input:", arr)
+    print(competitive_ranking(arr))

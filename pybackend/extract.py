@@ -14,6 +14,7 @@ from models import (
     Game,
     JamComment,
 )
+from utils import competitive_ranking
 from utils import send_get_request
 from scraper import Scraper
 from bandwidth import BandwidthLimiter
@@ -97,6 +98,8 @@ class Extractor:
         print("extracting entries json.")
         num_of_obj = len(data["jam_games"])
         saved_num_of_obj = 0
+        jamgames = []
+
         for i, obj in enumerate(data["jam_games"]):
             print(
                 f"{i / num_of_obj * 100:.5f}% - working on obj::", obj["game"]["title"]
@@ -292,6 +295,7 @@ class Extractor:
                         id=gamecomment_obj["id"],
                         content=gamecomment_obj["content"],
                         date=gamecomment_obj["date"],
+                        author_id=gamecomment_obj["author_id"],
                         game_id=game.id,
                         game=game,
                     )
@@ -348,6 +352,7 @@ class Extractor:
                         id=comment_obj["id"],
                         content=comment_obj["content"],
                         author_submitted=comment_obj["author_submitted"],
+                        author_id=comment_obj["author_id"],
                         date=comment_obj["date"],
                         jamgame_id=jamgame.id,
                         jamgame=jamgame,
@@ -393,8 +398,17 @@ class Extractor:
                 jamgame.score = calculated_score
                 jamgame.raw_score = calculated_raw_score
 
+            jamgames.append(jamgame)
             # finished processing for this game_obj
             saved_num_of_obj += 1
+
+        # add ranks back just in case the gamejam doesnt include all the games on results.json
+        arr = [jamgame.score for jamgame in jamgames]
+        ranks = competitive_ranking(arr)
+        for i, rank in enumerate(ranks):
+            jamgame = jamgames[i]
+            jamgame.rank = rank
+
         session.commit()  # save changes to db
 
         print(

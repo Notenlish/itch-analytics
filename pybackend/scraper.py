@@ -195,9 +195,13 @@ class Scraper:
             comment_content = comment_tag.select(".post_content .post_body")[0].text
             comment_id = int(str(comment_tag["id"]).replace("post-", ""))
 
+            comment_html_json_data = json.loads(comment_tag["data-post"])
+            comment_author_id = comment_html_json_data["user_id"]
+
             comments.append(
                 {
                     "author_submitted": author_submitted,
+                    "author_id": comment_author_id,
                     "date": comment_date,
                     "id": comment_id,
                     "content": comment_content,
@@ -387,6 +391,7 @@ class Scraper:
         comment_tags = soup.select(".community_post")
         for comment_tag in comment_tags:
             comment_id = int(str(comment_tag["id"]).replace("post-", ""))
+            comment_author_id = json.loads(comment_tag["data-post"])["user_id"]
 
             comment_content = comment_tag.select(".post_content .post_body")[
                 0
@@ -398,7 +403,12 @@ class Scraper:
                 "%Y-%m-%d %H:%M:%S",
             )
             comments.append(
-                {"id": comment_id, "content": comment_content, "date": comment_date}
+                {
+                    "id": comment_id,
+                    "content": comment_content,
+                    "date": comment_date,
+                    "author_id": comment_author_id,
+                }
             )
         return {
             "logo": game_logo,

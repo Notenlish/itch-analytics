@@ -157,6 +157,8 @@ class JamComment(SQLModel, table=True):
     author_submitted: bool
     date: datetime
 
+    author_id: Optional[int] = Field(default=None, foreign_key="user.id")
+
     # the jamgame that this comment was submitted to.
     jamgame_id: Optional[int] = Field(foreign_key="jamgame.id")
     jamgame: Optional["JamGame"] = Relationship(back_populates="comments")
@@ -166,6 +168,8 @@ class GameComment(SQLModel, table=True):
     content: str
     id: Optional[int] = Field(primary_key=True)
     date: datetime
+
+    author_id: Optional[int] = Field(default=None, foreign_key="user.id")
 
     # the game this was submitted to. many side in one-to-many
     game_id: Optional[int] = Field(foreign_key="game.id")
