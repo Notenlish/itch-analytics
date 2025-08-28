@@ -1,6 +1,7 @@
 from datetime import datetime
 import json
 from bs4 import BeautifulSoup
+from stats import Stats
 
 from bandwidth import BandwidthLimiter
 from utils import (
@@ -15,13 +16,14 @@ class Scraper:
     def __init__(self, bandwidth_limiter: BandwidthLimiter):
         self.bandwidth_limiter = bandwidth_limiter
 
-    def scrape_jam_page(self, url: str):
+    def scrape_jam_page(self, url: str, stats: Stats):
         print(f"Scraping jam page {url}")
         res = send_get_request(
             url, bandwidth_limiter=self.bandwidth_limiter, timeout_base=10
         )
         if res is None:
             return None
+        stats.total_pages_crawled += 1
         soup = BeautifulSoup(res.content, "html.parser", from_encoding="utf-8")
         stats_container = soup.select(".stats_container")[0]
         stats = {}
@@ -69,13 +71,14 @@ class Scraper:
             "title": jam_title,
         }
 
-    def scrape_submissions_page(self, url: str):
+    def scrape_submissions_page(self, url: str, stats: Stats):
         print("Fetching submissions page:", url)
         res = send_get_request(
             url, bandwidth_limiter=self.bandwidth_limiter, timeout_base=10
         )
         if res is None:
             raise Exception("Couldnt fetch submissions page.")
+        stats.total_pages_crawled += 1
         soup = BeautifulSoup(res.content, "html.parser", from_encoding="utf-8")
         found = False
         entries_url: str | None = None
@@ -209,7 +212,7 @@ class Scraper:
             )
         return comments
 
-    def scrape_jamgame_page(self, url: str):
+    def scrape_jamgame_page(self, url: str, stats: Stats):
         print(f"Sending request to {url} - jamgame page.")
         res = send_get_request(
             url, bandwidth_limiter=self.bandwidth_limiter, timeout_base=10
@@ -217,12 +220,14 @@ class Scraper:
 
         if res is None:
             return None
+        stats.total_pages_crawled += 1
+        stats.jamgame_pages_crawled += 1
 
         screenshots = []
         soup = BeautifulSoup(res.content, "html.parser", from_encoding="utf-8")
 
         ## Screenshots
-        screenshot_tags = soup.select(".game_screenshots .screenshot")
+        screenshot_tags = list(soup.select(".game_screenshots .screenshot"))
         if screenshot_tags:
             for tag in screenshot_tags:
                 screenshots.append(
@@ -231,7 +236,7 @@ class Scraper:
 
         ## Responses
         responses = []
-        field_responses_tag = soup.select(".field_responses")
+        field_responses_tag = list(soup.select(".field_responses"))
         if field_responses_tag:
             # get all the elements with a depth of 1.
             response_tags = soup.select(".field_responses > *")
@@ -257,11 +262,8 @@ class Scraper:
             # print("Got all responses:", responses)
 
         ## Download Items
-        # I commented this out since itch.io hides download items if youre unauthenticated.
-        # I will scrape download items from game page instead.
-        # with open("debug.txt", "w", encoding="utf-8") as f:
-        #     f.write(soup.prettify())
-        # download_tags = soup.select(".game_downloads upload")
+        # Removed since itch.io hides download items if youre unauthenticated.
+        # Download items will be scraped from game page instead.
 
         ## Results table
         results = []
@@ -305,7 +307,9 @@ class Scraper:
             scraped_all_comments = True
             nextlink = ""
             comments.extend(self._scrape_comments(soup_for_comments))
-            topic_pager_links = soup_for_comments.select(".topic_pager a.page_link")
+            topic_pager_links = list(
+                soup_for_comments.select(".topic_pager a.page_link")
+            )
             if topic_pager_links:
                 for tpl in topic_pager_links:
                     if tpl.text.strip().lower() == "next page":
@@ -321,6 +325,7 @@ class Scraper:
                 )
                 if res is None:
                     break  # comments were deleted while fetching that spesific page, assume all comments are fetched.
+                stats.total_pages_crawled += 1
                 soup_for_comments = BeautifulSoup(
                     res.content, "html.parser", from_encoding="utf-8"
                 )
@@ -333,12 +338,14 @@ class Scraper:
         }
         return result
 
-    def scrape_game_page(self, url: str):
+    def scrape_game_page(self, url: str, stats: Stats):
         res = send_get_request(
             url, bandwidth_limiter=self.bandwidth_limiter, timeout_base=10
         )
         if res is None:
             return None
+        stats.total_pages_crawled += 1
+        stats.game_pages_crawled += 1
         soup = BeautifulSoup(res.content, "html.parser", from_encoding="utf-8")
 
         # game logo
@@ -349,7 +356,7 @@ class Scraper:
                 game_logo = header_tag[0].select("img")[0]["src"]
 
         # iframe
-        iframe_tag = soup.select(".game_frame")
+        iframe_tag = list(soup.select(".game_frame"))
         iframe_width, iframe_height = 0, 0
         if iframe_tag:
             iframe_width = int(str(iframe_tag[0]["data-width"]))

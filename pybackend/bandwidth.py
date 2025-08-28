@@ -7,9 +7,11 @@ class BandwidthLimiter:
         self.limit_bytes_per_second = limit_mbps * (1024**2)
         self.start_time = datetime.now()
         self.bytes_transferred = 0
+        self.total_transferred = 0
 
     def add_bytes(self, bytes_count: int):
         self.bytes_transferred += bytes_count
+        self.total_transferred += bytes_count
         self.check_and_limit()
 
     def check_and_limit(self):

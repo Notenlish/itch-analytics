@@ -19,6 +19,7 @@ from utils import send_get_request
 from scraper import Scraper
 from bandwidth import BandwidthLimiter
 import json
+from stats import Stats
 import time as time_sleeper
 
 
@@ -27,14 +28,14 @@ class Extractor:
         self.bandwidth_limiter = BandwidthLimiter(limit_mbps=1)
         self.scraper = Scraper(bandwidth_limiter=self.bandwidth_limiter)
 
-    def find_entries_json(self, url: str, session: Session):
+    def find_entries_json(self, url: str, session: Session, stats: Stats):
         jam_page_url = url.split("/rate/")[0]
-        gamejam = self.extract_jam_page(jam_page_url, session)
+        gamejam = self.extract_jam_page(jam_page_url, session, stats)
 
         print("finding entries json of", url)
         # https://itch.io/jam/godot-wild-jam-72/rate/2902486 --> https://itch.io/jam/godot-wild-jam-72/entries
         submissions_url = url.split("/rate/")[0] + "/entries"
-        entries_json_url = self.scraper.scrape_submissions_page(submissions_url)
+        entries_json_url = self.scraper.scrape_submissions_page(submissions_url, stats)
         results_json_url = entries_json_url.replace("entries.json", "results.json")
 
         print("found entries json url", entries_json_url)
@@ -45,9 +46,10 @@ class Extractor:
         if res is None:
             print("ERROR: Couldn't fetch entries.json. Quitting...")
             raise Exception(f"Couldnt fetch entries.json: {entries_json_url}")
+        stats.total_pages_crawled += 1
         data = json.loads(res.text)
 
-        self.extract_entries_json(gamejam, data, session)
+        self.extract_entries_json(gamejam, data, session, stats)
         session.commit()
 
         res = send_get_request(
@@ -58,12 +60,15 @@ class Extractor:
                 "WARNING: Couldn't fetch results.json. Skipping results json processing"
             )
         else:
+            stats.total_pages_crawled += 1
             data = json.loads(res.text)
-            self.extract_results_json(gamejam, data, session)
+            self.extract_results_json(gamejam, data, session, stats)
         print("FINALLY. DONEEEEEE.")
+        stats.end_time = datetime.now()
+        stats.final_stats(self.bandwidth_limiter)
 
-    def extract_jam_page(self, url: str, session: Session):
-        results = self.scraper.scrape_jam_page(url)
+    def extract_jam_page(self, url: str, session: Session, stats: Stats):
+        results = self.scraper.scrape_jam_page(url, stats)
         if results is None:
             raise Exception("Couldn't fetch jam page, quitting...", url)
         statement = select(GameJam).where(GameJam.id == results["id"])
@@ -94,7 +99,9 @@ class Extractor:
             gamejam.ratings_count = results["ratings_count"]
         return gamejam
 
-    def extract_entries_json(self, gamejam: GameJam, data: dict, session: Session):
+    def extract_entries_json(
+        self, gamejam: GameJam, data: dict, session: Session, stats: Stats
+    ):
         print("extracting entries json.")
         num_of_obj = len(data["jam_games"])
         saved_num_of_obj = 0
@@ -126,7 +133,9 @@ class Extractor:
 
             jam_rate_url = "https://itch.io" + obj["url"]
             # before creating game object, first check the jamgame page to get some extra data.
-            jampage_scrape_results = self.scraper.scrape_jamgame_page(jam_rate_url)
+            jampage_scrape_results = self.scraper.scrape_jamgame_page(
+                jam_rate_url, stats
+            )
             if jampage_scrape_results is None:
                 print(
                     "WARNING: Couldnt fetch jamgame page, skipping this entry object.",
@@ -135,7 +144,7 @@ class Extractor:
                 continue
             time_sleeper.sleep(random.uniform(0, 1))
             gamepage_scrape_results = self.scraper.scrape_game_page(
-                jampage_scrape_results["page_link"]
+                jampage_scrape_results["page_link"], stats
             )
             if gamepage_scrape_results is None:
                 print(
@@ -144,11 +153,10 @@ class Extractor:
                 )
                 continue
             time_sleeper.sleep(random.uniform(0, 1))
-            # print(f"JAMPAGE scrape results: {jampage_scrape_results}")
 
             statement = select(Game).where(Game.id == obj["game"]["id"])
             game = session.exec(statement).first()
-            # print(f"DEBUG: After selecting Game, found: {game is not None}")
+
             cover_color = obj["game"].get("cover_color")
             gif_cover = obj["game"].get("gif_cover")
             platforms = obj["game"].get("platforms")
@@ -170,6 +178,8 @@ class Extractor:
                         scraped_contributor_data = self.scraper.scrape_user_page(
                             contributor_obj["url"]
                         )
+                        stats.total_pages_crawled += 1
+                        stats.profile_pages_crawled += 1
 
                         if (
                             scraped_contributor_data
@@ -417,7 +427,9 @@ class Extractor:
         print("Session committed successfully.")
         print("Done.")
 
-    def extract_results_json(self, gamejam: GameJam, data: dict, session: Session):
+    def extract_results_json(
+        self, gamejam: GameJam, data: dict, session: Session, stats: Stats
+    ):
         print("extracting results.json")
         num_of_obj = len(data["results"])
         for i, obj in enumerate(data["results"]):

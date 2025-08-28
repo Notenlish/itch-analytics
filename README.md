@@ -1,27 +1,15 @@
 # Itch.io Analytics Source Code
 
-so yeah.
+Remake code.
 
-its spaghetti code that needs to be recoded from scratch, with an actual rented server.
+## Install Dependencies
 
-Disclaimer: this is the source code of the itchanalytics.vercel.app website, not the analytics itch.io offers.
+`py -m pip install -r requirements.txt` or `pip install -r requirements.txt`
 
-# Version 2
+start backend server:
+`uvicorn main:app --reload --host 0.0.0.0 --port 12345`
 
-## a
-
-py -m pip install -r requirements.txt
-pip install -r requirements.txt
-
-uvicorn main:app --reload
-
-## stuff
-
-<https://itch.io/jam/godot-wild-jam-72/entries>
-<https://itch.io/jam/godot-wild-jam-72/rate/2906210>
-<https://itch.io/jam/389358/entries.json>
-
-## api structure
+## API Structure Stuffs
 
 api / get-jam
 api / check-jam
@@ -36,26 +24,11 @@ I need to change the way scraping process works, so that instead of doing the de
 
 ## TODO
 
-I also need to scrape the game pages themselves, and get the metadata(genre, play time, tags, languages, inputs, made_with(engine), etc)
-also wtf is wrong with itch, on game rating page it shows no button to download but on the games page it does show downloads?????
-eg: <https://itch.io/jam/gmtk-2024/rate/2905061#comments> <https://sealestial-games.itch.io/gecko-runner>
-
-???
-
-If a web version exists, itch.io only displays the button for playing it. If it doesnt exist, it lists out the downloads.(talking about game rating page.)
-I also need to scrape and extract data from results.json or ratings.json whatever its named
-and also scrape jam page itself, and scrape the game page as well.
-
-TODO: fix the game page scraper not getting Updated and Published key value pairs for MetadataEntry
-
-TODO: fix the weird unicode errors for other parts of the code too, just use that clean_text function and do .get_text() to bs4 tags.
-in order to fix weird unicode errors, set encoding to explicitly utf-8
-
 TODO: handle updating contributors when updating games.
 
-## scraping
+## Scraping On VPS
 
-scraping takes too long. You cant always just stay connected to the server to keep uvicorn running. use nohup to make it still work even if you disconnect from ssh session.
+Scraping takes too long. You cant always just stay connected to the server to keep uvicorn running. use nohup to make it still work even if you disconnect from ssh session.
 
 `source .venv/bin/activate`
 
@@ -64,9 +37,11 @@ NOTE: add --reload only for dev, not prod.
 
 verify its running: `pgrep -af "uvicorn main:app"`
 
+`pgrep -a uvicorn` -> check which processes are active
+
 check logs: `tail -f itch-analytics.log` --> press `Ctrl+C` to stop tail
 
-send request to deep scrape a jam: 
+send request to deep scrape a jam:
 
 curl -d '{"url":"https://itch.io/jam/gmtk-2024/rate/2911191"}' -X POST http://0.0.0.0:12345/api/get-jam -H "Content-Type: application/json"
 
@@ -74,17 +49,5 @@ curl -d '{"url":"https://itch.io/jam/gmtk-2025/rate/3777397"}' -X POST http://0.
 
 curl -d '{"url":"https://itch.io/jam/pygame-community-summer-jam-2024/rate/2830429"}' -X POST http://0.0.0.0:12345/api/get-jam -H "Content-Type: application/json"
 
-
 `kill -9 <PID>` --> force it to kill process
 
-example curl command for getting the code to scrape smth:
-
-
-
-aaa example command on what to do when you accidentally start the uvicorn with --reload and cant close the process.
-
-```bash
-root@<IP>:~# sudo ss -ltnp | grep ':12345' || sudo lsof -nP -iTCP:12345 -sTCP:LISTEN
-LISTEN 0      2048         0.0.0.0:12345      0.0.0.0:*    users:(("python3",pid=647951,fd=3))
-root@<IP>:~# kill 647951
-```

@@ -2,11 +2,13 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, BackgroundTasks, Depends
 from pydantic import BaseModel
 from sqlmodel import Session
+from stats import Stats
 from models import (
     create_db_and_tables,
     get_session,
 )
 from extract import Extractor, get_extractor
+from datetime import datetime
 
 
 @asynccontextmanager
@@ -29,12 +31,14 @@ def long_scrape_jam_task(
     from extract import get_extractor
     import traceback
     from sqlmodel import Session
+    stats = Stats()
 
     print("MAIN: INFO: starting long scrape jam task for", url)
     try:
         with Session(engine) as session:
             extractor = get_extractor()
-            extractor.find_entries_json(url, session)
+            stats.start_time = datetime.now()
+            extractor.find_entries_json(url, session, stats)
     except Exception as e:
         print(
             f"MAIN: ERROR: Background scrape failed with this starting scrape url: {url} - Here is the error: {e}"
