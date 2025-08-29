@@ -413,6 +413,7 @@ class Extractor:
             saved_num_of_obj += 1
 
         # add ranks back just in case the gamejam doesnt include all the games on results.json
+        jamgames.sort(key=lambda m: m.score, reverse=True)  # sort by descending
         arr = [jamgame.score for jamgame in jamgames]
         ranks = competitive_ranking(arr)
         for i, rank in enumerate(ranks):
