@@ -2,6 +2,11 @@
 
 Remake code.
 
+## TODO
+
+- add popularity to JamGame model
+- historical gamejam fetching, scheduled shallow fetching
+
 ## Install Dependencies
 
 `py -m pip install -r requirements.txt` or `pip install -r requirements.txt`
@@ -21,10 +26,6 @@ When scraping is done, it updates the data for Jam model so the /api/check-jam r
 If api gets an error during scraping, send a msg to the discord webhook.
 
 I need to change the way scraping process works, so that instead of doing the deep scrape, it does a shallow scrape of just the entries.json, and then just saves the remaining scrape tasks to a db/list etc. and does them later.
-
-## TODO
-
-TODO: handle updating contributors when updating games.
 
 ## Scraping On VPS
 

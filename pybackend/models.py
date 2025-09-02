@@ -150,6 +150,14 @@ class GameJam(SQLModel, table=True):
     # one part in the one-to-many.
     jamgames: list["JamGame"] = Relationship(back_populates="gamejam")
 
+    historical: list["JamGameHistorical"] = Relationship(back_populates="jamgame")
+
+
+class JamGameHistorical(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    popularity: int
+    coolness: int
+    rating_count: int
 
 class JamComment(SQLModel, table=True):
     content: str
