@@ -7,3 +7,4 @@ uvicorn
 matplotlib
 pandas
 seaborn
+fastapi_scheduler

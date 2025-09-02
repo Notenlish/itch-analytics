@@ -4,8 +4,114 @@ Remake code.
 
 ## TODO
 
-- add popularity to JamGame model
+- add popularity to JamGame model + extractor
 - historical gamejam fetching, scheduled shallow fetching
+- Fİnd users who submitted to gmtk 2024 and also 2025, then figure out how better theyve gotten in terms of games.
+
+## TODO for comments analysis.
+to find even bigger correlation between commens & ratings/score etc. I need to check the "quality" of comments
+
+cgpt gave these examples:
+```
+🔹 Comment-Based Features
+
+Comment Length
+
+Average length per game/jamgame (in characters or words).
+
+Distribution of lengths (e.g. variance — do some games get many short “cool!” comments vs. fewer, detailed reviews?).
+
+Sentiment Analysis
+
+Polarity (positive ↔ negative).
+
+Subjectivity (opinionated ↔ factual).
+
+Could use something lightweight like VADER, or a modern transformer-based model for better nuance.
+
+Lexical Richness
+
+Vocabulary diversity (unique words / total words).
+
+Presence of “emotional” words (wow, love, amazing, frustrating, etc.).
+
+Engagement Density
+
+Ratio: comments per rating.
+
+Ratio: words per rating.
+
+Ratio: comments per unique user (are the same people spamming vs. broad engagement?).
+
+🔹 User/Author Features
+
+Author Activity
+
+Are commenters also creators (i.e. other jam participants)?
+
+Comments from other devs might correlate more strongly with rating behavior than random players.
+
+Author Reputation
+
+Track if the commenting user has contributed games to other jams.
+
+Hypothesis: “experienced dev feedback” might align better with final rankings.
+
+🔹 Structural/Temporal Features
+
+Timing of Comments
+
+Were comments made early vs. late in the jam/voting window?
+
+Early engagement could drive more visibility and ratings.
+
+Comment-to-Rating Lag
+
+Measure time gap between comment and rating.
+
+Hypothesis: “detailed comments → immediate rating” might be stronger than “drive-by comment with no rating.”
+
+🔹 Advanced NLP Features
+
+Topic Modeling
+
+Identify topics (e.g., “graphics”, “controls”, “fun”, “bugs”).
+
+See if certain topic clusters correlate more strongly with ratings (e.g., positive mentions of “fun” → higher overall score).
+
+Emotion Detection
+
+Go beyond polarity: track specific emotions (joy, surprise, anger, disappointment).
+
+Games with higher joy/positive surprise mentions might correlate with better ranks.
+
+Readability / Writing Style
+
+Measure complexity (Flesch score).
+
+Hypothesis: “thoughtful reviews” (longer, more complex writing) may signal higher engagement and align with higher scores.
+
+🔹 Graph Ideas
+
+Scatterplot: Avg. comment length vs. avg. rating.
+
+Boxplot: Rating distribution grouped by sentiment polarity bucket.
+
+Time series: Cumulative comments vs. cumulative ratings over jam duration.
+
+Wordcloud per score tier: Words used in comments on top 10% vs. bottom 10% of games.
+
+👉 If you want to look for stronger predictors of success, my hunch is:
+
+Sentiment polarity + comment length (together) will outperform just comment count.
+
+Commenter type (dev vs. player) could also explain a lot.
+
+```
+
+
+
+
 
 ## Install Dependencies
 
