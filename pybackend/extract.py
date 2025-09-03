@@ -1,6 +1,7 @@
 from datetime import datetime
 import random
 
+import requests
 from sqlmodel import Session, select
 from models import (
     Criteria,
@@ -8,6 +9,7 @@ from models import (
     GameComment,
     GameJam,
     JamGame,
+    JamGameHistorical,
     MetadataEntry,
     Screenshot,
     User,
@@ -504,6 +506,47 @@ class Extractor:
                     # print(f"created criteria: {criteria.name}")
         print("DONE PROCESSING RESULTS. FINALLY.")
         session.commit()
+
+    def historical_track_jam(self, gj: GameJam, session: Session, stats: Stats):
+        """For historical tracking."""
+        # TODO: use stats.
+
+        entries_json_url = f"https://itch.io/jam/{gj.id}/entries.json"
+        today = datetime.now()
+
+        response = send_get_request(entries_json_url, self.bandwidth_limiter)
+        if not response.ok:
+            raise Exception("Response not ok.", response)
+        data = json.loads(response.content)
+        for i, jg_obj in enumerate(data["jam_games"]):
+            popularity_rank = i + 1  # entries.json is sorted by popularity
+            JamGameHistorical(
+                id=jg_obj["id"],
+                popularity=popularity_rank,
+                coolness=jg_obj["coolness"],
+                rating_count=jg_obj["rating_count"],
+                fetch_date=today,
+            )
+            session.add(JamGameHistorical)
+        session.commit()
+
+    def historical_tracking_all(self, url: str, session: Session, stats: Stats):
+        """For historical tracking."""
+        # TODO: use stats.
+
+        today = datetime.now()
+
+        # voting hasnt ended yet.
+        gamejams_not_ended = session.exec(
+            select(GameJam).where(
+                (GameJam.voting_end_date is not None)
+                & (GameJam.voting_end_date > today)
+            )
+        ).all()
+
+        for gj in gamejams_not_ended:
+            self.historical_track_jam(gj, session, stats)
+        print("DONE.")
 
 
 def get_extractor():

@@ -4,9 +4,11 @@ Remake code.
 
 ## TODO
 
+- TODO: do shallow scraping for entered urls.
 - add popularity to JamGame model + extractor
 - historical gamejam fetching, scheduled shallow fetching
 - Fİnd users who submitted to gmtk 2024 and also 2025, then figure out how better theyve gotten in terms of games.
+- store custom css + colors a game uses(foreground background etc.)
 
 ## TODO for comments analysis.
 to find even bigger correlation between commens & ratings/score etc. I need to check the "quality" of comments

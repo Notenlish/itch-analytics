@@ -11,10 +11,28 @@ from extract import Extractor, get_extractor
 from datetime import datetime
 
 
+from fastapi_amis_admin.admin.settings import Settings
+from fastapi_amis_admin.admin.site import AdminSite
+from fastapi_scheduler import SchedulerAdmin
+
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
+
+admin_site = AdminSite(settings=Settings(database_url_async='sqlite+aiosqlite:///amisadmin.db'))
+scheduler = SchedulerAdmin.bind(admin_site)
+
+print("scheduiling job.")
+@scheduler.scheduled_job('interval', seconds=2)  # TODO: for prod use every hour.
+def interval_task_test():
+    print('interval task is run...')
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # startup
     create_db_and_tables()
+
+    # why is this giving a problem??
+    scheduler.start()
     # take requests
     yield
     # shutdown
@@ -49,6 +67,7 @@ def long_scrape_jam_task(
 app = FastAPI(
     lifespan=lifespan,
 )
+admin_site.mount_app(app)
 
 
 @app.post("/api/get-jam")

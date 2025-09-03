@@ -8,3 +8,5 @@ matplotlib
 pandas
 seaborn
 fastapi_scheduler
+pydantic-settings
+aiosqlite
