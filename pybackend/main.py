@@ -21,7 +21,7 @@ admin_site = AdminSite(settings=Settings(database_url_async='sqlite+aiosqlite://
 scheduler = SchedulerAdmin.bind(admin_site)
 
 print("scheduiling job.")
-@scheduler.scheduled_job('interval', seconds=2)  # TODO: for prod use every hour.
+@scheduler.scheduled_job('interval', seconds=60)  # TODO: for prod use every hour.
 def interval_task_test():
     print('interval task is run...')
 
