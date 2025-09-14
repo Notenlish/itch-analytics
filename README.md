@@ -144,6 +144,13 @@ Scraping takes too long. You cant always just stay connected to the server to ke
 `nohup uvicorn main:app --host 0.0.0.0 --port 12345 > ~/itch-analytics.log 2>&1 &`
 NOTE: add --reload only for dev, not prod.
 
+
+This should help with getting "realtime" logs
+
+nohup stdbuf -oL -eL uvicorn main:app --host 0.0.0.0 --port 12345 > ~/itch-analytics.log 2>&1 &
+
+
+
 verify its running: `pgrep -af "uvicorn main:app"`
 
 `pgrep -a uvicorn` -> check which processes are active
