@@ -158,5 +158,7 @@ curl -d '{"url":"https://itch.io/jam/gmtk-2025/rate/3777397"}' -X POST http://0.
 
 curl -d '{"url":"https://itch.io/jam/pygame-community-summer-jam-2024/rate/2830429"}' -X POST http://0.0.0.0:12345/api/get-jam -H "Content-Type: application/json"
 
+curl -d '{"url":"https://itch.io/jam/brackeys-14/rate/3851771"}' -X POST http://0.0.0.0:12345/api/get-jam -H "Content-Type: application/json"
+
 `kill -9 <PID>` --> force it to kill process
 

@@ -377,8 +377,8 @@ class Extractor:
 
             ## RESULTS
             criteria_count = 0
-            total_score = 0
-            total_raw_score = 0
+            total_score = 0.0
+            total_raw_score = 0.0
             for result_obj in jampage_scrape_results["results"]:
                 criteria_count += 1
                 statement = select(Criteria).where(

@@ -49,6 +49,8 @@ def send_get_request(
                     backoff_time = min(
                         50 * (2**failed_counter) + random.uniform(0, 5), 3600
                     )
+                    if failed_counter > 3 and status_code == 503:
+                        raise Exception("503 status code received - profile not available")
                     print(
                         f"Server responded {status_code} | backoff for {backoff_time:.1f} seconds"
                     )

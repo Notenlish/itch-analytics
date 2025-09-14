@@ -104,9 +104,13 @@ class Scraper:
 
     def scrape_user_page(self, url: str):
         print("Fetching user page:", url)
-        res = send_get_request(
-            url, bandwidth_limiter=self.bandwidth_limiter, timeout_base=10
-        )
+        try:
+            res = send_get_request(
+                url, bandwidth_limiter=self.bandwidth_limiter, timeout_base=10
+            )
+        except Exception as err:
+            print(err)
+            return None
         if res is None:
             return None
 
