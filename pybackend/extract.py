@@ -111,7 +111,7 @@ class Extractor:
 
         for i, obj in enumerate(data["jam_games"]):
             print(
-                f"{i / num_of_obj * 100:.5f}% - working on obj::", obj["game"]["title"]
+                f"{i / num_of_obj * 100:.5f}% | {i} / {num_of_obj} - working on obj::", obj["game"]["title"]
             )
 
             statement = select(User).where(User.id == obj["game"]["user"]["id"])

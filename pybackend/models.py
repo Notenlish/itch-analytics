@@ -78,6 +78,7 @@ class JamGame(SQLModel, table=True):
 
     # one part in the one-to-many relationship
     comments: list["JamComment"] = Relationship(back_populates="jamgame")
+    historical: list["JamGameHistorical"] = Relationship(back_populates="jamgame")
 
     # many part in the one-to-many relationship.
     gamejam_id: Optional[int] = Field(foreign_key="gamejam.id")
@@ -150,8 +151,6 @@ class GameJam(SQLModel, table=True):
     # one part in the one-to-many.
     jamgames: list["JamGame"] = Relationship(back_populates="gamejam")
 
-    historical: list["JamGameHistorical"] = Relationship(back_populates="jamgame")
-
 
 # not being used right now
 class JamGameHistorical(SQLModel, table=True):
@@ -160,6 +159,10 @@ class JamGameHistorical(SQLModel, table=True):
     coolness: int
     rating_count: int
     fetch_date: datetime
+
+    # many part in the one-to-many relationship.
+    jamgame_id: Optional[int] = Field(foreign_key="jamgame.id")
+    jamgame: Optional["JamGame"] = Relationship(back_populates="historical")
 
 class JamComment(SQLModel, table=True):
     content: str
