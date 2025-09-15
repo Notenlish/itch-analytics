@@ -15,7 +15,7 @@ class Stats:
         self.end_time: datetime | None = None
 
     def final_stats(self, bandwidth_limiter: BandwidthLimiter):
-        self.bandwidth_used = bandwidth_limiter.total_transferred
+        self.bandwidth_used = float(bandwidth_limiter.total_transferred)
 
         self.start_time = self.start_time or datetime.now()
         self.end_time = self.end_time or datetime.now()  # meh
