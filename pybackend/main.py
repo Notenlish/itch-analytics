@@ -23,7 +23,8 @@ scheduler = SchedulerAdmin.bind(admin_site)
 print("scheduiling job.")
 @scheduler.scheduled_job('interval', seconds=60)  # TODO: for prod use every hour.
 def interval_task_test():
-    print('interval task is run...')
+    # print('interval task is run...')
+    pass
 
 
 @asynccontextmanager
