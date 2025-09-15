@@ -44,13 +44,13 @@ def send_get_request(
                 if status_code == 404:
                     print(f"Got 404 for {url}. Skipping.")
                     return None
-                elif status_code in (429, 503):
+                elif status_code in (429, 503, 500):
                     # rate limiting / server unavailable
                     backoff_time = min(
                         50 * (2**failed_counter) + random.uniform(0, 5), 3600
                     )
-                    if failed_counter > 3 and status_code == 503:
-                        raise Exception("503 status code received - profile not available")
+                    if failed_counter > 3 and status_code in (503,500):
+                        raise Exception(f"{status_code} status code received - profile not available")
                     print(
                         f"Server responded {status_code} | backoff for {backoff_time:.1f} seconds"
                     )
