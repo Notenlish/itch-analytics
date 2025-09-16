@@ -10,3 +10,6 @@ seaborn
 fastapi_scheduler
 pydantic-settings
 aiosqlite
+plotly
+wordcloud
+kaleido
