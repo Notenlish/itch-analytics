@@ -17,14 +17,25 @@ from fastapi_scheduler import SchedulerAdmin
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
-admin_site = AdminSite(settings=Settings(database_url_async='sqlite+aiosqlite:///amisadmin.db'))
+admin_site = AdminSite(
+    settings=Settings(database_url_async="sqlite+aiosqlite:///amisadmin.db")
+)
 scheduler = SchedulerAdmin.bind(admin_site)
 
-print("scheduiling job.")
-@scheduler.scheduled_job('interval', seconds=60)  # TODO: for prod use every hour.
-def interval_task_test():
-    # print('interval task is run...')
+print("scheduling job.")
+
+
+@scheduler.scheduled_job("interval", seconds=60)  # TODO: for prod use every hour.
+def interval_task_historical():
+    """For fetching data for historical data tracking"""
+    print('interval task is run...')
     pass
+
+@scheduler.scheduled_job("interval", seconds=60*60)  # TODO: for prod use every hour.
+def interval_task_historical2():
+    """For fetching data for historical data tracking"""
+    print('interval task is run...')
+    _discover_jam_task()
 
 
 @asynccontextmanager
@@ -43,6 +54,10 @@ class JamRequest(BaseModel):
     url: str
 
 
+class DiscoverRequest(BaseModel):
+    pass
+
+
 def long_scrape_jam_task(
     url: str,
 ):
@@ -50,6 +65,7 @@ def long_scrape_jam_task(
     from extract import get_extractor
     import traceback
     from sqlmodel import Session
+
     stats = Stats()
 
     print("MAIN: INFO: starting long scrape jam task for", url)
@@ -61,6 +77,26 @@ def long_scrape_jam_task(
     except Exception as e:
         print(
             f"MAIN: ERROR: Background scrape failed with this starting scrape url: {url} - Here is the error: {e}"
+        )
+        traceback.print_exc()
+
+
+def _discover_jam_task():
+    from models import engine
+    from extract import get_extractor
+    import traceback
+    from sqlmodel import Session
+
+    stats = Stats()
+    print("MAIN: INFO: discovering jams")
+    try:
+        with Session(engine) as session:
+            extractor = get_extractor()
+            stats.start_time = datetime.now()
+            extractor.discover_jams(session, stats)
+    except Exception as e:
+        print(
+            f"MAIN: ERROR: Background scrape failed with this discovering jams - Here is the error: {e}"
         )
         traceback.print_exc()
 
@@ -78,6 +114,18 @@ def get_jam(
     session: Session = Depends(get_session),
     extractor: Extractor = Depends(get_extractor),
 ):
-    background_tasks.add_task(long_scrape_jam_task, jam.url)
     print("responding to request to /api/get-jam")
+    background_tasks.add_task(long_scrape_jam_task, jam.url)
     return {"message": "Scraping started in background"}
+
+
+@app.post("/api/discover-jams")
+def discover_jams_manually(
+    a: DiscoverRequest,
+    background_tasks: BackgroundTasks,
+    session: Session = Depends(get_session),
+    extractor: Extractor = Depends(get_extractor),
+):
+    print("responding to request to /api/discover-jams")
+    background_tasks.add_task(_discover_jam_task)
+    return {"message":"manually discovering jams"}

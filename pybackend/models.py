@@ -138,7 +138,7 @@ class Game(SQLModel, table=True):
 
 class GameJam(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
-    logo: str  # pydantic.HttpUrl
+    logo: Optional[str] = Field(default=None, nullable=True)
     title: str
     url: str  # pydantic.HttpUrl
     entries_count: Optional[int]
@@ -146,7 +146,8 @@ class GameJam(SQLModel, table=True):
     joined_count: Optional[int]
     start_date: datetime
     end_date: datetime
-    voting_end_date: datetime
+    voting_end_date: Optional[datetime]
+    hue: Optional[str]
 
     # one part in the one-to-many.
     jamgames: list["JamGame"] = Relationship(back_populates="gamejam")

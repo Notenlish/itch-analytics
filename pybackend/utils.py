@@ -1,3 +1,4 @@
+from models import GameJam
 from datetime import datetime, timezone
 import re
 import html
@@ -6,6 +7,7 @@ import time as time_sleeper
 import requests
 from bandwidth import BandwidthLimiter
 import random
+from sqlmodel import Session
 
 
 def send_get_request(
@@ -190,6 +192,16 @@ def competitive_ranking(rankings: list[int] | list[float]):
         out.append(cur_rank)
         last_val = rank_item_val
     return out
+
+def str_to_datetime(s:str) -> datetime:
+    return datetime.strptime(s, r"%Y-%m-%d %X")
+
+
+def get_active_jams(jams:list[GameJam], session:Session):
+    today = datetime.now()
+    for jam in jams:
+        pass
+        # if jam.
 
 
 if __name__ == "__main__":

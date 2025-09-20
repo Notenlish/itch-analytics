@@ -13,3 +13,4 @@ aiosqlite
 plotly
 wordcloud
 kaleido
+alembic

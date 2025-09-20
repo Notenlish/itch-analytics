@@ -15,6 +15,27 @@ import json
 class Scraper:
     def __init__(self, bandwidth_limiter: BandwidthLimiter):
         self.bandwidth_limiter = bandwidth_limiter
+    
+    def scrape_jams_page(self, stats:Stats):
+        print(f"Scraping jams list page")
+        res = send_get_request("https://itch.io/jams", bandwidth_limiter=self.bandwidth_limiter, timeout_base=15)
+        if  res is None:
+            return None
+        stats.total_pages_crawled += 1
+        soup = BeautifulSoup(res.content, "html.parser", from_encoding="utf-8")
+        scripts: ResultSet[Tag] = soup.select("script")
+        src = None
+        for script in scripts:
+            t:str = script.get_text()
+            if "R.Jam.FilteredJamCalendar" in t:
+                print("found the script fo the data")
+                src = t
+                src = src.split("ReactDOM.render(R.Jam.FilteredJamCalendar(")[1]
+                src = src.split("), document.getElementById")[0]
+        if src:
+            return json.loads(src)
+        else:
+            return None
 
     def scrape_jam_page(self, url: str, stats: Stats):
         print(f"Scraping jam page {url}")

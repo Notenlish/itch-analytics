@@ -1,4 +1,5 @@
 .venv
+venv/
 __pycache__
 jam_analysis_outputs/
 

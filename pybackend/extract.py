@@ -16,7 +16,7 @@ from models import (
     Game,
     JamComment,
 )
-from utils import competitive_ranking
+from utils import competitive_ranking, str_to_datetime
 from utils import send_get_request
 from scraper import Scraper
 from bandwidth import BandwidthLimiter
@@ -29,6 +29,56 @@ class Extractor:
     def __init__(self):
         self.bandwidth_limiter = BandwidthLimiter(limit_mbps=1)
         self.scraper = Scraper(bandwidth_limiter=self.bandwidth_limiter)
+
+    def discover_jams(self, session: Session, stats: Stats):
+        print("discovering jams.")
+        results: dict | None = self.scraper.scrape_jams_page(stats)
+        if results:
+            for result in results["jams"]:
+                result: dict
+                print(result)
+                if result.get("start_date"):
+                    result["start_date"] = str_to_datetime(result["start_date"])
+                if result.get("end_date"):
+                    result["end_date"] = str_to_datetime(result["end_date"])
+                if result.get("voting_end_date"):
+                    result["voting_end_date"] = str_to_datetime(result["voting_end_date"])
+
+                print("keys", result.keys())
+                jam:GameJam|None = session.exec(
+                    select(GameJam).where(GameJam.id == result["id"])
+                ).first()
+                jam_url = "https://itch.io" + result["url"]
+                if jam:
+                    jam.title = result["title"]
+                    jam.hue = result["hue"]
+                    jam.joined_count = result["joined"]
+                    jam.url = jam_url
+                    jam.start_date = result["start_date"]
+                    jam.end_date = result["end_date"]
+                    if result.get("voting_end_date"):
+                        jam.voting_end_date = result["voting_end_date"]
+                else:
+                    jam = GameJam(
+                        id=result["id"],
+                        title=result["title"],
+                        hue=result["hue"],
+                        logo=None,
+                        joined_count=result["joined"],
+                        url=jam_url,
+                        start_date=result["start_date"],
+                        end_date=result["end_date"],
+                        voting_end_date=result.get("voting_end_date"),
+                        entries_count=None,
+                        ratings_count=None,
+                    )
+                    session.add(jam)
+            session.commit()
+            print("Successfully discovered all jams.")
+            return None
+        else:
+            print("WARNING! Got no data.")
+            return
 
     def find_entries_json(self, url: str, session: Session, stats: Stats):
         jam_page_url = url.split("/rate/")[0]
@@ -111,7 +161,8 @@ class Extractor:
 
         for i, obj in enumerate(data["jam_games"]):
             print(
-                f"{i / num_of_obj * 100:.5f}% | {i} / {num_of_obj} - working on obj::", obj["game"]["title"]
+                f"{i / num_of_obj * 100:.5f}% | {i} / {num_of_obj} - working on obj::",
+                obj["game"]["title"],
             )
 
             statement = select(User).where(User.id == obj["game"]["user"]["id"])

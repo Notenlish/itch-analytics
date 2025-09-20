@@ -135,6 +135,16 @@ If api gets an error during scraping, send a msg to the discord webhook.
 
 I need to change the way scraping process works, so that instead of doing the deep scrape, it does a shallow scrape of just the entries.json, and then just saves the remaining scrape tasks to a db/list etc. and does them later.
 
+## migrating db
+
+`alembic init` (already done)
+
+`alembic revision --autogenerate -m "<description>"`  (do this once you modify db)
+
+`alembic upgrade head`  
+
+you might need to add `import sqlmodel` to the top of the migration script alembic creates
+
 ## Scraping On VPS
 
 Scraping takes too long. You cant always just stay connected to the server to keep uvicorn running. use nohup to make it still work even if you disconnect from ssh session.
