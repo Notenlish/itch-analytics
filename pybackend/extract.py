@@ -30,6 +30,14 @@ class Extractor:
         self.bandwidth_limiter = BandwidthLimiter(limit_mbps=1)
         self.scraper = Scraper(bandwidth_limiter=self.bandwidth_limiter)
 
+    def historical_track(self, session:Session, stats:Stats):
+        print("historical tracking.")
+        # TODO: do this
+        # get all active gamejams
+        # fetch their results.json and entries.json
+        # create and save historical historicaljamgame models
+        # thats it.
+
     def discover_jams(self, session: Session, stats: Stats):
         print("discovering jams.")
         results: dict | None = self.scraper.scrape_jams_page(stats)

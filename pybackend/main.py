@@ -37,6 +37,12 @@ def interval_task_historical2():
     print('interval task is run...')
     _discover_jam_task()
 
+@scheduler.scheduled_job("interval", seconds=60*60)  # TODO: for prod use every hour.
+def interval_task_historical3():
+    """For fetching data for historical data tracking"""
+    print('interval task is run...')
+    _discover_jam_task()
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -80,6 +86,25 @@ def long_scrape_jam_task(
         )
         traceback.print_exc()
 
+
+def _historical_task():
+    from models import engine
+    from extract import get_extractor
+    import traceback
+    from sqlmodel import Session
+
+    stats = Stats()
+    print("MAIN: INFO: discovering jams")
+    try:
+        with Session(engine) as session:
+            extractor = get_extractor()
+            stats.start_time = datetime.now()
+            extractor.historical_track(session, stats)
+    except Exception as e:
+        print(
+            f"MAIN: ERROR: Background scrape failed with this discovering jams - Here is the error: {e}"
+        )
+        traceback.print_exc()
 
 def _discover_jam_task():
     from models import engine
