@@ -199,9 +199,21 @@ def str_to_datetime(s:str) -> datetime:
 
 def get_active_jams(jams:list[GameJam], session:Session):
     today = datetime.now()
+    active_jams = []
     for jam in jams:
-        pass
-        # if jam.
+        if jam.start_date and today >= jam.start_date:
+            # Figure out the cutoff: whichever is later between end_date and voting_end_date
+            cutoff = None
+            if jam.end_date and jam.voting_end_date:
+                cutoff = max(jam.end_date, jam.voting_end_date)
+            elif jam.end_date:
+                cutoff = jam.end_date
+            elif jam.voting_end_date:
+                cutoff = jam.voting_end_date
+
+            if cutoff is not None and today <= cutoff:
+                active_jams.append(jam)
+    return active_jams
 
 
 if __name__ == "__main__":

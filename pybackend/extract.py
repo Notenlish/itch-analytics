@@ -16,7 +16,7 @@ from models import (
     Game,
     JamComment,
 )
-from utils import competitive_ranking, str_to_datetime
+from utils import competitive_ranking, get_active_jams, str_to_datetime
 from utils import send_get_request
 from scraper import Scraper
 from bandwidth import BandwidthLimiter
@@ -32,11 +32,35 @@ class Extractor:
 
     def historical_track(self, session:Session, stats:Stats):
         print("historical tracking.")
-        # TODO: do this
-        # get all active gamejams
-        # fetch their results.json and entries.json
-        # create and save historical historicaljamgame models
-        # thats it.
+        jams = session.exec(select(GameJam)).all()
+        jams:list[GameJam] = get_active_jams(jams,session)
+        for jam in jams:
+            entries_url = f"https://itch.io/jam/{jam.id}/entries.json"
+            # results_url = f"https://itch.io/jam/{jam.id}/results.json"
+            
+            try:
+                entries = send_get_request(entries_url, self.bandwidth_limiter)
+                entries = entries.content
+            except Exception as e:
+                print(f"Exception when scraping entries, skipping this jam of id {jam.id}", e)
+                continue
+
+            if not entries.get("jam_games"):
+                print(f"Warning! Entries for jam of id {jam.id} is invalid! {entries}")
+                continue
+
+            now = datetime.now()
+            for i, entry in enumerate(entries["jam_games"]):
+                popularity_rank = i
+                jgh = JamGameHistorical(
+                    popularity=popularity_rank,
+                    coolness=entry["coolness"],
+                    rating_count=entry["rating_count"],
+                    fetch_date=now,
+                    jamgame_id=entry["id"]
+                )
+                session.add(jgh)
+            session.commit()
 
     def discover_jams(self, session: Session, stats: Stats):
         print("discovering jams.")
@@ -172,6 +196,8 @@ class Extractor:
                 f"{i / num_of_obj * 100:.5f}% | {i} / {num_of_obj} - working on obj::",
                 obj["game"]["title"],
             )
+
+            popularity_rank = i + 1
 
             statement = select(User).where(User.id == obj["game"]["user"]["id"])
             user = session.exec(statement).first()
@@ -398,6 +424,7 @@ class Extractor:
                     raw_score=-1,
                     rank=-1,
                     score=-1,
+                    popularity=popularity_rank
                 )
                 session.add(jamgame)
                 # print("DEBUG: Successfully added new JamGame to session")
@@ -411,6 +438,7 @@ class Extractor:
                 jamgame.user_id = user.id
                 jamgame.gamejam_id = gamejam.id
                 jamgame.gamejam = gamejam
+                jamgame.popularity = popularity_rank
 
                 # print(f"found jamgame {jamgame.title} and updated it. ")
 

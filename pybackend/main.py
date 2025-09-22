@@ -25,23 +25,17 @@ scheduler = SchedulerAdmin.bind(admin_site)
 print("scheduling job.")
 
 
-@scheduler.scheduled_job("interval", seconds=60)  # TODO: for prod use every hour.
+@scheduler.scheduled_job("interval", seconds=60*60)  # TODO: for prod use every hour.
+def interval_task_discover():
+    """For discovering jams"""
+    print('interval task is run...')
+    _discover_jam_task()
+
+@scheduler.scheduled_job("interval", seconds=60*60)  # TODO: for prod use every hour.
 def interval_task_historical():
     """For fetching data for historical data tracking"""
     print('interval task is run...')
-    pass
-
-@scheduler.scheduled_job("interval", seconds=60*60)  # TODO: for prod use every hour.
-def interval_task_historical2():
-    """For fetching data for historical data tracking"""
-    print('interval task is run...')
-    _discover_jam_task()
-
-@scheduler.scheduled_job("interval", seconds=60*60)  # TODO: for prod use every hour.
-def interval_task_historical3():
-    """For fetching data for historical data tracking"""
-    print('interval task is run...')
-    _discover_jam_task()
+    _historical_task()
 
 
 @asynccontextmanager

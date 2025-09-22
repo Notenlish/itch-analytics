@@ -62,6 +62,7 @@ class JamGame(SQLModel, table=True):
     created_at: datetime
     url: str  # pydantic.HttpUrl
     rating_count: Optional[int]
+    popularity: Optional[int] = Field(default=None, nullable=True)
 
     # Note: You *DO* need <model>_id fields in this model because this is the "many" side of the many-to-one relationship.
     # Used by sql for the actual indexing column.
@@ -156,7 +157,7 @@ class GameJam(SQLModel, table=True):
 # not being used right now
 class JamGameHistorical(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
-    popularity: int
+    popularity: Optional[int] = Field(default=None, nullable=True)
     coolness: int
     rating_count: int
     fetch_date: datetime
