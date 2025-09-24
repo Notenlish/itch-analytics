@@ -2,6 +2,9 @@
 
 Remake code.
 
+https://www.heroui.com/docs/guide/forms read heroui docs for new ui.
+
+
 ## TODO
 
 - TODO: do shallow scraping for entered urls.
