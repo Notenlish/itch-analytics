@@ -1,6 +1,5 @@
 "use strict";
 
-import { sql } from "@vercel/postgres";
 import {
   unstable_cache as cache,
   unstable_noStore as noStore,
@@ -21,7 +20,6 @@ import {
   JsonOptions,
 } from "./types";
 
-import axios, { toFormData } from "axios";
 import * as cheerio from "cheerio";
 import {
   calculateSkewness,
@@ -53,12 +51,12 @@ const _scrapeJamJSONLink = async (entrieslink: string, rateLink: string) => {
   // refactor ne demekki usta
   // biz kodu maintain ediyoruz, yani sadece bozulduğunda düzeltiyoruz.
 
-  const response = await axios.get(entrieslink);
+  const response = await fetch(entrieslink);
   if (response.status == 429) {
     console.warn("Got rate limited...");
     // nothing I can do.(I mean sure I could tell the user to stop but whats the fun in that.)
   }
-  const data = response.data;
+  const data = await response.text();
   const $ = cheerio.load(data); // /jam/entries page
   const fullPage = $.html();
   // @ts-ignore
@@ -110,8 +108,8 @@ const _scrapeJamJSONLink = async (entrieslink: string, rateLink: string) => {
   let jamTitle = rawtitle.trim();
 
   // TODO: cache this, im too lazy to do it rn
-  const response2 = await axios.get(rateLink);
-  const data2 = response2.data;
+  const response2 = await fetch(rateLink);
+  const data2 = await response2.text();
   const $2 = cheerio.load(data2);
 
   let _gametitle = $2(`title`).html()?.toLowerCase() as string;
@@ -154,8 +152,8 @@ export const scrapeJamJSONLink = cache(
 );
 
 const _scrapeGameRatingPage = async (rateLink: string) => {
-  const response = await axios.get(rateLink);
-  const data = response.data;
+  const response = await fetch(rateLink);
+  const data = await response.text();
   const $ = cheerio.load(data);
 
   const d = $(`div.post_body.user_formatted`);
@@ -198,8 +196,8 @@ const scrapeGameRatingPage = cache(
 );
 
 const _getEntryJSON = async (entryJsonLink: string) => {
-  const response = await axios.get(entryJsonLink);
-  const data = response.data;
+  const response = await fetch(entryJsonLink);
+  const data = await response.json();
 
   const gamesByPopularity: ParsedJamGame[] = data["jam_games"].map(
     (obj: RawJamGame) => parseGame(obj),
@@ -308,9 +306,10 @@ const getEntryJSON = cache(
  */
 const _getResultsJson = async (resultsJsonLink: string) => {
   try {
-    const response = await axios.get(resultsJsonLink);
+    const response = await fetch(resultsJsonLink);
     // jam has ended
-    const data: RawGameResult[] = response.data["results"];
+    const _data = await response.json();
+    const data: RawGameResult[] = _data["results"];
     return compressJson(data.map((e) => minifyGameResult(parseGameResult(e))));
   } catch (e) {
     console.error(e);

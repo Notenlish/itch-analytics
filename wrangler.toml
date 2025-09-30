@@ -1,0 +1,5 @@
+name = "Itch Analytics"
+compatibility_date = "2025-09-30"  # set this to your current date
+
+[build]
+command = "npx @cloudflare/next-on-pages --force"
