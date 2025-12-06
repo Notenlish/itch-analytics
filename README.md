@@ -1,5 +1,5 @@
 # Itch.io Analytics Source Code
-This is the v1 version of the codebase. 
+This is the v1 version of the codebase. Check out the site here: https://itchanalytics.vercel.app/
 
 
 ## Where's the new version you have been working on?
