@@ -29,8 +29,7 @@ import {
   calculateStandardDeviation,
   roundValue,
   parseGame,
-  compressJson,
-  decompressJson,
+
   minifyGame,
   deMinifyGame,
   analyzePlatforms,
@@ -41,6 +40,10 @@ import {
   minifyGameResult,
   deMinifyGameResult,
 } from "./utils";
+import {
+  compressJson,
+  decompressJson
+} from "./serverutils";
 import { performance } from "perf_hooks";
 
 import { hour, halfHour, minute, day } from "./types";
