@@ -1,4 +1,5 @@
-import zlib from "zlib";
+import * as zlib from "node:zlib";
+
 import util from "util";
 
 import { roundValue } from "./utils";

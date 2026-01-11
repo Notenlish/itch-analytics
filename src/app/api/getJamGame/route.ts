@@ -8,7 +8,7 @@ type GetJamPageFormData = {
   entriesLink: string;
 };
 
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 
 // wait, im not catching this???
 // does this mean that the cache problem is at data.ts?

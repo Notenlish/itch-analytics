@@ -39,9 +39,6 @@ export default function Home() {
       <GameForm />
 
       <FAQ items={items} />
-      <div className="block">
-        New domain is at <a className="bold text-orange-400 underline" href="https://itchanalytics.pages.dev/">Itchanalytics.pages.dev</a>
-      </div>
     </main>
   );
 }

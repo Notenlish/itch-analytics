@@ -44,7 +44,7 @@ import {
   compressJson,
   decompressJson
 } from "./serverutils";
-import { performance } from "perf_hooks";
+// import { performance } from "perf_hooks";
 
 import { hour, halfHour, minute, day } from "./types";
 
@@ -654,7 +654,7 @@ const _analyzeAll = async (
   gameTitle: string,
   optionsData: JsonOptions | undefined,
 ) => {
-  const startTime = performance.now();
+  // const startTime = performance.now();
   const data = await analyzeJam(
     entryJsonLink,
     rateLink,
@@ -663,9 +663,9 @@ const _analyzeAll = async (
     optionsData,
   );
 
-  const endTime = performance.now();
-  const dif = endTime - startTime;
-  console.log(`Took ${dif / 1000} seconds for ${data.numGames} games in jam.`);
+  // const endTime = performance.now();
+  // const dif = endTime - startTime;
+  // console.log(`Took ${dif / 1000} seconds for ${data.numGames} games in jam.`);
   return data;
 };
 // maybe cache this?
