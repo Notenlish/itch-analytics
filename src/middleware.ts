@@ -27,12 +27,13 @@ export async function middleware(req: NextRequest) {
       if (blockedValues.includes(headerValue)) return true;
     }
 
-    if (req.ip && rules.ip_ranges) {
-      // @ts-ignore
-      if (rules.ip_ranges.some((range) => req.ip.startsWith(range.split(".")[0]))) {
-        return true;
-      }
-    }
+    // Removed in nextjs 15
+    // if (req.ip && rules.ip_ranges) {
+    //   // @ts-ignore
+    //   if (rules.ip_ranges.some((range) => req.ip.startsWith(range.split(".")[0]))) {
+    //     return true;
+    //   }
+    // }
 
     return false;
   })();
