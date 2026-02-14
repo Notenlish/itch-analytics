@@ -4,25 +4,25 @@
 // @ts-ignore
 import { number } from "zod";
 
-export let minute = 60;
-export let hour = minute * 60;
-export let halfHour = hour / 2;
-export let day = hour * 24;
-export let week = day * 7;
-export let month = day * 30;
-export let year = day * 365;
+export const minute = 60;
+export const hour = minute * 60;
+export const halfHour = hour / 2;
+export const day = hour * 24;
+export const week = day * 7;
+export const month = day * 30;
+export const year = day * 365;
 
-if (process.env.NEXT_PUBLIC_IS_DEV) {
-  const v = 5;
-  minute = v;
-  hour = v;
-  halfHour = v;
-  day = v;
-  week = v;
-  month = v;
-  year = v;
-  console.log("RESET CACHE TIMERS TO 5 SECONDS BECAUSE DEVELOPER MODE.");
-}
+// if (process.env.NEXT_PUBLIC_IS_DEV) {
+//   const v = 5;
+//   minute = v;
+//   hour = v;
+//   halfHour = v;
+//   day = v;
+//   week = v;
+//   month = v;
+//   year = v;
+//   console.log("RESET CACHE TIMERS TO 5 SECONDS BECAUSE DEVELOPER MODE.");
+// }
 
 // jam games with some useless data.
 export type RawJamGame = {
