@@ -3,14 +3,14 @@ import JamGraph from "@/ui/JamGraph";
 
 import FAQ from "@/ui/faq";
 import { JamGraphData } from "@/lib/types";
-import { hour } from "@/lib/types";
+// import { hour } from "@/lib/types";
 import { Metadata /* ResolvingMetadata */ } from "next";
 
 // gotta move back to csr, smh
 // I dont know what I'm doing with this ISR thing, next.js docs just told me to add these.
 // invalidate page after 1 hour
 
-export const revalidate = hour;
+export const revalidate = 3600;  // hour
 export const dynamicParams = true;
 
 const prettifyJamName = (text: string) =>

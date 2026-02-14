@@ -150,7 +150,7 @@ export const scrapeJamJSONLink = cache(
   async (entrieslink, rateLink) => _scrapeJamJSONLink(entrieslink, rateLink),
   ["jamJsonLink"],
   {
-    revalidate: halfHour, // seconds
+    revalidate: 1800, // halfhour
   },
 );
 
@@ -194,7 +194,7 @@ const scrapeGameRatingPage = cache(
   (rateLink: string) => _scrapeGameRatingPage(rateLink),
   ["ScrapeGameRatingPageLOL"],
   {
-    revalidate: halfHour,
+    revalidate: 1800,
   },
 );
 
@@ -297,7 +297,7 @@ const getEntryJSON = cache(
   (entryJsonLink) => _getEntryJSON(entryJsonLink),
   ["EntryJSON"],
   {
-    revalidate: halfHour,
+    revalidate: 1800,
   },
 );
 
@@ -324,7 +324,7 @@ const getResultsJson = cache(
   (resultsJsonLink: string) => _getResultsJson(resultsJsonLink),
   ["ResultsJsonFetchAndAnalyze"],
   {
-    revalidate: 15 * minute,
+    revalidate: 900,
   },
 );
 
@@ -495,7 +495,7 @@ const analyzeResults = cache(
   (results, games, ratedGame) => _analyzeResults(results, games, ratedGame),
   ["analyzeResults"],
   {
-    revalidate: halfHour,
+    revalidate: 1800,
   },
 );
 
@@ -630,7 +630,7 @@ const analyzeJam = cache(
     _analyzeJam(entryJsonLink, rateLink, jamTitle, gameTitle, optionsData),
   ["JamAnalyze"],
   {
-    revalidate: halfHour, // seconds
+    revalidate: 1800, // seconds
   },
 );
 
