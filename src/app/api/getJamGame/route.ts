@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 
 import { scrapeJamJSONLink, analyzeAll } from "@/lib/data";
-import { addUrl as addUrlToDB } from "@/lib/db";
 
 type GetJamPageFormData = {
   ratelink: string;
@@ -45,10 +44,7 @@ export async function GET(request: Request) {
 
   const url = `/jam/${jamName}/${rateID}`;
 
-  if (!process.env.NEXT_PUBLIC_IS_DEV) {
-    // not running in dev, so add url to db.
-    addUrlToDB(url);
-  }
+
 
   // Use the past content, but always check with the server to get the most up-to-date data.
   const headers = new Headers();

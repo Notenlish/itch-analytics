@@ -46,8 +46,6 @@ import {
 } from "./serverutils";
 // import { performance } from "perf_hooks";
 
-import { hour, halfHour, minute, day } from "./types";
-
 const _scrapeJamJSONLink = async (entrieslink: string, rateLink: string) => {
   // TODO: actually refactor this (not a joke)
   // hahahahah baya güldüm la

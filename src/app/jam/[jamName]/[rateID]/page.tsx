@@ -16,8 +16,9 @@ export const dynamicParams = true;
 const prettifyJamName = (text: string) =>
   text.replaceAll("-", " ").replace("gmtk", "GMTK");
 
+// Params
 type PageProps = {
-  params: { jamName: string; rateID: string };
+  params: Promise<{ jamName: string; rateID: string }>;
 };
 
 // cant do the dynamic title and descrpition, I'd need to fetch the game page from api(and api has to fetch it) or store in db but a game may not be found in the db
@@ -27,25 +28,25 @@ export async function generateMetadata(
   { params }: PageProps,
   parent: any,
 ): Promise<Metadata> {
+  let awaited_params = await params;
   return {
-    alternates: { canonical: `/${params.jamName}/${params.rateID}` },
+    alternates: { canonical: `/${awaited_params.jamName}/${awaited_params.rateID}` },
   };
 }
 
 export default async function Home({ params }: PageProps) {
   // gmtk-2024
-  params.jamName;
+  let {jamName, rateID} = await params;
 
-  const prettyJamName = prettifyJamName(params.jamName);
-  const rateID = Number.parseInt(params.rateID);
+  const prettyJamName = prettifyJamName(jamName);
 
   // https://itch.io/jam/gmtk-2024/rate/2911865
-  const rateLink = `https://itch.io/jam/${params.jamName}/rate/${rateID}`;
+  const rateLink = `https://itch.io/jam/${jamName}/rate/${Number.parseInt(rateID)}`;
 
   // https://itch.io/jam/gmtk-2024/entries
-  const entriesLink = `https://itch.io/jam/${params.jamName}/entries`;
+  const entriesLink = `https://itch.io/jam/${jamName}/entries`;
   // gmtk-2024/
-  const rawJamName = params.jamName;
+  const rawJamName = jamName;
 
   const random = `${Math.random() * 10000}`;
 
