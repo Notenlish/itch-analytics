@@ -57,7 +57,7 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
             <span>
               Your Coolness: <span className="font-bold">{data.actualCoolness}</span>
               <br />
-              Coolness is used by itch.io to calculate Karma.
+              Coolness is used by itch.io to calculate Karma. Coolness means the number of votes given by the game developer to other games in the game jam.
             </span>
             <br />
             <br />
