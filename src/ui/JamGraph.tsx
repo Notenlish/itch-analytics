@@ -65,7 +65,7 @@ export default function JamGraph({ data }: { data: JamGraphData }) {
             <span className="font-bold">{data.actualKarma}</span>
             <br />
             <span className="normal-case">
-              Karma is what itch.io uses to give people who rate other peoples an boost in
+              Karma is what itch.io uses to give people who rate other games a boost in
               ratings and votes.{" "}
             </span>
             <br />
