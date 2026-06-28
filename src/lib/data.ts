@@ -158,20 +158,11 @@ const _scrapeGameRatingPage = async (rateLink: string) => {
   const $ = cheerio.load(data);
 
   const d = $(`div.post_body.user_formatted`);
-  const comments = d
-    .map((i, el) => {
-      return PrepareWordCloud(UTF8AsASCII($(el).text().trim()));
-    })
-    .get();
-
   const words: string[] = [];
-  for (const comment of comments) {
-    words.push(
-      ...comment.split(" ").filter((e) => {
-        return e.slice(1); // get rid of 1 letter words and also '' words
-      }),
-    );
-  }
+  d.each((i, el) => {
+    words.push(...PrepareWordCloud(UTF8AsASCII($(el).text().trim())));
+  });
+
   const wordCounter = Object.entries(countStrInArr(words)).sort(
     (a, b) => b[1] - a[1],
   );

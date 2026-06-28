@@ -59,40 +59,37 @@ export function UTF8AsASCII(string: string) {
     : '"' + string + '"';
 }
 
+const WORD_CLOUD_FILTER_WORDS = new Set([
+  "the",
+  "game",
+  "and",
+  "to",
+  "with",
+  "in",
+  "is",
+  "my",
+  "as",
+  "bit",
+  "on",
+  "of",
+]);
+
 /**
  *
  * @param {string} : string
- * @returns {string} - a string
+ * @returns {string[]} - filtered word tokens
  */
-export function PrepareWordCloud(input: string): string {
-  const getRidOf = [
-    "'",
-    '"',
-    "the",
-    "game",
-    "the",
-    "The",
-    "and",
-    "to",
-    "To",
-    "with",
-    "With",
-    "In",
-    "and",
-    "is",
-    "my",
-    "as",
-    "bit",
-    ",",
-    "in",
-    "on",
-    "of",
-  ];
-  let out = input.toLowerCase();
-  getRidOf.forEach((e) => {
-    out = out.replaceAll(e, "");
+export function PrepareWordCloud(input: string): string[] {
+  // Convert input into words before filtering.
+  // Remove apostrophes to keep contractions/possessives as one token (don't -> dont).
+  const tokens = input
+    .toLowerCase()
+    .replaceAll("'", "")
+    .match(/[a-z0-9]+/g);
+
+  return (tokens ?? []).filter((word) => {
+    return word.length > 1 && !WORD_CLOUD_FILTER_WORDS.has(word);
   });
-  return out;
 }
 
 const __typeSizes = {
@@ -189,7 +186,7 @@ export const calculatePointsIntervals = (
       const left = v - rangeSize;
       const rightIndex = Math.floor(right * (arrlength - 1));
       const leftIndex = Math.floor(left * (arrlength - 1));
-      /* 
+      /*
       if (leftIndex < 0) {  // if negative(aka v = 0)
         return 0;
       }
